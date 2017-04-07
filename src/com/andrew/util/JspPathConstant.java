@@ -23,4 +23,5 @@ public class JspPathConstant {
     public static final String ADMIN_USER_MESSAGES = "/admin/usMess.jsp";
     public static final String ADMIN_ALL_VACANCY_APPLICATIONS_JSP = "/admin/vApps.jsp";
 
+
 }
