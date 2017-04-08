@@ -5,6 +5,18 @@
     <title>Vacancy ${requestScope.vacancy.position}</title>
 </head>
 <body>
+<div>
+    <a href="/index.jsp" title="index">Go To Web-Site</a>
+    <a href="${pageContext.request.contextPath}/controller?command=all_users">Users</a>
+    <a href="${pageContext.request.contextPath}/controller?command=vacancies_admin">Vacancies</a>
+    <a href="${pageContext.request.contextPath}/controller?command=messages_admin">Messages</a>
+    <a href="${pageContext.request.contextPath}/controller?command=applications_admin">Applications</a>
+    <c:if test="${not empty sessionScope.admin}">
+        <form action="${pageContext.request.contextPath}/controller" name='log_out_admin' method="post">
+            <input type="submit" name="command" value="log_out_admin" title="Log OUT">
+        </form>
+    </c:if>
+</div>
     <h2>Vacancy Info</h2>
     <p>${requestScope.vacancy.vacancyId}</p>
     <p>${requestScope.vacancy.dateTime}</p>

@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>${requestScope.name} ${requestScope.surname} applications</title>
+    <title>New Vacancy</title>
 </head>
 <body>
 <div>
@@ -17,29 +17,27 @@
         </form>
     </c:if>
 </div>
-<h2>${requestScope.name} ${requestScope.surname} applications</h2>
-<table border="1">
-    <tr>
-        <th>
-            ID_application
-        </th>
-        <th>
-            Position
-        </th>
-        <th>
-            Status
-        </th>
-    </tr>
-    <c:if test="${not empty requestScope.applications}">
-        <c:forEach items="${requestScope.applications}" var="application">
-            <tr>
-                <th>${application.applicationId}</th>
-                <th>${application.vacancyPosition}</th>
-                <th>${application.status}</th>
-                <th><a href="${pageContext.request.contextPath}/controller?command=application&id=${application.applicationId}">Details...</a></th>
-            </tr>
-        </c:forEach>
-    </c:if>
-</table>
+<h2>New Vacancy</h2>
+<form action="${pageContext.request.contextPath}/controller" name="new_vacancy" method="post">
+
+    <label>
+        Position<br>
+        <input type="text" name="position" required placeholder="Position">
+    </label><br>
+<label>
+    Experience<br>
+    <input type="number" name="experience" required>
+</label><br>
+<label>
+    Salary<br>
+    <input type="number" name="salary" required>
+</label><br>
+<label>
+    Info<br>
+    <textarea name="info" maxlength="800" required placeholder="Details about vacancy ..." rows="20" cols="50"></textarea>
+</label><br>
+    <input type="hidden" name="command" value="new_vacancy">
+    <input type="submit" name="submit" value="Add Vacancy">
+</form>
 </body>
 </html>

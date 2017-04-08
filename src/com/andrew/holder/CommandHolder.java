@@ -35,6 +35,10 @@ public class CommandHolder {
         commands.put("usapps", new TakeApplicationsOfUserCommand());
         commands.put("usmess", new TakeMessagesForUserCommand());
         commands.put("vapps", new TakeApplicationsOfVacancyCommand());
+
+        commands.put("new_vacancy", new AddNewVacancyCommand());
+
+
         LOG.trace("Number of commands --> " + commands.size());
     }
 

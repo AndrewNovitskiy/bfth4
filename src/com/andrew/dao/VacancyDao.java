@@ -21,12 +21,34 @@ public class VacancyDao {
 
     private static final String SQL_GET_ALL_VACANCIES = "SELECT * FROM vacancy;";
     private static final String SQL_GET_VACANCY_BY_ID = "SELECT * FROM vacancy WHERE id_vacancy = ?;";
+    private static final String SQL_SET_VACANCY = "INSERT INTO vacancy (id_vacancy, date_time, position, experience, salary, info) \n" +
+            "\tVALUES (NULL, current_timestamp(), ?, ?, ?, ?);";
+
 
     private ConnectionPool pool;
 
     public VacancyDao() {
         pool = ConnectionPool.getInstance();
     }
+
+    public void addVacancy(String position, int experience, int salary, String info) {
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_SET_VACANCY);
+            stmt.setString(1, position);
+            stmt.setInt(2, experience);
+            stmt.setInt(3, salary);
+            stmt.setString(4, info);
+
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            LOG.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+        }
+    }
+
 
     public ArrayList<Vacancy> takeAllVacancies(){
         try {
