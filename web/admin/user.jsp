@@ -28,6 +28,6 @@
 <br>
 <a href="${pageContext.request.contextPath}/controller?command=usapps&id=${requestScope.user.idApplicant}&name=${requestScope.user.name}&surname=${requestScope.user.surname}">Apps Of User</a><br>
 <a href="${pageContext.request.contextPath}/controller?command=usmess&id=${requestScope.user.idApplicant}&name=${requestScope.user.name}&surname=${requestScope.user.surname}">Messages for User</a><br>
-
+<a href="${pageContext.request.contextPath}/controller?command=new_message&id=${requestScope.user.idApplicant}&name=${requestScope.user.name}&surname=${requestScope.user.surname}">Write</a><br>
 </body>
 </html>

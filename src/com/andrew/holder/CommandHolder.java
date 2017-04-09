@@ -10,13 +10,11 @@ import org.apache.log4j.Logger;
 import java.util.Map;
 import java.util.TreeMap;
 
-/**
- * Created by Andrew on 01.04.2017.
- */
+
 public class CommandHolder {
     private static final Logger LOG = Logger.getLogger(CommandHolder.class);
 
-    private static Map<String, Command> commands = new TreeMap<String, Command>();
+    private static Map<String, Command> commands = new TreeMap<>();
 
     static {
         commands.put("log_out", new LogOutCommand());
@@ -37,6 +35,12 @@ public class CommandHolder {
         commands.put("vapps", new TakeApplicationsOfVacancyCommand());
 
         commands.put("new_vacancy", new AddNewVacancyCommand());
+        commands.put("new_message", new WriteANewMessageCommand());
+
+        commands.put("send_message", new SendMessageCommand());
+
+        commands.put("edit_vacancy", new EditVacancyCommand());
+        commands.put("update_vacancy", new UpdateVacancyCommand());
 
 
         LOG.trace("Number of commands --> " + commands.size());
