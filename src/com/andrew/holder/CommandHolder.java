@@ -35,7 +35,7 @@ public class CommandHolder {
         commands.put("vapps", new TakeApplicationsOfVacancyCommand());
 
         commands.put("new_vacancy", new AddNewVacancyCommand());
-        commands.put("new_message", new WriteANewMessageCommand());
+        commands.put("new_message", new NewMessageCommand());
 
         commands.put("send_message", new SendMessageCommand());
 
