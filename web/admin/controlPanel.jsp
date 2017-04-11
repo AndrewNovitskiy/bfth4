@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>ADMIN HERE, MTHRFCKERS</title>
-    <link rel='stylesheet' href='C:\install\apache tomcat\apache-tomcat-8.5.11\webapps\bullet_for_two_hares\web\style\admin\control_panel_style.css' type='text/css' />
+    <link rel='stylesheet' href='style/control_panel_style.css' type='text/css' />
 </head>
 <body>
 

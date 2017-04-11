@@ -1,4 +1,4 @@
-package com.andrew.command.admin;
+package com.andrew.command.admin.vacancy;
 
 import com.andrew.action.Action;
 import com.andrew.action.RedirectAction;
@@ -14,26 +14,25 @@ import java.io.IOException;
 import static com.andrew.util.CommandPathConstant.ADMIN_ALL_VACANCIES_COMMAND;
 
 /**
- * Created by Andrew on 08.04.2017.
+ * Created by Andrew on 09.04.2017.
  */
-public class AddNewVacancyCommand implements Command {
-
-    private static final Logger log = Logger.getLogger(AddNewVacancyCommand.class);
+public class UpdateVacancyCommand implements Command {
+    private static final Logger log = Logger.getLogger(UpdateVacancyCommand.class);
     private VacancyDao dao;
 
-    public AddNewVacancyCommand() {
+    public UpdateVacancyCommand() {
         super();
         dao = new VacancyDao();
     }
 
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        int vacancyId = Integer.parseInt(request.getParameter("id"));
         String position = request.getParameter("position");
         int experience = Integer.parseInt(request.getParameter("experience"));
         int salary = Integer.parseInt(request.getParameter("salary"));
         String info = request.getParameter("info");
-        dao.addVacancy(position, experience, salary, info);
+        dao.updateVacancy(vacancyId, position, experience, salary, info);
         return new RedirectAction(ADMIN_ALL_VACANCIES_COMMAND);
-
     }
 }

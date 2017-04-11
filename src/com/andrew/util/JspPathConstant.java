@@ -23,6 +23,10 @@ public class JspPathConstant {
     public static final String ADMIN_USER_MESSAGES = "/admin/usMess.jsp";
     public static final String ADMIN_ALL_VACANCY_APPLICATIONS_JSP = "/admin/vApps.jsp";
     public static final String ADMIN_ADD_NEW_VACANCY_JSP = "/admin/newVacancy.jsp";
+    public static final String ADMIN_NEW_MESSAGE_JSP = "/admin/newMessage.jsp";
+    public static final String ADMIN_EDIT_VACANCY_JSP = "/admin/editVacancy.jsp";
+    public static final String VACANCIES_JSP = "/vacancies.jsp";
+    public static final String PROFILE_JSP = "user/profile.jsp";
 
 
 }

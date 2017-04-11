@@ -26,6 +26,7 @@
     <p>${requestScope.vacancy.info}</p>
 <br>
     <a href="${pageContext.request.contextPath}/controller?command=vapps&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}">Apps Of Vacancy</a><br>
+    <a href="${pageContext.request.contextPath}/controller?command=edit_vacancy&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}">Edit Vacancy</a><br>
 
 </body>
 </html>

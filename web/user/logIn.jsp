@@ -3,11 +3,13 @@
 <html>
 <head>
     <title>Log In</title>
+    <link rel="stylesheet" href="style/logIn_style.css">
 </head>
 <body>
 <a href="/index.jsp" title="index">index.jsp</a>
 <br>
-    <form action="${pageContext.request.contextPath}/controller" name='log_in' method="post">
+<div class="block">
+    <form class="vsio" action="${pageContext.request.contextPath}/controller" name='log_in' method="post">
         <label>
             login
             <input type="text" name="login">
@@ -23,5 +25,6 @@
     <c:if test="${not empty requestScope.fail}">
         <p style="color: red">Bad login or password</p>
     </c:if>
+    </div>
 </body>
 </html>

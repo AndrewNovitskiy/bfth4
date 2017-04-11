@@ -28,6 +28,10 @@ public class MessageDao {
             "    WHERE id_sender = ? AND id_recipient = ?;";
 
 
+    private static final String SQL_PUT_MESSAGE = "INSERT INTO message (id_message, id_recipient, id_sender, title, content, date_time) \n" +
+            "\tVALUES (NULL, ?, ?, ?, ?, current_timestamp());";
+
+
     private ConnectionPool pool;
 
     public MessageDao() {
@@ -151,5 +155,24 @@ public class MessageDao {
             try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
         }
         return null;
+    }
+
+    public void putMessage(int adminId, Integer recipientId, String title, String content) {
+
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_PUT_MESSAGE);
+            stmt.setInt(1, recipientId);
+            stmt.setInt(2, adminId);
+            stmt.setString(3, title);
+            stmt.setString(4, content);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            LOG.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+        }
+
     }
 }

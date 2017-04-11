@@ -2,6 +2,7 @@ package com.andrew.command.user;
 
 import com.andrew.action.Action;
 import com.andrew.action.ForwardAction;
+import com.andrew.action.RedirectAction;
 import com.andrew.command.Command;
 import com.andrew.dao.UserDao;
 import com.andrew.entity.User;
@@ -13,11 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static com.andrew.util.AttributeConstant.ADMIN;
-import static com.andrew.util.AttributeConstant.FAIL;
-import static com.andrew.util.AttributeConstant.USER;
+import static com.andrew.util.AttributeConstant.*;
+import static com.andrew.util.CommandPathConstant.VACANCIES_COMMAND;
 import static com.andrew.util.JspPathConstant.LOG_IN_JSP;
-import static com.andrew.util.JspPathConstant.USER_PROFILE_JSP;
 
 /**
  * Created by Andrew on 02.04.2017.
@@ -50,7 +49,7 @@ public class AutorisationCommand implements Command {
         if (dao.checkUser(login, password)) {
             User user = dao.takeUser(login, password);
             session.setAttribute(USER, user);
-            return new ForwardAction(USER_PROFILE_JSP);
+            return new RedirectAction(VACANCIES_COMMAND);
 
         } else {
             request.setAttribute(FAIL, true);

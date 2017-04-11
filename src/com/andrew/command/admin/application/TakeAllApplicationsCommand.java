@@ -1,4 +1,4 @@
-package com.andrew.command.admin;
+package com.andrew.command.admin.application;
 
 import com.andrew.action.Action;
 import com.andrew.action.ForwardAction;

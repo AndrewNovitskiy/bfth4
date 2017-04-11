@@ -20,6 +20,7 @@ public class UserDao {
     private static final String SQL_SET_USER = "INSERT INTO applicant (login, password, name, surname, telephone, email) VALUES (?, ?, ?, ?, ?, ?);";
     private static final String SQL_CHECK_LOGIN = "SELECT * FROM applicant WHERE login = ?;";
     private static final String SQL_CHECK_USER = "SELECT id_applicant FROM applicant WHERE login = ? AND password = ?;";
+    private static final String SQL_GET_RESUME_BY_ID = "SELECT resume FROM applicant WHERE id_applicant = ?;";
 
     private ConnectionPool pool;
 
@@ -184,6 +185,26 @@ public class UserDao {
         try { stmt.close(); } catch(SQLException se) { log.info("SQLException"); }
     }
 
+    public String takeResume(int userId) {
+        String resume = null;
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_GET_RESUME_BY_ID);
+            stmt.setInt(1, userId);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                resume = rs.getString("resume");
+            }
+            return resume;
+        } catch (SQLException e) {
+            log.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+            try { rs.close(); } catch(SQLException se) { log.info("SQLException"); }
+        }
+        return null;
+    }
 }
 
 

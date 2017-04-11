@@ -17,6 +17,7 @@
             <th>${sessionScope.user.surname}</th>
             <th>${sessionScope.user.telephone}</th>
             <th>${sessionScope.user.email}</th>
+            <th>${requestScope.resume}</th>
         </tr>
 
 </c:if>

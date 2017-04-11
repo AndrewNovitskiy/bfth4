@@ -5,7 +5,8 @@
     <title>LOL</title>
   </head>
   <body>
-  <a href="/index.jsp" title="index">index.jsp</a>
+
+  <a href="${pageContext.request.contextPath}/controller?command=vacancies">Vacancies</a>
   <br>
   <c:if test="${not empty sessionScope.user}">
       <p>Hi, ${sessionScope.user.name}</p>
