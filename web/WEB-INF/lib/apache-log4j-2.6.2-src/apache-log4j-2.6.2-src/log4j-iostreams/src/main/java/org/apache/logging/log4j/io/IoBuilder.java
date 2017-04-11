@@ -35,7 +35,7 @@ import org.apache.logging.log4j.spi.ExtendedLogger;
 import org.apache.logging.log4j.util.ReflectionUtil;
 
 /**
- * Builder class to wrap {@link Logger Loggers} into Java IO compatible classes.
+ * ApplicationBuilder class to wrap {@link Logger Loggers} into Java IO compatible classes.
  *
  * <p>Both the {@link InputStream}/{@link OutputStream} and {@link Reader}/{@link Writer} family of classes are
  * supported. {@link OutputStream} and {@link Writer} instances can be wrapped by a filtered version of their

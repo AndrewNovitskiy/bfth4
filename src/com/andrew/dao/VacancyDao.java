@@ -68,7 +68,10 @@ public class VacancyDao {
                 int experience = rs.getInt("experience");
                 int salary = rs.getInt("salary");
                 //String info = rs.getString("info");
-                vacancy = new Vacancy(vacancyId, dateTime, position, experience, salary);
+                //vacancy = new Vacancy(vacancyId, dateTime, position, experience, salary);
+                vacancy = new Vacancy.VacancyBuilder().vacancyId(vacancyId).dateTime(dateTime).position(position)
+                        .experience(experience).salary(salary).build();
+
                 vacancies.add(vacancy);
             }
             return vacancies;
@@ -97,7 +100,9 @@ public class VacancyDao {
                 int experience = rs.getInt("experience");
                 int salary = rs.getInt("salary");
                 String info = rs.getString("info");
-                vacancy = new Vacancy(vacancyId, dateTime, position, experience, salary, info);
+                //vacancy = new Vacancy(vacancyId, dateTime, position, experience, salary, info);
+                vacancy = new Vacancy.VacancyBuilder().vacancyId(vacancyId).dateTime(dateTime).position(position)
+                        .experience(experience).salary(salary).info(info).build();
                 vacancies.add(vacancy);
             }
             return vacancies;
@@ -124,7 +129,10 @@ public class VacancyDao {
                 int experience = rs.getInt("experience");
                 int salary = rs.getInt("salary");
                 String info = rs.getString("info");
-                vacancy = new Vacancy(vacancyId, dateTime, position, experience, salary, info);
+
+                //vacancy = new Vacancy(vacancyId, dateTime, position, experience, salary, info);
+                vacancy = new Vacancy.VacancyBuilder().vacancyId(vacancyId).dateTime(dateTime).position(position)
+                        .experience(experience).salary(salary).info(info).build();
             }
             return vacancy;
         } catch (SQLException e) {

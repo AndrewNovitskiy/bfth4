@@ -15,44 +15,77 @@ public class Message {
     private String recipientName;
     private String recipientSurname;
 
-    public Message(int messageId, int recipientId, int senderId, String title, String content, Timestamp dateTime) {
-        this.messageId = messageId;
-        this.recipientId = recipientId;
-        this.senderId = senderId;
-        this.title = title;
-        this.content = content;
-        this.dateTime = dateTime;
+
+    public Message(MessageBuilder builder) {
+        this.messageId = builder.messageId;
+        this.recipientId = builder.recipientId;
+        this.senderId = builder.senderId;
+        this.title = builder.title;
+        this.content = builder.content;
+        this.dateTime = builder.dateTime;
+        this.recipientName = builder.recipientName;
+        this.recipientSurname = builder.recipientSurname;
     }
 
-    public Message(int messageId, int recipientId, String recipientName, String recipientSurname, int senderId, String title, String content, Timestamp dateTime) {
-        this.messageId = messageId;
-        this.recipientName = recipientName;
-        this.recipientSurname = recipientSurname;
-        this.senderId = senderId;
-        this.title = title;
-        this.content = content;
-        this.dateTime = dateTime;
-        this.recipientId = recipientId;
+    public static class MessageBuilder {
+        private int messageId;
+        private int recipientId;
+        private int senderId;
+        private String title;
+        private String content;
+        private Timestamp dateTime;
+        private String recipientName;
+        private String recipientSurname;
+
+        public MessageBuilder(){}
+
+        public MessageBuilder messageId(int val) {
+            messageId = val;
+            return this;
+        }
+
+        public MessageBuilder recipientId(int val) {
+            recipientId = val;
+            return this;
+        }
+
+        public MessageBuilder senderId(int val) {
+            senderId = val;
+            return this;
+        }
+
+        public MessageBuilder title(String val) {
+            title = val;
+            return this;
+        }
+
+        public MessageBuilder content(String val) {
+            content = val;
+            return this;
+        }
+
+        public MessageBuilder dateTime(Timestamp val) {
+            dateTime = val;
+            return this;
+        }
+
+        public MessageBuilder recipientName(String val) {
+            recipientName = val;
+            return this;
+        }
+
+        public MessageBuilder recipientSurname(String val) {
+            recipientSurname = val;
+            return this;
+        }
+
+        public Message build() {
+            return new Message(this);
+        }
+
     }
 
-    public Message(int messageId, String recipientName, String recipientSurname, int senderId, String title, String content, Timestamp dateTime) {
-        this.messageId = messageId;
-        this.recipientName = recipientName;
-        this.recipientSurname = recipientSurname;
-        this.senderId = senderId;
-        this.title = title;
-        this.content = content;
-        this.dateTime = dateTime;
 
-    }
-
-    public Message(int recipientId, int senderId, String title, String content, Timestamp dateTime) {
-        this.recipientId = recipientId;
-        this.senderId = senderId;
-        this.title = title;
-        this.content = content;
-        this.dateTime = dateTime;
-    }
 
     public int getMessageId() {
         return messageId;

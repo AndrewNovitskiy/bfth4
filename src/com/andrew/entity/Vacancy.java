@@ -13,31 +13,65 @@ public class Vacancy {
     private int salary;
     private String info;
 
-    public Vacancy(int vacancyId, Timestamp dateTime, String position, int experience, int salary) {
-        this.vacancyId = vacancyId;
-        this.dateTime = dateTime;
-        this.position = position;
-        this.experience = experience;
-        this.salary = salary;
-        this.info = info;
+    public Vacancy(VacancyBuilder builder) {
+        this.vacancyId = builder.vacancyId;
+        this.dateTime = builder.dateTime;
+        this.position = builder.position;
+        this.experience = builder.experience;
+        this.salary = builder.salary;
+        this.info = builder.info;
     }
 
-    public Vacancy(int vacancyId, Timestamp dateTime, String position, int experience, int salary, String info) {
-        this.vacancyId = vacancyId;
-        this.dateTime = dateTime;
-        this.position = position;
-        this.experience = experience;
-        this.salary = salary;
-        this.info = info;
+
+    public static class VacancyBuilder {
+        private int vacancyId;
+        private Timestamp dateTime;
+        private String position;
+        private int experience;
+        private int salary;
+        private String info;
+
+        public VacancyBuilder(){}
+
+
+        public VacancyBuilder vacancyId(int val) {
+            vacancyId = val;
+            return this;
+        }
+
+        public VacancyBuilder dateTime(Timestamp val) {
+            dateTime = val;
+            return this;
+        }
+
+        public VacancyBuilder position(String val) {
+            position = val;
+            return this;
+        }
+
+        public VacancyBuilder experience(int val) {
+            experience = val;
+            return this;
+        }
+
+        public VacancyBuilder salary(int val) {
+            salary = val;
+            return this;
+        }
+
+        public VacancyBuilder info(String val) {
+            info = val;
+            return this;
+        }
+
+        public Vacancy build() {
+            return new Vacancy(this);
+        }
+
+
+
     }
 
-    public Vacancy(Timestamp dateTime, String position, int experience, int salary, String info) {
-        this.dateTime = dateTime;
-        this.position = position;
-        this.experience = experience;
-        this.salary = salary;
-        this.info = info;
-    }
 
     public int getVacancyId() {
         return vacancyId;

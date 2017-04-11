@@ -10,45 +10,74 @@ public class User {
     private String email;
     private String resume;
 
-    public User(int idApplicant, String login, String name, String surname, String telephone, String email) {
-        this.idApplicant = idApplicant;
-        this.login = login;
-        this.password = password;
-        this.name = name;
-        this.surname = surname;
-        this.telephone = telephone;
-        this.email = email;
+    public User(UserBuilder builder) {
+        this.idApplicant = builder.idApplicant;
+        this.login = builder.login;
+        this.password = builder.password;
+        this.name = builder.name;
+        this.surname = builder.surname;
+        this.telephone = builder.telephone;
+        this.email = builder.email;
+        this.resume = builder.resume;
+
     }
 
-    public User(int idApplicant, String login, String password, String name, String surname, String telephone, String email) {
-        this.idApplicant = idApplicant;
-        this.login = login;
-        this.password = password;
-        this.name = name;
-        this.surname = surname;
-        this.telephone = telephone;
-        this.email = email;
-    }
+    public static class UserBuilder {
+        private int idApplicant;
+        private String login;
+        private String password;
+        private String name;
+        private String surname;
+        private String telephone;
+        private String email;
+        private String resume;
 
-    public User(String login, String password, String name, String surname, String telephone, String email) {
-        this.login = login;
-        this.password = password;
-        this.name = name;
-        this.surname = surname;
-        this.telephone = telephone;
-        this.email = email;
-    }
+        public UserBuilder(){}
 
-    public User(String login, String name, String surname, String telephone, String email, String resume, int idApplicant) {
-        this.login = login;
-        this.name = name;
-        this.surname = surname;
-        this.telephone = telephone;
-        this.email = email;
-        this.resume = resume;
-        this.idApplicant = idApplicant;
-    }
+        public UserBuilder idApplicant(int val) {
+            idApplicant = val;
+            return this;
+        }
 
+        public UserBuilder login(String val) {
+            login = val;
+            return this;
+        }
+
+        public UserBuilder password(String val) {
+            password = val;
+            return this;
+        }
+
+        public UserBuilder name(String val) {
+            name = val;
+            return this;
+        }
+
+        public UserBuilder surname(String val) {
+            surname = val;
+            return this;
+        }
+
+        public UserBuilder telephone(String val) {
+            telephone = val;
+            return this;
+        }
+
+        public UserBuilder email(String val) {
+            email = val;
+            return this;
+        }
+
+        public UserBuilder resume(String val) {
+            resume = val;
+            return this;
+        }
+
+        public User build() {
+            return new User(this);
+        }
+    }
 
 
     public int getIdApplicant() {

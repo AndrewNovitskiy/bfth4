@@ -7,7 +7,6 @@ public class Application {
     private int applicationId;
     private int applicantId;
     private int vacancyId;
-    private String statusENUM;
     private String applicantName;
     private String applicantSurname;
     private String vacancyPosition;
@@ -15,51 +14,81 @@ public class Application {
     private String applicantTelephone;
     private String applicantEmail;
 
-
-    public Application(int applicationId, int applicantId, int vacancyId, String statusENUM, String status) {
-        this.applicationId = applicationId;
-        this.applicantId = applicantId;
-        this.vacancyId = vacancyId;
-        this.statusENUM = statusENUM;
-        this.status = status;
+    public Application(ApplicationBuilder builder) {
+        this.applicationId = builder.applicationId;
+        this.applicantId = builder.applicantId;
+        this.vacancyId = builder.vacancyId;
+        this.applicantName = builder.applicantName;
+        this.applicantSurname = builder.applicantSurname;
+        this.vacancyPosition = builder.vacancyPosition;
+        this.status = builder.status;
+        this.applicantTelephone = builder.applicantTelephone;
+        this.applicantEmail = builder.applicantEmail;
     }
 
-    public Application(int applicantId, int vacancyId, String statusENUM, String status) {
-        this.applicantId = applicantId;
-        this.vacancyId = vacancyId;
-        this.statusENUM = statusENUM;
-        this.status = status;
+    public static class ApplicationBuilder {
+        private int applicationId;
+        private int applicantId;
+        private int vacancyId;
+        private String applicantName;
+        private String applicantSurname;
+        private String vacancyPosition;
+        private String status;
+        private String applicantTelephone;
+        private String applicantEmail;
+
+        public ApplicationBuilder(){}
+
+        public ApplicationBuilder applicationId(int val) {
+            applicationId = val;
+            return this;
+        }
+
+        public ApplicationBuilder applicantId(int val) {
+            applicantId = val;
+            return this;
+        }
+
+        public ApplicationBuilder vacancyId(int val) {
+            vacancyId = val;
+            return this;
+        }
+
+        public ApplicationBuilder applicantName(String val) {
+            applicantName = val;
+            return this;
+        }
+
+        public ApplicationBuilder applicantSurname(String val) {
+            applicantSurname = val;
+            return this;
+        }
+
+        public ApplicationBuilder vacancyPosition(String val) {
+            vacancyPosition = val;
+            return this;
+        }
+
+        public ApplicationBuilder status(String val) {
+            status = val;
+            return this;
+        }
+
+        public ApplicationBuilder applicantTelephone(String val) {
+            applicantTelephone = val;
+            return this;
+        }
+
+        public ApplicationBuilder applicantEmail(String val) {
+            applicantEmail = val;
+            return this;
+        }
+
+        public Application build() {
+            return new Application(this);
+        }
     }
 
-    public Application(int applicationId, String applicantName, String applicantSurname, String vacancyPosition, String status, String statusENUM) {
-        this.applicationId = applicationId;
-        this.statusENUM = statusENUM;
-        this.applicantName = applicantName;
-        this.applicantSurname = applicantSurname;
-        this.vacancyPosition = vacancyPosition;
-        this.status = status;
-    }
-
-    public Application(int applicationId, String vacancyPosition, String status, String statusENUM) {
-        this.applicationId = applicationId;
-        this.statusENUM = statusENUM;
-        this.vacancyPosition = vacancyPosition;
-        this.status = status;
-
-    }
-
-    public Application(int applicationId, String applicantName, String applicantSurname,String applicantTelephone, String applicantEmail, String vacancyPosition, String status, String statusENUM, int applicantId, int vacancyId) {
-        this.applicationId = applicationId;
-        this.statusENUM = statusENUM;
-        this.applicantName = applicantName;
-        this.applicantSurname = applicantSurname;
-        this.applicantEmail = applicantEmail;
-        this.applicantTelephone = applicantTelephone;
-        this.vacancyPosition = vacancyPosition;
-        this.status = status;
-        this.applicantId = applicantId;
-        this.vacancyId = vacancyId;
-    }
 
     public int getApplicationId() {
         return applicationId;
@@ -85,13 +114,6 @@ public class Application {
         this.vacancyId = vacancyId;
     }
 
-    public String getStatusId() {
-        return statusENUM;
-    }
-
-    public void setStatusId(String statusId) {
-        this.statusENUM = statusId;
-    }
 
     public String getApplicantName() {
         return applicantName;
@@ -123,14 +145,6 @@ public class Application {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public String getStatusENUM() {
-        return statusENUM;
-    }
-
-    public void setStatusENUM(String statusENUM) {
-        this.statusENUM = statusENUM;
     }
 
     public String getApplicantTelephone() {

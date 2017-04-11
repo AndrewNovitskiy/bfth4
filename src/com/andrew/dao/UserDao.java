@@ -29,7 +29,7 @@ public class UserDao {
     }
 
     public User takeUser(String login, String password) {
-        User userInfo = null;
+        User user = null;
         try {
             conn = pool.getConnection();
             stmt = conn.prepareStatement(SQL_GET_USER);
@@ -46,9 +46,11 @@ public class UserDao {
                 String userTelephone = rs.getString("telephone");
                 String userEmail = rs.getString("email");
 
-                userInfo = new User(userId, userLogin, userPassword, userName, userSurname, userTelephone, userEmail);
+                //user = new User(userId, userLogin, userPassword, userName, userSurname, userTelephone, userEmail);
+                user = new User.UserBuilder().idApplicant(userId).login(userLogin).password(userPassword)
+                        .name(userName).surname(userSurname).telephone(userTelephone).email(userEmail).build();
             }
-            return userInfo;
+            return user;
         } catch (SQLException e) {
             log.info("SQLException");
         } finally {
@@ -74,7 +76,10 @@ public class UserDao {
                 String userEmail = rs.getString("email");
                 String userResume = rs.getString("resume");
 
-                user = new User(userLogin, userName, userSurname, userTelephone, userEmail, userResume, userId);
+                //user = new User(userLogin, userName, userSurname, userTelephone, userEmail, userResume, userId);
+                user = new User.UserBuilder().login(userLogin)
+                        .name(userName).surname(userSurname).telephone(userTelephone).email(userEmail)
+                        .resume(userResume).idApplicant(userId).build();
             }
             return user;
         } catch (SQLException e) {
@@ -97,12 +102,15 @@ public class UserDao {
             while (rs.next()) {
                 int userId = rs.getInt("id_applicant");
                 String userLogin = rs.getString("login");
-                //String userPassword = rs.getString("password");
                 String userName = rs.getString("name");
                 String userSurname = rs.getString("surname");
                 String userTelephone = rs.getString("telephone");
                 String userEmail = rs.getString("email");
-                user = new User(userId, userLogin/*, userPassword*/, userName, userSurname, userTelephone, userEmail);
+
+                //user = new User(userId, userLogin, userName, userSurname, userTelephone, userEmail);
+                user = new User.UserBuilder().idApplicant(userId).login(userLogin).name(userName)
+                        .surname(userSurname).telephone(userTelephone).email(userEmail).build();
+
                 users.add(user);
             }
             return users;
