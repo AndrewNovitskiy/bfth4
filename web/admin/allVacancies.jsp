@@ -54,6 +54,6 @@
 <br>
 <a href="/admin/newVacancy.jsp" title="Add New Vacancy">Add New Vacancy</a>
 <br>
-<a href="${pageContext.request.contextPath}/controller?command=deleted_vacancies">DELETED Applications</a><br>
+<a href="${pageContext.request.contextPath}/controller?command=deleted_vacancies">DELETED Vacancies</a><br>
 </body>
 </html>
