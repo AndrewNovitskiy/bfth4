@@ -44,6 +44,18 @@ public class ApplicationDao {
             "                     LEFT JOIN application_status ON application.id_status = application_status.id_status " +
             "WHERE application.id_vacancy = ? AND application.deleted = 0;";
 
+    private static final String SQL_DELETE_APPLICATION = "UPDATE application SET application.deleted = 1 WHERE application.id_application = ?;";
+    private static final String SQL_RESTORE_APPLICATION = "UPDATE application SET application.deleted = 0 WHERE application.id_application = ?;";
+
+
+
+    private static final String SQL_GET_DELETED_APPLICATIONS = "SELECT application.id_application, applicant.name, applicant.surname, vacancy.position, application_status.value, application.deleted\n" +
+            "\tFROM application LEFT JOIN applicant ON application.id_applicant = applicant.id_applicant\n" +
+            "\t\t\t\t\t LEFT JOIN vacancy ON application.id_vacancy = vacancy.id_vacancy\n" +
+            "                     LEFT JOIN application_status ON application.id_status = application_status.id_status WHERE application.deleted = 1;";
+
+
+
     private ConnectionPool pool;
 
     public ApplicationDao() {
@@ -66,7 +78,6 @@ public class ApplicationDao {
                 String position = rs.getString("position");
                 String status = rs.getString("value");
 
-                //application = new Application(applicationId, name, surname, position, status);
                 application = new Application.ApplicationBuilder().applicationId(applicationId).applicantName(name).applicantSurname(surname).vacancyPosition(position).status(status).build();
                 applications.add(application);
             }
@@ -103,7 +114,6 @@ public class ApplicationDao {
                 int applicantId = rs.getInt("id_applicant");
                 int vacancyId = rs.getInt("id_vacancy");
                 boolean deleted = rs.getBoolean("deleted");
-                //application = new Application(applicationId, name, surname, telephone, email, position, status, applicantId, vacancyId);
                 application = new Application.ApplicationBuilder().applicationId(applicationId).applicantName(name)
                         .applicantSurname(surname).applicantTelephone(telephone).applicantEmail(email)
                         .vacancyPosition(position).status(status).applicantId(applicantId).vacancyId(vacancyId).deleted(deleted).build();
@@ -132,8 +142,6 @@ public class ApplicationDao {
                 String position = rs.getString("position");
                 String status = rs.getString("value");
 
-
-                //application = new Application(applicationId, position, status);
                 application = new Application.ApplicationBuilder().applicationId(applicationId).vacancyPosition(position).status(status).build();
                 applications.add(application);
             }
@@ -164,9 +172,65 @@ public class ApplicationDao {
                 String name = rs.getString("name");
                 String surname = rs.getString("surname");
 
-                //application = new Application(applicationId, name, surname, position, status);
                 application = new Application.ApplicationBuilder().applicationId(applicationId).applicantName(name)
                         .applicantSurname(surname).vacancyPosition(position).status(status).build();
+                applications.add(application);
+            }
+            return applications;
+        } catch (SQLException e) {
+            log.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+            try { rs.close(); } catch(SQLException se) { log.info("SQLException"); }
+        }
+        return null;
+    }
+
+    public void deleteApplication(int applicationId) {
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_DELETE_APPLICATION);
+            stmt.setInt(1, applicationId);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            log.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+        }
+    }
+
+    public void restoreApplication(int applicationId) {
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_RESTORE_APPLICATION);
+            stmt.setInt(1, applicationId);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            log.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+        }
+    }
+
+    public ArrayList<Application> takeDeletedApplications() {
+        try {
+            Application application;
+            ArrayList<Application> applications = new ArrayList<>();
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_GET_DELETED_APPLICATIONS);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int applicationId = rs.getInt("id_application");
+                String name = rs.getString("name");
+                String surname = rs.getString("surname");
+                String position = rs.getString("position");
+                String status = rs.getString("value");
+                boolean deleted = rs.getBoolean("deleted");
+                application = new Application.ApplicationBuilder().applicationId(applicationId).applicantName(name)
+                        .applicantSurname(surname).vacancyPosition(position).status(status).deleted(deleted).build();
                 applications.add(application);
             }
             return applications;

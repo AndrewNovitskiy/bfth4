@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Vacancies</title>
+    <title>DELETED Vacancies</title>
 </head>
 <body>
 <div>
@@ -17,6 +17,7 @@
         </form>
     </c:if>
 </div>
+<h2>DELETED Vacancies</h2>
 <table border="1">
     <tr>
         <th>
@@ -35,6 +36,9 @@
             Salary
         </th>
         <th>
+            DELETED
+        </th>
+        <th>
             Details...
         </th>
     </tr>
@@ -46,14 +50,11 @@
                 <th>${vacancy.position}</th>
                 <th>${vacancy.experience}</th>
                 <th>${vacancy.salary}</th>
+                <th>${vacancy.deleted}</th>
                 <th><a href="${pageContext.request.contextPath}/controller?command=vacancy&id=${vacancy.vacancyId}">Details...</a></th>
             </tr>
         </c:forEach>
     </c:if>
 </table>
-<br>
-<a href="/admin/newVacancy.jsp" title="Add New Vacancy">Add New Vacancy</a>
-<br>
-<a href="${pageContext.request.contextPath}/controller?command=deleted_vacancies">DELETED Applications</a><br>
 </body>
 </html>

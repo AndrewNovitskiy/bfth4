@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Vacancies</title>
+    <title>DELETED Applications</title>
 </head>
 <body>
 <div>
@@ -17,43 +17,44 @@
         </form>
     </c:if>
 </div>
+<h2>DELETED Applications</h2>
 <table border="1">
     <tr>
         <th>
-            ID_vacancy
+            ID_application
         </th>
         <th>
-            DateTime
+            Name
+        </th>
+        <th>
+            Surname
         </th>
         <th>
             Position
         </th>
         <th>
-            Experience
+            Status
         </th>
         <th>
-            Salary
+            DELETED
         </th>
         <th>
             Details...
         </th>
     </tr>
-    <c:if test="${not empty requestScope.vacancies}">
-        <c:forEach items="${requestScope.vacancies}" var="vacancy">
+    <c:if test="${not empty requestScope.applications}">
+        <c:forEach items="${requestScope.applications}" var="application">
             <tr>
-                <th>${vacancy.vacancyId}</th>
-                <th>${vacancy.dateTime}</th>
-                <th>${vacancy.position}</th>
-                <th>${vacancy.experience}</th>
-                <th>${vacancy.salary}</th>
-                <th><a href="${pageContext.request.contextPath}/controller?command=vacancy&id=${vacancy.vacancyId}">Details...</a></th>
+                <th>${application.applicationId}</th>
+                <th>${application.applicantName}</th>
+                <th>${application.applicantSurname}</th>
+                <th>${application.vacancyPosition}</th>
+                <th>${application.status}</th>
+                <th>${application.deleted}</th>
+                <th><a href="${pageContext.request.contextPath}/controller?command=application&id=${application.applicationId}">Details...</a></th>
             </tr>
         </c:forEach>
     </c:if>
 </table>
-<br>
-<a href="/admin/newVacancy.jsp" title="Add New Vacancy">Add New Vacancy</a>
-<br>
-<a href="${pageContext.request.contextPath}/controller?command=deleted_vacancies">DELETED Applications</a><br>
 </body>
 </html>

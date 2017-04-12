@@ -26,7 +26,11 @@ public class VacancyDao {
 
     private static final String SQL_UPDATE_VACANCY_BY_ID = "UPDATE vacancy SET vacancy.position = ?, vacancy.experience = ?, vacancy.salary = ?, vacancy.info = ? WHERE vacancy.id_vacancy = ?;";
 
+    private static final String SQL_DELETE_VACANCY = "UPDATE vacancy SET vacancy.deleted = 1 WHERE vacancy.id_vacancy = ?;";
+    private static final String SQL_RESTORE_VACANCY = "UPDATE vacancy SET vacancy.deleted = 0 WHERE vacancy.id_vacancy = ?;";
 
+
+    private static final String SQL_GET_DELETED_VACANCIES = "SELECT * FROM vacancy WHERE vacancy.deleted = 1;";
 
     private ConnectionPool pool;
 
@@ -67,8 +71,6 @@ public class VacancyDao {
                 String position = rs.getString("position");
                 int experience = rs.getInt("experience");
                 int salary = rs.getInt("salary");
-                //String info = rs.getString("info");
-                //vacancy = new Vacancy(vacancyId, dateTime, position, experience, salary);
                 vacancy = new Vacancy.VacancyBuilder().vacancyId(vacancyId).dateTime(dateTime).position(position)
                         .experience(experience).salary(salary).build();
 
@@ -100,7 +102,6 @@ public class VacancyDao {
                 int experience = rs.getInt("experience");
                 int salary = rs.getInt("salary");
                 String info = rs.getString("info");
-                //vacancy = new Vacancy(vacancyId, dateTime, position, experience, salary, info);
                 vacancy = new Vacancy.VacancyBuilder().vacancyId(vacancyId).dateTime(dateTime).position(position)
                         .experience(experience).salary(salary).info(info).build();
                 vacancies.add(vacancy);
@@ -130,7 +131,6 @@ public class VacancyDao {
                 int salary = rs.getInt("salary");
                 String info = rs.getString("info");
                 boolean deleted = rs.getBoolean("deleted");
-                //vacancy = new Vacancy(vacancyId, dateTime, position, experience, salary, info);
                 vacancy = new Vacancy.VacancyBuilder().vacancyId(vacancyId).dateTime(dateTime).position(position)
                         .experience(experience).salary(salary).info(info).deleted(deleted).build();
             }
@@ -166,5 +166,63 @@ public class VacancyDao {
         } finally {
             closeResources(conn, stmt);
         }
+    }
+
+    public void deleteVacancy(int vacancyId) {
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_DELETE_VACANCY);
+            stmt.setInt(1, vacancyId);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            LOG.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+        }
+    }
+
+    public void restoreVacancy(int vacancyId) {
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_RESTORE_VACANCY);
+            stmt.setInt(1, vacancyId);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            LOG.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+        }
+    }
+
+    public ArrayList<Vacancy> takeDeletedVacancies() {
+        try {
+            Vacancy vacancy;
+            ArrayList<Vacancy> vacancies = new ArrayList<>();
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_GET_DELETED_VACANCIES);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int vacancyId = rs.getInt("id_vacancy");
+                Timestamp dateTime = rs.getTimestamp("date_time");
+                String position = rs.getString("position");
+                int experience = rs.getInt("experience");
+                int salary = rs.getInt("salary");
+                String info = rs.getString("info");
+                boolean deleted = rs.getBoolean("deleted");
+                vacancy = new Vacancy.VacancyBuilder().vacancyId(vacancyId).dateTime(dateTime).position(position)
+                        .experience(experience).salary(salary).info(info).deleted(deleted).build();
+                vacancies.add(vacancy);
+            }
+            return vacancies;
+        } catch (SQLException e) {
+            LOG.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+        }
+        return null;
     }
 }

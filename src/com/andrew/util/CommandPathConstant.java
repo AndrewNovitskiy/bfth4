@@ -5,6 +5,7 @@ package com.andrew.util;
  */
 public class CommandPathConstant {
     public static final String ADMIN_ALL_VACANCIES_COMMAND = "/controller?command=vacancies_admin";
+    public static final String ADMIN_ALL_APPLICATIONS_COMMAND = "/controller?command=applications_admin";
     public static final String ADMIN_ALL_MESSAGES_COMMAND = "/controller?command=messages_admin";
     public static final String VACANCIES_COMMAND = "/controller?command=vacancies";
 }

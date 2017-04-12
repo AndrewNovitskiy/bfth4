@@ -4,10 +4,7 @@ import com.andrew.command.Command;
 import com.andrew.command.TakeAllVacanciesWithInfoCommand;
 import com.andrew.command.admin.AdminAutorisationCommand;
 import com.andrew.command.admin.AdminLogOutCommand;
-import com.andrew.command.admin.application.TakeAllApplicationsCommand;
-import com.andrew.command.admin.application.TakeApplicationCommand;
-import com.andrew.command.admin.application.TakeApplicationsOfUserCommand;
-import com.andrew.command.admin.application.TakeApplicationsOfVacancyCommand;
+import com.andrew.command.admin.application.*;
 import com.andrew.command.admin.message.*;
 import com.andrew.command.admin.user.TakeAllUsersCommand;
 import com.andrew.command.admin.user.TakeUserCommand;
@@ -51,6 +48,12 @@ public class CommandHolder {
         commands.put("update_vacancy", new UpdateVacancyCommand());
         commands.put("vacancies", new TakeAllVacanciesWithInfoCommand());
         commands.put("profile", new ProfileCommand());
+        commands.put("delete_vacancy", new DeleteVacancyCommand());
+        commands.put("restore_vacancy", new RestoreVacancyCommand());
+        commands.put("delete_application", new DeleteApplicationCommand());
+        commands.put("restore_application", new RestoreApplicationCommand());
+        commands.put("deleted_applications", new TakeDeletedApplicationsCommand());
+        commands.put("deleted_vacancies", new TakeDeletedVacanciesCommand());
 
 
         LOG.trace("Number of commands --> " + commands.size());

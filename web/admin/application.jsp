@@ -31,5 +31,22 @@
 <br>
 <a href="${pageContext.request.contextPath}/controller?command=vacancy&id=${requestScope.application.vacancyId}">To Vacancy Page</a>
 
+<c:choose>
+    <c:when test="${requestScope.application.deleted}">
+        <form action="${pageContext.request.contextPath}/controller" name='restore_application' method="post">
+            <input type="hidden" name="id" value="${requestScope.application.applicationId}">
+            <input type="hidden" name="command" value="restore_application">
+            <input type="submit" name="submit" value="Restore">
+        </form>
+    </c:when>
+    <c:otherwise>
+        <form action="${pageContext.request.contextPath}/controller" name='delete_application' method="post">
+            <input type="hidden" name="id" value="${requestScope.application.applicationId}">
+            <input type="hidden" name="command" value="delete_application">
+            <input type="submit" name="submit" value="Delete">
+        </form>
+    </c:otherwise>
+</c:choose>
+
 </body>
 </html>

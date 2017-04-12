@@ -46,7 +46,6 @@ public class UserDao {
                 String userTelephone = rs.getString("telephone");
                 String userEmail = rs.getString("email");
 
-                //user = new User(userId, userLogin, userPassword, userName, userSurname, userTelephone, userEmail);
                 user = new User.UserBuilder().idApplicant(userId).login(userLogin).password(userPassword)
                         .name(userName).surname(userSurname).telephone(userTelephone).email(userEmail).build();
             }
@@ -76,7 +75,6 @@ public class UserDao {
                 String userEmail = rs.getString("email");
                 String userResume = rs.getString("resume");
 
-                //user = new User(userLogin, userName, userSurname, userTelephone, userEmail, userResume, userId);
                 user = new User.UserBuilder().login(userLogin)
                         .name(userName).surname(userSurname).telephone(userTelephone).email(userEmail)
                         .resume(userResume).idApplicant(userId).build();
@@ -107,7 +105,6 @@ public class UserDao {
                 String userTelephone = rs.getString("telephone");
                 String userEmail = rs.getString("email");
 
-                //user = new User(userId, userLogin, userName, userSurname, userTelephone, userEmail);
                 user = new User.UserBuilder().idApplicant(userId).login(userLogin).name(userName)
                         .surname(userSurname).telephone(userTelephone).email(userEmail).build();
 

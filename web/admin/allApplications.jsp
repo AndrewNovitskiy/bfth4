@@ -35,9 +35,6 @@
             Status
         </th>
         <th>
-            Status_ENUM
-        </th>
-        <th>
             Details...
         </th>
     </tr>
@@ -49,11 +46,12 @@
                 <th>${application.applicantSurname}</th>
                 <th>${application.vacancyPosition}</th>
                 <th>${application.status}</th>
-                <th>lol</th>
                 <th><a href="${pageContext.request.contextPath}/controller?command=application&id=${application.applicationId}">Details...</a></th>
             </tr>
         </c:forEach>
     </c:if>
 </table>
+<br>
+<a href="${pageContext.request.contextPath}/controller?command=deleted_applications">DELETED Applications</a><br>
 </body>
 </html>

@@ -56,8 +56,6 @@ public class MessageDao {
                 String content = rs.getString("content");
                 Timestamp dateTime = rs.getTimestamp("date_time");
 
-
-                //message = new Message(messageId, recipientName, recipientSurname, senderId, title, content, dateTime);
                 message = new Message.MessageBuilder().messageId(messageId).recipientName(recipientName)
                         .recipientSurname(recipientSurname).senderId(senderId).title(title).content(content)
                         .dateTime(dateTime).build();
@@ -93,7 +91,6 @@ public class MessageDao {
                 String recipientName = rs.getString("name");
                 String recipientSurname = rs.getString("surname");
 
-                //message = new Message(messageId, recipientId, recipientName, recipientSurname,  senderId, title, content, dateTime);
                 message = new Message.MessageBuilder().messageId(messageId).recipientId(recipientId)
                         .recipientName(recipientName).recipientSurname(recipientSurname).senderId(senderId)
                         .title(title).content(content).dateTime(dateTime).build();
@@ -154,8 +151,6 @@ public class MessageDao {
                 String content = rs.getString("content");
                 Timestamp dateTime = rs.getTimestamp("date_time");
 
-
-                //message = new Message(messageId, recipientName, recipientSurname, adminId, title, content, dateTime);
                 message = new Message.MessageBuilder().messageId(messageId).recipientName(recipientName)
                         .recipientSurname(recipientSurname).senderId(adminId).title(title).content(content)
                         .dateTime(dateTime).build();

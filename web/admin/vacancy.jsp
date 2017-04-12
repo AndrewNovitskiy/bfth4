@@ -29,5 +29,22 @@
     <a href="${pageContext.request.contextPath}/controller?command=vapps&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}">Apps Of Vacancy</a><br>
     <a href="${pageContext.request.contextPath}/controller?command=edit_vacancy&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}">Edit Vacancy</a><br>
 
+<c:choose>
+    <c:when test="${requestScope.vacancy.deleted}">
+        <form action="${pageContext.request.contextPath}/controller" name='restore_vacancy' method="post">
+            <input type="hidden" name="id" value="${requestScope.vacancy.vacancyId}">
+            <input type="hidden" name="command" value="restore_vacancy">
+            <input type="submit" name="submit" value="Restore">
+        </form>
+    </c:when>
+    <c:otherwise>
+        <form action="${pageContext.request.contextPath}/controller" name='delete_vacancy' method="post">
+            <input type="hidden" name="id" value="${requestScope.vacancy.vacancyId}">
+            <input type="hidden" name="command" value="delete_vacancy">
+            <input type="submit" name="submit" value="Delete">
+        </form>
+    </c:otherwise>
+</c:choose>
+
 </body>
 </html>
