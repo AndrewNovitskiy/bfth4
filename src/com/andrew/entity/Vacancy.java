@@ -12,6 +12,7 @@ public class Vacancy {
     private int experience;
     private int salary;
     private String info;
+    private boolean deleted;
 
     public Vacancy(VacancyBuilder builder) {
         this.vacancyId = builder.vacancyId;
@@ -20,6 +21,7 @@ public class Vacancy {
         this.experience = builder.experience;
         this.salary = builder.salary;
         this.info = builder.info;
+        this.deleted = builder.deleted;
     }
 
 
@@ -30,6 +32,7 @@ public class Vacancy {
         private int experience;
         private int salary;
         private String info;
+        private boolean deleted;
 
         public VacancyBuilder(){}
 
@@ -61,6 +64,11 @@ public class Vacancy {
 
         public VacancyBuilder info(String val) {
             info = val;
+            return this;
+        }
+
+        public VacancyBuilder deleted(boolean val) {
+            deleted = val;
             return this;
         }
 
@@ -119,5 +127,13 @@ public class Vacancy {
 
     public void setInfo(String info) {
         this.info = info;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
     }
 }

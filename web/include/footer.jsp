@@ -1,0 +1,1 @@
+<div id="footer">&copy; Andrei Novitsky, 2017</div>

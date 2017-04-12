@@ -13,6 +13,7 @@ public class Application {
     private String status;
     private String applicantTelephone;
     private String applicantEmail;
+    private boolean deleted;
 
     public Application(ApplicationBuilder builder) {
         this.applicationId = builder.applicationId;
@@ -24,7 +25,10 @@ public class Application {
         this.status = builder.status;
         this.applicantTelephone = builder.applicantTelephone;
         this.applicantEmail = builder.applicantEmail;
+        this.deleted = builder.deleted;
     }
+
+
 
     public static class ApplicationBuilder {
         private int applicationId;
@@ -36,6 +40,7 @@ public class Application {
         private String status;
         private String applicantTelephone;
         private String applicantEmail;
+        private boolean deleted;
 
         public ApplicationBuilder(){}
 
@@ -81,6 +86,11 @@ public class Application {
 
         public ApplicationBuilder applicantEmail(String val) {
             applicantEmail = val;
+            return this;
+        }
+
+        public ApplicationBuilder deleted(boolean val) {
+            deleted = val;
             return this;
         }
 
@@ -161,5 +171,13 @@ public class Application {
 
     public void setApplicantEmail(String applicantEmail) {
         this.applicantEmail = applicantEmail;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
     }
 }

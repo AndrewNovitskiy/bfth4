@@ -19,7 +19,7 @@ public class VacancyDao {
     private ResultSet rs;
 
 
-    private static final String SQL_GET_ALL_VACANCIES = "SELECT * FROM vacancy;";
+    private static final String SQL_GET_ALL_VACANCIES = "SELECT * FROM vacancy WHERE vacancy.deleted = 0;";
     private static final String SQL_GET_VACANCY_BY_ID = "SELECT * FROM vacancy WHERE id_vacancy = ?;";
     private static final String SQL_SET_VACANCY = "INSERT INTO vacancy (id_vacancy, date_time, position, experience, salary, info) \n" +
             "\tVALUES (NULL, current_timestamp(), ?, ?, ?, ?);";
@@ -129,10 +129,10 @@ public class VacancyDao {
                 int experience = rs.getInt("experience");
                 int salary = rs.getInt("salary");
                 String info = rs.getString("info");
-
+                boolean deleted = rs.getBoolean("deleted");
                 //vacancy = new Vacancy(vacancyId, dateTime, position, experience, salary, info);
                 vacancy = new Vacancy.VacancyBuilder().vacancyId(vacancyId).dateTime(dateTime).position(position)
-                        .experience(experience).salary(salary).info(info).build();
+                        .experience(experience).salary(salary).info(info).deleted(deleted).build();
             }
             return vacancy;
         } catch (SQLException e) {

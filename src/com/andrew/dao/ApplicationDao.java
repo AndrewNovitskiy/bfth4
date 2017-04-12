@@ -24,9 +24,9 @@ public class ApplicationDao {
     private static final String SQL_GET_ALL_APPLICATIONS = "SELECT application.id_application, applicant.name, applicant.surname, vacancy.position, application_status.value\n" +
             "\tFROM application LEFT JOIN applicant ON application.id_applicant = applicant.id_applicant\n" +
             "\t\t\t\t\t LEFT JOIN vacancy ON application.id_vacancy = vacancy.id_vacancy\n" +
-            "                     LEFT JOIN application_status ON application.id_status = application_status.id_status;";
+            "                     LEFT JOIN application_status ON application.id_status = application_status.id_status WHERE application.deleted = 0;";
 
-    private static final String SQL_GET_APPLICATION_BY_ID = "SELECT application.id_application, applicant.id_applicant, vacancy.id_vacancy, applicant.name, applicant.surname, applicant.telephone, applicant.email, vacancy.position, application_status.value\n" +
+    private static final String SQL_GET_APPLICATION_BY_ID = "SELECT application.id_application, applicant.id_applicant, vacancy.id_vacancy, applicant.name, applicant.surname, applicant.telephone, applicant.email, vacancy.position, application_status.value, application.deleted\n" +
             "            FROM application LEFT JOIN applicant ON application.id_applicant = applicant.id_applicant\n" +
             "             LEFT JOIN vacancy ON application.id_vacancy = vacancy.id_vacancy\n" +
             "\t\t\t LEFT JOIN application_status ON application.id_status = application_status.id_status\n" +
@@ -36,13 +36,13 @@ public class ApplicationDao {
             "\tFROM application LEFT JOIN applicant ON application.id_applicant = applicant.id_applicant\n" +
             "\t\t\t\t\t LEFT JOIN vacancy ON application.id_vacancy = vacancy.id_vacancy\n" +
             "                     LEFT JOIN application_status ON application.id_status = application_status.id_status " +
-            "WHERE application.id_applicant = ?;";
+            "WHERE application.id_applicant = ? AND application.deleted = 0;";
 
     private static final String SQL_GET_APPLICATIONS_OF_VACANCY = "SELECT application.id_application, applicant.name, applicant.surname, vacancy.position, application_status.value\n" +
             "\tFROM application LEFT JOIN applicant ON application.id_applicant = applicant.id_applicant\n" +
             "\t\t\t\t\t LEFT JOIN vacancy ON application.id_vacancy = vacancy.id_vacancy\n" +
             "                     LEFT JOIN application_status ON application.id_status = application_status.id_status " +
-            "WHERE application.id_vacancy = ?;";
+            "WHERE application.id_vacancy = ? AND application.deleted = 0;";
 
     private ConnectionPool pool;
 
@@ -102,11 +102,11 @@ public class ApplicationDao {
                 String status = rs.getString("value");
                 int applicantId = rs.getInt("id_applicant");
                 int vacancyId = rs.getInt("id_vacancy");
-
+                boolean deleted = rs.getBoolean("deleted");
                 //application = new Application(applicationId, name, surname, telephone, email, position, status, applicantId, vacancyId);
                 application = new Application.ApplicationBuilder().applicationId(applicationId).applicantName(name)
                         .applicantSurname(surname).applicantTelephone(telephone).applicantEmail(email)
-                        .vacancyPosition(position).status(status).applicantId(applicantId).vacancyId(vacancyId).build();
+                        .vacancyPosition(position).status(status).applicantId(applicantId).vacancyId(vacancyId).deleted(deleted).build();
             }
             return application;
         } catch (SQLException e) {

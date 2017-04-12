@@ -25,6 +25,7 @@
 <p>${requestScope.application.applicantEmail}</p>
 <p>${requestScope.application.vacancyPosition}</p>
 <p>${requestScope.application.status}</p>
+<p>DELETED ${requestScope.application.deleted}</p>
 <br>
 <a href="${pageContext.request.contextPath}/controller?command=user&id=${requestScope.application.applicantId}">To User Page</a>
 <br>

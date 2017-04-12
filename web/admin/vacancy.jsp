@@ -24,6 +24,7 @@
     <p>${requestScope.vacancy.experience}</p>
     <p>${requestScope.vacancy.salary}</p>
     <p>${requestScope.vacancy.info}</p>
+    <p>DELETED ${requestScope.vacancy.deleted}</p>
 <br>
     <a href="${pageContext.request.contextPath}/controller?command=vapps&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}">Apps Of Vacancy</a><br>
     <a href="${pageContext.request.contextPath}/controller?command=edit_vacancy&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}">Edit Vacancy</a><br>
