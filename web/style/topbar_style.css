@@ -16,6 +16,7 @@ body {
 }
 
 .barlabel {
+    font-family: OpenSans;
     height: 50px;
     float: left;
     margin-left: 20px;

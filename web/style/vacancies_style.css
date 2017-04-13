@@ -30,38 +30,6 @@ img {
     margin-bottom: 3px;
 }
 
-.barlabel {
-    height: 50px;
-    float: left;
-    margin-left: 20px;
-    vertical-align: middle;
-}
-
-.barref {
-    width: 150px;
-    height: 50px;
-    float: right;
-    margin: 0 auto;
-    vertical-align: middle;
-    border-bottom: 2px solid white;
-}
-.barref:hover {
-    border-bottom: 2px solid #F0AB28;
-    background: #595959;
-}
-.barref:hover .bartext{
-    color: #F0AB28;
-}
-
-.bartext {
-    display: flex;
-    color: #fff;
-    font-size: 20px;
-    margin: 0 auto;
-    padding: 12px;
-    text-decoration: none;
-}
-
 .photo {
     height: auto;
     width: 100%;

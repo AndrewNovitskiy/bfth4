@@ -2,21 +2,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>ADMIN HERE, MTHRFCKERS</title>
+    <title>ADMIN</title>
     <link rel="stylesheet" href="../style/topbar_style.css">
-    <link rel="stylesheet" href="../style/vacancies_style.css">
+    <link rel="stylesheet" href="../style/control_panel_style.css">
 </head>
 <body>
+<div id="block">
+<h1>Atlanta-Soft</h1>
 <%@include file="../include/controlbar.jsp"%>
-
-
 <h2>Control panel</h2>
-
-
-<a href="${pageContext.request.contextPath}/controller?command=all_users">Users</a><br>
-<a href="${pageContext.request.contextPath}/controller?command=vacancies_admin">Vacancies</a><br>
-<a href="${pageContext.request.contextPath}/controller?command=messages_admin">Messages</a><br>
-<a href="${pageContext.request.contextPath}/controller?command=applications_admin">Applications</a><br>
+</div>
 
 
 </body>
