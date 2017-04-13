@@ -3,20 +3,11 @@
 <html>
 <head>
     <title>Application ${requestScope.application.applicationId}</title>
+    <link rel="stylesheet" href="../style/topbar_style.css">
+    <link rel="stylesheet" href="../style/control_element_style.css">
 </head>
 <body>
-<div>
-    <a href="/index.jsp" title="index">Go To Web-Site</a>
-    <a href="${pageContext.request.contextPath}/controller?command=all_users">Users</a>
-    <a href="${pageContext.request.contextPath}/controller?command=vacancies_admin">Vacancies</a>
-    <a href="${pageContext.request.contextPath}/controller?command=messages_admin">Messages</a>
-    <a href="${pageContext.request.contextPath}/controller?command=applications_admin">Applications</a>
-    <c:if test="${not empty sessionScope.admin}">
-        <form action="${pageContext.request.contextPath}/controller" name='log_out_admin' method="post">
-            <input type="submit" name="command" value="log_out_admin" title="Log OUT">
-        </form>
-    </c:if>
-</div>
+<%@include file="../include/controlbar.jsp"%>
 <h2>Application Info</h2>
 <p>${requestScope.application.applicationId}</p>
 <p>${requestScope.application.applicantName}</p>
@@ -27,9 +18,18 @@
 <p>${requestScope.application.status}</p>
 <p>DELETED ${requestScope.application.deleted}</p>
 <br>
-<a href="${pageContext.request.contextPath}/controller?command=user&id=${requestScope.application.applicantId}">To User Page</a>
-<br>
-<a href="${pageContext.request.contextPath}/controller?command=vacancy&id=${requestScope.application.vacancyId}">To Vacancy Page</a>
+
+<div class="control_elem_container">
+    <span>
+        <a href="${pageContext.request.contextPath}/controller?command=user&id=${requestScope.application.applicantId}" class="control_elem">To User Page</a>
+    </span>
+    <span>
+        <a href="${pageContext.request.contextPath}/controller?command=vacancy&id=${requestScope.application.vacancyId}" class="control_elem">To Vacancy Page</a>
+    </span>
+</div>
+
+
+
 
 <c:choose>
     <c:when test="${requestScope.application.deleted}">

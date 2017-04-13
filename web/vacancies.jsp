@@ -4,6 +4,7 @@
 <head>
     <title>Atlanta-Soft</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="style/topbar_style.css">
     <link rel="stylesheet" href="style/vacancies_style.css">
 </head>
 <body>

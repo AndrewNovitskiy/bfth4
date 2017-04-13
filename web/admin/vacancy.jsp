@@ -3,20 +3,11 @@
 <html>
 <head>
     <title>Vacancy ${requestScope.vacancy.position}</title>
+    <link rel="stylesheet" href="../style/topbar_style.css">
+    <link rel="stylesheet" href="../style/control_element_style.css">
 </head>
 <body>
-<div>
-    <a href="/index.jsp" title="index">Go To Web-Site</a>
-    <a href="${pageContext.request.contextPath}/controller?command=all_users">Users</a>
-    <a href="${pageContext.request.contextPath}/controller?command=vacancies_admin">Vacancies</a>
-    <a href="${pageContext.request.contextPath}/controller?command=messages_admin">Messages</a>
-    <a href="${pageContext.request.contextPath}/controller?command=applications_admin">Applications</a>
-    <c:if test="${not empty sessionScope.admin}">
-        <form action="${pageContext.request.contextPath}/controller" name='log_out_admin' method="post">
-            <input type="submit" name="command" value="log_out_admin" title="Log OUT">
-        </form>
-    </c:if>
-</div>
+<%@include file="../include/controlbar.jsp"%>
     <h2>Vacancy Info</h2>
     <p>${requestScope.vacancy.vacancyId}</p>
     <p>${requestScope.vacancy.dateTime}</p>
@@ -26,8 +17,17 @@
     <p>${requestScope.vacancy.info}</p>
     <p>DELETED ${requestScope.vacancy.deleted}</p>
 <br>
-    <a href="${pageContext.request.contextPath}/controller?command=vapps&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}">Apps Of Vacancy</a><br>
-    <a href="${pageContext.request.contextPath}/controller?command=edit_vacancy&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}">Edit Vacancy</a><br>
+
+
+<div class="control_elem_container">
+    <span>
+        <a href="${pageContext.request.contextPath}/controller?command=vapps&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}" class="control_elem">Apps Of Vacancy</a>
+   </span>
+    <span>
+        <a href="${pageContext.request.contextPath}/controller?command=edit_vacancy&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}" class="control_elem">Edit Vacancy</a>
+</span>
+</div>
+
 
 <c:choose>
     <c:when test="${requestScope.vacancy.deleted}">

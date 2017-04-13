@@ -3,20 +3,11 @@
 <html>
 <head>
     <title>Vacancies</title>
+    <link rel="stylesheet" href="../style/topbar_style.css">
+    <link rel="stylesheet" href="../style/control_element_style.css">
 </head>
 <body>
-<div>
-    <a href="/index.jsp" title="index">Go To Web-Site</a>
-    <a href="${pageContext.request.contextPath}/controller?command=all_users">Users</a>
-    <a href="${pageContext.request.contextPath}/controller?command=vacancies_admin">Vacancies</a>
-    <a href="${pageContext.request.contextPath}/controller?command=messages_admin">Messages</a>
-    <a href="${pageContext.request.contextPath}/controller?command=applications_admin">Applications</a>
-    <c:if test="${not empty sessionScope.admin}">
-        <form action="${pageContext.request.contextPath}/controller" name='log_out_admin' method="post">
-            <input type="submit" name="command" value="log_out_admin" title="Log OUT">
-        </form>
-    </c:if>
-</div>
+<%@include file="../include/controlbar.jsp"%>
 <table border="1">
     <tr>
         <th>
@@ -52,8 +43,13 @@
     </c:if>
 </table>
 <br>
-<a href="/admin/newVacancy.jsp" title="Add New Vacancy">Add New Vacancy</a>
-<br>
-<a href="${pageContext.request.contextPath}/controller?command=deleted_vacancies">DELETED Vacancies</a><br>
+<div class="control_elem_container">
+<span>
+    <a href="/admin/newVacancy.jsp" title="Add New Vacancy" class="control_elem">Add New Vacancy</a>
+</span>
+<span>
+    <a href="${pageContext.request.contextPath}/controller?command=deleted_vacancies" class="control_elem">DELETED Vacancies</a>
+</span>
+    </div>
 </body>
 </html>

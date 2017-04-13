@@ -3,20 +3,11 @@
 <html>
 <head>
     <title>Message</title>
+    <link rel="stylesheet" href="../style/topbar_style.css">
+    <link rel="stylesheet" href="../style/control_element_style.css">
 </head>
 <body>
-<div>
-    <a href="/index.jsp" title="index">Go To Web-Site</a>
-    <a href="${pageContext.request.contextPath}/controller?command=all_users">Users</a>
-    <a href="${pageContext.request.contextPath}/controller?command=vacancies_admin">Vacancies</a>
-    <a href="${pageContext.request.contextPath}/controller?command=messages_admin">Messages</a>
-    <a href="${pageContext.request.contextPath}/controller?command=applications_admin">Applications</a>
-    <c:if test="${not empty sessionScope.admin}">
-        <form action="${pageContext.request.contextPath}/controller" name='log_out_admin' method="post">
-            <input type="submit" name="command" value="log_out_admin" title="Log OUT">
-        </form>
-    </c:if>
-</div>
+<%@include file="../include/controlbar.jsp"%>
 <h2>Message Info</h2>
 <p>${requestScope.message.dateTime}</p>
 <p>${requestScope.message.recipientName}</p>
@@ -24,6 +15,13 @@
 <p>${requestScope.message.title}</p>
 <p>${requestScope.message.content}</p>
 <br>
-<a href="${pageContext.request.contextPath}/controller?command=user&id=${requestScope.message.recipientId}">User</a>
+
+<div class="control_elem_container">
+    <span>
+        <a href="${pageContext.request.contextPath}/controller?command=user&id=${requestScope.message.recipientId}" class="control_elem">User</a>
+    </span>
+</div>
+
+
 </body>
 </html>
