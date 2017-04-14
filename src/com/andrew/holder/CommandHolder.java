@@ -55,6 +55,9 @@ public class CommandHolder {
         commands.put("deleted_applications", new TakeDeletedApplicationsCommand());
         commands.put("deleted_vacancies", new TakeDeletedVacanciesCommand());
 
+        //commands.put("edit_profile", new UpdateUserCommand());
+        //commands.put("update_profile", new UpdateUserCommand());
+
 
         LOG.trace("Number of commands --> " + commands.size());
     }

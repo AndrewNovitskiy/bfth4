@@ -5,6 +5,8 @@
     <title>Atlanta-Soft</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="style/topbar_style.css">
+    <link rel="stylesheet" href="style/menubar_style.css">
+    <link rel="stylesheet" href="style/general_style.css">
     <link rel="stylesheet" href="style/vacancies_style.css">
 </head>
 <body>
@@ -13,14 +15,13 @@
     
     <%@include file="include/topbar.jsp"%>
     <%@include file="include/header.jsp"%>
+    <%@include file="include/menubar.jsp"%>
+    <img src="style/resources/atl.jpg" class="photo">
 
     <div id="mainblock">
 
-        <%@include file="include/sidebar.jsp"%>
-
         <div id="content" class="block">
 
-            <img src="style/resources/atl.jpg" class="photo">
             <h2>Start Working Now!</h2>
 
 

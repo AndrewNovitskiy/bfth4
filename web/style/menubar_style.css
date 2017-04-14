@@ -9,37 +9,30 @@ body {
     src: url(fonts/OpenSans-Regular.ttf);
 }
 
-#topbar {
+#menubar {
     height: 50px;
+    border-top: 2px solid white;
     border-bottom: 2px solid white;
     background: #444444
 }
 
-.topbarlabel {
-    font-family: OpenSans;
-    height: 50px;
-    float: left;
-    margin-left: 20px;
-    vertical-align: middle;
-}
-
-.topbarref {
-    width: 150px;
+.menubarbutton {
+    width: 170px;
     height: 50px;
     float: right;
     margin: 0 auto;
     vertical-align: middle;
     border-bottom: 2px solid white;
 }
-.topbarref:hover {
+.menubarbutton:hover {
     border-bottom: 2px solid #F0AB28;
     background: #595959;
 }
-.topbarref:hover .topbartext{
+.menubarbutton:hover .menubartext{
     color: #F0AB28;
 }
 
-.topbartext {
+.menubartext {
     font-family: OpenSans;
     display: flex;
     color: #fff;
