@@ -1,8 +1,7 @@
-package com.andrew.command.user;
+package com.andrew.command;
 
 import com.andrew.action.Action;
 import com.andrew.action.ForwardAction;
-import com.andrew.command.Command;
 import com.andrew.dao.UserDao;
 import com.andrew.entity.User;
 import org.apache.log4j.Logger;

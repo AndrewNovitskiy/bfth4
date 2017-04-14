@@ -9,12 +9,12 @@
 <body>
 <%@include file="../include/controlbar.jsp"%>
     <h2>Vacancy Info</h2>
-    <p>${requestScope.vacancy.vacancyId}</p>
-    <p>${requestScope.vacancy.dateTime}</p>
-    <p>${requestScope.vacancy.position}</p>
-    <p>${requestScope.vacancy.experience}</p>
-    <p>${requestScope.vacancy.salary}</p>
-    <p>${requestScope.vacancy.info}</p>
+<p>${requestScope.vacancy.vacancyId}</p>
+<p>${requestScope.vacancy.dateTime}</p>
+<p>${requestScope.vacancy.position}</p>
+<p>${requestScope.vacancy.experience}</p>
+<p>${requestScope.vacancy.salary}</p>
+<p>${requestScope.vacancy.info}</p>
     <p>DELETED ${requestScope.vacancy.deleted}</p>
 <br>
 

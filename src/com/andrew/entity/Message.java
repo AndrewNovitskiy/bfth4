@@ -14,6 +14,7 @@ public class Message {
     private Timestamp dateTime;
     private String recipientName;
     private String recipientSurname;
+    private String senderLogin;
 
 
     public Message(MessageBuilder builder) {
@@ -25,6 +26,7 @@ public class Message {
         this.dateTime = builder.dateTime;
         this.recipientName = builder.recipientName;
         this.recipientSurname = builder.recipientSurname;
+        this.senderLogin = builder.senderLogin;
     }
 
     public static class MessageBuilder {
@@ -36,6 +38,7 @@ public class Message {
         private Timestamp dateTime;
         private String recipientName;
         private String recipientSurname;
+        private String senderLogin;
 
         public MessageBuilder(){}
 
@@ -76,6 +79,11 @@ public class Message {
 
         public MessageBuilder recipientSurname(String val) {
             recipientSurname = val;
+            return this;
+        }
+
+        public MessageBuilder senderLogin(String val) {
+            senderLogin = val;
             return this;
         }
 
@@ -149,5 +157,13 @@ public class Message {
 
     public void setRecipientSurname(String recipientSurname) {
         this.recipientSurname = recipientSurname;
+    }
+
+    public String getSenderLogin() {
+        return senderLogin;
+    }
+
+    public void setSenderLogin(String senderLogin) {
+        this.senderLogin = senderLogin;
     }
 }

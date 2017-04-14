@@ -29,6 +29,9 @@ public class JspPathConstant {
     public static final String PROFILE_JSP = "user/profile.jsp";
     public static final String ADMIN_DELETED_APPLICATIONS_JSP = "/admin/deletedApplications.jsp";
     public static final String ADMIN_DELETED_VACANCIES_JSP = "/admin/deletedVacancies.jsp";
+    public static final String USER_MESSAGES_JSP = "/user/messages.jsp";
+    public static final String MESSAGE_JSP = "/user/message.jsp";
+    public static final String VACANCY_JSP = "/vacancy.jsp";
 
 
 }
