@@ -9,10 +9,7 @@ import com.andrew.command.admin.message.*;
 import com.andrew.command.admin.user.TakeAllUsersCommand;
 import com.andrew.command.admin.user.TakeUserCommand;
 import com.andrew.command.admin.vacancy.*;
-import com.andrew.command.user.AutorisationCommand;
-import com.andrew.command.user.LogOutCommand;
-import com.andrew.command.user.ProfileCommand;
-import com.andrew.command.user.RegistrationCommand;
+import com.andrew.command.user.*;
 import org.apache.log4j.Logger;
 
 import java.util.Map;
@@ -56,7 +53,7 @@ public class CommandHolder {
         commands.put("deleted_vacancies", new TakeDeletedVacanciesCommand());
 
         //commands.put("edit_profile", new UpdateUserCommand());
-        //commands.put("update_profile", new UpdateUserCommand());
+        commands.put("update_profile", new UpdateUserCommand());
 
 
         LOG.trace("Number of commands --> " + commands.size());

@@ -29,7 +29,7 @@ public class TakeUserCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Integer userId = Integer.parseInt(request.getParameter("id"));
-        User user = dao.takeUserById(userId);
+        User user = dao.takeUserInfoById(userId);
         request.setAttribute("user", user);
         return new ForwardAction(ADMIN_USER_JSP);
     }

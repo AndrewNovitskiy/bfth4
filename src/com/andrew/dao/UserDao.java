@@ -15,12 +15,15 @@ public class UserDao {
     private ResultSet rs;
 
     private static final String SQL_GET_USER = "SELECT id_applicant, login, password, name, surname, telephone, email FROM applicant WHERE login = ? AND password = ?;";
-    private static final String SQL_GET_USER_BY_ID = "SELECT * FROM applicant WHERE id_applicant = ?;";
+    private static final String SQL_GET_USER_INFO_BY_ID = "SELECT * FROM applicant WHERE id_applicant = ?;";
     private static final String SQL_GET_ALL_USERS = "SELECT * FROM applicant;";
     private static final String SQL_SET_USER = "INSERT INTO applicant (login, password, name, surname, telephone, email) VALUES (?, ?, ?, ?, ?, ?);";
     private static final String SQL_CHECK_LOGIN = "SELECT * FROM applicant WHERE login = ?;";
     private static final String SQL_CHECK_USER = "SELECT id_applicant FROM applicant WHERE login = ? AND password = ?;";
     private static final String SQL_GET_RESUME_BY_ID = "SELECT resume FROM applicant WHERE id_applicant = ?;";
+    private static final String SQL_UPDATE_USER = "UPDATE applicant SET applicant.name = ?, applicant.surname = ?, applicant.telephone = ?, applicant.email = ?, applicant.resume = ? WHERE applicant.id_applicant = ?;";
+    private static final String SQL_GET_USER_BY_ID = "SELECT id_applicant, login, password, name, surname, telephone, email FROM applicant WHERE id_applicant = ?;";
+
 
     private ConnectionPool pool;
 
@@ -59,11 +62,11 @@ public class UserDao {
         return null;
     }
 
-    public User takeUserById(int userId) {
+    public User takeUserInfoById(int userId) {
         User user = null;
         try {
             conn = pool.getConnection();
-            stmt = conn.prepareStatement(SQL_GET_USER_BY_ID);
+            stmt = conn.prepareStatement(SQL_GET_USER_INFO_BY_ID);
             stmt.setInt(1, userId);
             rs = stmt.executeQuery();
 
@@ -202,6 +205,57 @@ public class UserDao {
                 resume = rs.getString("resume");
             }
             return resume;
+        } catch (SQLException e) {
+            log.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+            try { rs.close(); } catch(SQLException se) { log.info("SQLException"); }
+        }
+        return null;
+    }
+
+    public void updateUser(int idApplicant, String name, String surname, String telephone, String email, String resume) {
+
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_UPDATE_USER);
+            stmt.setString(1, name);
+            stmt.setString(2, surname);
+            stmt.setString(3, telephone);
+            stmt.setString(4, email);
+            stmt.setString(5, resume);
+            stmt.setInt(6, idApplicant);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            log.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+        }
+
+    }
+
+    public User takeUserById(int idApplicant) {
+        User user = null;
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_GET_USER_BY_ID);
+            stmt.setInt(1, idApplicant);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                int userId = rs.getInt("id_applicant");
+                String userLogin = rs.getString("login");
+                String userPassword = rs.getString("password");
+                String userName = rs.getString("name");
+                String userSurname = rs.getString("surname");
+                String userTelephone = rs.getString("telephone");
+                String userEmail = rs.getString("email");
+
+                user = new User.UserBuilder().idApplicant(userId).login(userLogin).password(userPassword)
+                        .name(userName).surname(userSurname).telephone(userTelephone).email(userEmail).build();
+            }
+            return user;
         } catch (SQLException e) {
             log.info("SQLException");
         } finally {

@@ -34,7 +34,6 @@
             </div>
 
             <div class="control_elem_container">
-
                 <span>
                     <a href="user/editProfile.jsp" class="control_elem">Edit Information</a>
                 </span>

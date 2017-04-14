@@ -1,0 +1,52 @@
+@font-face {
+    font-family: OpenSans;
+    src: url(fonts/OpenSans-Regular.ttf);
+}
+
+
+label {
+    margin-right: 10px;
+    margin-left: 25px;
+    font-family: OpenSans;
+    font-size: medium;
+    font-weight: bold;
+}
+
+h2 {
+    margin-left: 25px;
+    font-family: OpenSans;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+[type="text"], textarea {
+    margin-left: 25px;
+    border-radius: 7px;
+    box-shadow: 0 0 20px 5px #317AED;
+    font-size: 15px;
+}
+
+[type="text"] {
+    width: 200px;
+    height: 30px;
+}
+
+input {
+    font-family: OpenSans;
+}
+
+
+[type="submit"] {
+    background-color: #F5F5F5;
+}
+
+
+.control_elem {
+    margin-left: 25px;
+}
+
+span {
+    font-family: OpenSans;
+    font-size:25px;
+    color: red;
+}
