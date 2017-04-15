@@ -40,6 +40,7 @@ public class CommandHolder {
         commands.put("usapps", new TakeApplicationsOfUserCommand());
         commands.put("usmess", new TakeMessagesForUserCommand());
         commands.put("vapps", new TakeApplicationsOfVacancyCommand());
+        commands.put("vdelapps", new TakeDeletedApplicationsOfVacancyCommand());
 
         commands.put("new_vacancy", new AddNewVacancyCommand());
         commands.put("new_message", new NewMessageCommand());
@@ -70,8 +71,9 @@ public class CommandHolder {
         //commands.put("edit_profile", new UpdateUserCommand());
         commands.put("update_profile", new UpdateUserCommand());
 
-        commands.put("messages", new TakeUserMessagesCommand());
+        commands.put("my_messages", new TakeUserMessagesCommand());
         commands.put("my_message", new TakeUserMessageCommand());
+        commands.put("my_applications", new TakeUserApplicationsCommand());
 
 
         ///////////////////

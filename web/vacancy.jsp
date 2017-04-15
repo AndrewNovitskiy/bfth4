@@ -21,6 +21,9 @@
         <div class="block">
 
             <div>
+                <c:if test="${requestScope.vacancy.deleted}">
+                    <h2 class="deleted">The vacancy is not up to date!</h2>
+                </c:if>
                 <h2>${requestScope.vacancy.position}</h2>
                 <label>Date : </label> <span>${requestScope.vacancy.dateTime}</span><br><br>
                 <label>Salary : </label> <span>${requestScope.vacancy.salary}$</span><br><br>
@@ -30,11 +33,19 @@
                 <span>${requestScope.vacancy.info}</span><br><br>
             </div>
 
-            <div class="control_elem_container">
-                <span>
-                    <a href="user/editProfile.jsp" class="control_elem">Resp</a>
-                </span>
-            </div>
+            
+            <c:choose>
+                <c:when test="${requestScope.vacancy.deleted}">
+                    <span class="deleted">You can not respond to this vacancy</span>
+                </c:when>
+                <c:otherwise>
+                    <div class="control_elem_container">
+                        <span>
+                            <a href="user/editProfile.jsp" class="control_elem">Resp</a>
+                        </span>
+                    </div>
+                </c:otherwise>
+            </c:choose>
 
         </div>
     </div>

@@ -22,6 +22,7 @@ public class JspPathConstant {
     public static final String ADMIN_ALL_USER_APPLICATIONS_JSP = "/admin/usApps.jsp";
     public static final String ADMIN_USER_MESSAGES = "/admin/usMess.jsp";
     public static final String ADMIN_ALL_VACANCY_APPLICATIONS_JSP = "/admin/vApps.jsp";
+    public static final String ADMIN_ALL_DELETED_VACANCY_APPLICATIONS_JSP = "/admin/vDelApps.jsp";
     public static final String ADMIN_ADD_NEW_VACANCY_JSP = "/admin/newVacancy.jsp";
     public static final String ADMIN_NEW_MESSAGE_JSP = "/admin/newMessage.jsp";
     public static final String ADMIN_EDIT_VACANCY_JSP = "/admin/editVacancy.jsp";
@@ -30,6 +31,7 @@ public class JspPathConstant {
     public static final String ADMIN_DELETED_APPLICATIONS_JSP = "/admin/deletedApplications.jsp";
     public static final String ADMIN_DELETED_VACANCIES_JSP = "/admin/deletedVacancies.jsp";
     public static final String USER_MESSAGES_JSP = "/user/messages.jsp";
+    public static final String USER_APPLICATIONS_JSP = "/user/applications.jsp";
     public static final String MESSAGE_JSP = "/user/message.jsp";
     public static final String VACANCY_JSP = "/vacancy.jsp";
 

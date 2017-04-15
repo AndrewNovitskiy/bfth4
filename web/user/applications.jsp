@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Messages</title>
+    <title>My Profile</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="../style/topbar_style.css">
     <link rel="stylesheet" href="../style/menubar_style.css">
@@ -20,43 +20,29 @@
         <div class="block">
 
 
-
+            <h2>My applications</h2>
             <table border="1">
                 <tr>
                     <th>
-                        ID_message
+                        Position
                     </th>
                     <th>
-                        Sender
-                    </th>
-                    <th>
-                        Title
-                    </th>
-                    <th>
-                        DateTime
-                    </th>
-                    <th>
-                        Details...
+                        Status
                     </th>
                 </tr>
-                <c:if test="${not empty requestScope.messages}">
-                    <c:forEach items="${requestScope.messages}" var="message">
+                <c:if test="${not empty requestScope.applications}">
+                    <c:forEach items="${requestScope.applications}" var="application">
                         <tr>
-                            <th>${message.messageId}</th>
-                            <th>${message.senderLogin}</th>
-                            <th>${message.title}</th>
-                            <th>${message.dateTime}</th>
+                            <th>${application.vacancyPosition}</th>
+                            <th>${application.status}</th>
                             <th>
-                                <form action="${pageContext.request.contextPath}/controller" name='my_message' method="post">
-                                    <input type="hidden" name="id" value="${message.messageId}">
-                                    <input type="hidden" name="command" value="my_message">
-                                    <input type="submit" name="submit" value="Details">
-                                </form>
+                                <a href="${pageContext.request.contextPath}/controller?command=vacancy&id=${application.vacancyId}">Details</a>
                             </th>
                         </tr>
                     </c:forEach>
                 </c:if>
             </table>
+
 
         </div>
     </div>

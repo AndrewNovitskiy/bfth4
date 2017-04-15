@@ -30,7 +30,7 @@ public class TakeApplicationCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Integer applicationId = Integer.parseInt(request.getParameter("id"));
-        Application application = dao.takeApplicationById(applicationId);
+        Application application = dao.takeApplicationByIdForAdmin(applicationId);
         request.setAttribute("application", application);
         return new ForwardAction(ADMIN_APPLICATION_JSP);
     }

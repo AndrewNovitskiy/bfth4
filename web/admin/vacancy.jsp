@@ -24,6 +24,9 @@
         <a href="${pageContext.request.contextPath}/controller?command=vapps&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}" class="control_elem">Apps Of Vacancy</a>
    </span>
     <span>
+        <a href="${pageContext.request.contextPath}/controller?command=vdelapps&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}" class="control_elem">DELETED Apps Of Vacancy</a>
+   </span>
+    <span>
         <a href="${pageContext.request.contextPath}/controller?command=edit_vacancy&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}" class="control_elem">Edit Vacancy</a>
 </span>
     <span>

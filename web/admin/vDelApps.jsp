@@ -2,12 +2,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Applications</title>
+    <title>Title</title>
     <link rel="stylesheet" href="../style/topbar_style.css">
-    <link rel="stylesheet" href="../style/control_element_style.css">
 </head>
 <body>
 <%@include file="../include/controlbar.jsp"%>
+<h2>DELETED Applications For ${requestScope.position}</h2>
 <table border="1">
     <tr>
         <th>
@@ -26,7 +26,7 @@
             Status
         </th>
         <th>
-            Details...
+            DELETED
         </th>
     </tr>
     <c:if test="${not empty requestScope.applications}">
@@ -37,16 +37,11 @@
                 <th>${application.applicantSurname}</th>
                 <th>${application.vacancyPosition}</th>
                 <th>${application.status}</th>
-                <th><a href="${pageContext.request.contextPath}/admin/controller?command=application&id=${application.applicationId}">Details...</a></th>
+                <th>${application.deleted}</th>
+                <th><a href="${pageContext.request.contextPath}/controller?command=application&id=${application.applicationId}">Details...</a></th>
             </tr>
         </c:forEach>
     </c:if>
 </table>
-<br>
-<div class="control_elem_container">
-<span>
-    <a href="${pageContext.request.contextPath}/controller?command=deleted_applications" class="control_elem">DELETED Applications</a>
-</span>
-</div>
 </body>
 </html>

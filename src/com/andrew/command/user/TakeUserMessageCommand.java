@@ -2,6 +2,7 @@ package com.andrew.command.user;
 
 import com.andrew.action.Action;
 import com.andrew.action.ForwardAction;
+import com.andrew.action.RedirectAction;
 import com.andrew.command.Command;
 import com.andrew.dao.MessageDao;
 import com.andrew.entity.Message;
@@ -15,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 import static com.andrew.util.AttributeConstant.USER;
-import static com.andrew.util.JspPathConstant.INDEX_JSP;
+import static com.andrew.util.CommandPathConstant.MESSAGES_COMMAND;
 import static com.andrew.util.JspPathConstant.MESSAGE_JSP;
 
 /**
@@ -43,10 +44,10 @@ public class TakeUserMessageCommand implements Command {
                 request.setAttribute("message", message);
                 return new ForwardAction(MESSAGE_JSP);
             } else {
-                return new ForwardAction(INDEX_JSP);
+                return new RedirectAction(MESSAGES_COMMAND);
             }
         } catch (NullPointerException e){
-            return new ForwardAction(INDEX_JSP);
+            return new RedirectAction(MESSAGES_COMMAND);
         }
     }
 }

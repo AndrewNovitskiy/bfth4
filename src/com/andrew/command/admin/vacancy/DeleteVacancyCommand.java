@@ -3,6 +3,7 @@ package com.andrew.command.admin.vacancy;
 import com.andrew.action.Action;
 import com.andrew.action.RedirectAction;
 import com.andrew.command.Command;
+import com.andrew.dao.ApplicationDao;
 import com.andrew.dao.VacancyDao;
 import org.apache.log4j.Logger;
 
@@ -19,16 +20,19 @@ import static com.andrew.util.CommandPathConstant.ADMIN_ALL_VACANCIES_COMMAND;
 public class DeleteVacancyCommand implements Command {
 
     private static final Logger log = Logger.getLogger(DeleteVacancyCommand.class);
-    private VacancyDao dao;
+    private VacancyDao vacancyDao;
+    private ApplicationDao applicationDao;
 
     public DeleteVacancyCommand() {
         super();
-        dao = new VacancyDao();
+        vacancyDao = new VacancyDao();
+        applicationDao = new ApplicationDao();
     }
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int vacancyId = Integer.parseInt(request.getParameter("id"));
-        dao.deleteVacancy(vacancyId);
+        vacancyDao.deleteVacancy(vacancyId);
+        applicationDao.deleteApplicationsOfVacancy(vacancyId);
         return new RedirectAction(ADMIN_ALL_VACANCIES_COMMAND);
     }
 }

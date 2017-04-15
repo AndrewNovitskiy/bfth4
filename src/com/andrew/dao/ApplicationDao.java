@@ -26,14 +26,14 @@ public class ApplicationDao {
             "\t\t\t\t\t LEFT JOIN vacancy ON application.id_vacancy = vacancy.id_vacancy\n" +
             "                     LEFT JOIN application_status ON application.id_status = application_status.id_status WHERE application.deleted = 0;";
 
-    private static final String SQL_GET_APPLICATION_BY_ID = "SELECT application.id_application, applicant.id_applicant, vacancy.id_vacancy, applicant.name, applicant.surname, applicant.telephone, applicant.email, vacancy.position, application_status.value, application.deleted\n" +
+    private static final String SQL_GET_APPLICATION_BY_ID_FOR_ADMIN = "SELECT application.id_application, applicant.id_applicant, vacancy.id_vacancy, applicant.name, applicant.surname, applicant.telephone, applicant.email, vacancy.position, application_status.value, application.deleted\n" +
             "            FROM application LEFT JOIN applicant ON application.id_applicant = applicant.id_applicant\n" +
             "             LEFT JOIN vacancy ON application.id_vacancy = vacancy.id_vacancy\n" +
             "\t\t\t LEFT JOIN application_status ON application.id_status = application_status.id_status\n" +
             "             WHERE application.id_application = ?;";
 
-    private static final String SQL_GET_APPLICATIONS_OF_USER = "SELECT application.id_application, applicant.name, applicant.surname, vacancy.position, application_status.value\n" +
-            "\tFROM application LEFT JOIN applicant ON application.id_applicant = applicant.id_applicant\n" +
+    private static final String SQL_GET_APPLICATIONS_OF_USER = "SELECT application.id_application, vacancy.id_vacancy, vacancy.position, application_status.value\n" +
+            "\tFROM application\n" +
             "\t\t\t\t\t LEFT JOIN vacancy ON application.id_vacancy = vacancy.id_vacancy\n" +
             "                     LEFT JOIN application_status ON application.id_status = application_status.id_status " +
             "WHERE application.id_applicant = ? AND application.deleted = 0;";
@@ -56,6 +56,16 @@ public class ApplicationDao {
 
 
     private static final String SQL_UPDATE_APPLICATION_STATUS = "UPDATE application SET application.id_status = ? WHERE application.id_application = ?;";
+
+
+    private static final String SQL_GET_DELETED_APPLICATIONS_OF_VACANCY = "SELECT application.id_application, applicant.name, applicant.surname, vacancy.position, application_status.value, application.deleted\n" +
+            "\tFROM application LEFT JOIN applicant ON application.id_applicant = applicant.id_applicant\n" +
+            "\t\t\t\t\t LEFT JOIN vacancy ON application.id_vacancy = vacancy.id_vacancy\n" +
+            "                     LEFT JOIN application_status ON application.id_status = application_status.id_status " +
+            "WHERE application.id_vacancy = ? AND application.deleted = 1;";
+
+
+    private static final String SQL_DELETE_APPLICATIONS_OF_VACANCY = "UPDATE application SET application.deleted = 1 WHERE application.id_vacancy = ?;";
 
 
     private ConnectionPool pool;
@@ -98,11 +108,11 @@ public class ApplicationDao {
         try { stmt.close(); } catch(SQLException se) { log.info("SQLException"); }
     }
 
-    public Application takeApplicationById(Integer applicationId) {
+    public Application takeApplicationByIdForAdmin(Integer applicationId) {
         try {
             Application application = null;
             conn = pool.getConnection();
-            stmt = conn.prepareStatement(SQL_GET_APPLICATION_BY_ID);
+            stmt = conn.prepareStatement(SQL_GET_APPLICATION_BY_ID_FOR_ADMIN);
             stmt.setInt(1, applicationId);
             rs = stmt.executeQuery();
 
@@ -141,10 +151,11 @@ public class ApplicationDao {
 
             while (rs.next()) {
                 int applicationId = rs.getInt("id_application");
+                int vacancyId = rs.getInt("id_vacancy");
                 String position = rs.getString("position");
                 String status = rs.getString("value");
 
-                application = new Application.ApplicationBuilder().applicationId(applicationId).vacancyPosition(position).status(status).build();
+                application = new Application.ApplicationBuilder().applicationId(applicationId).vacancyId(vacancyId).vacancyPosition(position).status(status).build();
                 applications.add(application);
             }
             return applications;
@@ -259,4 +270,52 @@ public class ApplicationDao {
             closeResources(conn, stmt);
         }
     }
+
+    public ArrayList<Application> takeDeletedApplicationsOfVacancy(Integer vacancyId) {
+        try {
+            Application application;
+            ArrayList<Application> applications = new ArrayList<>();
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_GET_DELETED_APPLICATIONS_OF_VACANCY);
+            stmt.setInt(1, vacancyId);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int applicationId = rs.getInt("id_application");
+                String position = rs.getString("position");
+                String status = rs.getString("value");
+
+                String name = rs.getString("name");
+                String surname = rs.getString("surname");
+                boolean deleted = rs.getBoolean("deleted");
+
+                application = new Application.ApplicationBuilder().applicationId(applicationId).applicantName(name)
+                        .applicantSurname(surname).vacancyPosition(position).status(status).deleted(deleted).build();
+                applications.add(application);
+            }
+            return applications;
+        } catch (SQLException e) {
+            log.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+            try { rs.close(); } catch(SQLException se) { log.info("SQLException"); }
+        }
+        return null;
+    }
+
+    public void deleteApplicationsOfVacancy(int vacancyId) {
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_DELETE_APPLICATIONS_OF_VACANCY);
+            stmt.setInt(1, vacancyId);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            log.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+        }
+    }
+
+
 }
