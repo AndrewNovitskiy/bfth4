@@ -4,6 +4,7 @@
 <head>
     <title>New Message  for ${requestScope.name} ${requestScope.surname}</title>
     <link rel="stylesheet" href="../style/topbar_style.css">
+    <link rel="stylesheet" href="../style/control_element_style.css">
 </head>
 <body>
 <%@include file="../include/controlbar.jsp"%>
@@ -21,7 +22,13 @@
     </label><br>
     <input type="hidden" name="recipient" value="${requestScope.id}">
     <input type="hidden" name="command" value="send_message">
-    <input type="submit" name="submit" value="Send">
+
+    <div class="control_elem_container">
+        <span>
+            <input type="submit" name="submit" value="Send" class="control_elem">
+        </span>
+    </div>
+
 </form>
 </body>
 </html>

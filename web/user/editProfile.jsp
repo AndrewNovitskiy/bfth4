@@ -48,7 +48,7 @@
 
             <div class="control_elem_container">
                 <span>
-                    <input type="submit" name="submit" class="control_elem" value="UPDATE Info" />
+                    <input type="submit" name="submit" class="control_elem button" value="UPDATE Info" />
                 </span>
             </div>
 

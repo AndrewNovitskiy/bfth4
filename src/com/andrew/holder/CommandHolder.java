@@ -56,6 +56,8 @@ public class CommandHolder {
         commands.put("restore_application", new RestoreApplicationCommand());
         commands.put("deleted_applications", new TakeDeletedApplicationsCommand());
 
+        commands.put("change_status", new ChangeStatusCommand());
+
 
         //////////////////
 

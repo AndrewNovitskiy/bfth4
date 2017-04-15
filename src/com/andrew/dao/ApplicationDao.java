@@ -55,6 +55,8 @@ public class ApplicationDao {
             "                     LEFT JOIN application_status ON application.id_status = application_status.id_status WHERE application.deleted = 1;";
 
 
+    private static final String SQL_UPDATE_APPLICATION_STATUS = "UPDATE application SET application.id_status = ? WHERE application.id_application = ?;";
+
 
     private ConnectionPool pool;
 
@@ -241,5 +243,20 @@ public class ApplicationDao {
             try { rs.close(); } catch(SQLException se) { log.info("SQLException"); }
         }
         return null;
+    }
+
+    public void changeStatus(int applicationId, int statusId) {
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_UPDATE_APPLICATION_STATUS);
+            stmt.setInt(1, statusId);
+            stmt.setInt(2, applicationId);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            log.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+        }
     }
 }

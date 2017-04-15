@@ -35,12 +35,6 @@ input {
     font-family: OpenSans;
 }
 
-
-[type="submit"] {
-    background-color: #F5F5F5;
-}
-
-
 .control_elem {
     margin-left: 25px;
 }

@@ -4,6 +4,7 @@
 <head>
     <title>New Vacancy</title>
     <link rel="stylesheet" href="../style/topbar_style.css">
+    <link rel="stylesheet" href="../style/control_element_style.css">
 </head>
 <body>
 <%@include file="../include/controlbar.jsp"%>
@@ -27,7 +28,12 @@
     <textarea name="info" maxlength="800" required placeholder="Details about vacancy ..." rows="20" cols="50"></textarea>
 </label><br>
     <input type="hidden" name="command" value="new_vacancy">
-    <input type="submit" name="submit" value="Add Vacancy">
+
+    <div class="control_elem_container">
+        <span>
+            <input type="submit" name="submit" value="Add Vacancy" class="control_elem">
+        </span>
+    </div>
 </form>
 </body>
 </html>

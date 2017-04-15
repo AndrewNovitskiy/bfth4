@@ -4,6 +4,7 @@
 <head>
     <title>Update Vacancy ${requestScope.position}</title>
     <link rel="stylesheet" href="../style/topbar_style.css">
+    <link rel="stylesheet" href="../style/control_element_style.css">
 </head>
 <body>
 <%@include file="../include/controlbar.jsp"%>
@@ -28,7 +29,13 @@
     </label><br>
     <input type="hidden" name="id" value="${requestScope.id}">
     <input type="hidden" name="command" value="update_vacancy">
-    <input type="submit" name="submit" value="Update Vacancy">
+
+    <div class="control_elem_container">
+        <span>
+            <input type="submit" name="submit" value="Update Vacancy" class="control_elem">
+        </span>
+    </div>
+
 </form>
 </body>
 </html>
