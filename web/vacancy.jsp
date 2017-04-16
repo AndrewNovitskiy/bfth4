@@ -36,12 +36,30 @@
             
             <c:choose>
                 <c:when test="${requestScope.vacancy.deleted}">
-                    <span class="deleted">You can not respond to this vacancy</span>
+                    <span class="notice">You can not respond to this vacancy</span>
+                </c:when>
+                <c:when test="${empty sessionScope.user}">
+                    <span class="notice">Log in to respond to this vacancy</span>
+                </c:when>
+                <c:when test="${requestScope.app_exists}">
+                    <div class="control_elem_container">
+                        <span>
+                            <form action="${pageContext.request.contextPath}/controller" name='delete_application' method="post">
+                                <input type="hidden" name="vacancyId" value="${requestScope.vacancy.vacancyId}">
+                                <input type="hidden" name="command" value="delete_application">
+                                <input type="submit" name="submit" value="DETETE Respond ..." class="control_elem">
+                            </form>
+                        </span>
+                    </div>
                 </c:when>
                 <c:otherwise>
                     <div class="control_elem_container">
                         <span>
-                            <a href="user/editProfile.jsp" class="control_elem">Resp</a>
+                            <form action="${pageContext.request.contextPath}/controller" name='new_application' method="post">
+                                <input type="hidden" name="vacancyId" value="${requestScope.vacancy.vacancyId}">
+                                <input type="hidden" name="command" value="new_application">
+                                <input type="submit" name="submit" value="To Respond ..." class="control_elem">
+                            </form>
                         </span>
                     </div>
                 </c:otherwise>

@@ -33,7 +33,7 @@ public class CommandHolder {
         commands.put("applications_admin", new TakeAllApplicationsCommand());
 
         commands.put("user", new TakeUserCommand());
-        commands.put("vacancy", new TakeVacancyCommand());
+        commands.put("vacancy", new TakeVacancyByAdminCommand());
         commands.put("message", new TakeMessageCommand());
         commands.put("application", new TakeApplicationCommand());
 
@@ -53,7 +53,7 @@ public class CommandHolder {
         commands.put("restore_vacancy", new RestoreVacancyCommand());
         commands.put("deleted_vacancies", new TakeDeletedVacanciesCommand());
 
-        commands.put("delete_application", new DeleteApplicationCommand());
+        commands.put("delete_application_admin", new DeleteApplicationByAdminCommand());
         commands.put("restore_application", new RestoreApplicationCommand());
         commands.put("deleted_applications", new TakeDeletedApplicationsCommand());
 
@@ -68,12 +68,15 @@ public class CommandHolder {
 
         commands.put("profile", new ProfileCommand());
 
-        //commands.put("edit_profile", new UpdateUserCommand());
         commands.put("update_profile", new UpdateUserCommand());
 
         commands.put("my_messages", new TakeUserMessagesCommand());
         commands.put("my_message", new TakeUserMessageCommand());
         commands.put("my_applications", new TakeUserApplicationsCommand());
+
+        commands.put("new_application", new NewApplicationCommand());
+
+        commands.put("delete_application", new DeleteApplicationCommand());
 
 
         ///////////////////
@@ -81,6 +84,7 @@ public class CommandHolder {
 
         commands.put("vacancies", new TakeAllVacanciesWithInfoCommand());
         commands.put("registration", new RegistrationCommand());
+        commands.put("view_vacancy", new TakeVacancyCommand());
 
 
 

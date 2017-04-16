@@ -16,12 +16,12 @@ import static com.andrew.util.CommandPathConstant.ADMIN_ALL_APPLICATIONS_COMMAND
 /**
  * Created by Andrew on 12.04.2017.
  */
-public class DeleteApplicationCommand implements Command {
+public class DeleteApplicationByAdminCommand implements Command {
 
-    private static final Logger LOG = Logger.getLogger(DeleteApplicationCommand.class);
+    private static final Logger LOG = Logger.getLogger(DeleteApplicationByAdminCommand.class);
     private ApplicationDao dao;
 
-    public DeleteApplicationCommand() {
+    public DeleteApplicationByAdminCommand() {
         super();
         dao = new ApplicationDao();
     }

@@ -66,9 +66,9 @@
         </form>
     </c:when>
     <c:otherwise>
-        <form id="delete_form" action="${pageContext.request.contextPath}/controller" name='delete_application' method="post">
+        <form id="delete_form" action="${pageContext.request.contextPath}/controller" name='delete_application_admin' method="post">
             <input type="hidden" name="id" value="${requestScope.application.applicationId}">
-            <input type="hidden" name="command" value="delete_application">
+            <input type="hidden" name="command" value="delete_application_admin">
         </form>
     </c:otherwise>
 </c:choose>

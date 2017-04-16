@@ -44,9 +44,14 @@ public class ApplicationDao {
             "                     LEFT JOIN application_status ON application.id_status = application_status.id_status " +
             "WHERE application.id_vacancy = ? AND application.deleted = 0;";
 
-    private static final String SQL_DELETE_APPLICATION = "UPDATE application SET application.deleted = 1 WHERE application.id_application = ?;";
-    private static final String SQL_RESTORE_APPLICATION = "UPDATE application SET application.deleted = 0 WHERE application.id_application = ?;";
+    private static final String SQL_DELETE_APPLICATION_BY_ID = "UPDATE application SET application.deleted = 1 WHERE application.id_application = ?;";
 
+    private static final String SQL_DELETE_APPLICATION = "UPDATE application SET application.deleted = 1 WHERE application.id_applicant = ? AND application.id_vacancy = ?;";
+
+
+    private static final String SQL_RESTORE_APPLICATION_BY_ID = "UPDATE application SET application.deleted = 0 WHERE application.id_application = ?;";
+
+    private static final String SQL_RESTORE_APPLICATION = "UPDATE application SET application.deleted = 0 WHERE application.id_applicant = ? AND application.id_vacancy = ?;";
 
 
     private static final String SQL_GET_DELETED_APPLICATIONS = "SELECT application.id_application, applicant.name, applicant.surname, vacancy.position, application_status.value, application.deleted\n" +
@@ -66,6 +71,13 @@ public class ApplicationDao {
 
 
     private static final String SQL_DELETE_APPLICATIONS_OF_VACANCY = "UPDATE application SET application.deleted = 1 WHERE application.id_vacancy = ?;";
+
+    private static final String SQL_PUT_APPLICATION = "INSERT INTO application (id_application, id_applicant, id_vacancy, id_status, deleted) VALUES (NULL, ?, ?, 1, 0);";
+
+    private static final String SQL_CHECK_EXISTENCE_AND_ACTIVITY_OF_APPLICATOIN = "SELECT application.id_application FROM application WHERE id_applicant = ? AND id_vacancy = ? AND deleted = 0;";
+
+    private static final String SQL_CHECK_EXISTENCE_OF_APPLICATOIN = "SELECT application.id_application FROM application WHERE id_applicant = ? AND id_vacancy = ?;";
+
 
 
     private ConnectionPool pool;
@@ -202,7 +214,7 @@ public class ApplicationDao {
     public void deleteApplication(int applicationId) {
         try {
             conn = pool.getConnection();
-            stmt = conn.prepareStatement(SQL_DELETE_APPLICATION);
+            stmt = conn.prepareStatement(SQL_DELETE_APPLICATION_BY_ID);
             stmt.setInt(1, applicationId);
             stmt.executeUpdate();
 
@@ -216,7 +228,7 @@ public class ApplicationDao {
     public void restoreApplication(int applicationId) {
         try {
             conn = pool.getConnection();
-            stmt = conn.prepareStatement(SQL_RESTORE_APPLICATION);
+            stmt = conn.prepareStatement(SQL_RESTORE_APPLICATION_BY_ID);
             stmt.setInt(1, applicationId);
             stmt.executeUpdate();
 
@@ -318,4 +330,92 @@ public class ApplicationDao {
     }
 
 
+    public void newApplication(int idApplicant, Integer vacancyId) {
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_PUT_APPLICATION);
+            stmt.setInt(1, idApplicant);
+            stmt.setInt(2, vacancyId);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            log.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+        }
+    }
+
+    public boolean applicationExistsAndIsActive(int idApplicant, Integer vacancyId) {
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_CHECK_EXISTENCE_AND_ACTIVITY_OF_APPLICATOIN);
+            stmt.setInt(1, idApplicant);
+            stmt.setInt(2, vacancyId);
+            rs = stmt.executeQuery();
+
+            if(rs.next()){
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            log.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+        }
+        return false;
+    }
+
+    public boolean applicationExists(int idApplicant, Integer vacancyId) {
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_CHECK_EXISTENCE_OF_APPLICATOIN);
+            stmt.setInt(1, idApplicant);
+            stmt.setInt(2, vacancyId);
+            rs = stmt.executeQuery();
+
+            if(rs.next()){
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            log.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+        }
+        return false;
+    }
+
+    public void restoreApplication(int applicantId, int vacancyId) {
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_RESTORE_APPLICATION);
+            stmt.setInt(1, applicantId);
+            stmt.setInt(2, vacancyId);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            log.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+        }
+    }
+
+    public void deleteApplication(int applicantId, int vacancyId) {
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_DELETE_APPLICATION);
+            stmt.setInt(1, applicantId);
+            stmt.setInt(2, vacancyId);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            log.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+        }
+    }
 }
