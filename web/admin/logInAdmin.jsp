@@ -8,7 +8,7 @@
 Hello, unnamed admin!
 <a href="/index.jsp" title="index">index.jsp</a>
 <br>
-<form action="${pageContext.request.contextPath}/controller" name='log_in_admin' method="post">
+<form action="${pageContext.request.contextPath}/do" name='log_in_admin' method="post">
     <label>
         login
         <input type="text" name="login">

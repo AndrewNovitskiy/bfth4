@@ -21,13 +21,13 @@
 
 <div class="control_elem_container">
     <span>
-        <a href="${pageContext.request.contextPath}/controller?command=usapps&id=${requestScope.user.idApplicant}&name=${requestScope.user.name}&surname=${requestScope.user.surname}" class="control_elem">Apps Of User</a>
+        <a href="${pageContext.request.contextPath}/do?command=usapps&id=${requestScope.user.idApplicant}&name=${requestScope.user.name}&surname=${requestScope.user.surname}" class="control_elem">Apps Of User</a>
 </span>
     <span>
-        <a href="${pageContext.request.contextPath}/controller?command=usmess&id=${requestScope.user.idApplicant}&name=${requestScope.user.name}&surname=${requestScope.user.surname}" class="control_elem">Messages for User</a>
+        <a href="${pageContext.request.contextPath}/do?command=usmess&id=${requestScope.user.idApplicant}&name=${requestScope.user.name}&surname=${requestScope.user.surname}" class="control_elem">Messages for User</a>
 </span>
     <span>
-        <a href="${pageContext.request.contextPath}/controller?command=new_message&id=${requestScope.user.idApplicant}&name=${requestScope.user.name}&surname=${requestScope.user.surname}" class="control_elem">Write</a>
+        <a href="${pageContext.request.contextPath}/do?command=new_message&id=${requestScope.user.idApplicant}&name=${requestScope.user.name}&surname=${requestScope.user.surname}" class="control_elem">Write</a>
 </span>
 </div>
 

@@ -11,7 +11,7 @@
 <a href="/index.jsp" title="index">index.jsp</a>
 <br>
 <h1>Registration</h1>
-<form action="${pageContext.request.contextPath}/controller" name='registration' onSubmit="return formValidation();" method="post">
+<form action="${pageContext.request.contextPath}/do" name='registration' onSubmit="return formValidation();" method="post">
     <ul>
         <li><label>Login:</label></li>
         <li><input type="text" name="login" size="20" /></li>

@@ -37,7 +37,7 @@
                 <th>${vacancy.position}</th>
                 <th>${vacancy.experience}</th>
                 <th>${vacancy.salary}</th>
-                <th><a href="${pageContext.request.contextPath}/controller?command=vacancy&id=${vacancy.vacancyId}">Details...</a></th>
+                <th><a href="${pageContext.request.contextPath}/do?command=vacancy&id=${vacancy.vacancyId}">Details...</a></th>
             </tr>
         </c:forEach>
     </c:if>
@@ -48,7 +48,7 @@
     <a href="/admin/newVacancy.jsp" title="Add New Vacancy" class="control_elem">Add New Vacancy</a>
 </span>
 <span>
-    <a href="${pageContext.request.contextPath}/controller?command=deleted_vacancies" class="control_elem">DELETED Vacancies</a>
+    <a href="${pageContext.request.contextPath}/do?command=deleted_vacancies" class="control_elem">DELETED Vacancies</a>
 </span>
     </div>
 </body>

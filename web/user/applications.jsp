@@ -36,7 +36,7 @@
                             <th>${application.vacancyPosition}</th>
                             <th>${application.status}</th>
                             <th>
-                                <a href="${pageContext.request.contextPath}/controller?command=view_vacancy&id=${application.vacancyId}">Details</a>
+                                <a href="${pageContext.request.contextPath}/do?command=view_vacancy&id=${application.vacancyId}">Details</a>
                             </th>
                         </tr>
                     </c:forEach>

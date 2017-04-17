@@ -47,7 +47,7 @@
                             <th>${message.title}</th>
                             <th>${message.dateTime}</th>
                             <th>
-                                <form action="${pageContext.request.contextPath}/controller" name='my_message' method="post">
+                                <form action="${pageContext.request.contextPath}/do" name='my_message' method="post">
                                     <input type="hidden" name="id" value="${message.messageId}">
                                     <input type="hidden" name="command" value="my_message">
                                     <input type="submit" name="submit" value="Details">

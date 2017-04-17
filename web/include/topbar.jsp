@@ -15,7 +15,7 @@
     <c:choose>
         <c:when test="${not empty sessionScope.user}">
             <div id="logout" class="topbarref">
-                <a href="${pageContext.request.contextPath}/controller?command=log_out" class="topbartext">log out</a>
+                <a href="${pageContext.request.contextPath}/do?command=log_out" class="topbartext">log out</a>
             </div>
         </c:when>
         <c:otherwise>

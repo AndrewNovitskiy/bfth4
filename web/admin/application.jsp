@@ -18,7 +18,7 @@
 <p>${requestScope.application.status}</p>
 
 
-<form action="${pageContext.request.contextPath}/controller" name='change_status' method="post">
+<form action="${pageContext.request.contextPath}/do" name='change_status' method="post">
     <select size="1" name="app_status">
         <option disabled>Select new Status</option>
         <option value="1">Waiting for a call</option>
@@ -38,10 +38,10 @@
 
 <div class="control_elem_container">
     <span>
-        <a href="${pageContext.request.contextPath}/controller?command=user&id=${requestScope.application.applicantId}" class="control_elem">To User Page</a>
+        <a href="${pageContext.request.contextPath}/do?command=user&id=${requestScope.application.applicantId}" class="control_elem">To User Page</a>
     </span>
     <span>
-        <a href="${pageContext.request.contextPath}/controller?command=vacancy&id=${requestScope.application.vacancyId}" class="control_elem">To Vacancy Page</a>
+        <a href="${pageContext.request.contextPath}/do?command=vacancy&id=${requestScope.application.vacancyId}" class="control_elem">To Vacancy Page</a>
     </span>
     <span>
         <c:choose>
@@ -60,13 +60,13 @@
 
 <c:choose>
     <c:when test="${requestScope.application.deleted}">
-        <form id="restore_form" action="${pageContext.request.contextPath}/controller" name='restore_application' method="post">
+        <form id="restore_form" action="${pageContext.request.contextPath}/do" name='restore_application' method="post">
             <input type="hidden" name="id" value="${requestScope.application.applicationId}">
             <input type="hidden" name="command" value="restore_application">
         </form>
     </c:when>
     <c:otherwise>
-        <form id="delete_form" action="${pageContext.request.contextPath}/controller" name='delete_application_admin' method="post">
+        <form id="delete_form" action="${pageContext.request.contextPath}/do" name='delete_application_admin' method="post">
             <input type="hidden" name="id" value="${requestScope.application.applicationId}">
             <input type="hidden" name="command" value="delete_application_admin">
         </form>

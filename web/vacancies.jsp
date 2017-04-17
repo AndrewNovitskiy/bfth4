@@ -29,7 +29,7 @@
                 <c:forEach items="${requestScope.vacancies}" var="vacancy">
                     <div class="vacancyblock">
                         <div>
-                            <span><a href="${pageContext.request.contextPath}/controller?command=view_vacancy&id=${vacancy.vacancyId}" class="vacancytitle">${vacancy.position}</a></span>
+                            <span><a href="${pageContext.request.contextPath}/do?command=view_vacancy&id=${vacancy.vacancyId}" class="vacancytitle">${vacancy.position}</a></span>
                             <span class="vacancydate">Date: ${vacancy.dateTime}</span>
                         </div>
                         <hr>
@@ -39,7 +39,7 @@
                         <p class="vacancyinfo">
                                 ${vacancy.info}
                         </p>
-                        <span><a href="${pageContext.request.contextPath}/controller?command=view_vacancy&id=${vacancy.vacancyId}" class="vacancymoreinfo">More Info...</a></span>
+                        <span><a href="${pageContext.request.contextPath}/do?command=view_vacancy&id=${vacancy.vacancyId}" class="vacancymoreinfo">More Info...</a></span>
                     </div>
                 </c:forEach>
             </c:if>

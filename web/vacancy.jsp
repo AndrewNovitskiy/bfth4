@@ -44,7 +44,7 @@
                 <c:when test="${requestScope.app_exists}">
                     <div class="control_elem_container">
                         <span>
-                            <form action="${pageContext.request.contextPath}/controller" name='delete_application' method="post">
+                            <form action="${pageContext.request.contextPath}/do" name='delete_application' method="post">
                                 <input type="hidden" name="vacancyId" value="${requestScope.vacancy.vacancyId}">
                                 <input type="hidden" name="command" value="delete_application">
                                 <input type="submit" name="submit" value="DETETE Respond ..." class="control_elem">
@@ -55,7 +55,7 @@
                 <c:otherwise>
                     <div class="control_elem_container">
                         <span>
-                            <form action="${pageContext.request.contextPath}/controller" name='new_application' method="post">
+                            <form action="${pageContext.request.contextPath}/do" name='new_application' method="post">
                                 <input type="hidden" name="vacancyId" value="${requestScope.vacancy.vacancyId}">
                                 <input type="hidden" name="command" value="new_application">
                                 <input type="submit" name="submit" value="To Respond ..." class="control_elem">

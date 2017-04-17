@@ -9,7 +9,7 @@
 <body>
 <%@include file="../include/controlbar.jsp"%>
 <h2>New Message  for ${requestScope.name} ${requestScope.surname}</h2>
-<form action="${pageContext.request.contextPath}/controller" name="send_message" method="post">
+<form action="${pageContext.request.contextPath}/do" name="send_message" method="post">
 
     <label>
         Title<br>

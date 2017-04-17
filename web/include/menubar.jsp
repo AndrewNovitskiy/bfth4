@@ -7,17 +7,17 @@
     </div>
     <c:if test="${not empty sessionScope.user}">
         <div class="menubarbutton">
-            <a href="${pageContext.request.contextPath}/controller?command=my_messages" class="menubartext">My Messages</a>
+            <a href="${pageContext.request.contextPath}/do?command=my_messages" class="menubartext">My Messages</a>
         </div>
         <div class="menubarbutton">
-            <a href="${pageContext.request.contextPath}/controller?command=my_applications" class="menubartext">My Responses</a>
+            <a href="${pageContext.request.contextPath}/do?command=my_applications" class="menubartext">My Responses</a>
         </div>
         <div class="menubarbutton">
-            <a href="${pageContext.request.contextPath}/controller?command=profile" class="menubartext">My Profile</a>
+            <a href="${pageContext.request.contextPath}/do?command=profile" class="menubartext">My Profile</a>
         </div>
     </c:if>
     <div class="menubarbutton">
-        <a href="${pageContext.request.contextPath}/controller?command=vacancies" class="menubartext">All Vacancies</a>
+        <a href="${pageContext.request.contextPath}/do?command=vacancies" class="menubartext">All Vacancies</a>
     </div>
 
 </div>

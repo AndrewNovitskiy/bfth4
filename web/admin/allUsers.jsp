@@ -40,7 +40,7 @@
             <th>${user.surname}</th>
             <th>${user.telephone}</th>
             <th>${user.email}</th>
-            <th><a href="${pageContext.request.contextPath}/controller?command=user&id=${user.idApplicant}">Details...</a><br></th>
+            <th><a href="${pageContext.request.contextPath}/do?command=user&id=${user.idApplicant}">Details...</a><br></th>
         </tr>
     </c:forEach>
 </c:if>

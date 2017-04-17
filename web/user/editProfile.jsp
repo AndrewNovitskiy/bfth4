@@ -21,7 +21,7 @@
 
 <h2>Editing info ...</h2>
 
-        <form action="${pageContext.request.contextPath}/controller" name='update_profile' method="post">
+        <form action="${pageContext.request.contextPath}/do" name='update_profile' method="post">
 
                 <label>Name:</label><br>
                 <input type="text" name="name" size="20" />

@@ -9,7 +9,7 @@
 <a href="/index.jsp" title="index">index.jsp</a>
 <br>
 <div class="block">
-    <form class="vsio" action="${pageContext.request.contextPath}/controller" name='log_in' method="post">
+    <form class="vsio" action="${pageContext.request.contextPath}/do" name='log_in' method="post">
         <label>
             login
             <input type="text" name="login">

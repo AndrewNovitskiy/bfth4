@@ -18,7 +18,7 @@
 
 <div class="control_elem_container">
     <span>
-        <a href="${pageContext.request.contextPath}/controller?command=user&id=${requestScope.message.recipientId}" class="control_elem">User</a>
+        <a href="${pageContext.request.contextPath}/do?command=user&id=${requestScope.message.recipientId}" class="control_elem">User</a>
     </span>
 </div>
 

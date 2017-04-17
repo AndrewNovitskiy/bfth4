@@ -10,7 +10,7 @@
   </head>
   <body>
 
-  <a href="${pageContext.request.contextPath}/controller?command=vacancies"><fmt:message key="index.label.vacancies" /></a>
+  <a href="${pageContext.request.contextPath}/do?command=vacancies"><fmt:message key="index.label.vacancies" /></a>
   <br>
   <c:if test="${not empty sessionScope.user}">
       <p>Hi, ${sessionScope.user.name}</p>
@@ -20,7 +20,7 @@
       <a href="/registration.jsp" title="registration"><fmt:message key="index.label.reg" /></a>
 
   <c:if test="${not empty sessionScope.user}">
-      <form action="${pageContext.request.contextPath}/controller" name='log_out' method="post">
+      <form action="${pageContext.request.contextPath}/do" name='log_out' method="post">
             <input type="submit" name="command" value="log_out" title="Log OUT">
       </form>
   </c:if>
