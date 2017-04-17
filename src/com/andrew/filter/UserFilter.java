@@ -10,9 +10,6 @@ import java.io.IOException;
 import static com.andrew.util.AttributeConstant.USER;
 import static com.andrew.util.JspPathConstant.LOG_IN_JSP;
 
-/**
- * Created by Andrew on 06.04.2017.
- */
 public class UserFilter implements Filter {
 
 
@@ -25,6 +22,7 @@ public class UserFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpSession session = ((HttpServletRequest) servletRequest).getSession();
         User user = (User) session.getAttribute(USER);
+
         if(user != null) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {

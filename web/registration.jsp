@@ -7,6 +7,7 @@
     <script src="script/registration_form_validation.js"></script>
 </head>
 <body>
+
 <a href="/index.jsp" title="index">index.jsp</a>
 <br>
 <h1>Registration</h1>
@@ -47,5 +48,6 @@
         <li><input type="submit" name="command" value="registration" /></li>
     </ul>
 </form>
+
 </body>
 </html>

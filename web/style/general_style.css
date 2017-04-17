@@ -27,12 +27,12 @@ h2 {
 }
 
 img {
-    margin-bottom: 3px;
+    height: auto;
+    width: 100%;
 }
 
 .photo {
-    height: auto;
-    width: 100%;
+    margin-bottom: 3px;
 }
 
 .sidebarelem {
@@ -67,6 +67,19 @@ img {
     color: #fff;
     background-image: url(resources/atl.jpg);
 }
+
+.atlsoft {
+    color: #fff;
+    text-decoration: none;
+}
+.atlsoft:active {
+    color: #fff;
+}
+
+.atlsoft:visited {
+    color: #fff;
+}
+
 #mainblock {
     background: #F5F5F5;
 }

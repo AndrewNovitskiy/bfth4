@@ -1,3 +1,7 @@
+body {
+    font: 10pt Arial, Helvetica, sans-serif;
+}
+
 h1 {
     margin-left: 70px;
 }
@@ -46,6 +50,7 @@ p {
      font-weight: bold;
  }
 
- body {
+body {
      background-image: url(resources/a.jpg);
  }
+
