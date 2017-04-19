@@ -77,6 +77,8 @@ public class CommandHolder {
         commands.put("new_application", new NewApplicationCommand());
 
         commands.put("delete_application", new DeleteApplicationCommand());
+        commands.put("change_language", new LanguageChangeCommand());
+
 
 
         ///////////////////

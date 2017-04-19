@@ -4,7 +4,7 @@
 <head>
     <title>Registration</title>
     <link rel='stylesheet' href='style/registration_style.css' type='text/css' />
-    <script src="script/registration_form_validation.js"></script>
+
 </head>
 <body>
 

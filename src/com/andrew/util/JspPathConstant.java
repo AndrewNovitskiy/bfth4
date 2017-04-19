@@ -1,8 +1,5 @@
 package com.andrew.util;
 
-/**
- * Created by Andrew on 04.04.2017.
- */
 public class JspPathConstant {
 
     public static final String LOG_IN_ADMIN_JSP = "/admin/logInAdmin.jsp";
