@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static com.andrew.util.JspPathConstant.ADMIN_ALL_DELETED_VACANCY_APPLICATIONS_JSP;
+import static com.andrew.constant.JspPathConstant.ADMIN_ALL_DELETED_VACANCY_APPLICATIONS_JSP;
 
 /**
  * Created by Andrew on 15.04.2017.

@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static com.andrew.util.AttributeConstant.USER;
-import static com.andrew.util.CommandPathConstant.APPLICATIONS_COMMAND;
+import static com.andrew.constant.AttributeConstant.USER;
+import static com.andrew.constant.CommandPathConstant.APPLICATIONS_COMMAND;
 
 /**
  * Created by Andrew on 16.04.2017.

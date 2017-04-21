@@ -1,8 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${not empty sessionScope.language ? sessionScope.language : 'en'}" />
+<fmt:setBundle basename="com.andrew.i18n.text" />
 <html>
 <head>
-    <title>My Profile</title>
+    <title><fmt:message key="profile" /></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="style/topbar_style.css">
     <link rel="stylesheet" href="style/menubar_style.css">
@@ -22,7 +25,7 @@
 
             <div>
                 <c:if test="${requestScope.vacancy.deleted}">
-                    <h2 class="deleted">The vacancy is not up to date!</h2>
+                    <h2 class="deleted"><fmt:message key="not.up.to.date" /></h2>
                 </c:if>
                 <h2>${requestScope.vacancy.position}</h2>
                 <label>Date : </label> <span>${requestScope.vacancy.dateTime}</span><br><br>
@@ -36,10 +39,10 @@
             
             <c:choose>
                 <c:when test="${requestScope.vacancy.deleted}">
-                    <span class="notice">You can not respond to this vacancy</span>
+                    <span class="notice"><fmt:message key="can.not.respond" /></span>
                 </c:when>
                 <c:when test="${empty sessionScope.user}">
-                    <span class="notice">Log in to respond to this vacancy</span>
+                    <span class="notice"><fmt:message key="log.to.respond" /></span>
                 </c:when>
                 <c:when test="${requestScope.app_exists}">
                     <div class="control_elem_container">
@@ -47,7 +50,7 @@
                             <form action="${pageContext.request.contextPath}/do" name='delete_application' method="post">
                                 <input type="hidden" name="vacancyId" value="${requestScope.vacancy.vacancyId}">
                                 <input type="hidden" name="command" value="delete_application">
-                                <input type="submit" name="submit" value="DETETE Respond ..." class="control_elem">
+                                <input type="submit" name="submit" value="<fmt:message key="del.respond" />" class="control_elem">
                             </form>
                         </span>
                     </div>
@@ -58,7 +61,7 @@
                             <form action="${pageContext.request.contextPath}/do" name='new_application' method="post">
                                 <input type="hidden" name="vacancyId" value="${requestScope.vacancy.vacancyId}">
                                 <input type="hidden" name="command" value="new_application">
-                                <input type="submit" name="submit" value="To Respond ..." class="control_elem">
+                                <input type="submit" name="submit" value="<fmt:message key="to.respond" />" class="control_elem">
                             </form>
                         </span>
                     </div>

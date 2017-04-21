@@ -1,8 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<fmt:setLocale value="${not empty sessionScope.language ? sessionScope.language : 'en'}" />
+<fmt:setBundle basename="com.andrew.i18n.text" />
 <html>
 <head>
-    <title>Message</title>
+    <title><fmt:message key="message" /></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="../style/topbar_style.css">
     <link rel="stylesheet" href="../style/menubar_style.css">
@@ -22,8 +25,8 @@
 
             <div>
                 <h2>${requestScope.message.title}</h2>
-                <label>Date : </label> <span>${requestScope.message.dateTime}</span><br><br>
-                <label>Sender : </label> <span>${requestScope.message.senderLogin}</span><br><br>
+                <label><fmt:message key="date.time" /> : </label> <span>${requestScope.message.dateTime}</span><br><br>
+                <label><fmt:message key="sender" /> : </label> <span>${requestScope.message.senderLogin}</span><br><br>
                 <hr>
                 <span>${requestScope.message.content}</span><br><br>
             </div>

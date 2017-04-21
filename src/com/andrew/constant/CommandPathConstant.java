@@ -1,4 +1,4 @@
-package com.andrew.util;
+package com.andrew.constant;
 
 public class CommandPathConstant {
     public static final String PROFILE_COMMAND = "/user/do?command=profile";

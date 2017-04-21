@@ -15,8 +15,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static com.andrew.util.AttributeConstant.USER;
-import static com.andrew.util.JspPathConstant.USER_MESSAGES_JSP;
+import static com.andrew.constant.AttributeConstant.USER;
+import static com.andrew.constant.JspPathConstant.USER_MESSAGES_JSP;
 
 /**
  * Created by Andrew on 14.04.2017.

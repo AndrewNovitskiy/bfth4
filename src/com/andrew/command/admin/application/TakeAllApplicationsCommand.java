@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
-import static com.andrew.util.JspPathConstant.ADMIN_ALL_APPLICATIONS_JSP;
+import static com.andrew.constant.JspPathConstant.ADMIN_ALL_APPLICATIONS_JSP;
 
 /**
  * Created by Andrew on 03.04.2017.

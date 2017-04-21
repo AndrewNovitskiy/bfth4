@@ -41,7 +41,7 @@
                 <th>${vacancy.experience}</th>
                 <th>${vacancy.salary}</th>
                 <th>${vacancy.deleted}</th>
-                <th><a href="${pageContext.request.contextPath}/do?command=vacancy&id=${vacancy.vacancyId}">Details...</a></th>
+                <th><a href="${pageContext.request.contextPath}/admin/do?command=vacancy&id=${vacancy.vacancyId}">Details...</a></th>
             </tr>
         </c:forEach>
     </c:if>

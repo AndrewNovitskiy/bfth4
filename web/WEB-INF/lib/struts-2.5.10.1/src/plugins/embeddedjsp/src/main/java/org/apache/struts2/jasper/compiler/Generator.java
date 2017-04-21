@@ -492,14 +492,14 @@ class Generator {
         out.println();
 
         // Static data for getDependants()
-        out.printil("private static java.util.List _jspx_dependants;");
+        out.printil("private static java.constant.List _jspx_dependants;");
         out.println();
         List dependants = pageInfo.getDependants();
         Iterator iter = dependants.iterator();
         if (!dependants.isEmpty()) {
             out.printil("static {");
             out.pushIndent();
-            out.printin("_jspx_dependants = new java.util.ArrayList(");
+            out.printin("_jspx_dependants = new java.constant.ArrayList(");
             out.print("" + dependants.size());
             out.println(");");
             while (iter.hasNext()) {
@@ -2939,10 +2939,10 @@ class Generator {
                         continue;
 
                     if (!aliasSeen) {
-                        out.printin("java.util.HashMap ");
+                        out.printin("java.constant.HashMap ");
                         aliasMapVar = tagHandlerVar + "_aliasMap";
                         out.print(aliasMapVar);
-                        out.println(" = new java.util.HashMap();");
+                        out.println(" = new java.constant.HashMap();");
                         aliasSeen = true;
                     }
                     out.printin(aliasMapVar);
@@ -3589,7 +3589,7 @@ class Generator {
             throws JasperException {
 
         if (tagInfo.hasDynamicAttributes()) {
-            out.printil("private java.util.HashMap _jspx_dynamic_attrs = new java.util.HashMap();");
+            out.printil("private java.constant.HashMap _jspx_dynamic_attrs = new java.constant.HashMap();");
         }
 
         // Declare attributes
@@ -3688,22 +3688,22 @@ class Generator {
 
         if (aliasSeen) {
             out
-                    .printil("public void setJspContext(JspContext ctx, java.util.Map aliasMap) {");
+                    .printil("public void setJspContext(JspContext ctx, java.constant.Map aliasMap) {");
         } else {
             out.printil("public void setJspContext(JspContext ctx) {");
         }
         out.pushIndent();
         out.printil("super.setJspContext(ctx);");
-        out.printil("java.util.ArrayList _jspx_nested = null;");
-        out.printil("java.util.ArrayList _jspx_at_begin = null;");
-        out.printil("java.util.ArrayList _jspx_at_end = null;");
+        out.printil("java.constant.ArrayList _jspx_nested = null;");
+        out.printil("java.constant.ArrayList _jspx_at_begin = null;");
+        out.printil("java.constant.ArrayList _jspx_at_end = null;");
 
         for (int i = 0; i < tagVars.length; i++) {
 
             switch (tagVars[i].getScope()) {
             case VariableInfo.NESTED:
                 if (!nestedSeen) {
-                    out.printil("_jspx_nested = new java.util.ArrayList();");
+                    out.printil("_jspx_nested = new java.constant.ArrayList();");
                     nestedSeen = true;
                 }
                 out.printin("_jspx_nested.add(");
@@ -3711,7 +3711,7 @@ class Generator {
 
             case VariableInfo.AT_BEGIN:
                 if (!atBeginSeen) {
-                    out.printil("_jspx_at_begin = new java.util.ArrayList();");
+                    out.printil("_jspx_at_begin = new java.constant.ArrayList();");
                     atBeginSeen = true;
                 }
                 out.printin("_jspx_at_begin.add(");
@@ -3719,7 +3719,7 @@ class Generator {
 
             case VariableInfo.AT_END:
                 if (!atEndSeen) {
-                    out.printil("_jspx_at_end = new java.util.ArrayList();");
+                    out.printil("_jspx_at_end = new java.constant.ArrayList();");
                     atEndSeen = true;
                 }
                 out.printin("_jspx_at_end.add(");

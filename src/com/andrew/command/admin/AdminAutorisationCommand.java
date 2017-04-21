@@ -14,11 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static com.andrew.util.AttributeConstant.ADMIN;
-import static com.andrew.util.AttributeConstant.FAIL;
-import static com.andrew.util.AttributeConstant.USER;
-import static com.andrew.util.JspPathConstant.ADMIN_CONTROL_PANEL_JSP;
-import static com.andrew.util.JspPathConstant.LOG_IN_ADMIN_JSP;
+import static com.andrew.constant.AttributeConstant.ADMIN;
+import static com.andrew.constant.AttributeConstant.FAIL;
+import static com.andrew.constant.AttributeConstant.USER;
+import static com.andrew.constant.JspPathConstant.ADMIN_CONTROL_PANEL_JSP;
+import static com.andrew.constant.JspPathConstant.LOG_IN_ADMIN_JSP;
 
 /**
  * Created by Andrew on 02.04.2017.

@@ -1,5 +1,8 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${not empty sessionScope.language ? sessionScope.language : 'en'}" />
+<fmt:setBundle basename="com.andrew.i18n.text" />
 <html>
 <head>
     <title>Atlanta-Soft</title>
@@ -22,7 +25,7 @@
 
         <div id="content" class="block">
 
-            <h2>Start Working Now!</h2>
+            <h2><fmt:message key="text1" /></h2>
 
 
             <c:if test="${not empty requestScope.vacancies}">
@@ -30,16 +33,16 @@
                     <div class="vacancyblock">
                         <div>
                             <span><a href="${pageContext.request.contextPath}/do?command=view_vacancy&id=${vacancy.vacancyId}" class="vacancytitle">${vacancy.position}</a></span>
-                            <span class="vacancydate">Date: ${vacancy.dateTime}</span>
+                            <span class="vacancydate"><fmt:message key="date" />: ${vacancy.dateTime}</span>
                         </div>
                         <hr>
-                        <div><span class="vacancyparam">Salary: ${vacancy.salary}$</span></div>
+                        <div><span class="vacancyparam"><fmt:message key="salary" />: ${vacancy.salary}$</span></div>
                         <hr>
-                        <div><span class="vacancyparam">Required experience: ${vacancy.experience} years</span></div>
+                        <div><span class="vacancyparam"><fmt:message key="experience" />: ${vacancy.experience} <fmt:message key="years" /></span></div>
                         <p class="vacancyinfo">
                                 ${vacancy.info}
                         </p>
-                        <span><a href="${pageContext.request.contextPath}/do?command=view_vacancy&id=${vacancy.vacancyId}" class="vacancymoreinfo">More Info...</a></span>
+                        <span><a href="${pageContext.request.contextPath}/do?command=view_vacancy&id=${vacancy.vacancyId}" class="vacancymoreinfo"><fmt:message key="more" /></a></span>
                     </div>
                 </c:forEach>
             </c:if>

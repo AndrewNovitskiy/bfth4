@@ -1,8 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<fmt:setLocale value="${not empty sessionScope.language ? sessionScope.language : 'en'}" />
+<fmt:setBundle basename="com.andrew.i18n.text" />
 <html>
 <head>
-    <title>My Profile</title>
+    <title><fmt:message key="profile" /></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="../style/topbar_style.css">
     <link rel="stylesheet" href="../style/menubar_style.css">
@@ -23,19 +26,19 @@
         <div class="block">
 
             <div>
-                <h2>My Profile</h2>
-                <label>Login : </label> <span>${sessionScope.user.login}</span><br><br>
-                <label>Password : </label> <span>${sessionScope.user.password}</span><br><br>
-                <label>Name : </label> <span>${sessionScope.user.name}</span><br><br>
-                <label>Surname : </label> <span>${sessionScope.user.surname}</span><br><br>
-                <label>Tel : </label> <span>${sessionScope.user.telephone}</span><br><br>
-                <label>Email : </label> <span>${sessionScope.user.email}</span><br><br>
-                <label>Resume : </label> <span>${requestScope.resume}</span><br><br>
+                <h2><fmt:message key="profile" /></h2>
+                <label><fmt:message key="login" /> : </label> <span>${sessionScope.user.login}</span><br><br>
+                <label><fmt:message key="password" /> : </label> <span>${sessionScope.user.password}</span><br><br>
+                <label><fmt:message key="name" /> : </label> <span>${sessionScope.user.name}</span><br><br>
+                <label><fmt:message key="surname" /> : </label> <span>${sessionScope.user.surname}</span><br><br>
+                <label><fmt:message key="phone" /> : </label> <span>${sessionScope.user.telephone}</span><br><br>
+                <label><fmt:message key="email" /> : </label> <span>${sessionScope.user.email}</span><br><br>
+                <label><fmt:message key="resume" /> : </label> <span>${requestScope.resume}</span><br><br>
             </div>
 
             <div class="control_elem_container">
                 <span>
-                    <a href="user/editProfile.jsp" class="control_elem">Edit Information</a>
+                    <a href="/user/editProfile.jsp" class="control_elem"><fmt:message key="edit.profile" /></a>
                 </span>
             </div>
 

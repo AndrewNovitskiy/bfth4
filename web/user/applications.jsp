@@ -1,8 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<fmt:setLocale value="${not empty sessionScope.language ? sessionScope.language : 'en'}" />
+<fmt:setBundle basename="com.andrew.i18n.text" />
 <html>
 <head>
-    <title>My Profile</title>
+    <title><fmt:message key="responses" /></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="../style/topbar_style.css">
     <link rel="stylesheet" href="../style/menubar_style.css">
@@ -20,14 +23,14 @@
         <div class="block">
 
 
-            <h2>My applications</h2>
+            <h2><fmt:message key="responses" /></h2>
             <table border="1">
                 <tr>
                     <th>
-                        Position
+                        <fmt:message key="position" />
                     </th>
                     <th>
-                        Status
+                        <fmt:message key="status" />
                     </th>
                 </tr>
                 <c:if test="${not empty requestScope.applications}">
@@ -36,7 +39,7 @@
                             <th>${application.vacancyPosition}</th>
                             <th>${application.status}</th>
                             <th>
-                                <a href="${pageContext.request.contextPath}/do?command=view_vacancy&id=${application.vacancyId}">Details</a>
+                                <a href="${pageContext.request.contextPath}/do?command=view_vacancy&id=${application.vacancyId}"><fmt:message key="details" /></a>
                             </th>
                         </tr>
                     </c:forEach>

@@ -1,1 +1,1 @@
-<div id="footer">&copy; Andrei Novitsky, 2017</div>
+<div id="footer">&copy; <fmt:message key="an" />, 2017</div>

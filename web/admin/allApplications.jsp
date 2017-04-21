@@ -37,7 +37,7 @@
                 <th>${application.applicantSurname}</th>
                 <th>${application.vacancyPosition}</th>
                 <th>${application.status}</th>
-                <th><a href="${pageContext.request.contextPath}/do?command=application&id=${application.applicationId}">Details...</a></th>
+                <th><a href="${pageContext.request.contextPath}/admin/do?command=application&id=${application.applicationId}">Details...</a></th>
             </tr>
         </c:forEach>
     </c:if>
@@ -45,7 +45,7 @@
 <br>
 <div class="control_elem_container">
 <span>
-    <a href="${pageContext.request.contextPath}/do?command=deleted_applications" class="control_elem">DELETED Applications</a>
+    <a href="${pageContext.request.contextPath}/admin/do?command=deleted_applications" class="control_elem">DELETED Applications</a>
 </span>
 </div>
 </body>

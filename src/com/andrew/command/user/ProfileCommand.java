@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static com.andrew.util.JspPathConstant.PROFILE_JSP;
+import static com.andrew.constant.JspPathConstant.USER_PROFILE_JSP;
 
 /**
  * Created by Andrew on 10.04.2017.
@@ -35,6 +35,6 @@ public class ProfileCommand implements Command {
 
         String resume =  dao.takeResume(user.getIdApplicant());
         request.setAttribute("resume", resume);
-        return new ForwardAction(PROFILE_JSP);
+        return new ForwardAction(USER_PROFILE_JSP);
     }
 }

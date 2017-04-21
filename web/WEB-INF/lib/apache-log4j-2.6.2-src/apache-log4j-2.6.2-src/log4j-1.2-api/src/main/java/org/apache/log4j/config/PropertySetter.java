@@ -80,7 +80,7 @@ public class PropertySetter {
      * <code>prefix</code>.
      *
      * @param obj The object to configure.
-     * @param properties A java.util.Properties containing keys and values.
+     * @param properties A java.constant.Properties containing keys and values.
      * @param prefix Only keys having the specified prefix will be set.
      */
     public static void setProperties(final Object obj, final Properties properties, final String prefix) {

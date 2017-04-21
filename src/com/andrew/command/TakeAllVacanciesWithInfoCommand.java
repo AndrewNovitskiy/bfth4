@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
-import static com.andrew.util.JspPathConstant.VACANCIES_JSP;
+import static com.andrew.constant.JspPathConstant.VACANCIES_JSP;
 
 /**
  * Created by Andrew on 10.04.2017.

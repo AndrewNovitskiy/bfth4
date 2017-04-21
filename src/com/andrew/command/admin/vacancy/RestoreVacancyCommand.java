@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static com.andrew.util.CommandPathConstant.ADMIN_ALL_VACANCIES_COMMAND;
+import static com.andrew.constant.CommandPathConstant.ADMIN_ALL_VACANCIES_COMMAND;
 
 /**
  * Created by Andrew on 12.04.2017.

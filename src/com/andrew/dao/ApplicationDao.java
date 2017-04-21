@@ -78,6 +78,9 @@ public class ApplicationDao {
 
     private static final String SQL_CHECK_EXISTENCE_OF_APPLICATOIN = "SELECT application.id_application FROM application WHERE id_applicant = ? AND id_vacancy = ?;";
 
+    private static final String SQL_GET_STATUS_VALUE = "SELECT application_status.value FROM application_status WHERE application_status.id_status = ?;";
+
+    private static final String SQL_GET_ID_USERS_BY_VACANCY_ID = "SELECT application.id_applicant FROM application WHERE application.id_vacancy = ? AND application.deleted = 0 AND NOT (application.id_status = 4 OR application.id_status = 5);";
 
 
     private ConnectionPool pool;
@@ -417,5 +420,45 @@ public class ApplicationDao {
         } finally {
             closeResources(conn, stmt);
         }
+    }
+
+    public String getStatusValue(int statusId) {
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_GET_STATUS_VALUE);
+            stmt.setInt(1, statusId);
+            rs = stmt.executeQuery();
+
+            if (rs.next()){
+                return rs.getString("value");
+            }
+
+        } catch (SQLException e) {
+            log.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+        }
+        return null;
+    }
+
+    public ArrayList<Integer> getIdUsersByVacancyId(int vacancyId) {
+        ArrayList<Integer> idUsers = new ArrayList<>();
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_GET_ID_USERS_BY_VACANCY_ID);
+            stmt.setInt(1, vacancyId);
+            rs = stmt.executeQuery();
+
+            while (rs.next()){
+                int userId = rs.getInt("id_applicant");
+                idUsers.add(userId);
+            }
+            return idUsers;
+        } catch (SQLException e) {
+            log.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+        }
+        return null;
     }
 }

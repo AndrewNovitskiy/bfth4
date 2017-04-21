@@ -9,7 +9,7 @@
 <body>
 <%@include file="../include/controlbar.jsp"%>
 <h2>Update Vacancy ${requestScope.position}</h2>
-<form action="${pageContext.request.contextPath}/do" name="update_vacancy" method="post">
+<form action="${pageContext.request.contextPath}/admin/do" name="update_vacancy" method="post">
 
     <label>
         Position<br>

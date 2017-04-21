@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static com.andrew.util.JspPathConstant.ADMIN_USER_JSP;
+import static com.andrew.constant.JspPathConstant.ADMIN_USER_JSP;
 
 /**
  * Created by Andrew on 06.04.2017.

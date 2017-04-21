@@ -120,7 +120,7 @@ public class PlexusObjectFactory extends ObjectFactory {
     }
 
     /* (non-Javadoc)
-     * @see com.opensymphony.xwork2.ObjectFactory#buildAction(java.lang.String, java.lang.String, com.opensymphony.xwork2.config.entities.ActionConfig, java.util.Map)
+     * @see com.opensymphony.xwork2.ObjectFactory#buildAction(java.lang.String, java.lang.String, com.opensymphony.xwork2.config.entities.ActionConfig, java.constant.Map)
      */
     public Object buildAction(String actionName, String namespace, ActionConfig config, Map extraContext)
             throws Exception {
@@ -134,7 +134,7 @@ public class PlexusObjectFactory extends ObjectFactory {
     }
 
     /* (non-Javadoc)
-     * @see com.opensymphony.xwork2.ObjectFactory#buildInterceptor(com.opensymphony.xwork2.config.entities.InterceptorConfig, java.util.Map)
+     * @see com.opensymphony.xwork2.ObjectFactory#buildInterceptor(com.opensymphony.xwork2.config.entities.InterceptorConfig, java.constant.Map)
      */
     public Interceptor buildInterceptor(InterceptorConfig interceptorConfig, Map interceptorRefParams)
             throws ConfigurationException {
@@ -180,7 +180,7 @@ public class PlexusObjectFactory extends ObjectFactory {
     }
 
     /* (non-Javadoc)
-     * @see com.opensymphony.xwork2.ObjectFactory#buildResult(com.opensymphony.xwork2.config.entities.ResultConfig, java.util.Map)
+     * @see com.opensymphony.xwork2.ObjectFactory#buildResult(com.opensymphony.xwork2.config.entities.ResultConfig, java.constant.Map)
      */
     public Result buildResult(ResultConfig resultConfig, Map extraContext)
             throws Exception {
@@ -194,7 +194,7 @@ public class PlexusObjectFactory extends ObjectFactory {
     }
 
     /* (non-Javadoc)
-     * @see com.opensymphony.xwork2.ObjectFactory#buildValidator(java.lang.String, java.util.Map, java.util.Map)
+     * @see com.opensymphony.xwork2.ObjectFactory#buildValidator(java.lang.String, java.constant.Map, java.constant.Map)
      */
     public Validator buildValidator(String className, Map params, Map extraContext)
             throws Exception {
@@ -207,7 +207,7 @@ public class PlexusObjectFactory extends ObjectFactory {
     }
 
     /* (non-Javadoc)
-     * @see com.opensymphony.xwork2.ObjectFactory#buildBean(java.lang.Class, java.util.Map)
+     * @see com.opensymphony.xwork2.ObjectFactory#buildBean(java.lang.Class, java.constant.Map)
      */
     public Object buildBean(Class clazz, Map extraContext)
             throws Exception {

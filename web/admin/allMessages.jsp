@@ -40,7 +40,7 @@
                 <th>${message.title}</th>
                 <th>${message.content}</th>
                 <th>${message.dateTime}</th>
-                <th><a href="${pageContext.request.contextPath}/do?command=message&id=${message.messageId}">Details...</a></th>
+                <th><a href="${pageContext.request.contextPath}/admin/do?command=message&id=${message.messageId}">Details...</a></th>
             </tr>
         </c:forEach>
     </c:if>

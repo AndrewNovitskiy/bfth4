@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static com.andrew.util.JspPathConstant.ADMIN_ALL_USER_APPLICATIONS_JSP;
+import static com.andrew.constant.JspPathConstant.ADMIN_ALL_USER_APPLICATIONS_JSP;
 
 /**
  * Created by Andrew on 07.04.2017.

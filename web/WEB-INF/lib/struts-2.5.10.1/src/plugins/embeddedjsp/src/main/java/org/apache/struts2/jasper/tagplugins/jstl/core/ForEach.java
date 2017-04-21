@@ -77,7 +77,7 @@ public final class ForEach implements TagPlugin {
      */
     private void doCollection(TagPluginContext ctxt) {
         
-        ctxt.generateImport("java.util.*");
+        ctxt.generateImport("java.constant.*");
         generateIterators(ctxt);
         
         String itemsV = ctxt.getTemporaryVariableName();

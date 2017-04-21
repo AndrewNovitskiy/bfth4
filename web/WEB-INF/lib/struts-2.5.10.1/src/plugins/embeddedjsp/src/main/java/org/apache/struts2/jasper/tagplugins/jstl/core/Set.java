@@ -108,11 +108,11 @@ public class Set implements TagPlugin {
             ctxt.generateJavaSource("if(" + targetName + " != null){");
             
             //if the target is a map, then put the result into the map with the key property
-            ctxt.generateJavaSource("    if(" + targetName + " instanceof java.util.Map){");
+            ctxt.generateJavaSource("    if(" + targetName + " instanceof java.constant.Map){");
             ctxt.generateJavaSource("        if(null != " + resultName + "){");
-            ctxt.generateJavaSource("            ((java.util.Map) " + targetName + ").put(" + propertyName + "," + resultName + ");");
+            ctxt.generateJavaSource("            ((java.constant.Map) " + targetName + ").put(" + propertyName + "," + resultName + ");");
             ctxt.generateJavaSource("        }else{");
-            ctxt.generateJavaSource("            ((java.util.Map) " + targetName + ").remove(" + propertyName + ");");
+            ctxt.generateJavaSource("            ((java.constant.Map) " + targetName + ").remove(" + propertyName + ");");
             ctxt.generateJavaSource("        }");
             
             //else assign the result to the target.property

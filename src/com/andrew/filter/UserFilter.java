@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static com.andrew.util.AttributeConstant.USER;
-import static com.andrew.util.JspPathConstant.LOG_IN_JSP;
+import static com.andrew.constant.AttributeConstant.USER;
+import static com.andrew.constant.JspPathConstant.LOG_IN_JSP;
 
 public class UserFilter implements Filter {
 

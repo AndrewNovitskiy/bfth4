@@ -26,7 +26,7 @@
                 <th>${application.applicationId}</th>
                 <th>${application.vacancyPosition}</th>
                 <th>${application.status}</th>
-                <th><a href="${pageContext.request.contextPath}/do?command=application&id=${application.applicationId}">Details...</a></th>
+                <th><a href="${pageContext.request.contextPath}/admin/do?command=application&id=${application.applicationId}">Details...</a></th>
             </tr>
         </c:forEach>
     </c:if>

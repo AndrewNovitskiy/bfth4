@@ -42,7 +42,7 @@ import java.util.Enumeration;
 
 /**
  * <p>
- * Bunch of util methods that are used by code generated for useBean,
+ * Bunch of constant methods that are used by code generated for useBean,
  * getProperty and setProperty.
  * </p>
  *

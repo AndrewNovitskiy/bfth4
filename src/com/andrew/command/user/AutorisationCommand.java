@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static com.andrew.util.AttributeConstant.*;
-import static com.andrew.util.CommandPathConstant.VACANCIES_COMMAND;
-import static com.andrew.util.JspPathConstant.LOG_IN_JSP;
+import static com.andrew.constant.AttributeConstant.*;
+import static com.andrew.constant.CommandPathConstant.VACANCIES_COMMAND;
+import static com.andrew.constant.JspPathConstant.LOG_IN_JSP;
 
 /**
  * Created by Andrew on 02.04.2017.

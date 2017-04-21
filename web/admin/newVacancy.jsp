@@ -9,7 +9,7 @@
 <body>
 <%@include file="../include/controlbar.jsp"%>
 <h2>New Vacancy</h2>
-<form action="${pageContext.request.contextPath}/do" name="new_vacancy" method="post">
+<form action="${pageContext.request.contextPath}/admin/do" name="new_vacancy" method="post">
 
     <label>
         Position<br>

@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static com.andrew.util.AttributeConstant.ADMIN;
-import static com.andrew.util.AttributeConstant.FAIL;
-import static com.andrew.util.AttributeConstant.USER;
-import static com.andrew.util.JspPathConstant.USER_PROFILE_JSP;
-import static com.andrew.util.JspPathConstant.REGISTRATION_JSP;
+import static com.andrew.constant.AttributeConstant.ADMIN;
+import static com.andrew.constant.AttributeConstant.FAIL;
+import static com.andrew.constant.AttributeConstant.USER;
+import static com.andrew.constant.JspPathConstant.USER_PROFILE_JSP;
+import static com.andrew.constant.JspPathConstant.REGISTRATION_JSP;
 
 public class RegistrationCommand implements Command {
 

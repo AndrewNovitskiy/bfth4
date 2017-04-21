@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static com.andrew.util.AttributeConstant.ADMIN;
-import static com.andrew.util.CommandPathConstant.ADMIN_ALL_MESSAGES_COMMAND;
+import static com.andrew.constant.AttributeConstant.ADMIN;
+import static com.andrew.constant.CommandPathConstant.ADMIN_ALL_MESSAGES_COMMAND;
 
 /**
  * Created by Andrew on 09.04.2017.

@@ -1,4 +1,4 @@
-package com.andrew.util;
+package com.andrew.constant;
 
 /**
  * Created by Andrew on 06.04.2017.

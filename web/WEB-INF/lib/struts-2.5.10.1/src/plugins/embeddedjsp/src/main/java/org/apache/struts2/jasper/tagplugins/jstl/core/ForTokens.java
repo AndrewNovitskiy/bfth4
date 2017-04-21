@@ -60,8 +60,8 @@ public class ForTokens implements TagPlugin {
         ctxt.generateJavaSource(";");
         
         //new a StringTokenizer Object according to the "items" and the "delim"
-        ctxt.generateJavaSource("java.util.StringTokenizer " + stName + " = " +
-                "new java.util.StringTokenizer(" + itemsName + ", " + delimsName + ");");
+        ctxt.generateJavaSource("java.constant.StringTokenizer " + stName + " = " +
+                "new java.constant.StringTokenizer(" + itemsName + ", " + delimsName + ");");
         
         //if "begin" specified, move the token to the "begin" place
         //and record the begin index. default begin place is 0.

@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import static com.andrew.util.AttributeConstant.USER;
-import static com.andrew.util.JspPathConstant.INDEX_JSP;
+import static com.andrew.constant.AttributeConstant.USER;
+import static com.andrew.constant.JspPathConstant.INDEX_JSP;
 
 /**
  * Created by Andrew on 01.04.2017.

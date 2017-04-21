@@ -21,13 +21,13 @@
 
 <div class="control_elem_container">
     <span>
-        <a href="${pageContext.request.contextPath}/do?command=vapps&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}" class="control_elem">Apps Of Vacancy</a>
+        <a href="${pageContext.request.contextPath}/admin/do?command=vapps&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}" class="control_elem">Apps Of Vacancy</a>
    </span>
     <span>
-        <a href="${pageContext.request.contextPath}/do?command=vdelapps&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}" class="control_elem">DELETED Apps Of Vacancy</a>
+        <a href="${pageContext.request.contextPath}/admin/do?command=vdelapps&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}" class="control_elem">DELETED Apps Of Vacancy</a>
    </span>
     <span>
-        <a href="${pageContext.request.contextPath}/do?command=edit_vacancy&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}" class="control_elem">Edit Vacancy</a>
+        <a href="${pageContext.request.contextPath}/admin/do?command=edit_vacancy&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}" class="control_elem">Edit Vacancy</a>
 </span>
     <span>
         <c:choose>
@@ -44,14 +44,15 @@
 
 <c:choose>
     <c:when test="${requestScope.vacancy.deleted}">
-        <form id="restore_form" action="${pageContext.request.contextPath}/do" name='restore_vacancy' method="post">
+        <form id="restore_form" action="${pageContext.request.contextPath}/admin/do" name='restore_vacancy' method="post">
             <input type="hidden" name="id" value="${requestScope.vacancy.vacancyId}">
             <input type="hidden" name="command" value="restore_vacancy">
         </form>
     </c:when>
     <c:otherwise>
-        <form id="delete_form" action="${pageContext.request.contextPath}/do" name='delete_vacancy' method="post">
+        <form id="delete_form" action="${pageContext.request.contextPath}/admin/do" name='delete_vacancy' method="post">
             <input type="hidden" name="id" value="${requestScope.vacancy.vacancyId}">
+            <input type="hidden" name="vacancy_position" value="${requestScope.vacancy.position}">
             <input type="hidden" name="command" value="delete_vacancy">
         </form>
     </c:otherwise>

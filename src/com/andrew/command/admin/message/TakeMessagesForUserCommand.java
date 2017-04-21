@@ -15,8 +15,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static com.andrew.util.AttributeConstant.ADMIN;
-import static com.andrew.util.JspPathConstant.ADMIN_USER_MESSAGES;
+import static com.andrew.constant.AttributeConstant.ADMIN;
+import static com.andrew.constant.JspPathConstant.ADMIN_USER_MESSAGES;
 
 /**
  * Created by Andrew on 07.04.2017.
