@@ -28,11 +28,11 @@
                     <h2 class="deleted"><fmt:message key="not.up.to.date" /></h2>
                 </c:if>
                 <h2>${requestScope.vacancy.position}</h2>
-                <label>Date : </label> <span>${requestScope.vacancy.dateTime}</span><br><br>
-                <label>Salary : </label> <span>${requestScope.vacancy.salary}$</span><br><br>
-                <label>Experience : </label> <span>${requestScope.vacancy.experience} years</span><br><br>
+                <label><fmt:message key="date" /> : </label> <span>${requestScope.vacancy.dateTime}</span><br><br>
+                <label><fmt:message key="salary" /> : </label> <span>${requestScope.vacancy.salary}$</span><br><br>
+                <label><fmt:message key="experience" /> : </label> <span>${requestScope.vacancy.experience} years</span><br><br>
                 <hr>
-                <label>Details : </label><br>
+                <label><fmt:message key="details" /> : </label><br>
                 <span>${requestScope.vacancy.info}</span><br><br>
             </div>
 
