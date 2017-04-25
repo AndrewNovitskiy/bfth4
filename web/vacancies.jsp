@@ -38,7 +38,7 @@
                         <hr>
                         <div><span class="vacancyparam"><fmt:message key="salary" />: ${vacancy.salary}$</span></div>
                         <hr>
-                        <div><span class="vacancyparam"><fmt:message key="experience" />: ${vacancy.experience} <fmt:message key="years" /></span></div>
+                        <div><span class="vacancyparam"><fmt:message key="experience" />: ${vacancy.experience}</span></div>
                         <p class="vacancyinfo">
                                 ${vacancy.info}
                         </p>

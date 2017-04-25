@@ -7,19 +7,22 @@
 <head>
     <title><fmt:message key="register" /></title>
     <link rel='stylesheet' href='style/registration_style.css' type='text/css' />
-
+    <script src="script/registration_form_validation.js"></script>
 </head>
 <body>
 
 <a href="/index.jsp" title="index">index.jsp</a>
 <br>
 <h1><fmt:message key="register" /></h1>
+<c:if test="${not empty requestScope.validationFail}">
+    <span class="error"><fmt:message key="validation.fail" /></span>
+</c:if>
 <form action="${pageContext.request.contextPath}/do" name='registration' onSubmit="return formValidation();" method="post">
     <ul>
         <li><label><fmt:message key="login" />:</label></li>
         <li><input type="text" name="login" size="20" /></li>
         <span class="error" id="error-login"></span>
-        <c:if test="${not empty requestScope.fail}">
+        <c:if test="${not empty requestScope.loginFail}">
             <span class="error"><fmt:message key="login.exists" /></span>
         </c:if>
 
@@ -46,6 +49,7 @@
         <li><label><fmt:message key="email" />:</label></li>
         <li><input type="text" name="email" size="20" /></li>
         <span class="error" id="error-email"></span>
+
 
 
         <li><input type="submit" name="command" value="registration" /></li>

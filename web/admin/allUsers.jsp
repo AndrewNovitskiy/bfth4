@@ -4,6 +4,7 @@
 <head>
     <title>Users</title>
     <link rel="stylesheet" href="../style/topbar_style.css">
+    <link rel="stylesheet" href="../style/table_style.css">
 </head>
 <body>
 <%@include file="../include/controlbar.jsp"%>

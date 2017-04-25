@@ -30,7 +30,7 @@
                 <h2>${requestScope.vacancy.position}</h2>
                 <label><fmt:message key="date" /> : </label> <span>${requestScope.vacancy.dateTime}</span><br><br>
                 <label><fmt:message key="salary" /> : </label> <span>${requestScope.vacancy.salary}$</span><br><br>
-                <label><fmt:message key="experience" /> : </label> <span>${requestScope.vacancy.experience} years</span><br><br>
+                <label><fmt:message key="experience" /> : </label> <span>${requestScope.vacancy.experience}</span><br><br>
                 <hr>
                 <label><fmt:message key="details" /> : </label><br>
                 <span>${requestScope.vacancy.info}</span><br><br>

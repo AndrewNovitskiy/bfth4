@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../style/menubar_style.css">
     <link rel="stylesheet" href="../style/general_style.css">
     <link rel="stylesheet" href="../style/control_element_style.css">
+    <link rel="stylesheet" href="../style/table_style.css">
 </head>
 <body>
 
@@ -22,29 +23,43 @@
 
         <div class="block">
 
-
-            <h2><fmt:message key="responses" /></h2>
-            <table border="1">
-                <tr>
-                    <th>
-                        <fmt:message key="position" />
-                    </th>
-                    <th>
-                        <fmt:message key="status" />
-                    </th>
-                </tr>
-                <c:if test="${not empty requestScope.applications}">
-                    <c:forEach items="${requestScope.applications}" var="application">
+            <c:choose>
+                <c:when test="${not empty requestScope.applications}">
+                    <h2><fmt:message key="responses" /></h2>
+                    <table border="1">
                         <tr>
-                            <th>${application.vacancyPosition}</th>
-                            <th>${application.status}</th>
                             <th>
-                                <a href="${pageContext.request.contextPath}/do?command=view_vacancy&id=${application.vacancyId}"><fmt:message key="details" /></a>
+                                <fmt:message key="position" />
+                            </th>
+                            <th>
+                                <fmt:message key="status" />
+                            </th>
+                            <th>
+                                <fmt:message key="details" />
                             </th>
                         </tr>
-                    </c:forEach>
-                </c:if>
-            </table>
+
+                            <c:forEach items="${requestScope.applications}" var="application">
+                                <tr>
+                                    <th>${application.vacancyPosition}</th>
+                                    <th>${application.status}</th>
+                                    <th>
+                                        <a href="${pageContext.request.contextPath}/do?command=view_vacancy&id=${application.vacancyId}" class="details"><fmt:message key="details" /></a>
+                                    </th>
+                                </tr>
+                            </c:forEach>
+
+                    </table>
+                </c:when>
+                <c:otherwise>
+                    <h2><fmt:message key="responses.empty" /></h2>
+                </c:otherwise>
+            </c:choose>
+
+
+
+
+
 
 
         </div>

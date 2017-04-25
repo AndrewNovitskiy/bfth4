@@ -8,7 +8,7 @@
 Hello, unnamed admin!
 <a href="/index.jsp" title="index">index.jsp</a>
 <br>
-<form action="${pageContext.request.contextPath}/admin/do" name='log_in_admin' method="post">
+<form action="${pageContext.request.contextPath}/do" name='log_in_admin' method="post">
     <label>
         login
         <input type="text" name="login">
@@ -19,7 +19,8 @@ Hello, unnamed admin!
         <input type="password" name="password">
     </label>
     <br>
-    <input type="submit" name="command" value="log_in_admin" title="Log IN">
+    <input type="hidden" name="command" value="log_in_admin">
+    <input type="submit" name="submit" value="Log In">
 </form>
 <c:if test="${not empty requestScope.fail}">
     <p style="color: red">Bad login or password</p>

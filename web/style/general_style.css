@@ -9,6 +9,10 @@ body {
     src: url(fonts/OpenSans-Regular.ttf);
 }
 
+form {
+    margin: 0;
+}
+
 h1 {
     font-family: OpenSans;
     padding-left: 10px;
@@ -79,6 +83,19 @@ img {
 .atlsoft:visited {
     color: #fff;
 }
+
+.details {
+    color: #54A5E3;
+    text-decoration: none;
+}
+.details:active {
+    color: #54A5E3;
+}
+
+.details:visited {
+    color: #54A5E3;
+}
+
 
 #mainblock {
     background: #F5F5F5;

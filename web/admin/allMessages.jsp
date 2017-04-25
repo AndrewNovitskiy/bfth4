@@ -4,6 +4,7 @@
 <head>
     <title>Messages</title>
     <link rel="stylesheet" href="../style/topbar_style.css">
+    <link rel="stylesheet" href="../style/table_style.css">
 </head>
 <body>
 <%@include file="../include/controlbar.jsp"%>
@@ -21,9 +22,7 @@
         <th>
             Title
         </th>
-        <th>
-            Content
-        </th>
+
         <th>
             DateTime
         </th>
@@ -38,7 +37,7 @@
                 <th>${message.recipientName}</th>
                 <th>${message.recipientSurname}</th>
                 <th>${message.title}</th>
-                <th>${message.content}</th>
+
                 <th>${message.dateTime}</th>
                 <th><a href="${pageContext.request.contextPath}/admin/do?command=message&id=${message.messageId}">Details...</a></th>
             </tr>

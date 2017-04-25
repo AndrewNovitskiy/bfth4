@@ -4,6 +4,7 @@ import com.andrew.action.Action;
 import com.andrew.action.ForwardAction;
 import com.andrew.dao.UserDao;
 import com.andrew.entity.User;
+import com.andrew.validator.Validator;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
@@ -12,9 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static com.andrew.constant.AttributeConstant.ADMIN;
-import static com.andrew.constant.AttributeConstant.FAIL;
-import static com.andrew.constant.AttributeConstant.USER;
+import static com.andrew.constant.AttributeConstant.*;
 import static com.andrew.constant.JspPathConstant.USER_PROFILE_JSP;
 import static com.andrew.constant.JspPathConstant.REGISTRATION_JSP;
 
@@ -41,20 +40,28 @@ public class RegistrationCommand implements Command {
 
         String login = request.getParameter("login");
         String password = request.getParameter("pass");
+        String passwordDuplicate = request.getParameter("checkpass");
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
         String telephone = request.getParameter("telephone");
         String email = request.getParameter("email");
 
-        if (dao.checkLogin(login)) {
-            dao.addUser(login, password, name, surname, telephone, email);
-            User user = dao.takeUser(login, password);
-
-            session.setAttribute(USER, user);
-            return new ForwardAction(USER_PROFILE_JSP);
+        if (Validator.validateTheRegistrationData(login, password, passwordDuplicate, name, surname, telephone, email)) {
+            if (dao.checkLogin(login)) {
+                dao.addUser(login, password, name, surname, telephone, email);
+                User user = dao.takeUser(login, password);
+                session.setAttribute(USER, user);
+                return new ForwardAction(USER_PROFILE_JSP);
+            } else {
+                request.setAttribute(LOGIN_FAIL, true);
+                return new ForwardAction(REGISTRATION_JSP);
+            }
         } else {
-            request.setAttribute(FAIL, true);
+            request.setAttribute(VALIDATION_FAIL, true);
             return new ForwardAction(REGISTRATION_JSP);
         }
+
+
+
     }
 }

@@ -5,6 +5,7 @@
     <title>Applications</title>
     <link rel="stylesheet" href="../style/topbar_style.css">
     <link rel="stylesheet" href="../style/control_element_style.css">
+    <link rel="stylesheet" href="../style/table_style.css">
 </head>
 <body>
 <%@include file="../include/controlbar.jsp"%>
