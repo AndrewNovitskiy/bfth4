@@ -1,10 +1,12 @@
 package com.andrew.command.user;
 
 import com.andrew.action.Action;
+import com.andrew.action.ForwardAction;
 import com.andrew.action.RedirectAction;
 import com.andrew.command.Command;
 import com.andrew.dao.UserDao;
 import com.andrew.entity.User;
+import com.andrew.validator.Validator;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +15,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 import static com.andrew.constant.AttributeConstant.USER;
+import static com.andrew.constant.AttributeConstant.VALIDATION_FAIL;
 import static com.andrew.constant.CommandPathConstant.PROFILE_COMMAND;
+import static com.andrew.constant.JspPathConstant.EDIT_PROFILE_JSP;
 
 /**
  * Created by Andrew on 14.04.2017.
@@ -35,16 +39,24 @@ public class UpdateUserCommand implements Command {
         String email = request.getParameter("email");
         String resume = request.getParameter("resume");
 
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute(USER);
+        if (Validator.validateTheUserData(name, surname, telephone, email)) {
+            HttpSession session = request.getSession();
+            User user = (User) session.getAttribute(USER);
 
-        dao.updateUser(user.getIdApplicant(), name, surname, telephone, email, resume);
-        User updatedUser = dao.takeUserById(user.getIdApplicant());
+            dao.updateUser(user.getIdApplicant(), name, surname, telephone, email, resume);
+            User updatedUser = dao.takeUserById(user.getIdApplicant());
 
-        session.removeAttribute(USER);
+            session.removeAttribute(USER);
 
-        session.setAttribute(USER, updatedUser);
+            session.setAttribute(USER, updatedUser);
 
-        return new RedirectAction(PROFILE_COMMAND);
+            return new RedirectAction(PROFILE_COMMAND);
+        } else {
+            request.setAttribute(VALIDATION_FAIL, true);
+            return new ForwardAction(EDIT_PROFILE_JSP);
+        }
+
+
+
     }
 }

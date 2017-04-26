@@ -39,8 +39,9 @@ input {
     margin-left: 25px;
 }
 
-span {
+.error {
     font-family: OpenSans;
-    font-size:25px;
+    font-size: 16px;
     color: red;
+    margin-left: 25px;
 }

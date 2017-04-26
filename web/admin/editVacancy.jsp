@@ -13,7 +13,7 @@
 
     <label>
         Position<br>
-        <input type="text" name="position" required placeholder="Position">
+        <input type="text" name="position" required placeholder="Position" maxlength="45">
     </label><br>
     <label>
         Experience<br>
@@ -25,7 +25,7 @@
     </label><br>
     <label>
         Info<br>
-        <textarea name="info" maxlength="800" required placeholder="Details about vacancy ..." rows="20" cols="50"></textarea>
+        <textarea name="info" maxlength="2000" required placeholder="Details about vacancy ..." rows="20" cols="100"></textarea>
     </label><br>
     <input type="hidden" name="id" value="${requestScope.id}">
     <input type="hidden" name="command" value="update_vacancy">

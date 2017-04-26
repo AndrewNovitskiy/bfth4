@@ -4,6 +4,7 @@ public class JspPathConstant {
 
     public static final String LOG_IN_ADMIN_JSP = "/admin/logInAdmin.jsp";
     public static final String USER_PROFILE_JSP = "/user/profile.jsp";
+    public static final String EDIT_PROFILE_JSP = "/user/editProfile.jsp";
     public static final String REGISTRATION_JSP = "/registration.jsp";
     public static final String INDEX_JSP = "/index.jsp";
     public static final String LOG_IN_JSP = "/user/logIn.jsp";

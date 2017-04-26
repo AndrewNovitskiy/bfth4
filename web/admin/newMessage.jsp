@@ -13,12 +13,12 @@
 
     <label>
         Title<br>
-        <input type="text" name="title" required placeholder="Enter theme of message ... ">
+        <input type="text" name="title" required placeholder="Enter theme of message ... " maxlength="45">
     </label><br>
 
     <label>
         Text<br>
-        <textarea name="content" maxlength="200" required placeholder="Text of message ... " rows="10" cols="50"></textarea>
+        <textarea name="content" maxlength="500" required placeholder="Text of message ... " rows="10" cols="50"></textarea>
     </label><br>
     <input type="hidden" name="recipient" value="${requestScope.id}">
     <input type="hidden" name="command" value="send_message">

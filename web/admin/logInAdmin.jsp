@@ -11,12 +11,12 @@ Hello, unnamed admin!
 <form action="${pageContext.request.contextPath}/do" name='log_in_admin' method="post">
     <label>
         login
-        <input type="text" name="login">
+        <input type="text" name="login" maxlength="45">
     </label>
     <br>
     <label>
         password
-        <input type="password" name="password">
+        <input type="password" name="password" maxlength="45">
     </label>
     <br>
     <input type="hidden" name="command" value="log_in_admin">

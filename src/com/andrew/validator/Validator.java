@@ -21,14 +21,27 @@ public class Validator {
         if (validateLogin(login)) {
             if (validatePassword(password)) {
                 if (password.equals(passwordDuplicate)) {
-                    if (validateName(name)) {
-                        if (validateName(surname)) {
-                            if (validateTelephone(telephone)) {
-                                if (validateEmail(email)) {
+                    if (validateName(name.trim())) {
+                        if (validateName(surname.trim())) {
+                            if (validateTelephone(telephone.trim())) {
+                                if (validateEmail(email.trim())) {
                                     return true;
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean validateTheUserData(String name, String surname, String telephone, String email) {
+        if (validateName(name.trim())) {
+            if (validateName(surname.trim())) {
+                if (validateTelephone(telephone.trim())) {
+                    if (validateEmail(email.trim())) {
+                        return true;
                     }
                 }
             }
@@ -94,5 +107,6 @@ public class Validator {
         }
         return false;
     }
+
 
 }

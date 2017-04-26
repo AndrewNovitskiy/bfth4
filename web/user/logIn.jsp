@@ -15,12 +15,12 @@
     <form class="vsio" action="${pageContext.request.contextPath}/do" name='log_in' method="post">
         <label>
             <fmt:message key="login" />
-            <input type="text" name="login">
+            <input type="text" name="login" maxlength="45">
         </label>
         <br>
         <label>
             <fmt:message key="password" />
-            <input type="password" name="password">
+            <input type="password" name="password" maxlength="45">
         </label>
         <br>
         <input type="submit" name="command" value="log_in" title="Log IN">
