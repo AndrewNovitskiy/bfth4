@@ -8,6 +8,7 @@ import com.andrew.command.admin.AdminLogOutCommand;
 import com.andrew.command.admin.application.*;
 import com.andrew.command.admin.message.*;
 import com.andrew.command.admin.user.TakeAllUsersCommand;
+import com.andrew.command.admin.user.TakeRecruitedUsersCommand;
 import com.andrew.command.admin.user.TakeUserCommand;
 import com.andrew.command.admin.vacancy.*;
 import com.andrew.command.user.*;
@@ -58,7 +59,7 @@ public class CommandHolder {
         commands.put("deleted_applications", new TakeDeletedApplicationsCommand());
 
         commands.put("change_status", new ChangeStatusCommand());
-
+        commands.put("recruited_users", new TakeRecruitedUsersCommand());
 
         //////////////////
 

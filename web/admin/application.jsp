@@ -35,7 +35,6 @@
     <input type="submit" name="submit" value="Change Status">
 </form>
 
-
 <p>DELETED ${requestScope.application.deleted}</p>
 <br>
 

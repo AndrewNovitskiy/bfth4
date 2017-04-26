@@ -5,6 +5,7 @@
     <title>Users</title>
     <link rel="stylesheet" href="../style/topbar_style.css">
     <link rel="stylesheet" href="../style/table_style.css">
+    <link rel="stylesheet" href="../style/control_element_style.css">
 </head>
 <body>
 <%@include file="../include/controlbar.jsp"%>
@@ -35,16 +36,22 @@
 <c:if test="${not empty requestScope.users}">
     <c:forEach items="${requestScope.users}" var="user">
         <tr>
-            <th>${user.idApplicant}</th>
+            <th>${user.applicantId}</th>
             <th>${user.login}</th>
             <th>${user.name}</th>
             <th>${user.surname}</th>
             <th>${user.telephone}</th>
             <th>${user.email}</th>
-            <th><a href="${pageContext.request.contextPath}/admin/do?command=user&id=${user.idApplicant}">Details...</a><br></th>
+            <th><a href="${pageContext.request.contextPath}/admin/do?command=user&id=${user.applicantId}">Details...</a><br></th>
         </tr>
     </c:forEach>
 </c:if>
 </table>
+<br>
+<div class="control_elem_container">
+    <span>
+        <a href="${pageContext.request.contextPath}/admin/do?command=recruited_users" class="control_elem">Recruited people</a>
+    </span>
+</div>
 </body>
 </html>

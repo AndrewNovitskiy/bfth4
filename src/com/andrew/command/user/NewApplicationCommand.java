@@ -36,10 +36,10 @@ public class NewApplicationCommand implements Command {
         User user = (User) session.getAttribute(USER);
         Integer vacancyId = Integer.parseInt(request.getParameter("vacancyId"));
 
-        if(dao.applicationExists(user.getIdApplicant(), vacancyId)){
-            dao.restoreApplication(user.getIdApplicant(), vacancyId);
+        if(dao.applicationExists(user.getApplicantId(), vacancyId)){
+            dao.restoreApplication(user.getApplicantId(), vacancyId);
         } else {
-            dao.newApplication(user.getIdApplicant(), vacancyId);
+            dao.newApplication(user.getApplicantId(), vacancyId);
         }
 
 

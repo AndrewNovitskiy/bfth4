@@ -43,7 +43,7 @@ public class TakeVacancyCommand implements Command {
         User user = (User) session.getAttribute(USER);
 
         if(user != null){
-            if(applicationDao.applicationExistsAndIsActive(user.getIdApplicant(), vacancyId)){
+            if(applicationDao.applicationExistsAndIsActive(user.getApplicantId(), vacancyId)){
                 request.setAttribute("app_exists", true);
             } else {
                 request.setAttribute("app_exists", false);

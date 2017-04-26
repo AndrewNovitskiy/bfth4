@@ -1,7 +1,7 @@
 package com.andrew.entity;
 
 public class User {
-    private int idApplicant;
+    private int applicantId;
     private String login;
     private String password;
     private String name;
@@ -11,7 +11,7 @@ public class User {
     private String resume;
 
     public User(UserBuilder builder) {
-        this.idApplicant = builder.idApplicant;
+        this.applicantId = builder.idApplicant;
         this.login = builder.login;
         this.password = builder.password;
         this.name = builder.name;
@@ -80,12 +80,12 @@ public class User {
     }
 
 
-    public int getIdApplicant() {
-        return idApplicant;
+    public int getApplicantId() {
+        return applicantId;
     }
 
-    public void setIdApplicant(int idApplicant) {
-        this.idApplicant = idApplicant;
+    public void setApplicantId(int applicantId) {
+        this.applicantId = applicantId;
     }
 
     public String getLogin() {
@@ -147,7 +147,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "idApplicant=" + idApplicant +
+                "applicantId=" + applicantId +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +

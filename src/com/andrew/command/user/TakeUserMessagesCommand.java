@@ -35,7 +35,7 @@ public class TakeUserMessagesCommand implements Command {
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute(USER);
-        ArrayList<Message> messages = dao.takeUserMessages(user.getIdApplicant());
+        ArrayList<Message> messages = dao.takeUserMessages(user.getApplicantId());
         request.setAttribute("messages", messages);
         return new ForwardAction(USER_MESSAGES_JSP);
     }

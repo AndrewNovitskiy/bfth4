@@ -10,6 +10,7 @@ public class JspPathConstant {
     public static final String LOG_IN_JSP = "/user/logIn.jsp";
     public static final String ADMIN_ALL_VACANCIES_JSP = "/admin/allVacancies.jsp";
     public static final String ADMIN_ALL_USERS_JSP = "/admin/allUsers.jsp";
+    public static final String ADMIN_RECRUITED_USERS_JSP = "/admin/recruitedUsers.jsp";
     public static final String ADMIN_ALL_MESSAGES_JSP = "/admin/allMessages.jsp";
     public static final String ADMIN_ALL_APPLICATIONS_JSP = "/admin/allApplications.jsp";
     public static final String ADMIN_CONTROL_PANEL_JSP = "/admin/controlPanel.jsp";

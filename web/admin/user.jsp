@@ -9,7 +9,7 @@
 <body>
 <%@include file="../include/controlbar.jsp"%>
 <h2>Info about User</h2>
-    <p>${requestScope.user.idApplicant}</p>
+    <p>${requestScope.user.applicantId}</p>
     <p>${requestScope.user.login}</p>
     <p>${requestScope.user.name}</p>
     <p>${requestScope.user.surname}</p>
@@ -21,13 +21,13 @@
 
 <div class="control_elem_container">
     <span>
-        <a href="${pageContext.request.contextPath}/admin/do?command=usapps&id=${requestScope.user.idApplicant}&name=${requestScope.user.name}&surname=${requestScope.user.surname}" class="control_elem">Apps Of User</a>
+        <a href="${pageContext.request.contextPath}/admin/do?command=usapps&id=${requestScope.user.applicantId}&name=${requestScope.user.name}&surname=${requestScope.user.surname}" class="control_elem">Apps Of User</a>
 </span>
     <span>
-        <a href="${pageContext.request.contextPath}/admin/do?command=usmess&id=${requestScope.user.idApplicant}&name=${requestScope.user.name}&surname=${requestScope.user.surname}" class="control_elem">Messages for User</a>
+        <a href="${pageContext.request.contextPath}/admin/do?command=usmess&id=${requestScope.user.applicantId}&name=${requestScope.user.name}&surname=${requestScope.user.surname}" class="control_elem">Messages for User</a>
 </span>
     <span>
-        <a href="${pageContext.request.contextPath}/admin/do?command=new_message&id=${requestScope.user.idApplicant}&name=${requestScope.user.name}&surname=${requestScope.user.surname}" class="control_elem">Write</a>
+        <a href="${pageContext.request.contextPath}/admin/do?command=new_message&id=${requestScope.user.applicantId}&name=${requestScope.user.name}&surname=${requestScope.user.surname}" class="control_elem">Write</a>
 </span>
 </div>
 

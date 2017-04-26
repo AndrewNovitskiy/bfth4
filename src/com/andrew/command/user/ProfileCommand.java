@@ -33,7 +33,7 @@ public class ProfileCommand implements Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
 
-        String resume =  dao.takeResume(user.getIdApplicant());
+        String resume =  dao.takeResume(user.getApplicantId());
         request.setAttribute("resume", resume);
         return new ForwardAction(USER_PROFILE_JSP);
     }

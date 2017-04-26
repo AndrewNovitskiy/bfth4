@@ -24,10 +24,10 @@
             Title
         </th>
         <th>
-            Content
+            DateTime
         </th>
         <th>
-            DateTime
+            Details...
         </th>
     </tr>
     <c:if test="${not empty requestScope.messages}">
@@ -37,7 +37,6 @@
                 <th>${message.recipientName}</th>
                 <th>${message.recipientSurname}</th>
                 <th>${message.title}</th>
-                <th>${message.content}</th>
                 <th>${message.dateTime}</th>
                 <th><a href="${pageContext.request.contextPath}/admin/do?command=message&id=${message.messageId}">Details...</a></th>
             </tr>

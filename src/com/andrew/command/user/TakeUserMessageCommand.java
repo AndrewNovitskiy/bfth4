@@ -39,7 +39,7 @@ public class TakeUserMessageCommand implements Command {
         HttpSession session = request.getSession();
         try {
             User user = (User) session.getAttribute(USER);
-            if (dao.checkUserMessage(messageId, user.getIdApplicant())) {
+            if (dao.checkUserMessage(messageId, user.getApplicantId())) {
                 Message message = dao.takeUserMessage(messageId);
                 request.setAttribute("message", message);
                 return new ForwardAction(MESSAGE_JSP);

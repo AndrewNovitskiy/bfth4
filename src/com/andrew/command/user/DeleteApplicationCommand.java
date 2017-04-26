@@ -35,7 +35,7 @@ public class DeleteApplicationCommand implements Command {
         User user = (User) session.getAttribute(USER);
         Integer vacancyId = Integer.parseInt(request.getParameter("vacancyId"));
 
-        dao.deleteApplication(user.getIdApplicant(), vacancyId);
+        dao.deleteApplication(user.getApplicantId(), vacancyId);
 
         return new RedirectAction(APPLICATIONS_COMMAND);
     }

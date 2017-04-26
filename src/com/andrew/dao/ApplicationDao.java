@@ -26,6 +26,14 @@ public class ApplicationDao {
             "\t\t\t\t\t LEFT JOIN vacancy ON application.id_vacancy = vacancy.id_vacancy\n" +
             "                     LEFT JOIN application_status ON application.id_status = application_status.id_status WHERE application.deleted = 0;";
 
+
+    private static final String SQL_GET_RECRUITED_APPLICATIONS = "SELECT application.id_applicant, applicant.name, applicant.surname, vacancy.position, application_status.value\n" +
+            "\tFROM application LEFT JOIN applicant ON application.id_applicant = applicant.id_applicant\n" +
+            "\t\t\t\t\t LEFT JOIN vacancy ON application.id_vacancy = vacancy.id_vacancy\n" +
+            "                     LEFT JOIN application_status ON application.id_status = application_status.id_status WHERE application.id_status = 4;";
+
+
+
     private static final String SQL_GET_APPLICATION_BY_ID_FOR_ADMIN = "SELECT application.id_application, applicant.id_applicant, vacancy.id_vacancy, applicant.name, applicant.surname, applicant.telephone, applicant.email, vacancy.position, application_status.value, application.deleted\n" +
             "            FROM application LEFT JOIN applicant ON application.id_applicant = applicant.id_applicant\n" +
             "             LEFT JOIN vacancy ON application.id_vacancy = vacancy.id_vacancy\n" +
@@ -458,6 +466,34 @@ public class ApplicationDao {
             log.info("SQLException");
         } finally {
             closeResources(conn, stmt);
+        }
+        return null;
+    }
+
+    public ArrayList<Application> takeRecruitedUsers() {
+        try {
+            Application application;
+            ArrayList<Application> applications = new ArrayList<>();
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_GET_RECRUITED_APPLICATIONS);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int applicantId = rs.getInt("id_applicant");
+                String name = rs.getString("name");
+                String surname = rs.getString("surname");
+                String position = rs.getString("position");
+                String status = rs.getString("value");
+
+                application = new Application.ApplicationBuilder().applicantId(applicantId).applicantName(name).applicantSurname(surname).vacancyPosition(position).status(status).build();
+                applications.add(application);
+            }
+            return applications;
+        } catch (SQLException e) {
+            log.info("SQLException");
+        } finally {
+            closeResources(conn, stmt);
+            try { rs.close(); } catch(SQLException se) { log.info("SQLException"); }
         }
         return null;
     }
