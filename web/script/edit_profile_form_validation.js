@@ -11,7 +11,7 @@ function formValidation() {
         BAD_EMAIL = "Incorrect email",
         BAD_TEL = "Use only digits",
         BAD_TEL_LENGTH = "Length must be from 9 to 15",
-        BAD_NAME = "Use 'A-z'",
+        BAD_NAME = "Use 'A-z' and 'А-я'",
         BAD_NAME_LENGTH = "Length of this field must be from 2 to 20";
 
 
@@ -25,7 +25,7 @@ function formValidation() {
     errTelLabel.innerHTML = "";
     errEmailLabel.innerHTML = "";
 
-    var REG_NAME = /^[A-Za-z]+$/,
+    var REG_NAME = /^[A-ZА-Яa-zа-я]+$/,
         REG_NAME_LENGTH = /^.{2,20}$/,
 
         REG_TEL = /^\d+$/,

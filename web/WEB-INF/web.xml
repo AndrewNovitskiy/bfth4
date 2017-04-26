@@ -60,7 +60,11 @@
 
     <error-page>
         <error-code>404</error-code>
-        <location>/error/err.jsp</location>
+        <location>/error/notFound.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error/notFound.jsp</location>
     </error-page>
 
 

@@ -10,7 +10,7 @@ public class Validator {
     private static final Pattern REGEX_LOGIN_LENGTH = Pattern.compile("^.{5,20}$");
     private static final Pattern REGEX_PWD = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$");
     private static final Pattern REGEX_PWD_LENGTH = Pattern.compile("^.{6,20}$");
-    private static final Pattern REGEX_NAME = Pattern.compile("^[A-Za-z]+$");
+    private static final Pattern REGEX_NAME = Pattern.compile("^[A-ZА-Яa-zа-я]+$");
     private static final Pattern REGEX_NAME_LENGTH = Pattern.compile("^.{2,20}$");
     private static final Pattern REGEX_TEL = Pattern.compile("^\\d+$");
     private static final Pattern REGEX_TEL_LENGTH = Pattern.compile("^.{9,15}$");
