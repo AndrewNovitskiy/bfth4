@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>${requestScope.position} applications</title>
     <link rel="stylesheet" href="../style/topbar_style.css">
     <link rel="stylesheet" href="../style/table_style.css">
 </head>

@@ -22,7 +22,6 @@ public class TakeRecruitedUsersCommand implements Command {
     private ApplicationDao dao;
 
     public TakeRecruitedUsersCommand() {
-        super();
         dao = new ApplicationDao();
     }
 

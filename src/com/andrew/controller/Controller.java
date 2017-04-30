@@ -13,6 +13,8 @@ import java.io.IOException;
 
 public class Controller extends HttpServlet {
 
+    private static final String COMMAND = "command";
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         process(request, response);
     }
@@ -23,7 +25,7 @@ public class Controller extends HttpServlet {
 
     private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 
-        String commandName = request.getParameter("command");
+        String commandName = request.getParameter(COMMAND);
         Command command = CommandHolder.get(commandName);
 
         try {

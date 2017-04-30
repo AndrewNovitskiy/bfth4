@@ -22,7 +22,6 @@ public class TakeDeletedApplicationsOfVacancyCommand implements Command {
     private ApplicationDao dao;
 
     public TakeDeletedApplicationsOfVacancyCommand() {
-        super();
         dao = new ApplicationDao();
     }
     @Override

@@ -21,7 +21,6 @@ public class TakeUserCommand implements Command {
     private UserDao dao;
 
     public TakeUserCommand() {
-        super();
         dao = new UserDao();
     }
 

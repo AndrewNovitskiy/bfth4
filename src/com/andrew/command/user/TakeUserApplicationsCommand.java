@@ -25,7 +25,6 @@ public class TakeUserApplicationsCommand implements Command {
     private ApplicationDao dao;
 
     public TakeUserApplicationsCommand() {
-        super();
         dao = new ApplicationDao();
     }
 

@@ -27,7 +27,6 @@ public class UpdateUserCommand implements Command {
     private UserDao dao;
 
     public UpdateUserCommand() {
-        super();
         dao = new UserDao();
     }
 

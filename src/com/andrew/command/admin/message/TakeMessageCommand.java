@@ -25,7 +25,6 @@ public class TakeMessageCommand implements Command {
     private MessageDao dao;
 
     public TakeMessageCommand() {
-        super();
         dao = new MessageDao();
     }
 

@@ -20,7 +20,6 @@ public class TakeAllVacanciesWithInfoCommand implements Command {
     private VacancyDao dao;
 
     public TakeAllVacanciesWithInfoCommand() {
-        super();
         dao = new VacancyDao();
     }
 

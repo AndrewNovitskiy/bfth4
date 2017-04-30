@@ -22,7 +22,6 @@ public class TakeApplicationsOfUserCommand implements Command {
     private ApplicationDao dao;
 
     public TakeApplicationsOfUserCommand() {
-        super();
         dao = new ApplicationDao();
     }
 

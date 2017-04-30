@@ -22,7 +22,6 @@ public class TakeDeletedVacanciesCommand implements Command {
     private VacancyDao dao;
 
     public TakeDeletedVacanciesCommand() {
-        super();
         dao = new VacancyDao();
     }
 

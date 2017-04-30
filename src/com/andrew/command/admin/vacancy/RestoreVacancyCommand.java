@@ -20,7 +20,6 @@ public class RestoreVacancyCommand implements Command {
     private VacancyDao dao;
 
     public RestoreVacancyCommand() {
-        super();
         dao = new VacancyDao();
     }
 

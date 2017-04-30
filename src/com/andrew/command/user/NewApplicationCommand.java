@@ -23,7 +23,6 @@ public class NewApplicationCommand implements Command {
     private ApplicationDao dao;
 
     public NewApplicationCommand() {
-        super();
         dao = new ApplicationDao();
     }
 

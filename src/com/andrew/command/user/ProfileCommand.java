@@ -22,7 +22,6 @@ public class ProfileCommand implements Command {
     private UserDao dao;
 
     public ProfileCommand() {
-        super();
         dao = new UserDao();
     }
 

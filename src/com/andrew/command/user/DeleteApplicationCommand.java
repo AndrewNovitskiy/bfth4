@@ -23,7 +23,6 @@ public class DeleteApplicationCommand implements Command {
     private ApplicationDao dao;
 
     public DeleteApplicationCommand() {
-        super();
         dao = new ApplicationDao();
     }
 

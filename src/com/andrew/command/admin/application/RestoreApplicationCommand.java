@@ -20,7 +20,6 @@ public class RestoreApplicationCommand implements Command {
     private ApplicationDao dao;
 
     public RestoreApplicationCommand() {
-        super();
         dao = new ApplicationDao();
     }
     @Override

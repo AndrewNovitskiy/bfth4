@@ -22,7 +22,6 @@ public class TakeDeletedApplicationsCommand implements Command {
     private ApplicationDao dao;
 
     public TakeDeletedApplicationsCommand() {
-        super();
         dao = new ApplicationDao();
     }
 

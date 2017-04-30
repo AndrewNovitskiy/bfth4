@@ -20,7 +20,6 @@ public class AddNewVacancyCommand implements Command {
     private VacancyDao dao;
 
     public AddNewVacancyCommand() {
-        super();
         dao = new VacancyDao();
     }
 

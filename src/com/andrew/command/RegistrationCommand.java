@@ -21,7 +21,6 @@ public class RegistrationCommand implements Command {
     private UserDao dao;
 
     public RegistrationCommand(){
-        super();
         dao = new UserDao();
     }
 

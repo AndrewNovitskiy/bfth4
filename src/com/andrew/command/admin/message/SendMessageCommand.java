@@ -23,7 +23,6 @@ public class SendMessageCommand implements Command {
     private MessageDao dao;
 
     public SendMessageCommand() {
-        super();
         dao = new MessageDao();
     }
     @Override

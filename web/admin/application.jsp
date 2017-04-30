@@ -11,13 +11,12 @@
 <%@include file="../include/controlbar.jsp"%>
 <div class="content">
 <h2>Application Info</h2>
-<p>${requestScope.application.applicationId}</p>
-<p>${requestScope.application.applicantName}</p>
-<p>${requestScope.application.applicantSurname}</p>
-<p>${requestScope.application.applicantTelephone}</p>
-<p>${requestScope.application.applicantEmail}</p>
-<p>${requestScope.application.vacancyPosition}</p>
-<p>${requestScope.application.status}</p>
+<p><label>Application ID : </label>${requestScope.application.applicationId}</p>
+<p><label>Who : </label>${requestScope.application.applicantName} ${requestScope.application.applicantSurname}</p>
+<p><label>Phone : </label>${requestScope.application.applicantTelephone}</p>
+<p><label>Email : </label>${requestScope.application.applicantEmail}</p>
+<p><label>Position : </label>${requestScope.application.vacancyPosition}</p>
+<p><label>Status : </label>${requestScope.application.status}</p>
 
 
 <form action="${pageContext.request.contextPath}/admin/do" name='change_status' method="post">
@@ -37,7 +36,6 @@
     <input type="submit" name="submit" value="Change Status">
 </form>
 
-<p>DELETED ${requestScope.application.deleted}</p>
     </div>
 
 <div class="control_elem_container">

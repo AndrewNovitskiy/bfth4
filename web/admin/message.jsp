@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Message</title>
+    <title>Message Details</title>
     <link rel="stylesheet" href="../style/topbar_style.css">
     <link rel="stylesheet" href="../style/control_element_style.css">
     <link rel="stylesheet" href="../style/admin_content_style.css">
@@ -10,13 +10,11 @@
 <body>
 <%@include file="../include/controlbar.jsp"%>
 <div class="content">
-    <h2>Message Info</h2>
-    <p>${requestScope.message.dateTime}</p>
-    <p>${requestScope.message.recipientName}</p>
-    <p>${requestScope.message.recipientSurname}</p>
-    <p>${requestScope.message.title}</p>
-    ${requestScope.message.content}
-    <br>
+    <h2>Message Details</h2>
+    <p><label>Date/Time : </label>${requestScope.message.dateTime}</p>
+    <p><label>Recipient : </label>${requestScope.message.recipientName} ${requestScope.message.recipientSurname}</p>
+    <p><label>Theme : </label>${requestScope.message.title}</p>
+    <p>${requestScope.message.content}</p>
 </div>
 <div class="control_elem_container">
     <span>

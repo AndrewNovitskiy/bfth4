@@ -11,13 +11,13 @@
 <%@include file="../include/controlbar.jsp"%>
 <div class="content">
 <h2>Info about User</h2>
-    <p>${requestScope.user.applicantId}</p>
-    <p>${requestScope.user.login}</p>
-    <p>${requestScope.user.name}</p>
-    <p>${requestScope.user.surname}</p>
-    <p>${requestScope.user.telephone}</p>
-    <p>${requestScope.user.email}</p>
-    <p>${requestScope.user.resume}</p>
+    <p><label>ID : </label>${requestScope.user.applicantId}</p>
+    <p><label>Login : </label>${requestScope.user.login}</p>
+    <p><label>Name : </label>${requestScope.user.name}</p>
+    <p><label>Surname : </label>${requestScope.user.surname}</p>
+    <p><label>Phone : </label>${requestScope.user.telephone}</p>
+    <p><label>Email : </label>${requestScope.user.email}</p>
+    <p><label>Resume : </label>${requestScope.user.resume}</p>
 </div>
 
 <div class="control_elem_container">

@@ -25,7 +25,6 @@ public class AdminAutorisationCommand implements Command {
     private AdminDao dao;
 
     public AdminAutorisationCommand() {
-        super();
         dao = new AdminDao();
     }
 

@@ -20,7 +20,6 @@ public class DeleteApplicationByAdminCommand implements Command {
     private ApplicationDao dao;
 
     public DeleteApplicationByAdminCommand() {
-        super();
         dao = new ApplicationDao();
     }
     @Override

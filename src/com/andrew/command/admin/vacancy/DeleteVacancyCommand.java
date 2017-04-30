@@ -30,7 +30,6 @@ public class DeleteVacancyCommand implements Command {
     private MessageDao messageDao;
 
     public DeleteVacancyCommand() {
-        super();
         vacancyDao = new VacancyDao();
         applicationDao = new ApplicationDao();
         messageDao = new MessageDao();

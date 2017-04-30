@@ -22,7 +22,6 @@ public class TakeApplicationsOfVacancyCommand implements Command {
     private ApplicationDao dao;
 
     public TakeApplicationsOfVacancyCommand() {
-        super();
         dao = new ApplicationDao();
     }
 

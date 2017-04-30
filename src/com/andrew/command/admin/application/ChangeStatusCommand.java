@@ -27,7 +27,6 @@ public class ChangeStatusCommand implements Command {
     private MessageDao messageDao;
 
     public ChangeStatusCommand() {
-        super();
         applicationDao = new ApplicationDao();
         messageDao = new MessageDao();
     }

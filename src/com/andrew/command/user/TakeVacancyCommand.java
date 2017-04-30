@@ -26,7 +26,6 @@ public class TakeVacancyCommand implements Command {
     private ApplicationDao applicationDao;
 
     public TakeVacancyCommand() {
-        super();
         vacancyDao = new VacancyDao();
         applicationDao = new ApplicationDao();
     }
