@@ -3,12 +3,13 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="${not empty sessionScope.language ? sessionScope.language : 'en'}" />
 <fmt:setBundle basename="com.andrew.i18n.text" />
+<%@ taglib uri="/WEB-INF/custom.tld" prefix="custom" %>
 <html>
   <head>
     <title>LOL</title>
   </head>
   <body>
-
+  <p><custom:today format="dd MMMM yyyy"/></p>
   <a href="${pageContext.request.contextPath}/do?command=vacancies"><fmt:message key="vacancies" /></a>
   <br>
   <c:if test="${not empty sessionScope.user}">
@@ -24,12 +25,6 @@
       </form>
   </c:if>
 
-  <%--<form>--%>
-      <%--<select id="language" name="language" onchange="submit()">--%>
-          <%--<option value="ru" ${language == 'ru' ? 'selected' : ''}>Russian</option>--%>
-          <%--<option value="en" ${language == 'en' ? 'selected' : ''}>English</option>--%>
-      <%--</select>--%>
-  <%--</form>--%>
   <li>
       <a href="${pageContext.request.contextPath}/do?command=change_language&language=en_EN">English</a>
   </li>
