@@ -12,6 +12,7 @@ import com.andrew.command.admin.user.TakeRecruitedUsersCommand;
 import com.andrew.command.admin.user.TakeUserCommand;
 import com.andrew.command.admin.vacancy.*;
 import com.andrew.command.user.*;
+import com.andrew.exception.NoCommandException;
 import org.apache.log4j.Logger;
 
 import java.util.Map;
@@ -89,8 +90,11 @@ public class CommandHolder {
 
     public static Command get(String commandName) {
         if (commandName == null || !commands.containsKey(commandName)) {
-            LOG.trace("Command not found, name --> " + commandName);
-            return commands.get("noCommand");
+            try {
+                throw new NoCommandException();
+            } catch (NoCommandException e) {
+                LOG.error("Command not found, name --> " + commandName);
+            }
         }
 
         return commands.get(commandName);
