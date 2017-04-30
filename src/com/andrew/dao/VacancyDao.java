@@ -50,7 +50,7 @@ public class VacancyDao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -78,10 +78,10 @@ public class VacancyDao {
             }
             return vacancies;
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return null;
     }
@@ -108,10 +108,10 @@ public class VacancyDao {
             }
             return vacancies;
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return null;
     }
@@ -136,10 +136,10 @@ public class VacancyDao {
             }
             return vacancy;
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return null;
     }
@@ -147,7 +147,7 @@ public class VacancyDao {
 
     private void closeResources(Connection conn, PreparedStatement stmt) {
         pool.freeConnection(conn);
-        try { stmt.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+        try { stmt.close(); } catch(SQLException se) { LOG.error("SQLException"); }
     }
 
     public void updateVacancy(int vacancyId,  String position, int experience, int salary, String info) {
@@ -162,7 +162,7 @@ public class VacancyDao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -176,7 +176,7 @@ public class VacancyDao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -190,7 +190,7 @@ public class VacancyDao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -218,10 +218,10 @@ public class VacancyDao {
             }
             return vacancies;
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return null;
     }

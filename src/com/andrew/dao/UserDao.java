@@ -54,10 +54,10 @@ public class UserDao {
             }
             return user;
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return null;
     }
@@ -84,10 +84,10 @@ public class UserDao {
             }
             return user;
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return null;
     }
@@ -115,10 +115,10 @@ public class UserDao {
             }
             return users;
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return null;
     }
@@ -138,7 +138,7 @@ public class UserDao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -157,10 +157,10 @@ public class UserDao {
                 return true;
             }
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return false;
     }
@@ -180,17 +180,17 @@ public class UserDao {
                 return false;
             }
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return false;
     }
 
     private void closeResources(Connection conn, PreparedStatement stmt) {
         pool.freeConnection(conn);
-        try { stmt.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+        try { stmt.close(); } catch(SQLException se) { LOG.error("SQLException"); }
     }
 
     public String takeResume(int userId) {
@@ -206,10 +206,10 @@ public class UserDao {
             }
             return resume;
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return null;
     }
@@ -228,7 +228,7 @@ public class UserDao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -257,10 +257,10 @@ public class UserDao {
             }
             return user;
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return null;
     }

@@ -63,7 +63,6 @@ public class CommandHolder {
 
         //////////////////
 
-
         commands.put("log_out", new LogOutCommand());
         commands.put("log_in", new AutorisationCommand());
 
@@ -80,15 +79,11 @@ public class CommandHolder {
         commands.put("delete_application", new DeleteApplicationCommand());
         commands.put("change_language", new LanguageChangeCommand());
 
-
-
         ///////////////////
-
 
         commands.put("vacancies", new TakeAllVacanciesWithInfoCommand());
         commands.put("registration", new RegistrationCommand());
         commands.put("view_vacancy", new TakeVacancyCommand());
-
 
     }
 

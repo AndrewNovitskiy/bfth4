@@ -75,10 +75,10 @@ public class MessageDao {
             }
             return messages;
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return null;
     }
@@ -109,10 +109,10 @@ public class MessageDao {
             }
             return message;
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return null;
     }
@@ -132,17 +132,17 @@ public class MessageDao {
                 return false;
             }
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return false;
     }
 
     private void closeResources(Connection conn, PreparedStatement stmt) {
         pool.freeConnection(conn);
-        try { stmt.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+        try { stmt.close(); } catch(SQLException se) { LOG.error("SQLException"); }
     }
 
     public ArrayList<Message> takeMessagesForUser(int adminId, Integer userId) {
@@ -170,10 +170,10 @@ public class MessageDao {
             }
             return messages;
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return null;
     }
@@ -190,7 +190,7 @@ public class MessageDao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -218,10 +218,10 @@ public class MessageDao {
             }
             return messages;
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return null;
     }
@@ -245,10 +245,10 @@ public class MessageDao {
             }
             return message;
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return null;
     }
@@ -267,10 +267,10 @@ public class MessageDao {
                 return false;
             }
         } catch (SQLException e) {
-            LOG.info("SQLException");
+            LOG.error("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
         }
         return false;
     }
