@@ -5,9 +5,11 @@
     <title>Application #${requestScope.application.applicationId}</title>
     <link rel="stylesheet" href="../style/topbar_style.css">
     <link rel="stylesheet" href="../style/control_element_style.css">
+    <link rel="stylesheet" href="../style/admin_content_style.css">
 </head>
 <body>
 <%@include file="../include/controlbar.jsp"%>
+<div class="content">
 <h2>Application Info</h2>
 <p>${requestScope.application.applicationId}</p>
 <p>${requestScope.application.applicantName}</p>
@@ -36,7 +38,7 @@
 </form>
 
 <p>DELETED ${requestScope.application.deleted}</p>
-<br>
+    </div>
 
 <div class="control_elem_container">
     <span>

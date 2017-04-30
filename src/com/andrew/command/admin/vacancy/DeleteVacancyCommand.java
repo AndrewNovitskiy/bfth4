@@ -8,7 +8,6 @@ import com.andrew.dao.MessageDao;
 import com.andrew.dao.VacancyDao;
 import com.andrew.entity.Admin;
 import com.andrew.util.MessagePreparator;
-import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +25,6 @@ import static com.andrew.constant.MessageConstant.MESSAGE_VACANCY_DELETED_TITLE;
  */
 public class DeleteVacancyCommand implements Command {
 
-    private static final Logger log = Logger.getLogger(DeleteVacancyCommand.class);
     private VacancyDao vacancyDao;
     private ApplicationDao applicationDao;
     private MessageDao messageDao;

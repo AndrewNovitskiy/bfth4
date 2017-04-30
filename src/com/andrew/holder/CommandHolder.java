@@ -90,11 +90,6 @@ public class CommandHolder {
         commands.put("view_vacancy", new TakeVacancyCommand());
 
 
-
-
-
-
-        LOG.trace("Number of commands --> " + commands.size());
     }
 
     public static Command get(String commandName) {

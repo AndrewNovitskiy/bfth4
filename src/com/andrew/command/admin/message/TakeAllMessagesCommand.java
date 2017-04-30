@@ -6,7 +6,6 @@ import com.andrew.command.Command;
 import com.andrew.dao.MessageDao;
 import com.andrew.entity.Admin;
 import com.andrew.entity.Message;
-import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +21,6 @@ import static com.andrew.constant.JspPathConstant.ADMIN_ALL_MESSAGES_JSP;
  */
 public class TakeAllMessagesCommand implements Command {
 
-    private static final Logger LOG = Logger.getLogger(TakeAllMessagesCommand.class);
     private MessageDao dao;
 
     public TakeAllMessagesCommand() {

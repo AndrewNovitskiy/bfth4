@@ -4,7 +4,6 @@ import com.andrew.action.Action;
 import com.andrew.action.RedirectAction;
 import com.andrew.command.Command;
 import com.andrew.dao.ApplicationDao;
-import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +17,6 @@ import static com.andrew.constant.CommandPathConstant.ADMIN_ALL_APPLICATIONS_COM
  */
 public class DeleteApplicationByAdminCommand implements Command {
 
-    private static final Logger LOG = Logger.getLogger(DeleteApplicationByAdminCommand.class);
     private ApplicationDao dao;
 
     public DeleteApplicationByAdminCommand() {

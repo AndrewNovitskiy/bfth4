@@ -6,7 +6,6 @@ import com.andrew.action.RedirectAction;
 import com.andrew.command.Command;
 import com.andrew.dao.AdminDao;
 import com.andrew.entity.Admin;
-import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -14,9 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static com.andrew.constant.AttributeConstant.ADMIN;
-import static com.andrew.constant.AttributeConstant.FAIL;
-import static com.andrew.constant.AttributeConstant.USER;
+import static com.andrew.constant.AttributeConstant.*;
 import static com.andrew.constant.JspPathConstant.ADMIN_CONTROL_PANEL_JSP;
 import static com.andrew.constant.JspPathConstant.LOG_IN_ADMIN_JSP;
 
@@ -25,14 +22,12 @@ import static com.andrew.constant.JspPathConstant.LOG_IN_ADMIN_JSP;
  */
 public class AdminAutorisationCommand implements Command {
 
-    private static final Logger log = Logger.getLogger(AdminAutorisationCommand.class);
     private AdminDao dao;
 
     public AdminAutorisationCommand() {
         super();
         dao = new AdminDao();
     }
-
 
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

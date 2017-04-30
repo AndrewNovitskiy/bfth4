@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 
 public class AdminDao {
-    private static final Logger log = Logger.getLogger(AdminDao.class);
+    private static final Logger LOG = Logger.getLogger(AdminDao.class);
 
     private Connection conn;
     private PreparedStatement stmt;
@@ -44,10 +44,10 @@ public class AdminDao {
             }
             return admin;
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { log.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
         }
         return null;
     }
@@ -66,16 +66,16 @@ public class AdminDao {
                 return false;
             }
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { log.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
         }
         return false;
     }
 
     private void closeResources(Connection conn, PreparedStatement stmt) {
         pool.freeConnection(conn);
-        try { stmt.close(); } catch(SQLException se) { log.info("SQLException"); }
+        try { stmt.close(); } catch(SQLException se) { LOG.info("SQLException"); }
     }
 }

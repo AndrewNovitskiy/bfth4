@@ -16,7 +16,6 @@ import static com.andrew.constant.JspPathConstant.ADMIN_NEW_MESSAGE_JSP;
  */
 public class NewMessageCommand implements Command {
 
-
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setAttribute("id", Integer.parseInt(request.getParameter("id")));

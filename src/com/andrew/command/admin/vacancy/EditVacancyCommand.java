@@ -15,9 +15,9 @@ import static com.andrew.constant.JspPathConstant.ADMIN_EDIT_VACANCY_JSP;
  * Created by Andrew on 09.04.2017.
  */
 public class EditVacancyCommand implements Command {
+
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
         request.setAttribute("id", Integer.parseInt(request.getParameter("id")));
         request.setAttribute("position", request.getParameter("position"));
         return new ForwardAction(ADMIN_EDIT_VACANCY_JSP);

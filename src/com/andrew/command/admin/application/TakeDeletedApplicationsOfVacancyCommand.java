@@ -5,7 +5,6 @@ import com.andrew.action.ForwardAction;
 import com.andrew.command.Command;
 import com.andrew.dao.ApplicationDao;
 import com.andrew.entity.Application;
-import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +18,7 @@ import static com.andrew.constant.JspPathConstant.ADMIN_ALL_DELETED_VACANCY_APPL
  * Created by Andrew on 15.04.2017.
  */
 public class TakeDeletedApplicationsOfVacancyCommand implements Command {
-    private static final Logger LOG = Logger.getLogger(TakeDeletedApplicationsOfVacancyCommand.class);
+
     private ApplicationDao dao;
 
     public TakeDeletedApplicationsOfVacancyCommand() {

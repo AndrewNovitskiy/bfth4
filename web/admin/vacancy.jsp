@@ -5,9 +5,11 @@
     <title>Vacancy ${requestScope.vacancy.position}</title>
     <link rel="stylesheet" href="../style/topbar_style.css">
     <link rel="stylesheet" href="../style/control_element_style.css">
+    <link rel="stylesheet" href="../style/admin_content_style.css">
 </head>
 <body>
 <%@include file="../include/controlbar.jsp"%>
+<div class="content">
     <h2>Vacancy Info</h2>
 <p>${requestScope.vacancy.vacancyId}</p>
 <p>${requestScope.vacancy.dateTime}</p>
@@ -15,9 +17,9 @@
 <p>${requestScope.vacancy.experience}</p>
 <p>${requestScope.vacancy.salary}</p>
 <p>${requestScope.vacancy.info}</p>
-    <p>DELETED ${requestScope.vacancy.deleted}</p>
-<br>
+<p>DELETED ${requestScope.vacancy.deleted}</p>
 
+</div>
 
 <div class="control_elem_container">
     <span>

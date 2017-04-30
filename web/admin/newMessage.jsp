@@ -5,16 +5,18 @@
     <title>New Message  for ${requestScope.name} ${requestScope.surname}</title>
     <link rel="stylesheet" href="../style/topbar_style.css">
     <link rel="stylesheet" href="../style/control_element_style.css">
+    <link rel="stylesheet" href="../style/admin_content_style.css">
 </head>
 <body>
 <%@include file="../include/controlbar.jsp"%>
+<div class="content">
 <h2>New Message  for ${requestScope.name} ${requestScope.surname}</h2>
 <form action="${pageContext.request.contextPath}/admin/do" name="send_message" method="post">
 
     <label>
         Title<br>
         <input type="text" name="title" required placeholder="Enter theme of message ... " maxlength="45">
-    </label><br>
+    </label><br><br>
 
     <label>
         Text<br>
@@ -30,5 +32,6 @@
     </div>
 
 </form>
+    </div>
 </body>
 </html>

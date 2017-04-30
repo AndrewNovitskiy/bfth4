@@ -56,7 +56,5 @@ public class UpdateUserCommand implements Command {
             return new ForwardAction(EDIT_PROFILE_JSP);
         }
 
-
-
     }
 }

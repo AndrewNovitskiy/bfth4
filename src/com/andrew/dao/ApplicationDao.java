@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class ApplicationDao {
 
-    private static final Logger log = Logger.getLogger(ApplicationDao.class);
+    private static final Logger LOG = Logger.getLogger(ApplicationDao.class);
 
     private Connection conn;
     private PreparedStatement stmt;
@@ -118,17 +118,17 @@ public class ApplicationDao {
             }
             return applications;
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { log.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
         }
         return null;
     }
 
     private void closeResources(Connection conn, PreparedStatement stmt) {
         pool.freeConnection(conn);
-        try { stmt.close(); } catch(SQLException se) { log.info("SQLException"); }
+        try { stmt.close(); } catch(SQLException se) { LOG.info("SQLException"); }
     }
 
     public Application takeApplicationByIdForAdmin(Integer applicationId) {
@@ -155,10 +155,10 @@ public class ApplicationDao {
             }
             return application;
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { log.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
         }
         return null;
     }
@@ -183,10 +183,10 @@ public class ApplicationDao {
             }
             return applications;
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { log.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
         }
         return null;
     }
@@ -214,10 +214,10 @@ public class ApplicationDao {
             }
             return applications;
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { log.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
         }
         return null;
     }
@@ -230,7 +230,7 @@ public class ApplicationDao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -244,7 +244,7 @@ public class ApplicationDao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -271,10 +271,10 @@ public class ApplicationDao {
             }
             return applications;
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { log.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
         }
         return null;
     }
@@ -288,7 +288,7 @@ public class ApplicationDao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -318,10 +318,10 @@ public class ApplicationDao {
             }
             return applications;
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { log.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
         }
         return null;
     }
@@ -334,7 +334,7 @@ public class ApplicationDao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -350,7 +350,7 @@ public class ApplicationDao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -371,7 +371,7 @@ public class ApplicationDao {
             }
 
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -393,7 +393,7 @@ public class ApplicationDao {
             }
 
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -409,7 +409,7 @@ public class ApplicationDao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -424,7 +424,7 @@ public class ApplicationDao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -442,7 +442,7 @@ public class ApplicationDao {
             }
 
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -463,7 +463,7 @@ public class ApplicationDao {
             }
             return idUsers;
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
         }
@@ -490,10 +490,10 @@ public class ApplicationDao {
             }
             return applications;
         } catch (SQLException e) {
-            log.info("SQLException");
+            LOG.info("SQLException");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { log.info("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.info("SQLException"); }
         }
         return null;
     }

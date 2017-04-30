@@ -5,7 +5,6 @@ import com.andrew.action.ForwardAction;
 import com.andrew.command.Command;
 import com.andrew.dao.VacancyDao;
 import com.andrew.entity.Vacancy;
-import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +19,6 @@ import static com.andrew.constant.JspPathConstant.ADMIN_DELETED_VACANCIES_JSP;
  */
 public class TakeDeletedVacanciesCommand implements Command {
 
-    private static final Logger log = Logger.getLogger(TakeDeletedVacanciesCommand.class);
     private VacancyDao dao;
 
     public TakeDeletedVacanciesCommand() {

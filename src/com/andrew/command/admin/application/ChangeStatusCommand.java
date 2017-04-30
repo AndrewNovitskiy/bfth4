@@ -7,7 +7,6 @@ import com.andrew.dao.ApplicationDao;
 import com.andrew.dao.MessageDao;
 import com.andrew.entity.Admin;
 import com.andrew.util.MessagePreparator;
-import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +23,6 @@ import static com.andrew.constant.MessageConstant.MESSAGE_STATUS_CHANGED_TITLE;
  */
 public class ChangeStatusCommand implements Command {
 
-    private static final Logger LOG = Logger.getLogger(ChangeStatusCommand.class);
     private ApplicationDao applicationDao;
     private MessageDao messageDao;
 

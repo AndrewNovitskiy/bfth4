@@ -5,9 +5,11 @@
     <title>${requestScope.user.name} ${requestScope.user.surname}</title>
     <link rel="stylesheet" href="../style/topbar_style.css">
     <link rel="stylesheet" href="../style/control_element_style.css">
+    <link rel="stylesheet" href="../style/admin_content_style.css">
 </head>
 <body>
 <%@include file="../include/controlbar.jsp"%>
+<div class="content">
 <h2>Info about User</h2>
     <p>${requestScope.user.applicantId}</p>
     <p>${requestScope.user.login}</p>
@@ -16,8 +18,7 @@
     <p>${requestScope.user.telephone}</p>
     <p>${requestScope.user.email}</p>
     <p>${requestScope.user.resume}</p>
-<br>
-
+</div>
 
 <div class="control_elem_container">
     <span>

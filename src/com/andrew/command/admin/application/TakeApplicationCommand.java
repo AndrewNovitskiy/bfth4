@@ -5,7 +5,6 @@ import com.andrew.action.ForwardAction;
 import com.andrew.command.Command;
 import com.andrew.dao.ApplicationDao;
 import com.andrew.entity.Application;
-import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +18,6 @@ import static com.andrew.constant.JspPathConstant.ADMIN_APPLICATION_JSP;
  */
 public class TakeApplicationCommand implements Command {
 
-    private static final Logger LOG = Logger.getLogger(TakeApplicationCommand.class);
     private ApplicationDao dao;
 
     public TakeApplicationCommand() {
