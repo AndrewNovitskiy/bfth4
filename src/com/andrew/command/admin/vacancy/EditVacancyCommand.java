@@ -3,6 +3,8 @@ package com.andrew.command.admin.vacancy;
 import com.andrew.action.Action;
 import com.andrew.action.ForwardAction;
 import com.andrew.command.Command;
+import com.andrew.dao.VacancyDao;
+import com.andrew.entity.Vacancy;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,10 +18,16 @@ import static com.andrew.constant.JspPathConstant.ADMIN_EDIT_VACANCY_JSP;
  */
 public class EditVacancyCommand implements Command {
 
+    private VacancyDao dao;
+
+    public EditVacancyCommand() {
+        dao = new VacancyDao();
+    }
+
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.setAttribute("id", Integer.parseInt(request.getParameter("id")));
-        request.setAttribute("position", request.getParameter("position"));
+        Vacancy vacancy = dao.takeVacancyById(Integer.parseInt(request.getParameter("id")));
+        request.setAttribute("vacancy", vacancy);
         return new ForwardAction(ADMIN_EDIT_VACANCY_JSP);
     }
 }

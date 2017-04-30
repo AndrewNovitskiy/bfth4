@@ -28,7 +28,7 @@
         <a href="${pageContext.request.contextPath}/admin/do?command=vdelapps&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}" class="control_elem">DELETED Apps Of Vacancy</a>
    </span>
     <span>
-        <a href="${pageContext.request.contextPath}/admin/do?command=edit_vacancy&id=${requestScope.vacancy.vacancyId}&position=${requestScope.vacancy.position}" class="control_elem">Edit Vacancy</a>
+        <a href="${pageContext.request.contextPath}/admin/do?command=edit_vacancy&id=${requestScope.vacancy.vacancyId}" class="control_elem">Edit Vacancy</a>
 </span>
     <span>
         <c:choose>
