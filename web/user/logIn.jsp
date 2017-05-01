@@ -6,29 +6,52 @@
 <html>
 <head>
     <title><fmt:message key="log.in" /></title>
-    <link rel="stylesheet" href="style/logIn_style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../style/topbar_style.css">
+    <link rel="stylesheet" href="../style/menubar_style.css">
+    <link rel="stylesheet" href="../style/general_style.css">
+    <link rel="stylesheet" href="../style/control_element_style.css">
+    <link rel="stylesheet" href="../style/login_style.css">
 </head>
 <body>
-<a href="/index.jsp" title="index">index.jsp</a>
-<br>
-<div class="block">
-    <form class="vsio" action="${pageContext.request.contextPath}/do" name='log_in' method="post">
-        <label>
-            <fmt:message key="login" />
-            <input type="text" name="login" maxlength="45">
-        </label>
-        <br>
-        <label>
-            <fmt:message key="password" />
-            <input type="password" name="password" maxlength="45">
-        </label>
-        <br>
-        <input type="submit" name="command" value="log_in" title="Log IN">
-    </form>
-    <c:if test="${not empty requestScope.fail}">
-        <p style="color: red"><fmt:message key="bad.login.password" /></p>
-    </c:if>
-    </div>
 
+<div id="container">
+    <%@include file="../include/topbar.jsp"%>
+    <%@include file="../include/header.jsp"%>
+    <%@include file="../include/menubar.jsp"%>
+    <div id="mainblock">
+
+
+        <div class="block" style="align-content: center;">
+            <form action="${pageContext.request.contextPath}/do" name='log_in' method="post">
+                <label>
+                    <fmt:message key="login" /><br>
+                    <input type="text" class="field" name="login" maxlength="45">
+                </label>
+                <br>
+                <label>
+                    <fmt:message key="password" /><br>
+                    <input type="password" class="field" name="password" maxlength="45">
+                </label>
+                <br><br>
+
+                <input type="hidden" name="command" value="log_in">
+
+                <div class="control_elem_container">
+                    <span>
+                        <input type="submit" name="submit" value="<fmt:message key="log.in" />" class="control_elem" title="Log IN">
+                    </span>
+                </div>
+            </form>
+            <c:if test="${not empty requestScope.fail}">
+                <p id="fail"><fmt:message key="bad.login.password" /></p>
+            </c:if>
+
+        </div>
+
+    </div>
+    <img src="../style/resources/a.jpg" class="photo">
+    <%@include file="../include/footer.jsp"%>
+</div>
 </body>
 </html>

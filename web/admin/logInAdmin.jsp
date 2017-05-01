@@ -3,27 +3,31 @@
 <html>
 <head>
     <title>Log In Admin</title>
+    <link rel="stylesheet" href="../style/login_style.css">
 </head>
 <body>
-Hello, unnamed admin!
-<a href="/index.jsp" title="index">index.jsp</a>
-<br>
+<h2><a href="/index.jsp" title="index">Atlanta-Soft</a></h2>
 <form action="${pageContext.request.contextPath}/do" name='log_in_admin' method="post">
     <label>
-        login
-        <input type="text" name="login" maxlength="45">
+        login<br>
+        <input type="text" class="field" name="login" maxlength="45">
     </label>
     <br>
     <label>
-        password
-        <input type="password" name="password" maxlength="45">
+        password<br>
+        <input type="password" class="field" name="password" maxlength="45">
     </label>
-    <br>
+    <br><br>
     <input type="hidden" name="command" value="log_in_admin">
-    <input type="submit" name="submit" value="Log In">
+
+    <div class="control_elem_container">
+        <span>
+            <input type="submit" name="submit" value="Log In" class="control_elem">
+        </span>
+    </div>
 </form>
 <c:if test="${not empty requestScope.fail}">
-    <p style="color: red">Bad login or password</p>
+    <p id="fail">Bad login or password</p>
 </c:if>
 </body>
 </html>
