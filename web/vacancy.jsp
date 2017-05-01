@@ -36,16 +36,17 @@
                 <span>${requestScope.vacancy.info}</span><br><br>
             </div>
 
-            
-            <c:choose>
-                <c:when test="${requestScope.vacancy.deleted}">
-                    <span class="notice"><fmt:message key="can.not.respond" /></span>
-                </c:when>
-                <c:when test="${empty sessionScope.user}">
-                    <span class="notice"><fmt:message key="log.to.respond" /></span>
-                </c:when>
-                <c:when test="${requestScope.app_exists}">
-                    <div class="control_elem_container">
+        </div>
+
+        <c:choose>
+            <c:when test="${requestScope.vacancy.deleted}">
+                <span class="notice"><fmt:message key="can.not.respond" /></span>
+            </c:when>
+            <c:when test="${empty sessionScope.user}">
+                <span class="notice"><fmt:message key="log.to.respond" /></span>
+            </c:when>
+            <c:when test="${requestScope.app_exists}">
+                <div class="control_elem_container">
                         <span>
                             <form action="${pageContext.request.contextPath}/do" name='delete_application' method="post">
                                 <input type="hidden" name="vacancyId" value="${requestScope.vacancy.vacancyId}">
@@ -53,10 +54,10 @@
                                 <input type="submit" name="submit" value="<fmt:message key="del.respond" />" class="control_elem">
                             </form>
                         </span>
-                    </div>
-                </c:when>
-                <c:otherwise>
-                    <div class="control_elem_container">
+                </div>
+            </c:when>
+            <c:otherwise>
+                <div class="control_elem_container">
                         <span>
                             <form action="${pageContext.request.contextPath}/do" name='new_application' method="post">
                                 <input type="hidden" name="vacancyId" value="${requestScope.vacancy.vacancyId}">
@@ -64,11 +65,10 @@
                                 <input type="submit" name="submit" value="<fmt:message key="to.respond" />" class="control_elem">
                             </form>
                         </span>
-                    </div>
-                </c:otherwise>
-            </c:choose>
+                </div>
+            </c:otherwise>
+        </c:choose>
 
-        </div>
     </div>
     <img src="style/resources/a.jpg" class="photo">
     <%@include file="include/footer.jsp"%>

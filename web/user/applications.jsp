@@ -21,8 +21,6 @@
     <%@include file="../include/menubar.jsp"%>
     <div id="mainblock">
 
-        <div class="block">
-
             <c:choose>
                 <c:when test="${not empty requestScope.applications}">
                     <h2><fmt:message key="responses" /></h2>
@@ -57,12 +55,6 @@
             </c:choose>
 
 
-
-
-
-
-
-        </div>
     </div>
     <img src="../style/resources/a.jpg" class="photo">
     <%@include file="../include/footer.jsp"%>

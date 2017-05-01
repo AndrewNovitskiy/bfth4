@@ -32,6 +32,7 @@
             </div>
 
         </div>
+
     </div>
     <img src="../style/resources/a.jpg" class="photo">
     <%@include file="../include/footer.jsp"%>

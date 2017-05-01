@@ -36,13 +36,17 @@
                 <label><fmt:message key="resume" /> : </label> <span>${requestScope.resume}</span><br><br>
             </div>
 
+        </div>
+
+        <form action="${pageContext.request.contextPath}/user/do" name='edit_profile' method="post">
+            <input type="hidden" name="command" value="edit_profile">
             <div class="control_elem_container">
                 <span>
-                    <a href="/user/editProfile.jsp" class="control_elem"><fmt:message key="edit.profile" /></a>
+                    <input type="submit" name="submit" class="control_elem" value="<fmt:message key="edit.profile" />">
                 </span>
             </div>
+        </form>
 
-        </div>
     </div>
     <img src="../style/resources/a.jpg" class="photo">
     <%@include file="../include/footer.jsp"%>

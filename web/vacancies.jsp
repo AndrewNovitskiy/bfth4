@@ -25,7 +25,7 @@
 
         <div id="content" class="block">
 
-            <h2><fmt:message key="text1" /></h2>
+            <h2 id="text1"><fmt:message key="text1" /></h2>
 
 
             <c:if test="${not empty requestScope.vacancies}">

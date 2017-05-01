@@ -29,23 +29,23 @@
         <form action="${pageContext.request.contextPath}/user/do" name='update_profile' onSubmit="return formValidation();" method="post">
 
                 <label><fmt:message key="name" />:</label><br>
-                <input type="text" name="name" size="20" maxlength="45"/>
+                <input type="text" name="name" size="20" maxlength="45" value="${requestScope.userInfo.name}"/>
                 <span class="error" id="error-name"></span>
             <br><br>
                 <label><fmt:message key="surname" />:</label><br>
-                <input type="text" name="surname" size="20" maxlength="45"/>
+                <input type="text" name="surname" size="20" maxlength="45" value="${requestScope.userInfo.surname}"/>
                 <span class="error" id="error-surname"></span>
             <br><br>
                 <label><fmt:message key="phone" />:</label><br>
-                <input type="text" name="telephone" size="20" maxlength="15"/>
+                <input type="text" name="telephone" size="20" maxlength="15" value="${requestScope.userInfo.telephone}"/>
                 <span class="error" id="error-telephone"></span>
             <br><br>
                 <label><fmt:message key="email" />:</label><br>
-                <input type="text" name="email" size="20" maxlength="45"/>
+                <input type="text" name="email" size="20" maxlength="45" value="${requestScope.userInfo.email}"/>
                 <span class="error" id="error-email"></span>
             <br><br>
                 <label><fmt:message key="resume" />:</label><br>
-                <textarea name="resume" maxlength="2000" placeholder="Your Resume ..." rows="30" cols="50"></textarea>
+                <textarea name="resume" maxlength="2000" placeholder="Your Resume ..." rows="30" cols="50">${requestScope.userInfo.resume}</textarea>
             <br><br>
 
 

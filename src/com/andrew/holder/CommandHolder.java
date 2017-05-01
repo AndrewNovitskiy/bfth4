@@ -69,6 +69,7 @@ public class CommandHolder {
 
         commands.put("profile", new ProfileCommand());
 
+        commands.put("edit_profile", new EditUserCommand());
         commands.put("update_profile", new UpdateUserCommand());
 
         commands.put("my_messages", new TakeUserMessagesCommand());

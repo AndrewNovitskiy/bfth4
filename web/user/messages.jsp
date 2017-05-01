@@ -21,8 +21,6 @@
     <%@include file="../include/menubar.jsp"%>
     <div id="mainblock">
 
-        <div class="block">
-
             <c:choose>
                 <c:when test="${not empty requestScope.messages}">
                     <h2><fmt:message key="messages" /></h2>
@@ -52,6 +50,7 @@
                                             <input type="hidden" name="command" value="my_message">
                                             <input type="submit" name="submit" value="<fmt:message key="details" />">
                                         </form>
+                                        <a href="${pageContext.request.contextPath}/user/do?command=my_message&id=${message.messageId}">mmm</a>
                                     </th>
                                 </tr>
                             </c:forEach>
@@ -62,11 +61,6 @@
                 </c:otherwise>
             </c:choose>
 
-
-
-
-
-        </div>
     </div>
     <img src="../style/resources/a.jpg" class="photo">
     <%@include file="../include/footer.jsp"%>

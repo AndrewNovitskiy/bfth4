@@ -8,25 +8,22 @@ label {
     width: 100px;
     text-align: right;
     margin-right: 10px;
-    margin-left: 25px;
     font-family: OpenSans;
     font-size: 25px;
     font-weight: bold;
 }
 
 h2 {
-    margin-left: 25px;
     font-family: OpenSans;
     font-size: 35px;
     font-weight: bold;
+    margin-left: 0;
 }
 
 
 span {
     font-family: OpenSans;
     font-size:25px;
-    margin-left: 25px;
-
 }
 
 .notice {
