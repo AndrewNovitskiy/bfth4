@@ -17,7 +17,7 @@ public class Validator {
     private static final Pattern REGEX_EMAIL = Pattern.compile("^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$");
 
 
-    public static boolean validateTheRegistrationData(String login, String password, String passwordDuplicate, String name, String surname, String telephone, String email) {
+    public static boolean validateRegistrationData(String login, String password, String passwordDuplicate, String name, String surname, String telephone, String email) {
         if (validateLogin(login)) {
             if (validatePassword(password)) {
                 if (password.equals(passwordDuplicate)) {
@@ -36,7 +36,7 @@ public class Validator {
         return false;
     }
 
-    public static boolean validateTheUserData(String name, String surname, String telephone, String email) {
+    public static boolean validateUserData(String name, String surname, String telephone, String email) {
         if (validateName(name.trim())) {
             if (validateName(surname.trim())) {
                 if (validateTelephone(telephone.trim())) {
@@ -44,6 +44,15 @@ public class Validator {
                         return true;
                     }
                 }
+            }
+        }
+        return false;
+    }
+
+    public static boolean validateNewPassword(String password, String passwordDuplicate) {
+        if (validatePassword(password)) {
+            if (password.equals(passwordDuplicate)) {
+                return true;
             }
         }
         return false;

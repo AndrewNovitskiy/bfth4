@@ -40,8 +40,7 @@ input {
 }
 
 .error {
-    font-family: OpenSans;
-    font-size: 16px;
     color: red;
-    margin-left: 25px;
+    font-weight: bold;
+    padding-left: 5px;
 }

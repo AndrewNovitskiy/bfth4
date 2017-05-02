@@ -68,6 +68,7 @@ public class CommandHolder {
         commands.put("log_in", new AutorisationCommand());
 
         commands.put("profile", new ProfileCommand());
+        commands.put("change_password", new ChangePasswordCommand());
 
         commands.put("edit_profile", new EditUserCommand());
         commands.put("update_profile", new UpdateUserCommand());

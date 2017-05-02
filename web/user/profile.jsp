@@ -44,6 +44,9 @@
                 <span>
                     <input type="submit" name="submit" class="control_elem" value="<fmt:message key="edit.profile" />">
                 </span>
+                <span>
+                    <a href="changePassword.jsp" class="control_elem"><fmt:message key="change.password" /></a>
+                </span>
             </div>
         </form>
 

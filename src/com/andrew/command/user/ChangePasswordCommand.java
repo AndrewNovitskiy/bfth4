@@ -17,32 +17,32 @@ import java.io.IOException;
 import static com.andrew.constant.AttributeConstant.USER;
 import static com.andrew.constant.AttributeConstant.VALIDATION_FAIL;
 import static com.andrew.constant.CommandPathConstant.PROFILE_COMMAND;
-import static com.andrew.constant.JspPathConstant.EDIT_PROFILE_JSP;
+import static com.andrew.constant.JspPathConstant.CHANGE_PASSWORD_JSP;
 
 /**
- * Created by Andrew on 14.04.2017.
+ * Created by Andrew on 02.05.2017.
  */
-public class UpdateUserCommand implements Command {
+public class ChangePasswordCommand implements Command {
 
     private UserDao dao;
 
-    public UpdateUserCommand() {
+    public ChangePasswordCommand() {
         dao = new UserDao();
     }
 
+
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String name = request.getParameter("name");
-        String surname = request.getParameter("surname");
-        String telephone = request.getParameter("telephone");
-        String email = request.getParameter("email");
-        String resume = request.getParameter("resume");
+        String newPassword = request.getParameter("new_password");
+        String duplicate = request.getParameter("confirmation");
 
-        if (Validator.validateUserData(name, surname, telephone, email)) {
+
+
+        if (Validator.validateNewPassword(newPassword, duplicate)) {
             HttpSession session = request.getSession();
             User user = (User) session.getAttribute(USER);
 
-            dao.updateUser(user.getApplicantId(), name, surname, telephone, email, resume);
+            dao.changeUserPassword(user.getApplicantId(), newPassword);
             User updatedUser = dao.takeUserById(user.getApplicantId());
 
             session.removeAttribute(USER);
@@ -52,8 +52,9 @@ public class UpdateUserCommand implements Command {
             return new RedirectAction(PROFILE_COMMAND);
         } else {
             request.setAttribute(VALIDATION_FAIL, true);
-            return new ForwardAction(EDIT_PROFILE_JSP);
+            return new ForwardAction(CHANGE_PASSWORD_JSP);
         }
+
 
     }
 }

@@ -43,7 +43,7 @@ public class RegistrationCommand implements Command {
         String telephone = request.getParameter("telephone");
         String email = request.getParameter("email");
 
-        if (Validator.validateTheRegistrationData(login, password, passwordDuplicate, name, surname, telephone, email)) {
+        if (Validator.validateRegistrationData(login, password, passwordDuplicate, name, surname, telephone, email)) {
             if (dao.checkLogin(login)) {
                 dao.addUser(login, password, name, surname, telephone, email);
                 User user = dao.takeUser(login, password);
