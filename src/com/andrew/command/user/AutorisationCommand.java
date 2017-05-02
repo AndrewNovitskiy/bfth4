@@ -28,7 +28,6 @@ public class AutorisationCommand implements Command {
         dao = new UserDao();
     }
 
-
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession();

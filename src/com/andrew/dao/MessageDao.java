@@ -1,22 +1,18 @@
 package com.andrew.dao;
 
-import com.andrew.connection.ConnectionPool;
 import com.andrew.entity.Message;
 import org.apache.log4j.Logger;
 
-import java.sql.*;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 /**
  * Created by Andrew on 02.04.2017.
  */
-public class MessageDao {
+public class MessageDao extends Dao<Message> {
+
     private static final Logger LOG = Logger.getLogger(MessageDao.class);
-
-    private Connection conn;
-    private PreparedStatement stmt;
-    private ResultSet rs;
-
 
     private static final String SQL_GET_ALL_ADMIN_MESSAGES = "SELECT message.id_message, applicant.name, applicant.surname, message.id_sender, message.title, message.content, message.date_time\n" +
             "\tFROM message LEFT JOIN applicant ON message.id_recipient = applicant.id_applicant\n" +
@@ -26,29 +22,16 @@ public class MessageDao {
     private static final String SQL_GET_MESSAGES_FOR_USER = "SELECT message.id_message, applicant.name, applicant.surname, message.id_sender, message.title, message.content, message.date_time\n" +
             "\tFROM message LEFT JOIN applicant ON message.id_recipient = applicant.id_applicant\n" +
             "    WHERE id_sender = ? AND id_recipient = ?;";
-
-
     private static final String SQL_PUT_MESSAGE = "INSERT INTO message (id_message, id_recipient, id_sender, title, content, date_time) \n" +
             "\tVALUES (NULL, ?, ?, ?, ?, current_timestamp());";
-
-
     private static final String SQL_GET_USER_MESSAGES = "SELECT message.id_message, admin.login, message.title, message.date_time\n" +
             "\tFROM message LEFT JOIN admin ON message.id_sender = admin.id_admin\n" +
             "    WHERE id_recipient = ?;";
-
     private static final String SQL_GET_USER_MESSAGE = "SELECT admin.login, message.title, message.content, message.date_time\n" +
             "\tFROM message LEFT JOIN admin ON message.id_sender = admin.id_admin\n" +
             "    WHERE id_message = ?;";
-
-
     private static final String SQL_CHECK_MESSAGE = "SELECT id_message FROM message WHERE id_message = ? AND id_recipient = ?;";
 
-
-    private ConnectionPool pool;
-
-    public MessageDao() {
-        pool = ConnectionPool.getInstance();
-    }
 
     public ArrayList<Message> takeAllAdminMessages(int adminId){
         try {
@@ -140,10 +123,7 @@ public class MessageDao {
         return false;
     }
 
-    private void closeResources(Connection conn, PreparedStatement stmt) {
-        pool.freeConnection(conn);
-        try { stmt.close(); } catch(SQLException se) { LOG.error("SQLException"); }
-    }
+
 
     public ArrayList<Message> takeMessagesForUser(int adminId, Integer userId) {
         try {

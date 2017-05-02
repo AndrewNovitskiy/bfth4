@@ -30,12 +30,10 @@ public class TakeUserApplicationsCommand implements Command {
 
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute(USER);
 
         ArrayList<Application> applications = dao.takeApplicationsOfUser(user.getApplicantId());
-
         request.setAttribute("applications", applications);
         return new ForwardAction(USER_APPLICATIONS_JSP);
     }

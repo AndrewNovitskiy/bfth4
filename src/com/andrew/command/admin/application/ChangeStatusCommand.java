@@ -40,17 +40,14 @@ public class ChangeStatusCommand implements Command {
         String applicantName = request.getParameter("applicant_name");
         String vacancyPosition = request.getParameter("vacancy_position");
 
-
         HttpSession session = request.getSession();
         Admin admin = (Admin) session.getAttribute(ADMIN);
 
-
         applicationDao.changeStatus(applicationId, statusId);
 
-        messageDao.putMessage(admin.getIdAdmin(), applicantId, MESSAGE_STATUS_CHANGED_TITLE,
+        messageDao.putMessage(admin.getAdminId(), applicantId, MESSAGE_STATUS_CHANGED_TITLE,
                 MessagePreparator.prepareStatusChangedMessage(applicantName, vacancyPosition,
                         applicationDao.getStatusValue(statusId)));
-
 
         return new RedirectAction(ADMIN_ALL_APPLICATIONS_COMMAND);
     }

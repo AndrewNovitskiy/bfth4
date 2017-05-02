@@ -28,7 +28,6 @@ public class EditUserCommand implements Command {
 
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute(USER);
 

@@ -34,6 +34,7 @@ public class DeleteVacancyCommand implements Command {
         applicationDao = new ApplicationDao();
         messageDao = new MessageDao();
     }
+
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int vacancyId = Integer.parseInt(request.getParameter("id"));
@@ -47,7 +48,7 @@ public class DeleteVacancyCommand implements Command {
         ArrayList<Integer> idUsers = applicationDao.getIdUsersByVacancyId(vacancyId);
 
         for (Integer applicantId : idUsers){
-            messageDao.putMessage(admin.getIdAdmin(), applicantId, MESSAGE_VACANCY_DELETED_TITLE,
+            messageDao.putMessage(admin.getAdminId(), applicantId, MESSAGE_VACANCY_DELETED_TITLE,
                     MessagePreparator.prepareVacancyDeletedMessage(vacancyPosition));
         }
 

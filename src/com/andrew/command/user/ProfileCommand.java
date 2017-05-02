@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+import static com.andrew.constant.AttributeConstant.USER;
 import static com.andrew.constant.JspPathConstant.USER_PROFILE_JSP;
 
 /**
@@ -28,7 +29,7 @@ public class ProfileCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
+        User user = (User) session.getAttribute(USER);
 
         String resume =  dao.takeResume(user.getApplicantId());
         request.setAttribute("resume", resume);

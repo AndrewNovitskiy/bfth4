@@ -30,11 +30,12 @@ public class TakeVacancyCommand implements Command {
         applicationDao = new ApplicationDao();
     }
 
-
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Integer vacancyId = Integer.parseInt(request.getParameter("id"));
+
         Vacancy vacancy = vacancyDao.takeVacancyById(vacancyId);
+
         request.setAttribute("vacancy", vacancy);
 
         HttpSession session = request.getSession();
@@ -47,8 +48,6 @@ public class TakeVacancyCommand implements Command {
                 request.setAttribute("app_exists", false);
             }
         }
-
         return new ForwardAction(VACANCY_JSP);
-
     }
 }

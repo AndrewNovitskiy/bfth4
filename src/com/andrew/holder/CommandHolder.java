@@ -25,7 +25,7 @@ public class CommandHolder {
     private static Map<String, Command> commands = new TreeMap<>();
 
     static {
-
+        //Admin commands
         commands.put("log_out_admin", new AdminLogOutCommand());
         commands.put("log_in_admin", new AdminAutorisationCommand());
 
@@ -62,8 +62,7 @@ public class CommandHolder {
         commands.put("change_status", new ChangeStatusCommand());
         commands.put("recruited_users", new TakeRecruitedUsersCommand());
 
-        //////////////////
-
+        //User commands
         commands.put("log_out", new LogOutCommand());
         commands.put("log_in", new AutorisationCommand());
 
@@ -82,12 +81,9 @@ public class CommandHolder {
         commands.put("delete_application", new DeleteApplicationCommand());
         commands.put("change_language", new LanguageChangeCommand());
 
-        ///////////////////
-
         commands.put("vacancies", new TakeAllVacanciesWithInfoCommand());
         commands.put("registration", new RegistrationCommand());
         commands.put("view_vacancy", new TakeVacancyCommand());
-
     }
 
     public static Command get(String commandName) {
@@ -98,7 +94,6 @@ public class CommandHolder {
                 LOG.error("Command not found, name --> " + commandName);
             }
         }
-
         return commands.get(commandName);
     }
 }

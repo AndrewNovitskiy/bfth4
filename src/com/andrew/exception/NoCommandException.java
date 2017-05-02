@@ -1,8 +1,7 @@
 package com.andrew.exception;
 
 public class NoCommandException extends Exception {
-    public NoCommandException() {
-    }
+    public NoCommandException() {}
 
     public NoCommandException(String message) {
         super(message);

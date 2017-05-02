@@ -25,17 +25,17 @@ public class SendMessageCommand implements Command {
     public SendMessageCommand() {
         dao = new MessageDao();
     }
+
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Integer recipientId = Integer.parseInt(request.getParameter("recipient"));
         String title = request.getParameter("title");
         String content = request.getParameter("content");
 
-
         HttpSession session = request.getSession();
         Admin admin = (Admin) session.getAttribute(ADMIN);
-        dao.putMessage(admin.getIdAdmin(), recipientId, title, content);
 
+        dao.putMessage(admin.getAdminId(), recipientId, title, content);
         return new RedirectAction(ADMIN_ALL_MESSAGES_COMMAND);
     }
 }

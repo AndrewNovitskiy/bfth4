@@ -1,42 +1,28 @@
 package com.andrew.dao;
 
-import com.andrew.connection.ConnectionPool;
 import com.andrew.entity.Vacancy;
 import org.apache.log4j.Logger;
 
-import java.sql.*;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 /**
  * Created by Andrew on 02.04.2017.
  */
-public class VacancyDao {
+public class VacancyDao extends Dao<Vacancy> {
 
     private static final Logger LOG = Logger.getLogger(VacancyDao.class);
-
-    private Connection conn;
-    private PreparedStatement stmt;
-    private ResultSet rs;
-
 
     private static final String SQL_GET_ALL_VACANCIES = "SELECT * FROM vacancy WHERE vacancy.deleted = 0;";
     private static final String SQL_GET_VACANCY_BY_ID = "SELECT * FROM vacancy WHERE id_vacancy = ?;";
     private static final String SQL_SET_VACANCY = "INSERT INTO vacancy (id_vacancy, date_time, position, experience, salary, info) \n" +
             "\tVALUES (NULL, current_timestamp(), ?, ?, ?, ?);";
-
     private static final String SQL_UPDATE_VACANCY_BY_ID = "UPDATE vacancy SET vacancy.position = ?, vacancy.experience = ?, vacancy.salary = ?, vacancy.info = ? WHERE vacancy.id_vacancy = ?;";
-
     private static final String SQL_DELETE_VACANCY = "UPDATE vacancy SET vacancy.deleted = 1 WHERE vacancy.id_vacancy = ?;";
     private static final String SQL_RESTORE_VACANCY = "UPDATE vacancy SET vacancy.deleted = 0 WHERE vacancy.id_vacancy = ?;";
-
-
     private static final String SQL_GET_DELETED_VACANCIES = "SELECT * FROM vacancy WHERE vacancy.deleted = 1;";
 
-    private ConnectionPool pool;
-
-    public VacancyDao() {
-        pool = ConnectionPool.getInstance();
-    }
 
     public void addVacancy(String position, int experience, int salary, String info) {
         try {
@@ -145,10 +131,7 @@ public class VacancyDao {
     }
 
 
-    private void closeResources(Connection conn, PreparedStatement stmt) {
-        pool.freeConnection(conn);
-        try { stmt.close(); } catch(SQLException se) { LOG.error("SQLException"); }
-    }
+
 
     public void updateVacancy(int vacancyId,  String position, int experience, int salary, String info) {
         try {

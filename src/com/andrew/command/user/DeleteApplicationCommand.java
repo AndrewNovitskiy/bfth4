@@ -33,7 +33,6 @@ public class DeleteApplicationCommand implements Command {
         Integer vacancyId = Integer.parseInt(request.getParameter("vacancyId"));
 
         dao.deleteApplication(user.getApplicantId(), vacancyId);
-
         return new RedirectAction(APPLICATIONS_COMMAND);
     }
 }

@@ -28,7 +28,9 @@ public class TakeApplicationsOfUserCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Integer userId = Integer.parseInt(request.getParameter("id"));
+
         ArrayList<Application> applications = dao.takeApplicationsOfUser(userId);
+
         request.setAttribute("name", request.getParameter("name"));
         request.setAttribute("surname", request.getParameter("surname"));
         request.setAttribute("applications", applications);

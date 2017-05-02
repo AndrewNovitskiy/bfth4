@@ -18,6 +18,4 @@ public class ForwardAction extends Action {
     public void go(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher(path).forward(request, response);
     }
-
-
 }

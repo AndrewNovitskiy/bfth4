@@ -24,6 +24,7 @@ public class TakeAllUsersCommand implements Command {
         dao = new UserDao();
     }
 
+    @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         ArrayList<User> users = dao.takeAllUsers();
         request.setAttribute("users", users);

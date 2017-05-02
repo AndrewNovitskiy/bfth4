@@ -19,17 +19,16 @@ public class ConnectionPool {
 
     private static Semaphore semaphore;
     private static Lock lock = new ReentrantLock();
+    private static Queue<Connection> connections;
+    private static ConnectionPool instance;
 
     private String url;
     private String user;
     private String password;
 
-    private static Queue<Connection> connections;
-    private static ConnectionPool instance;
 
     private ConnectionPool() {
         try {
-
             Properties prop = new Properties();
             InputStream inputStream = ConnectionPool.class.getClassLoader().getResourceAsStream("/db.properties");
             prop.load(inputStream);
@@ -63,7 +62,6 @@ public class ConnectionPool {
 
     public Connection getConnection() {
         Connection connection = null;
-
         try {
             if(semaphore.tryAcquire(10, TimeUnit.SECONDS)) {
                 lock.lock();
@@ -87,7 +85,6 @@ public class ConnectionPool {
 
     public void freeConnection(Connection connection) {
         lock.lock();
-
         try {
             connections.add(connection);
             semaphore.release();

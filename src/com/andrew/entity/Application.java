@@ -3,7 +3,7 @@ package com.andrew.entity;
 /**
  * Created by Andrew on 02.04.2017.
  */
-public class Application {
+public class Application implements Entity {
     private int applicationId;
     private int applicantId;
     private int vacancyId;
@@ -27,7 +27,6 @@ public class Application {
         this.applicantEmail = builder.applicantEmail;
         this.deleted = builder.deleted;
     }
-
 
 
     public static class ApplicationBuilder {
@@ -123,7 +122,6 @@ public class Application {
     public void setVacancyId(int vacancyId) {
         this.vacancyId = vacancyId;
     }
-
 
     public String getApplicantName() {
         return applicantName;

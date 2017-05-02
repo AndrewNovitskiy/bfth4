@@ -58,7 +58,5 @@ public class RegistrationCommand implements Command {
             return new ForwardAction(REGISTRATION_JSP);
         }
 
-
-
     }
 }

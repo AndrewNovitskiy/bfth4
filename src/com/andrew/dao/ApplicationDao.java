@@ -1,38 +1,27 @@
 package com.andrew.dao;
 
-import com.andrew.connection.ConnectionPool;
 import com.andrew.entity.Application;
 import org.apache.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
  * Created by Andrew on 03.04.2017.
  */
-public class ApplicationDao {
+public class ApplicationDao extends Dao<Application> {
 
     private static final Logger LOG = Logger.getLogger(ApplicationDao.class);
-
-    private Connection conn;
-    private PreparedStatement stmt;
-    private ResultSet rs;
 
     private static final String SQL_GET_ALL_APPLICATIONS = "SELECT application.id_application, applicant.name, applicant.surname, vacancy.position, application_status.value\n" +
             "\tFROM application LEFT JOIN applicant ON application.id_applicant = applicant.id_applicant\n" +
             "\t\t\t\t\t LEFT JOIN vacancy ON application.id_vacancy = vacancy.id_vacancy\n" +
             "                     LEFT JOIN application_status ON application.id_status = application_status.id_status WHERE application.deleted = 0;";
 
-
     private static final String SQL_GET_RECRUITED_APPLICATIONS = "SELECT application.id_applicant, applicant.name, applicant.surname, vacancy.position, application_status.value\n" +
             "\tFROM application LEFT JOIN applicant ON application.id_applicant = applicant.id_applicant\n" +
             "\t\t\t\t\t LEFT JOIN vacancy ON application.id_vacancy = vacancy.id_vacancy\n" +
             "                     LEFT JOIN application_status ON application.id_status = application_status.id_status WHERE application.id_status = 4;";
-
-
 
     private static final String SQL_GET_APPLICATION_BY_ID_FOR_ADMIN = "SELECT application.id_application, applicant.id_applicant, vacancy.id_vacancy, applicant.name, applicant.surname, applicant.telephone, applicant.email, vacancy.position, application_status.value, application.deleted\n" +
             "            FROM application LEFT JOIN applicant ON application.id_applicant = applicant.id_applicant\n" +
@@ -56,27 +45,22 @@ public class ApplicationDao {
 
     private static final String SQL_DELETE_APPLICATION = "UPDATE application SET application.deleted = 1 WHERE application.id_applicant = ? AND application.id_vacancy = ?;";
 
-
     private static final String SQL_RESTORE_APPLICATION_BY_ID = "UPDATE application SET application.deleted = 0 WHERE application.id_application = ?;";
 
     private static final String SQL_RESTORE_APPLICATION = "UPDATE application SET application.deleted = 0 WHERE application.id_applicant = ? AND application.id_vacancy = ?;";
-
 
     private static final String SQL_GET_DELETED_APPLICATIONS = "SELECT application.id_application, applicant.name, applicant.surname, vacancy.position, application_status.value, application.deleted\n" +
             "\tFROM application LEFT JOIN applicant ON application.id_applicant = applicant.id_applicant\n" +
             "\t\t\t\t\t LEFT JOIN vacancy ON application.id_vacancy = vacancy.id_vacancy\n" +
             "                     LEFT JOIN application_status ON application.id_status = application_status.id_status WHERE application.deleted = 1;";
 
-
     private static final String SQL_UPDATE_APPLICATION_STATUS = "UPDATE application SET application.id_status = ? WHERE application.id_application = ?;";
-
 
     private static final String SQL_GET_DELETED_APPLICATIONS_OF_VACANCY = "SELECT application.id_application, applicant.name, applicant.surname, vacancy.position, application_status.value, application.deleted\n" +
             "\tFROM application LEFT JOIN applicant ON application.id_applicant = applicant.id_applicant\n" +
             "\t\t\t\t\t LEFT JOIN vacancy ON application.id_vacancy = vacancy.id_vacancy\n" +
             "                     LEFT JOIN application_status ON application.id_status = application_status.id_status " +
             "WHERE application.id_vacancy = ? AND application.deleted = 1;";
-
 
     private static final String SQL_DELETE_APPLICATIONS_OF_VACANCY = "UPDATE application SET application.deleted = 1 WHERE application.id_vacancy = ?;";
 
@@ -89,13 +73,6 @@ public class ApplicationDao {
     private static final String SQL_GET_STATUS_VALUE = "SELECT application_status.value FROM application_status WHERE application_status.id_status = ?;";
 
     private static final String SQL_GET_ID_USERS_BY_VACANCY_ID = "SELECT application.id_applicant FROM application WHERE application.id_vacancy = ? AND application.deleted = 0 AND NOT (application.id_status = 4 OR application.id_status = 5);";
-
-
-    private ConnectionPool pool;
-
-    public ApplicationDao() {
-        pool = ConnectionPool.getInstance();
-    }
 
 
     public ArrayList<Application> takeAllApplications(){
@@ -126,10 +103,7 @@ public class ApplicationDao {
         return null;
     }
 
-    private void closeResources(Connection conn, PreparedStatement stmt) {
-        pool.freeConnection(conn);
-        try { stmt.close(); } catch(SQLException se) { LOG.error("SQLException"); }
-    }
+
 
     public Application takeApplicationByIdForAdmin(Integer applicationId) {
         try {

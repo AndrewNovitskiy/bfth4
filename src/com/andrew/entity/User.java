@@ -1,6 +1,6 @@
 package com.andrew.entity;
 
-public class User {
+public class User implements Entity {
     private int applicantId;
     private String login;
     private String password;
@@ -21,6 +21,7 @@ public class User {
         this.resume = builder.resume;
 
     }
+
 
     public static class UserBuilder {
         private int idApplicant;
@@ -142,18 +143,5 @@ public class User {
 
     public void setResume(String resume) {
         this.resume = resume;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "applicantId=" + applicantId +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", telephone='" + telephone + '\'' +
-                ", email='" + email + '\'' +
-                '}';
     }
 }

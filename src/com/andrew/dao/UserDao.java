@@ -1,18 +1,14 @@
 package com.andrew.dao;
 
-import com.andrew.connection.ConnectionPool;
 import com.andrew.entity.User;
 import org.apache.log4j.Logger;
-import java.sql.*;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class UserDao {
+public class UserDao extends Dao<User> {
 
     private static final Logger LOG = Logger.getLogger(UserDao.class);
-
-    private Connection conn;
-    private PreparedStatement stmt;
-    private ResultSet rs;
 
     private static final String SQL_GET_USER = "SELECT id_applicant, login, password, name, surname, telephone, email FROM applicant WHERE login = ? AND password = ?;";
     private static final String SQL_GET_USER_INFO_BY_ID = "SELECT * FROM applicant WHERE id_applicant = ?;";
@@ -25,12 +21,6 @@ public class UserDao {
     private static final String SQL_GET_USER_BY_ID = "SELECT id_applicant, login, password, name, surname, telephone, email FROM applicant WHERE id_applicant = ?;";
     private static final String SQL_CHANGE_USER_PWD = "UPDATE applicant SET applicant.password = ? WHERE applicant.id_applicant = ?;";
 
-
-    private ConnectionPool pool;
-
-    public UserDao() {
-        pool = ConnectionPool.getInstance();
-    }
 
     public User takeUser(String login, String password) {
         User user = null;
@@ -189,10 +179,7 @@ public class UserDao {
         return false;
     }
 
-    private void closeResources(Connection conn, PreparedStatement stmt) {
-        pool.freeConnection(conn);
-        try { stmt.close(); } catch(SQLException se) { LOG.error("SQLException"); }
-    }
+
 
     public String takeResume(int userId) {
         String resume = null;

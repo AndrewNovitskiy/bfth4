@@ -27,10 +27,11 @@ public class TakeAllMessagesCommand implements Command {
         dao = new MessageDao();
     }
 
+    @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         HttpSession session = request.getSession();
         Admin admin = (Admin) session.getAttribute(ADMIN);
-        ArrayList<Message> messages = dao.takeAllAdminMessages(admin.getIdAdmin());
+        ArrayList<Message> messages = dao.takeAllAdminMessages(admin.getAdminId());
         request.setAttribute("messages", messages);
         return new ForwardAction(ADMIN_ALL_MESSAGES_JSP);
     }

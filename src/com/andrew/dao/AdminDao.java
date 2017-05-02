@@ -1,30 +1,17 @@
 package com.andrew.dao;
 
-import com.andrew.connection.ConnectionPool;
 import com.andrew.entity.Admin;
 import org.apache.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class AdminDao {
+public class AdminDao extends Dao<Admin> {
     private static final Logger LOG = Logger.getLogger(AdminDao.class);
-
-    private Connection conn;
-    private PreparedStatement stmt;
-    private ResultSet rs;
 
     private static final String SQL_GET_ADMIN = "SELECT id_admin, login, password FROM admin WHERE login = ? AND password = ?;";
     private static final String SQL_CHECK_ADMIN = "SELECT id_admin FROM admin WHERE login = ? AND password = ?;";
 
-    private ConnectionPool pool;
-
-    public AdminDao() {
-        pool = ConnectionPool.getInstance();
-    }
 
     public Admin takeAdmin(String login, String password) {
         Admin admin = null;
@@ -74,8 +61,5 @@ public class AdminDao {
         return false;
     }
 
-    private void closeResources(Connection conn, PreparedStatement stmt) {
-        pool.freeConnection(conn);
-        try { stmt.close(); } catch(SQLException se) { LOG.error("SQLException"); }
-    }
+
 }

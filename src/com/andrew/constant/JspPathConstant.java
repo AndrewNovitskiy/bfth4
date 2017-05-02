@@ -34,5 +34,4 @@ public class JspPathConstant {
     public static final String MESSAGE_JSP = "/user/message.jsp";
     public static final String VACANCY_JSP = "/vacancy.jsp";
 
-
 }

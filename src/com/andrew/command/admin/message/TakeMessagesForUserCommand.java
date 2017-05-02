@@ -31,9 +31,12 @@ public class TakeMessagesForUserCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Integer userId = Integer.parseInt(request.getParameter("id"));
+
         HttpSession session = request.getSession();
         Admin admin = (Admin) session.getAttribute(ADMIN);
-        ArrayList<Message> messages = dao.takeMessagesForUser(admin.getIdAdmin() ,userId);
+
+        ArrayList<Message> messages = dao.takeMessagesForUser(admin.getAdminId() ,userId);
+
         request.setAttribute("name", request.getParameter("name"));
         request.setAttribute("surname", request.getParameter("surname"));
         request.setAttribute("messages", messages);

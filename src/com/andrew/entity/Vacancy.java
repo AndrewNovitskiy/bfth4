@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 /**
  * Created by Andrew on 02.04.2017.
  */
-public class Vacancy {
+public class Vacancy implements Entity {
     private int vacancyId;
     private Timestamp dateTime;
     private String position;
@@ -75,9 +75,6 @@ public class Vacancy {
         public Vacancy build() {
             return new Vacancy(this);
         }
-
-
-
     }
 
 

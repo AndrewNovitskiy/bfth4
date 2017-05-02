@@ -22,7 +22,6 @@ public class TodayTag extends TagSupport {
         mFormat = pFormat;
     }
 
-
     public int doStartTag() throws JspException {
         try {
             JspWriter out = pageContext.getOut();

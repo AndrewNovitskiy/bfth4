@@ -3,23 +3,23 @@ package com.andrew.entity;
 /**
  * Created by Andrew on 31.03.2017.
  */
-public class Admin {
-    private int idAdmin;
+public class Admin implements Entity {
+    private int adminId;
     private String login;
     private String password;
 
     public Admin(int id_admin, String login, String password) {
-        this.idAdmin = id_admin;
+        this.adminId = id_admin;
         this.login = login;
         this.password = password;
     }
 
-    public int getIdAdmin() {
-        return idAdmin;
+    public int getAdminId() {
+        return adminId;
     }
 
-    public void setIdAdmin(int idAdmin) {
-        this.idAdmin = idAdmin;
+    public void setAdminId(int adminId) {
+        this.adminId = adminId;
     }
 
     public String getLogin() {
@@ -38,12 +38,4 @@ public class Admin {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "Admin{" +
-                "idAdmin=" + idAdmin +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
 }

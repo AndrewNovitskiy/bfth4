@@ -4,16 +4,13 @@ import com.andrew.action.Action;
 import com.andrew.action.ForwardAction;
 import com.andrew.command.Command;
 import com.andrew.dao.VacancyDao;
-import com.andrew.entity.Admin;
 import com.andrew.entity.Vacancy;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static com.andrew.constant.AttributeConstant.ADMIN;
 import static com.andrew.constant.JspPathConstant.ADMIN_VACANCY_JSP;
 
 /**
@@ -34,10 +31,6 @@ public class TakeVacancyByAdminCommand implements Command {
         Vacancy vacancy = dao.takeVacancyById(vacancyId);
         request.setAttribute("vacancy", vacancy);
 
-        HttpSession session = request.getSession();
-        Admin admin = (Admin) session.getAttribute(ADMIN);
-
         return new ForwardAction(ADMIN_VACANCY_JSP);
-
     }
 }

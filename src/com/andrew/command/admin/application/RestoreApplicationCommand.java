@@ -22,6 +22,7 @@ public class RestoreApplicationCommand implements Command {
     public RestoreApplicationCommand() {
         dao = new ApplicationDao();
     }
+
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int applicationId = Integer.parseInt(request.getParameter("id"));

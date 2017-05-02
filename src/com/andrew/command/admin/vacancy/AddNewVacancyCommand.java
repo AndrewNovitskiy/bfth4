@@ -29,6 +29,7 @@ public class AddNewVacancyCommand implements Command {
         int experience = Integer.parseInt(request.getParameter("experience"));
         int salary = Integer.parseInt(request.getParameter("salary"));
         String info = request.getParameter("info");
+
         dao.addVacancy(position, experience, salary, info);
         return new RedirectAction(ADMIN_ALL_VACANCIES_COMMAND);
 

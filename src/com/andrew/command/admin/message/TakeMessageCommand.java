@@ -34,7 +34,7 @@ public class TakeMessageCommand implements Command {
         HttpSession session = request.getSession();
         try {
             Admin admin = (Admin) session.getAttribute(ADMIN);
-            if (dao.checkMessage(messageId, admin.getIdAdmin())) {
+            if (dao.checkMessage(messageId, admin.getAdminId())) {
                 Message message = dao.takeMessageById(messageId);
                 request.setAttribute("message", message);
                 return new ForwardAction(ADMIN_MESSAGE_JSP);

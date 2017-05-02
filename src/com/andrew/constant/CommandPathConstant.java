@@ -8,6 +8,4 @@ public class CommandPathConstant {
     public static final String ADMIN_ALL_VACANCIES_COMMAND = "/admin/do?command=vacancies_admin";
     public static final String ADMIN_ALL_APPLICATIONS_COMMAND = "/admin/do?command=applications_admin";
     public static final String ADMIN_ALL_MESSAGES_COMMAND = "/admin/do?command=messages_admin";
-
-
 }

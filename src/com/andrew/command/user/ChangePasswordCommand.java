@@ -30,13 +30,10 @@ public class ChangePasswordCommand implements Command {
         dao = new UserDao();
     }
 
-
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String newPassword = request.getParameter("new_password");
         String duplicate = request.getParameter("confirmation");
-
-
 
         if (Validator.validateNewPassword(newPassword, duplicate)) {
             HttpSession session = request.getSession();
@@ -46,9 +43,7 @@ public class ChangePasswordCommand implements Command {
             User updatedUser = dao.takeUserById(user.getApplicantId());
 
             session.removeAttribute(USER);
-
             session.setAttribute(USER, updatedUser);
-
             return new RedirectAction(PROFILE_COMMAND);
         } else {
             request.setAttribute(VALIDATION_FAIL, true);

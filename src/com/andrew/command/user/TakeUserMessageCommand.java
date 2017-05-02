@@ -29,7 +29,6 @@ public class TakeUserMessageCommand implements Command {
         dao = new MessageDao();
     }
 
-
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Integer messageId = Integer.parseInt(request.getParameter("id"));

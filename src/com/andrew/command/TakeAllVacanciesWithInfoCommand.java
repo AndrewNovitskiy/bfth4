@@ -23,6 +23,7 @@ public class TakeAllVacanciesWithInfoCommand implements Command {
         dao = new VacancyDao();
     }
 
+    @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         ArrayList<Vacancy> vacancies = dao.takeAllVacanciesWithInfo();
         request.setAttribute("vacancies", vacancies);

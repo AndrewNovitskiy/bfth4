@@ -72,7 +72,6 @@ public class Validator {
         return false;
     }
 
-
     private static boolean validatePassword(String password) {
         Matcher matcher = REGEX_PWD.matcher(password);
         if (matcher.find()) {
@@ -83,7 +82,6 @@ public class Validator {
         }
         return false;
     }
-
 
     private static boolean validateName(String name) {
         Matcher matcher = REGEX_NAME.matcher(name);
@@ -96,7 +94,6 @@ public class Validator {
         return false;
     }
 
-
     private static boolean validateTelephone(String telephone) {
         Matcher matcher = REGEX_TEL.matcher(telephone);
         if (matcher.find()) {
@@ -108,7 +105,6 @@ public class Validator {
         return false;
     }
 
-
     private static boolean validateEmail(String email) {
         Matcher matcher = REGEX_EMAIL.matcher(email);
         if (matcher.find()) {
@@ -116,6 +112,5 @@ public class Validator {
         }
         return false;
     }
-
 
 }

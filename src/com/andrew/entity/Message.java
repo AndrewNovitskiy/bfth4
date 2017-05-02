@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 /**
  * Created by Andrew on 02.04.2017.
  */
-public class Message {
+public class Message implements Entity {
     private int messageId;
     private int recipientId;
     private int senderId;
@@ -15,7 +15,6 @@ public class Message {
     private String recipientName;
     private String recipientSurname;
     private String senderLogin;
-
 
     public Message(MessageBuilder builder) {
         this.messageId = builder.messageId;
@@ -28,6 +27,7 @@ public class Message {
         this.recipientSurname = builder.recipientSurname;
         this.senderLogin = builder.senderLogin;
     }
+
 
     public static class MessageBuilder {
         private int messageId;
@@ -90,7 +90,6 @@ public class Message {
         public Message build() {
             return new Message(this);
         }
-
     }
 
 

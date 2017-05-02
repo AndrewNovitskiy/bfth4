@@ -46,9 +46,7 @@ public class UpdateUserCommand implements Command {
             User updatedUser = dao.takeUserById(user.getApplicantId());
 
             session.removeAttribute(USER);
-
             session.setAttribute(USER, updatedUser);
-
             return new RedirectAction(PROFILE_COMMAND);
         } else {
             request.setAttribute(VALIDATION_FAIL, true);

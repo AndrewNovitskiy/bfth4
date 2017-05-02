@@ -17,7 +17,4 @@ public class Testing {
         fail("It's a test fail! Don't worry!");
     }
 
-
-
-
 }

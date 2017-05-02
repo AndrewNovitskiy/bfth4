@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class Controller extends HttpServlet {
 
-    private static final String COMMAND = "command";
+    private final String COMMAND = "command";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         process(request, response);
@@ -35,8 +35,5 @@ public class Controller extends HttpServlet {
             e.printStackTrace();
         }
     }
-
-
-
 
 }

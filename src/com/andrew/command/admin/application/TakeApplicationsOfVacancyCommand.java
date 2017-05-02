@@ -28,7 +28,9 @@ public class TakeApplicationsOfVacancyCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Integer vacancyId = Integer.parseInt(request.getParameter("id"));
+
         ArrayList<Application> applications = dao.takeApplicationsOfVacancy(vacancyId);
+
         request.setAttribute("position", request.getParameter("position"));
         request.setAttribute("applications", applications);
         return new ForwardAction(ADMIN_ALL_VACANCY_APPLICATIONS_JSP);
