@@ -10,27 +10,25 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
-import static com.andrew.constant.JspPathConstant.ADMIN_VACANCY_JSP;
+import static com.andrew.constant.JspPathConstant.ADMIN_DELETED_VACANCIES_JSP;
 
 /**
- * Created by Andrew on 06.04.2017.
+ * Created by Andrew on 12.04.2017.
  */
-public class TakeVacancyByAdminCommand implements Command {
+public class ViewDeletedVacanciesCommand implements Command {
 
     private VacancyDao dao;
 
-    public TakeVacancyByAdminCommand() {
+    public ViewDeletedVacanciesCommand() {
         dao = new VacancyDao();
     }
 
-
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        Integer vacancyId = Integer.parseInt(request.getParameter("id"));
-        Vacancy vacancy = dao.takeVacancyById(vacancyId);
-        request.setAttribute("vacancy", vacancy);
-
-        return new ForwardAction(ADMIN_VACANCY_JSP);
+        ArrayList<Vacancy> vacancies = dao.findDeletedVacancies();
+        request.setAttribute("vacancies", vacancies);
+        return new ForwardAction(ADMIN_DELETED_VACANCIES_JSP);
     }
 }

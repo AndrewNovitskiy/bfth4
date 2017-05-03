@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Created by Andrew on 02.04.2017.
  */
-public class VacancyDao extends Dao<Vacancy> {
+public class VacancyDao extends Dao {
 
     private static final Logger LOG = Logger.getLogger(VacancyDao.class);
 
@@ -43,7 +43,7 @@ public class VacancyDao extends Dao<Vacancy> {
     }
 
 
-    public ArrayList<Vacancy> takeAllVacancies(){
+    public ArrayList<Vacancy> findAllVacancies(){
         try {
             Vacancy vacancy;
             ArrayList<Vacancy> vacancies = new ArrayList<>();
@@ -73,7 +73,7 @@ public class VacancyDao extends Dao<Vacancy> {
     }
 
 
-    public ArrayList<Vacancy> takeAllVacanciesWithInfo(){
+    public ArrayList<Vacancy> findAllVacanciesWithInfo(){
         try {
             Vacancy vacancy;
             ArrayList<Vacancy> vacancies = new ArrayList<>();
@@ -102,7 +102,7 @@ public class VacancyDao extends Dao<Vacancy> {
         return null;
     }
 
-    public Vacancy takeVacancyById(int vacancyId){
+    public Vacancy findVacancyById(int vacancyId){
         try {
             Vacancy vacancy = null;
             conn = pool.getConnection();
@@ -179,7 +179,7 @@ public class VacancyDao extends Dao<Vacancy> {
         }
     }
 
-    public ArrayList<Vacancy> takeDeletedVacancies() {
+    public ArrayList<Vacancy> findDeletedVacancies() {
         try {
             Vacancy vacancy;
             ArrayList<Vacancy> vacancies = new ArrayList<>();

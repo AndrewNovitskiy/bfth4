@@ -16,16 +16,16 @@ import static com.andrew.constant.JspPathConstant.ADMIN_ALL_APPLICATIONS_JSP;
 /**
  * Created by Andrew on 03.04.2017.
  */
-public class TakeAllApplicationsCommand implements Command {
+public class ViewAllApplicationsCommand implements Command {
 
     private ApplicationDao dao;
 
-    public TakeAllApplicationsCommand() {
+    public ViewAllApplicationsCommand() {
         dao = new ApplicationDao();
     }
 
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        ArrayList<Application> applications = dao.takeAllApplications();
+        ArrayList<Application> applications = dao.findAllApplications();
         request.setAttribute("applications", applications);
         return new ForwardAction(ADMIN_ALL_APPLICATIONS_JSP);
     }

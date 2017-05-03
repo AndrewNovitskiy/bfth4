@@ -3,8 +3,7 @@ package com.andrew.command.user;
 import com.andrew.action.Action;
 import com.andrew.action.ForwardAction;
 import com.andrew.command.Command;
-import com.andrew.dao.ApplicationDao;
-import com.andrew.entity.Application;
+import com.andrew.dao.UserDao;
 import com.andrew.entity.User;
 
 import javax.servlet.ServletException;
@@ -12,20 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import static com.andrew.constant.AttributeConstant.USER;
-import static com.andrew.constant.JspPathConstant.USER_APPLICATIONS_JSP;
+import static com.andrew.constant.JspPathConstant.USER_PROFILE_JSP;
 
 /**
- * Created by Andrew on 15.04.2017.
+ * Created by Andrew on 10.04.2017.
  */
-public class TakeUserApplicationsCommand implements Command {
+public class ViewProfileCommand implements Command {
 
-    private ApplicationDao dao;
+    private UserDao dao;
 
-    public TakeUserApplicationsCommand() {
-        dao = new ApplicationDao();
+    public ViewProfileCommand() {
+        dao = new UserDao();
     }
 
     @Override
@@ -33,8 +31,8 @@ public class TakeUserApplicationsCommand implements Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute(USER);
 
-        ArrayList<Application> applications = dao.takeApplicationsOfUser(user.getApplicantId());
-        request.setAttribute("applications", applications);
-        return new ForwardAction(USER_APPLICATIONS_JSP);
+        String resume =  dao.findResume(user.getApplicantId());
+        request.setAttribute("resume", resume);
+        return new ForwardAction(USER_PROFILE_JSP);
     }
 }

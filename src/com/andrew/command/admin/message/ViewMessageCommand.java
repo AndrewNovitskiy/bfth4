@@ -20,11 +20,11 @@ import static com.andrew.constant.JspPathConstant.INDEX_JSP;
 /**
  * Created by Andrew on 06.04.2017.
  */
-public class TakeMessageCommand implements Command {
+public class ViewMessageCommand implements Command {
 
     private MessageDao dao;
 
-    public TakeMessageCommand() {
+    public ViewMessageCommand() {
         dao = new MessageDao();
     }
 
@@ -35,7 +35,7 @@ public class TakeMessageCommand implements Command {
         try {
             Admin admin = (Admin) session.getAttribute(ADMIN);
             if (dao.checkMessage(messageId, admin.getAdminId())) {
-                Message message = dao.takeMessageById(messageId);
+                Message message = dao.findMessageByIdForAdmin(messageId);
                 request.setAttribute("message", message);
                 return new ForwardAction(ADMIN_MESSAGE_JSP);
             } else {

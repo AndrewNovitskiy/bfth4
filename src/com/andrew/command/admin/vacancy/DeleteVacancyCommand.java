@@ -45,7 +45,7 @@ public class DeleteVacancyCommand implements Command {
 
         vacancyDao.deleteVacancy(vacancyId);
 
-        ArrayList<Integer> idUsers = applicationDao.getIdUsersByVacancyId(vacancyId);
+        ArrayList<Integer> idUsers = applicationDao.findIdUsersByVacancyId(vacancyId);
 
         for (Integer applicantId : idUsers){
             messageDao.putMessage(admin.getAdminId(), applicantId, MESSAGE_VACANCY_DELETED_TITLE,

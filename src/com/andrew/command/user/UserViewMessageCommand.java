@@ -21,11 +21,11 @@ import static com.andrew.constant.JspPathConstant.MESSAGE_JSP;
 /**
  * Created by Andrew on 14.04.2017.
  */
-public class TakeUserMessageCommand implements Command {
+public class UserViewMessageCommand implements Command {
 
     private MessageDao dao;
 
-    public TakeUserMessageCommand() {
+    public UserViewMessageCommand() {
         dao = new MessageDao();
     }
 
@@ -36,7 +36,7 @@ public class TakeUserMessageCommand implements Command {
         try {
             User user = (User) session.getAttribute(USER);
             if (dao.checkUserMessage(messageId, user.getApplicantId())) {
-                Message message = dao.takeUserMessage(messageId);
+                Message message = dao.findUserMessage(messageId);
                 request.setAttribute("message", message);
                 return new ForwardAction(MESSAGE_JSP);
             } else {

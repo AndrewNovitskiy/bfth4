@@ -35,7 +35,7 @@ public class NewApplicationCommand implements Command {
         if(dao.applicationExists(user.getApplicantId(), vacancyId)){
             dao.restoreApplication(user.getApplicantId(), vacancyId);
         } else {
-            dao.newApplication(user.getApplicantId(), vacancyId);
+            dao.addApplication(user.getApplicantId(), vacancyId);
         }
 
         return new RedirectAction(APPLICATIONS_COMMAND);

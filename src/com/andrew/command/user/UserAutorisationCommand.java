@@ -20,11 +20,11 @@ import static com.andrew.constant.JspPathConstant.LOG_IN_JSP;
 /**
  * Created by Andrew on 02.04.2017.
  */
-public class AutorisationCommand implements Command {
+public class UserAutorisationCommand implements Command {
 
     private UserDao dao;
 
-    public AutorisationCommand() {
+    public UserAutorisationCommand() {
         dao = new UserDao();
     }
 
@@ -43,7 +43,7 @@ public class AutorisationCommand implements Command {
         String password = request.getParameter("password");
 
         if (dao.checkUser(login, password)) {
-            User user = dao.takeUser(login, password);
+            User user = dao.findUser(login, password);
             session.setAttribute(USER, user);
             return new RedirectAction(VACANCIES_COMMAND);
 

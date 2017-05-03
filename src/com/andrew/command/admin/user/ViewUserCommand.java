@@ -16,18 +16,18 @@ import static com.andrew.constant.JspPathConstant.ADMIN_USER_JSP;
 /**
  * Created by Andrew on 06.04.2017.
  */
-public class TakeUserCommand implements Command {
+public class ViewUserCommand implements Command {
 
     private UserDao dao;
 
-    public TakeUserCommand() {
+    public ViewUserCommand() {
         dao = new UserDao();
     }
 
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Integer userId = Integer.parseInt(request.getParameter("id"));
-        User user = dao.takeUserInfoById(userId);
+        User user = dao.findUserInfoById(userId);
         request.setAttribute("user", user);
         return new ForwardAction(ADMIN_USER_JSP);
     }

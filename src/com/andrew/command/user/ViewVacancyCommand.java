@@ -20,12 +20,12 @@ import static com.andrew.constant.JspPathConstant.VACANCY_JSP;
 /**
  * Created by Andrew on 16.04.2017.
  */
-public class TakeVacancyCommand implements Command {
+public class ViewVacancyCommand implements Command {
 
     private VacancyDao vacancyDao;
     private ApplicationDao applicationDao;
 
-    public TakeVacancyCommand() {
+    public ViewVacancyCommand() {
         vacancyDao = new VacancyDao();
         applicationDao = new ApplicationDao();
     }
@@ -34,7 +34,7 @@ public class TakeVacancyCommand implements Command {
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Integer vacancyId = Integer.parseInt(request.getParameter("id"));
 
-        Vacancy vacancy = vacancyDao.takeVacancyById(vacancyId);
+        Vacancy vacancy = vacancyDao.findVacancyById(vacancyId);
 
         request.setAttribute("vacancy", vacancy);
 

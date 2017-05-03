@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class UserDao extends Dao<User> {
+public class UserDao extends Dao {
 
     private static final Logger LOG = Logger.getLogger(UserDao.class);
 
@@ -22,7 +22,7 @@ public class UserDao extends Dao<User> {
     private static final String SQL_CHANGE_USER_PWD = "UPDATE applicant SET applicant.password = ? WHERE applicant.id_applicant = ?;";
 
 
-    public User takeUser(String login, String password) {
+    public User findUser(String login, String password) {
         User user = null;
         try {
             conn = pool.getConnection();
@@ -53,7 +53,7 @@ public class UserDao extends Dao<User> {
         return null;
     }
 
-    public User takeUserInfoById(int userId) {
+    public User findUserInfoById(int userId) {
         User user = null;
         try {
             conn = pool.getConnection();
@@ -83,7 +83,7 @@ public class UserDao extends Dao<User> {
         return null;
     }
 
-    public ArrayList<User> takeAllUsers(){
+    public ArrayList<User> findAllUsers(){
         try {
             User user;
             ArrayList<User> users = new ArrayList<>();
@@ -181,7 +181,7 @@ public class UserDao extends Dao<User> {
 
 
 
-    public String takeResume(int userId) {
+    public String findResume(int userId) {
         String resume = null;
         try {
             conn = pool.getConnection();
@@ -223,12 +223,12 @@ public class UserDao extends Dao<User> {
 
     }
 
-    public User takeUserById(int idApplicant) {
+    public User findUserById(int applicantId) {
         User user = null;
         try {
             conn = pool.getConnection();
             stmt = conn.prepareStatement(SQL_GET_USER_BY_ID);
-            stmt.setInt(1, idApplicant);
+            stmt.setInt(1, applicantId);
             rs = stmt.executeQuery();
 
             if (rs.next()) {

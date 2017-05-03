@@ -3,7 +3,7 @@ package com.andrew.entity;
 /**
  * Created by Andrew on 31.03.2017.
  */
-public class Admin implements Entity {
+public class Admin {
     private int adminId;
     private String login;
     private String password;

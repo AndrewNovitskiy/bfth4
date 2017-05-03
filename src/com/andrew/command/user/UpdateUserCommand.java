@@ -43,7 +43,7 @@ public class UpdateUserCommand implements Command {
             User user = (User) session.getAttribute(USER);
 
             dao.updateUser(user.getApplicantId(), name, surname, telephone, email, resume);
-            User updatedUser = dao.takeUserById(user.getApplicantId());
+            User updatedUser = dao.findUserById(user.getApplicantId());
 
             session.removeAttribute(USER);
             session.setAttribute(USER, updatedUser);

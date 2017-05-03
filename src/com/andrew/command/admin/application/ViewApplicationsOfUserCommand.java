@@ -12,23 +12,28 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static com.andrew.constant.JspPathConstant.ADMIN_DELETED_APPLICATIONS_JSP;
+import static com.andrew.constant.JspPathConstant.ADMIN_ALL_USER_APPLICATIONS_JSP;
 
 /**
- * Created by Andrew on 12.04.2017.
+ * Created by Andrew on 07.04.2017.
  */
-public class TakeDeletedApplicationsCommand implements Command {
+public class ViewApplicationsOfUserCommand implements Command {
 
     private ApplicationDao dao;
 
-    public TakeDeletedApplicationsCommand() {
+    public ViewApplicationsOfUserCommand() {
         dao = new ApplicationDao();
     }
 
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        ArrayList<Application> applications = dao.takeDeletedApplications();
+        Integer userId = Integer.parseInt(request.getParameter("id"));
+
+        ArrayList<Application> applications = dao.findUserApplications(userId);
+
+        request.setAttribute("name", request.getParameter("name"));
+        request.setAttribute("surname", request.getParameter("surname"));
         request.setAttribute("applications", applications);
-        return new ForwardAction(ADMIN_DELETED_APPLICATIONS_JSP);
+        return new ForwardAction(ADMIN_ALL_USER_APPLICATIONS_JSP);
     }
 }

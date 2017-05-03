@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Created by Andrew on 02.04.2017.
  */
-public class MessageDao extends Dao<Message> {
+public class MessageDao extends Dao {
 
     private static final Logger LOG = Logger.getLogger(MessageDao.class);
 
@@ -33,7 +33,7 @@ public class MessageDao extends Dao<Message> {
     private static final String SQL_CHECK_MESSAGE = "SELECT id_message FROM message WHERE id_message = ? AND id_recipient = ?;";
 
 
-    public ArrayList<Message> takeAllAdminMessages(int adminId){
+    public ArrayList<Message> findAllAdminMessages(int adminId){
         try {
             Message message;
             ArrayList<Message> messages = new ArrayList<>();
@@ -68,7 +68,7 @@ public class MessageDao extends Dao<Message> {
 
 
 
-    public Message takeMessageById(int messageId){
+    public Message findMessageByIdForAdmin(int messageId){
         try {
             Message message = null;
             conn = pool.getConnection();
@@ -125,7 +125,7 @@ public class MessageDao extends Dao<Message> {
 
 
 
-    public ArrayList<Message> takeMessagesForUser(int adminId, Integer userId) {
+    public ArrayList<Message> findMessagesForUser(int adminId, Integer userId) {
         try {
             Message message;
             ArrayList<Message> messages = new ArrayList<>();
@@ -177,13 +177,13 @@ public class MessageDao extends Dao<Message> {
 
     }
 
-    public ArrayList<Message> takeUserMessages(int idApplicant) {
+    public ArrayList<Message> findUserMessages(int userId) {
         try {
             Message message;
             ArrayList<Message> messages = new ArrayList<>();
             conn = pool.getConnection();
             stmt = conn.prepareStatement(SQL_GET_USER_MESSAGES);
-            stmt.setInt(1, idApplicant);
+            stmt.setInt(1, userId);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -206,7 +206,7 @@ public class MessageDao extends Dao<Message> {
         return null;
     }
 
-    public Message takeUserMessage(int messageId) {
+    public Message findUserMessage(int messageId) {
         try {
             Message message = null;
             conn = pool.getConnection();

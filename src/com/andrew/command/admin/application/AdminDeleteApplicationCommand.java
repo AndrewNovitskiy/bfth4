@@ -15,11 +15,11 @@ import static com.andrew.constant.CommandPathConstant.ADMIN_ALL_APPLICATIONS_COM
 /**
  * Created by Andrew on 12.04.2017.
  */
-public class DeleteApplicationByAdminCommand implements Command {
+public class AdminDeleteApplicationCommand implements Command {
 
     private ApplicationDao dao;
 
-    public DeleteApplicationByAdminCommand() {
+    public AdminDeleteApplicationCommand() {
         dao = new ApplicationDao();
     }
 

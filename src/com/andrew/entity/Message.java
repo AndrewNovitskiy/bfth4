@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 /**
  * Created by Andrew on 02.04.2017.
  */
-public class Message implements Entity {
+public class Message {
     private int messageId;
     private int recipientId;
     private int senderId;

@@ -26,7 +26,7 @@ public class EditVacancyCommand implements Command {
 
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        Vacancy vacancy = dao.takeVacancyById(Integer.parseInt(request.getParameter("id")));
+        Vacancy vacancy = dao.findVacancyById(Integer.parseInt(request.getParameter("id")));
         request.setAttribute("vacancy", vacancy);
         return new ForwardAction(ADMIN_EDIT_VACANCY_JSP);
     }

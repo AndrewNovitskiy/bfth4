@@ -1,7 +1,6 @@
 package com.andrew.dao;
 
 import com.andrew.connection.ConnectionPool;
-import com.andrew.entity.Entity;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -12,7 +11,7 @@ import java.sql.SQLException;
 /**
  * Created by Andrew on 02.05.2017.
  */
-abstract class Dao <T extends Entity> {
+abstract class Dao {
     private static final Logger LOG = Logger.getLogger(Dao.class);
 
     protected ConnectionPool pool;

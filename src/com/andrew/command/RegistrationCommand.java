@@ -46,7 +46,7 @@ public class RegistrationCommand implements Command {
         if (Validator.validateRegistrationData(login, password, passwordDuplicate, name, surname, telephone, email)) {
             if (dao.checkLogin(login)) {
                 dao.addUser(login, password, name, surname, telephone, email);
-                User user = dao.takeUser(login, password);
+                User user = dao.findUser(login, password);
                 session.setAttribute(USER, user);
                 return new ForwardAction(USER_PROFILE_JSP);
             } else {

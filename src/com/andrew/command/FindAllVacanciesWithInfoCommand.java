@@ -1,8 +1,7 @@
-package com.andrew.command.admin.vacancy;
+package com.andrew.command;
 
 import com.andrew.action.Action;
 import com.andrew.action.ForwardAction;
-import com.andrew.command.Command;
 import com.andrew.dao.VacancyDao;
 import com.andrew.entity.Vacancy;
 
@@ -11,22 +10,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
-import static com.andrew.constant.JspPathConstant.ADMIN_ALL_VACANCIES_JSP;
+import static com.andrew.constant.JspPathConstant.VACANCIES_JSP;
 
 /**
- * Created by Andrew on 02.04.2017.
+ * Created by Andrew on 10.04.2017.
  */
-public class TakeAllVacanciesCommand implements Command {
+public class FindAllVacanciesWithInfoCommand implements Command {
 
     private VacancyDao dao;
 
-    public TakeAllVacanciesCommand() {
+    public FindAllVacanciesWithInfoCommand() {
         dao = new VacancyDao();
     }
 
+    @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        ArrayList<Vacancy> vacancies = dao.takeAllVacancies();
+        ArrayList<Vacancy> vacancies = dao.findAllVacanciesWithInfo();
         request.setAttribute("vacancies", vacancies);
-        return new ForwardAction(ADMIN_ALL_VACANCIES_JSP);
+        return new ForwardAction(VACANCIES_JSP);
     }
 }

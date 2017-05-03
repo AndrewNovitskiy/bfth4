@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by Andrew on 03.04.2017.
  */
-public class ApplicationDao extends Dao<Application> {
+public class ApplicationDao extends Dao {
 
     private static final Logger LOG = Logger.getLogger(ApplicationDao.class);
 
@@ -75,7 +75,7 @@ public class ApplicationDao extends Dao<Application> {
     private static final String SQL_GET_ID_USERS_BY_VACANCY_ID = "SELECT application.id_applicant FROM application WHERE application.id_vacancy = ? AND application.deleted = 0 AND NOT (application.id_status = 4 OR application.id_status = 5);";
 
 
-    public ArrayList<Application> takeAllApplications(){
+    public ArrayList<Application> findAllApplications(){
         try {
             Application application;
             ArrayList<Application> applications = new ArrayList<>();
@@ -105,7 +105,7 @@ public class ApplicationDao extends Dao<Application> {
 
 
 
-    public Application takeApplicationByIdForAdmin(Integer applicationId) {
+    public Application findApplicationByIdForAdmin(Integer applicationId) {
         try {
             Application application = null;
             conn = pool.getConnection();
@@ -137,7 +137,7 @@ public class ApplicationDao extends Dao<Application> {
         return null;
     }
 
-    public ArrayList<Application> takeApplicationsOfUser(int userId) {
+    public ArrayList<Application> findUserApplications(int userId) {
         try {
             Application application;
             ArrayList<Application> applications = new ArrayList<>();
@@ -165,7 +165,7 @@ public class ApplicationDao extends Dao<Application> {
         return null;
     }
 
-    public ArrayList<Application> takeApplicationsOfVacancy(int vacancyId) {
+    public ArrayList<Application> findApplicationsOfVacancy(int vacancyId) {
         try {
             Application application;
             ArrayList<Application> applications = new ArrayList<>();
@@ -224,7 +224,7 @@ public class ApplicationDao extends Dao<Application> {
         }
     }
 
-    public ArrayList<Application> takeDeletedApplications() {
+    public ArrayList<Application> findDeletedApplications() {
         try {
             Application application;
             ArrayList<Application> applications = new ArrayList<>();
@@ -268,7 +268,7 @@ public class ApplicationDao extends Dao<Application> {
         }
     }
 
-    public ArrayList<Application> takeDeletedApplicationsOfVacancy(Integer vacancyId) {
+    public ArrayList<Application> findDeletedApplicationsOfVacancy(Integer vacancyId) {
         try {
             Application application;
             ArrayList<Application> applications = new ArrayList<>();
@@ -315,11 +315,11 @@ public class ApplicationDao extends Dao<Application> {
     }
 
 
-    public void newApplication(int idApplicant, Integer vacancyId) {
+    public void addApplication(int userId, Integer vacancyId) {
         try {
             conn = pool.getConnection();
             stmt = conn.prepareStatement(SQL_PUT_APPLICATION);
-            stmt.setInt(1, idApplicant);
+            stmt.setInt(1, userId);
             stmt.setInt(2, vacancyId);
             stmt.executeUpdate();
 
@@ -330,11 +330,11 @@ public class ApplicationDao extends Dao<Application> {
         }
     }
 
-    public boolean applicationExistsAndIsActive(int idApplicant, Integer vacancyId) {
+    public boolean applicationExistsAndIsActive(int userId, Integer vacancyId) {
         try {
             conn = pool.getConnection();
             stmt = conn.prepareStatement(SQL_CHECK_EXISTENCE_AND_ACTIVITY_OF_APPLICATOIN);
-            stmt.setInt(1, idApplicant);
+            stmt.setInt(1, userId);
             stmt.setInt(2, vacancyId);
             rs = stmt.executeQuery();
 
@@ -352,11 +352,11 @@ public class ApplicationDao extends Dao<Application> {
         return false;
     }
 
-    public boolean applicationExists(int idApplicant, Integer vacancyId) {
+    public boolean applicationExists(int userId, Integer vacancyId) {
         try {
             conn = pool.getConnection();
             stmt = conn.prepareStatement(SQL_CHECK_EXISTENCE_OF_APPLICATOIN);
-            stmt.setInt(1, idApplicant);
+            stmt.setInt(1, userId);
             stmt.setInt(2, vacancyId);
             rs = stmt.executeQuery();
 
@@ -374,11 +374,11 @@ public class ApplicationDao extends Dao<Application> {
         return false;
     }
 
-    public void restoreApplication(int applicantId, int vacancyId) {
+    public void restoreApplication(int userId, int vacancyId) {
         try {
             conn = pool.getConnection();
             stmt = conn.prepareStatement(SQL_RESTORE_APPLICATION);
-            stmt.setInt(1, applicantId);
+            stmt.setInt(1, userId);
             stmt.setInt(2, vacancyId);
             stmt.executeUpdate();
 
@@ -389,11 +389,11 @@ public class ApplicationDao extends Dao<Application> {
         }
     }
 
-    public void deleteApplication(int applicantId, int vacancyId) {
+    public void deleteApplication(int userId, int vacancyId) {
         try {
             conn = pool.getConnection();
             stmt = conn.prepareStatement(SQL_DELETE_APPLICATION);
-            stmt.setInt(1, applicantId);
+            stmt.setInt(1, userId);
             stmt.setInt(2, vacancyId);
             stmt.executeUpdate();
 
@@ -423,7 +423,7 @@ public class ApplicationDao extends Dao<Application> {
         return null;
     }
 
-    public ArrayList<Integer> getIdUsersByVacancyId(int vacancyId) {
+    public ArrayList<Integer> findIdUsersByVacancyId(int vacancyId) {
         ArrayList<Integer> idUsers = new ArrayList<>();
         try {
             conn = pool.getConnection();
@@ -444,7 +444,7 @@ public class ApplicationDao extends Dao<Application> {
         return null;
     }
 
-    public ArrayList<Application> takeRecruitedUsers() {
+    public ArrayList<Application> findRecruitedUsers() {
         try {
             Application application;
             ArrayList<Application> applications = new ArrayList<>();

@@ -31,7 +31,7 @@ public class EditUserCommand implements Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute(USER);
 
-        User userInfo = dao.takeUserInfoById(user.getApplicantId());
+        User userInfo = dao.findUserInfoById(user.getApplicantId());
         request.setAttribute("userInfo", userInfo);
         return new ForwardAction(EDIT_PROFILE_JSP);
     }

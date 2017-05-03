@@ -11,28 +11,35 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static com.andrew.constant.AttributeConstant.ADMIN;
-import static com.andrew.constant.JspPathConstant.ADMIN_ALL_MESSAGES_JSP;
+import static com.andrew.constant.JspPathConstant.ADMIN_USER_MESSAGES;
 
 /**
- * Created by Andrew on 02.04.2017.
+ * Created by Andrew on 07.04.2017.
  */
-public class TakeAllMessagesCommand implements Command {
+public class ViewMessagesForUserCommand implements Command {
 
     private MessageDao dao;
 
-    public TakeAllMessagesCommand() {
+    public ViewMessagesForUserCommand() {
         dao = new MessageDao();
     }
 
     @Override
-    public Action execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        Integer userId = Integer.parseInt(request.getParameter("id"));
+
         HttpSession session = request.getSession();
         Admin admin = (Admin) session.getAttribute(ADMIN);
-        ArrayList<Message> messages = dao.takeAllAdminMessages(admin.getAdminId());
+
+        ArrayList<Message> messages = dao.findMessagesForUser(admin.getAdminId() ,userId);
+
+        request.setAttribute("name", request.getParameter("name"));
+        request.setAttribute("surname", request.getParameter("surname"));
         request.setAttribute("messages", messages);
-        return new ForwardAction(ADMIN_ALL_MESSAGES_JSP);
+        return new ForwardAction(ADMIN_USER_MESSAGES);
     }
 }

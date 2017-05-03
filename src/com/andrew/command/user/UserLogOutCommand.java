@@ -15,7 +15,7 @@ import static com.andrew.constant.JspPathConstant.INDEX_JSP;
 /**
  * Created by Andrew on 01.04.2017.
  */
-public class LogOutCommand implements Command {
+public class UserLogOutCommand implements Command {
 
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         HttpSession session = request.getSession();

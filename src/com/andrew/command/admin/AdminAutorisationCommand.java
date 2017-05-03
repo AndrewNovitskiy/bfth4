@@ -43,7 +43,7 @@ public class AdminAutorisationCommand implements Command {
         String password = request.getParameter("password");
 
         if (dao.checkAdmin(login, password)) {
-            Admin admin = dao.takeAdmin(login, password);
+            Admin admin = dao.findAdmin(login, password);
             session.setAttribute(ADMIN, admin);
             return new RedirectAction(ADMIN_CONTROL_PANEL_JSP);
 

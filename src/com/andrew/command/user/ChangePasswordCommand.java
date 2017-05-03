@@ -40,7 +40,7 @@ public class ChangePasswordCommand implements Command {
             User user = (User) session.getAttribute(USER);
 
             dao.changeUserPassword(user.getApplicantId(), newPassword);
-            User updatedUser = dao.takeUserById(user.getApplicantId());
+            User updatedUser = dao.findUserById(user.getApplicantId());
 
             session.removeAttribute(USER);
             session.setAttribute(USER, updatedUser);

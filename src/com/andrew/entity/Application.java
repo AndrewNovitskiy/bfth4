@@ -3,7 +3,7 @@ package com.andrew.entity;
 /**
  * Created by Andrew on 02.04.2017.
  */
-public class Application implements Entity {
+public class Application {
     private int applicationId;
     private int applicantId;
     private int vacancyId;

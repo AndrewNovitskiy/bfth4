@@ -20,6 +20,9 @@
         <th>
             Status
         </th>
+        <th>
+            Details...
+        </th>
     </tr>
     <c:if test="${not empty requestScope.applications}">
         <c:forEach items="${requestScope.applications}" var="application">

@@ -6,14 +6,14 @@ import org.apache.log4j.Logger;
 import java.sql.SQLException;
 
 
-public class AdminDao extends Dao<Admin> {
+public class AdminDao extends Dao {
     private static final Logger LOG = Logger.getLogger(AdminDao.class);
 
     private static final String SQL_GET_ADMIN = "SELECT id_admin, login, password FROM admin WHERE login = ? AND password = ?;";
     private static final String SQL_CHECK_ADMIN = "SELECT id_admin FROM admin WHERE login = ? AND password = ?;";
 
 
-    public Admin takeAdmin(String login, String password) {
+    public Admin findAdmin(String login, String password) {
         Admin admin = null;
         try {
             conn = pool.getConnection();

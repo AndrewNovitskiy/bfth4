@@ -15,11 +15,11 @@ import static com.andrew.constant.CommandPathConstant.ADMIN_ALL_VACANCIES_COMMAN
 /**
  * Created by Andrew on 08.04.2017.
  */
-public class AddNewVacancyCommand implements Command {
+public class AddVacancyCommand implements Command {
 
     private VacancyDao dao;
 
-    public AddNewVacancyCommand() {
+    public AddVacancyCommand() {
         dao = new VacancyDao();
     }
 
