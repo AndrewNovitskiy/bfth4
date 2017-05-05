@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static com.andrew.constant.AttributeConstant.ADMIN;
+import static com.andrew.constant.CommonConstant.ADMIN;
 import static com.andrew.constant.CommandPathConstant.ADMIN_ALL_MESSAGES_COMMAND;
 
 /**

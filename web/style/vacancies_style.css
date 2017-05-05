@@ -32,8 +32,17 @@
 }
 
 .vacancyinfo {
-    width: 70%;
+    width: 80%;
     word-wrap: break-word;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 16px;     /* fallback */
+    max-height: 80px;      /* fallback */
+    -webkit-line-clamp: 5; /* number of lines to show */
+    -webkit-box-orient: vertical;
 }
 
 .vacancymoreinfo {

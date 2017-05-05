@@ -14,6 +14,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import static com.andrew.constant.CommonConstant.*;
+
 public class ConnectionPool {
     private static final Logger LOG = Logger.getLogger(ConnectionPool.class);
 
@@ -71,13 +73,13 @@ public class ConnectionPool {
                     connection = connections.isEmpty() ? DriverManager.getConnection(url, user, password) :
                         connections.poll();
                 } catch (SQLException e) {
-                    LOG.error("SQLException");
+                    LOG.error(SQL_EXCEPTION);
                 } finally {
                     lock.unlock();
                 }
             }
         } catch (InterruptedException e) {
-            LOG.error("InterruptedException");
+            LOG.error(INTERRUPTED_EXCEPTION);
         }
 
         return connection;

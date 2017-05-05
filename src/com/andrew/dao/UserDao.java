@@ -6,6 +6,8 @@ import org.apache.log4j.Logger;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import static com.andrew.constant.CommonConstant.SQL_EXCEPTION;
+
 public class UserDao extends Dao {
 
     private static final Logger LOG = Logger.getLogger(UserDao.class);
@@ -45,10 +47,10 @@ public class UserDao extends Dao {
             }
             return user;
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error(SQL_EXCEPTION); }
         }
         return null;
     }
@@ -75,10 +77,10 @@ public class UserDao extends Dao {
             }
             return user;
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error(SQL_EXCEPTION); }
         }
         return null;
     }
@@ -106,10 +108,10 @@ public class UserDao extends Dao {
             }
             return users;
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error(SQL_EXCEPTION); }
         }
         return null;
     }
@@ -129,7 +131,7 @@ public class UserDao extends Dao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
         }
@@ -142,16 +144,12 @@ public class UserDao extends Dao {
             stmt.setString(1, login);
             rs = stmt.executeQuery();
 
-            if (rs.next()) {
-                return false;
-            } else {
-                return true;
-            }
+            return !rs.next();
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error(SQL_EXCEPTION); }
         }
         return false;
     }
@@ -165,16 +163,12 @@ public class UserDao extends Dao {
             stmt.setString(2, password);
             rs = stmt.executeQuery();
 
-            if (rs.next()) {
-                return true;
-            } else {
-                return false;
-            }
+            return rs.next();
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error(SQL_EXCEPTION); }
         }
         return false;
     }
@@ -194,10 +188,10 @@ public class UserDao extends Dao {
             }
             return resume;
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error(SQL_EXCEPTION); }
         }
         return null;
     }
@@ -216,7 +210,7 @@ public class UserDao extends Dao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
         }
@@ -245,10 +239,10 @@ public class UserDao extends Dao {
             }
             return user;
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error(SQL_EXCEPTION); }
         }
         return null;
     }
@@ -262,7 +256,7 @@ public class UserDao extends Dao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
         }

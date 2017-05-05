@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static com.andrew.constant.AttributeConstant.ADMIN;
+import static com.andrew.constant.CommonConstant.ADMIN;
 import static com.andrew.constant.CommandPathConstant.ADMIN_ALL_VACANCIES_COMMAND;
 import static com.andrew.constant.MessageConstant.MESSAGE_VACANCY_DELETED_TITLE;
 

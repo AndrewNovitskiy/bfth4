@@ -48,9 +48,8 @@
                                         <form action="${pageContext.request.contextPath}/user/do" name='my_message' method="post">
                                             <input type="hidden" name="id" value="${message.messageId}">
                                             <input type="hidden" name="command" value="my_message">
-                                            <input type="submit" name="submit" value="<fmt:message key="details" />">
+                                            <input type="submit" name="submit" class="details" value="<fmt:message key="details" />">
                                         </form>
-                                        <a href="${pageContext.request.contextPath}/user/do?command=my_message&id=${message.messageId}">mmm</a>
                                     </th>
                                 </tr>
                             </c:forEach>

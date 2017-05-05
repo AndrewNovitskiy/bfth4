@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static com.andrew.constant.AttributeConstant.USER;
-import static com.andrew.constant.AttributeConstant.VALIDATION_FAIL;
+import static com.andrew.constant.CommonConstant.USER;
+import static com.andrew.constant.CommonConstant.VALIDATION_FAIL;
 import static com.andrew.constant.CommandPathConstant.PROFILE_COMMAND;
 import static com.andrew.constant.JspPathConstant.EDIT_PROFILE_JSP;
 

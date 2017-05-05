@@ -1,0 +1,114 @@
+@font-face {
+    font-family: OpenSans;
+    src: url(fonts/OpenSans-Regular.ttf);
+}
+
+body {
+    margin: 0;
+}
+
+.block {
+    clear: both;
+    margin-bottom: 3px;
+}
+
+#block_one {
+    height: 400px;
+    margin-bottom: 3px;
+    background-image: url("resources/Atlanta.jpg");
+    background-size: 100% auto ;
+    background-repeat: no-repeat;
+    font-family: OpenSans;
+    padding-top: 15px;
+}
+
+#block_two {
+
+    font-family: OpenSans;
+}
+
+#block_three {
+
+    font-family: OpenSans;
+}
+
+h1, h2{
+    color: white;
+    padding-left: 10px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-left: 10px;
+}
+
+h1 {
+    color: #1b1b1b;
+    font-family: OpenSans;
+    font-size: 5em;
+}
+
+h2 {
+    font-family: OpenSans;
+    font-size: 2em;
+}
+
+#logo {
+    margin-left: 10px;
+}
+
+#enter {
+    font-family: OpenSans;
+    background-color: yellow;
+    color: black;
+    border: 1px solid yellow;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 300px;
+    height: 60px;
+    font-size: 30px;
+    alignment: center;
+    opacity: 0.7;
+    margin-left: 20px;
+}
+#enter:hover {
+    opacity: 1;
+}
+#enter:active {
+    opacity: 0.7;
+}
+
+
+#img1, #img3 {
+    width: 50%;
+    float: right;
+}
+
+#text1, #text3 {
+    padding: 30px;
+    font-size: 20px;
+    font-family: OpenSans;
+    width: 40%;
+    float: left;
+}
+
+#img2 {
+    width: 50%;
+    float: left;
+}
+
+#text2 {
+    padding: 30px;
+    font-size: 20px;
+    font-family: OpenSans;
+    width: 40%;
+    float: right;
+}
+
+
+#footer {
+    background: #444444;
+    color: #fff;
+    padding: 5px;
+    clear: left;
+    margin-top: 3px;
+}

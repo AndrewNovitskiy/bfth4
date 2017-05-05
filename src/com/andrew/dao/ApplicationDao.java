@@ -6,6 +6,8 @@ import org.apache.log4j.Logger;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import static com.andrew.constant.CommonConstant.SQL_EXCEPTION;
+
 /**
  * Created by Andrew on 03.04.2017.
  */
@@ -95,10 +97,10 @@ public class ApplicationDao extends Dao {
             }
             return applications;
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error(SQL_EXCEPTION); }
         }
         return null;
     }
@@ -129,10 +131,10 @@ public class ApplicationDao extends Dao {
             }
             return application;
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error(SQL_EXCEPTION); }
         }
         return null;
     }
@@ -157,10 +159,10 @@ public class ApplicationDao extends Dao {
             }
             return applications;
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error(SQL_EXCEPTION); }
         }
         return null;
     }
@@ -188,10 +190,10 @@ public class ApplicationDao extends Dao {
             }
             return applications;
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error(SQL_EXCEPTION); }
         }
         return null;
     }
@@ -204,7 +206,7 @@ public class ApplicationDao extends Dao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
         }
@@ -218,7 +220,7 @@ public class ApplicationDao extends Dao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
         }
@@ -245,10 +247,10 @@ public class ApplicationDao extends Dao {
             }
             return applications;
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error(SQL_EXCEPTION); }
         }
         return null;
     }
@@ -262,7 +264,7 @@ public class ApplicationDao extends Dao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
         }
@@ -292,10 +294,10 @@ public class ApplicationDao extends Dao {
             }
             return applications;
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error(SQL_EXCEPTION); }
         }
         return null;
     }
@@ -308,7 +310,7 @@ public class ApplicationDao extends Dao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
         }
@@ -324,7 +326,7 @@ public class ApplicationDao extends Dao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
         }
@@ -338,14 +340,10 @@ public class ApplicationDao extends Dao {
             stmt.setInt(2, vacancyId);
             rs = stmt.executeQuery();
 
-            if(rs.next()){
-                return true;
-            } else {
-                return false;
-            }
+            return rs.next();
 
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
         }
@@ -360,14 +358,10 @@ public class ApplicationDao extends Dao {
             stmt.setInt(2, vacancyId);
             rs = stmt.executeQuery();
 
-            if(rs.next()){
-                return true;
-            } else {
-                return false;
-            }
+            return rs.next();
 
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
         }
@@ -383,7 +377,7 @@ public class ApplicationDao extends Dao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
         }
@@ -398,7 +392,7 @@ public class ApplicationDao extends Dao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
         }
@@ -416,7 +410,7 @@ public class ApplicationDao extends Dao {
             }
 
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
         }
@@ -437,7 +431,7 @@ public class ApplicationDao extends Dao {
             }
             return idUsers;
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
         }
@@ -464,10 +458,10 @@ public class ApplicationDao extends Dao {
             }
             return applications;
         } catch (SQLException e) {
-            LOG.error("SQLException");
+            LOG.error(SQL_EXCEPTION);
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.error("SQLException"); }
+            try { rs.close(); } catch(SQLException se) { LOG.error(SQL_EXCEPTION); }
         }
         return null;
     }

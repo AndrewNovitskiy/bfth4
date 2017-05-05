@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static com.andrew.constant.AttributeConstant.USER;
+import static com.andrew.constant.CommonConstant.USER;
 import static com.andrew.constant.CommandPathConstant.MESSAGES_COMMAND;
 import static com.andrew.constant.JspPathConstant.MESSAGE_JSP;
 

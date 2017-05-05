@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static com.andrew.constant.AttributeConstant.*;
+import static com.andrew.constant.CommonConstant.*;
 import static com.andrew.constant.JspPathConstant.REGISTRATION_JSP;
 import static com.andrew.constant.JspPathConstant.USER_PROFILE_JSP;
 

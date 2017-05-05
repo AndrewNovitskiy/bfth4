@@ -1,6 +1,6 @@
 <div id="menubar">
     <div class="menubarbutton">
-        <a href="" class="menubartext"><fmt:message key="about" /></a>
+        <a href="../index.jsp" class="menubartext"><fmt:message key="about" /></a>
     </div>
     <div class="menubarbutton">
         <a href="" class="menubartext"><fmt:message key="contacts" /></a>

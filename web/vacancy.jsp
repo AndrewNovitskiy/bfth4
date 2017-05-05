@@ -5,7 +5,7 @@
 <fmt:setBundle basename="com.andrew.i18n.text" />
 <html>
 <head>
-    <title><fmt:message key="profile" /></title>
+    <title>${requestScope.vacancy.position}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="style/topbar_style.css">
     <link rel="stylesheet" href="style/menubar_style.css">

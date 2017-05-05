@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>My Profile</title>
+    <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="../style/topbar_style.css">
     <link rel="stylesheet" href="../style/menubar_style.css">

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import static com.andrew.constant.AttributeConstant.ADMIN;
+import static com.andrew.constant.CommonConstant.ADMIN;
 import static com.andrew.constant.JspPathConstant.INDEX_JSP;
 
 /**

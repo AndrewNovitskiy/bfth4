@@ -39,9 +39,9 @@
                         <div><span class="vacancyparam"><fmt:message key="salary" />: ${vacancy.salary}$</span></div>
                         <hr>
                         <div><span class="vacancyparam"><fmt:message key="experience" />: ${vacancy.experience}</span></div>
-                        <p class="vacancyinfo">
+                        <div class="vacancyinfo">
                                 ${vacancy.info}
-                        </p>
+                        </div>
                         <span><a href="${pageContext.request.contextPath}/do?command=view_vacancy&id=${vacancy.vacancyId}" class="vacancymoreinfo"><fmt:message key="more" /></a></span>
                     </div>
                 </c:forEach>

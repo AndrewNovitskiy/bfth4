@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static com.andrew.constant.CommonConstant.IO_EXCEPTION;
+
 /**
  * Created by Andrew on 30.04.2017.
  */
@@ -30,7 +32,7 @@ public class TodayTag extends TagSupport {
             out.print(dateFormatter.format(today));
 
         } catch(IOException e) {
-            LOG.error("IOException");
+            LOG.error(IO_EXCEPTION);
             throw new JspException("Error: " + e.getMessage());
         }
         return SKIP_BODY;

@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static com.andrew.constant.CommonConstant.COMMAND;
+
 
 public class Controller extends HttpServlet {
-
-    private final String COMMAND = "command";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         process(request, response);
