@@ -7,6 +7,11 @@ body {
     margin: 0;
 }
 
+#mainblock {
+    clear: both;
+    overflow: auto;
+}
+
 .block {
     clear: both;
     margin-bottom: 3px;
@@ -65,7 +70,7 @@ h2 {
     border-radius: 10px;
     width: 300px;
     height: 60px;
-    font-size: 30px;
+    font-size: 20px;
     alignment: center;
     opacity: 0.7;
     margin-left: 20px;
@@ -77,6 +82,16 @@ h2 {
     opacity: 0.7;
 }
 
+#atlref {
+    text-decoration: none;
+    color: #1b1b1b;
+}
+#atlref:active {
+    color: #1b1b1b;
+}
+#atlref:visited {
+    color: #1b1b1b;
+}
 
 #img1, #img3 {
     width: 50%;
@@ -84,11 +99,19 @@ h2 {
 }
 
 #text1, #text3 {
+    vertical-align: middle;
+    display: table;
     padding: 30px;
     font-size: 20px;
     font-family: OpenSans;
     width: 40%;
     float: left;
+}
+#text1 {
+    margin-top: 60px;
+}
+#text3 {
+    margin-top: 100px;
 }
 
 #img2 {
@@ -97,11 +120,14 @@ h2 {
 }
 
 #text2 {
+    vertical-align: middle;
+    display: table;
     padding: 30px;
     font-size: 20px;
     font-family: OpenSans;
     width: 40%;
     float: right;
+    margin-top: 100px;
 }
 
 
@@ -109,6 +135,6 @@ h2 {
     background: #444444;
     color: #fff;
     padding: 5px;
-    clear: left;
+    clear: inherit;
     margin-top: 3px;
 }

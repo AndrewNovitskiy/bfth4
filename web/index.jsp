@@ -15,26 +15,32 @@
     <div id="mainblock">
     <div id="block_one">
         <h2>Atlanta-Soft</h2>
-        <h2>Today : <custom:today format="dd MMMM yyyy"/>. Start work with us!</h2>
+        <h2><fmt:message key="today" /> : <custom:today format="dd MMMM yyyy"/>. <fmt:message key="text3" /></h2>
         <div>
             <form action="${pageContext.request.contextPath}/do" name='vacancies' method="get">
                 <input type="hidden" name="command" value="vacancies">
-                <input type="submit" name="submit" id="enter" value="ENTER">
+                <input type="submit" name="submit" id="enter" value="<fmt:message key="enter" />">
             </form>
         </div>
     </div>
-    <div id="logo"><h1>Atlanta-Soft</h1></div>
+    <div id="logo"><h1><a href="${pageContext.request.contextPath}/do?command=vacancies" id="atlref">Atlanta-Soft</a></h1></div>
     <div id="block_two" class="block">
-        <img src="style/resources/sol.jpg" height="400" id="img1">
-        <div id="text1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        <a href="${pageContext.request.contextPath}/do?command=vacancies">
+            <img src="style/resources/sol.jpg" id="img1">
+        </a>
+        <div id="text1"><fmt:message key="text4" /></div>
     </div>
     <div id="block_three" class="block">
-        <img src="style/resources/people.jpg" height="400" id="img2">
-        <div id="text2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        <a href="${pageContext.request.contextPath}/do?command=vacancies">
+            <img src="style/resources/people.jpg" id="img2">
+        </a>
+        <div id="text2"><fmt:message key="text5" /></div>
     </div>
         <div id="block_four" class="block">
-            <img src="style/resources/jav.png" height="400" id="img3">
-            <div id="text3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <a href="${pageContext.request.contextPath}/do?command=vacancies">
+                <img src="style/resources/jav.png" id="img3">
+            </a>
+            <div id="text3"><fmt:message key="text6" /></div>
         </div>
     </div>
     <%@include file="include/footer.jsp"%>
