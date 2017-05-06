@@ -21,10 +21,10 @@
         </c:when>
         <c:otherwise>
             <div id="login" class="topbarref">
-                <a href="registration.jsp" class="topbartext" title="registration"><fmt:message key="register" /></a>
+                <a href="../registration.jsp" class="topbartext" title="registration"><fmt:message key="register" /></a>
             </div>
             <div id="register" class="topbarref">
-                <a href="user/logIn.jsp" class="topbartext" title="log in"><fmt:message key="log.in" /></a>
+                <a href="../user/logIn.jsp" class="topbartext" title="log in"><fmt:message key="log.in" /></a>
             </div>
         </c:otherwise>
     </c:choose>

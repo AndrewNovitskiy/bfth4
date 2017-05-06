@@ -3,7 +3,7 @@
         <a href="../index.jsp" class="menubartext"><fmt:message key="about" /></a>
     </div>
     <div class="menubarbutton">
-        <a href="" class="menubartext"><fmt:message key="contacts" /></a>
+        <a href="../contact.jsp" class="menubartext"><fmt:message key="contacts" /></a>
     </div>
     <c:if test="${not empty sessionScope.user}">
         <div class="menubarbutton">

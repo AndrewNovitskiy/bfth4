@@ -1,0 +1,27 @@
+@font-face {
+    font-family: OpenSans;
+    src: url(fonts/OpenSans-Regular.ttf);
+}
+
+label {
+    margin-right: 10px;
+    font-family: OpenSans;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: OpenSans;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.control_elem_container {
+    margin-left: 25px;
+}
+
+span {
+    font-family: OpenSans;
+    font-size:15px;
+}

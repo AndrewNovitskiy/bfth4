@@ -18,17 +18,17 @@ public class TodayTag extends TagSupport {
 
     private static final Logger LOG = Logger.getLogger(TodayTag.class);
 
-    private String mFormat;
+    private String format;
 
-    public void setFormat(String pFormat) {
-        mFormat = pFormat;
+    public void setFormat(String format) {
+        this.format = format;
     }
 
     public int doStartTag() throws JspException {
         try {
             JspWriter out = pageContext.getOut();
             Date today = new Date();
-            SimpleDateFormat dateFormatter = new SimpleDateFormat(mFormat);
+            SimpleDateFormat dateFormatter = new SimpleDateFormat(format);
             out.print(dateFormatter.format(today));
 
         } catch(IOException e) {
