@@ -22,6 +22,7 @@ public class UserDao extends Dao {
     private static final String SQL_UPDATE_USER = "UPDATE applicant SET applicant.name = ?, applicant.surname = ?, applicant.telephone = ?, applicant.email = ?, applicant.resume = ? WHERE applicant.id_applicant = ?;";
     private static final String SQL_GET_USER_BY_ID = "SELECT id_applicant, login, password, name, surname, telephone, email FROM applicant WHERE id_applicant = ?;";
     private static final String SQL_CHANGE_USER_PWD = "UPDATE applicant SET applicant.password = ? WHERE applicant.id_applicant = ?;";
+    private static final String SQL_DELETE_USER_PWD = "DELETE QUICK FROM applicant WHERE applicant.login = ?;";
 
 
     public User findUser(String login, String password) {
@@ -253,6 +254,20 @@ public class UserDao extends Dao {
             stmt = conn.prepareStatement(SQL_CHANGE_USER_PWD);
             stmt.setString(1, newPassword);
             stmt.setInt(2, applicantId);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            LOG.error(SQL_EXCEPTION);
+        } finally {
+            closeResources(conn, stmt);
+        }
+    }
+
+    public void deleteUser(String login) {
+        try {
+            conn = pool.getConnection();
+            stmt = conn.prepareStatement(SQL_DELETE_USER_PWD);
+            stmt.setString(1, login);
             stmt.executeUpdate();
 
         } catch (SQLException e) {
