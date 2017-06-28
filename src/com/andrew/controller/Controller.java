@@ -2,7 +2,7 @@ package com.andrew.controller;
 
 import com.andrew.action.Action;
 import com.andrew.command.Command;
-import com.andrew.holder.CommandHolder;
+import com.andrew.command.CommandHolder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

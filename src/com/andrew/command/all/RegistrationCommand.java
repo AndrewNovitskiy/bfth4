@@ -1,7 +1,8 @@
-package com.andrew.command;
+package com.andrew.command.all;
 
 import com.andrew.action.Action;
 import com.andrew.action.ForwardAction;
+import com.andrew.command.Command;
 import com.andrew.dao.UserDao;
 import com.andrew.entity.User;
 import com.andrew.util.HashUtil;

@@ -1,8 +1,7 @@
-package com.andrew.holder;
+package com.andrew.command;
 
-import com.andrew.command.Command;
-import com.andrew.command.RegistrationCommand;
-import com.andrew.command.FindAllVacanciesWithInfoCommand;
+import com.andrew.command.all.FindAllVacanciesWithInfoCommandDecorator;
+import com.andrew.command.all.RegistrationCommand;
 import com.andrew.command.admin.AdminAutorisationCommand;
 import com.andrew.command.admin.AdminLogOutCommand;
 import com.andrew.command.admin.application.*;
@@ -15,14 +14,15 @@ import com.andrew.command.user.*;
 import com.andrew.exception.NoCommandException;
 import org.apache.log4j.Logger;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 
 public class CommandHolder {
     private static final Logger LOG = Logger.getLogger(CommandHolder.class);
 
-    private static Map<String, Command> commands = new TreeMap<>();
+    private static Map<String, Command> commands = new HashMap<>();
+    private static Map<String, CommandFactory> comm = new HashMap<>();
 
     static {
         //Admin commands
@@ -81,19 +81,25 @@ public class CommandHolder {
         commands.put("delete_application", new UserDeleteApplicationCommand());
         commands.put("change_language", new LanguageChangeCommand());
 
-        commands.put("vacancies", new FindAllVacanciesWithInfoCommand());
+        //commands.put("vacancies", new FindAllVacanciesWithInfoCommand());
         commands.put("registration", new RegistrationCommand());
         commands.put("view_vacancy", new ViewVacancyCommand());
+
+
+
+        comm.put("vacancies", new FindAllVacanciesWithInfoCommandDecorator());
     }
 
     public static Command get(String commandName) {
-        if (commandName == null || !commands.containsKey(commandName)) {
+        if (commandName == null || !comm.containsKey(commandName)) {
             try {
                 throw new NoCommandException();
             } catch (NoCommandException e) {
                 LOG.error("Command not found, name --> " + commandName);
             }
         }
-        return commands.get(commandName);
+        CommandFactory f = comm.get(commandName);
+
+        return f.getCommand();
     }
 }
