@@ -3,9 +3,7 @@ package com.andrew.validator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- *
- */
+
 public class Validator {
 
     private static final Pattern REGEX_FIRST_SYMBOL = Pattern.compile("^[a-zA-Z]");
@@ -19,17 +17,7 @@ public class Validator {
     private static final Pattern REGEX_TEL_LENGTH = Pattern.compile("^.{9,15}$");
     private static final Pattern REGEX_EMAIL = Pattern.compile("^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$");
 
-    /**
-     *
-     * @param login
-     * @param password
-     * @param passwordDuplicate
-     * @param name
-     * @param surname
-     * @param telephone
-     * @param email
-     * @return
-     */
+
     public static boolean validateRegistrationData(String login, String password, String passwordDuplicate, String name, String surname, String telephone, String email) {
         if (validateLogin(login)) {
             if (validatePassword(password)) {
@@ -48,6 +36,7 @@ public class Validator {
         }
         return false;
     }
+
 
     public static boolean validateUserData(String name, String surname, String telephone, String email) {
         if (validateName(name.trim())) {

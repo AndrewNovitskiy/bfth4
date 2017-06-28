@@ -5,14 +5,14 @@
 <fmt:setBundle basename="com.andrew.i18n.text" />
 <%@ taglib uri="/WEB-INF/custom.tld" prefix="custom" %>
 <html>
-  <head>
+<head>
     <title>ATL Software</title>
-      <link rel='stylesheet' href='style/home_style.css' type='text/css' />
-      <link rel="stylesheet" href="style/topbar_style.css">
-  </head>
-  <body>
-    <%@include file="include/topbar.jsp"%>
-    <div id="mainblock">
+    <link rel='stylesheet' href='style/home_style.css' type='text/css' />
+    <link rel="stylesheet" href="style/topbar_style.css">
+</head>
+<body>
+<%@include file="include/topbar.jsp"%>
+<div id="mainblock">
     <div id="block_one">
         <h2>Atlanta-Soft</h2>
         <h2><fmt:message key="today" /> : <custom:today format="dd MMMM yyyy"/>. <fmt:message key="text3" /></h2>
@@ -36,13 +36,13 @@
         </a>
         <div id="text2"><fmt:message key="text5" /></div>
     </div>
-        <div id="block_four" class="block">
-            <a href="${pageContext.request.contextPath}/do?command=vacancies">
-                <img src="style/resources/jav.png" id="img3">
-            </a>
-            <div id="text3"><fmt:message key="text6" /></div>
-        </div>
+    <div id="block_four" class="block">
+        <a href="${pageContext.request.contextPath}/do?command=vacancies">
+            <img src="style/resources/jav.png" id="img3">
+        </a>
+        <div id="text3"><fmt:message key="text6" /></div>
     </div>
-    <%@include file="include/footer.jsp"%>
-  </body>
+</div>
+<%@include file="include/footer.jsp"%>
+</body>
 </html>

@@ -4,6 +4,7 @@ import com.andrew.action.Action;
 import com.andrew.action.ForwardAction;
 import com.andrew.dao.UserDao;
 import com.andrew.entity.User;
+import com.andrew.util.HashUtil;
 import com.andrew.validator.Validator;
 
 import javax.servlet.ServletException;
@@ -45,8 +46,8 @@ public class RegistrationCommand implements Command {
 
         if (Validator.validateRegistrationData(login, password, passwordDuplicate, name, surname, telephone, email)) {
             if (dao.checkLogin(login)) {
-                dao.addUser(login, password, name, surname, telephone, email);
-                User user = dao.findUser(login, password);
+                dao.addUser(login, HashUtil.getMd5Hash(password), name, surname, telephone, email);
+                User user = dao.findUser(login, HashUtil.getMd5Hash(password));
                 session.setAttribute(USER, user);
                 return new ForwardAction(USER_PROFILE_JSP);
             } else {

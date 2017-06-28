@@ -21,44 +21,44 @@
     <%@include file="../include/menubar.jsp"%>
     <div id="mainblock">
 
-            <c:choose>
-                <c:when test="${not empty requestScope.messages}">
-                    <h2><fmt:message key="messages" /></h2>
-                    <table border="1">
+        <c:choose>
+            <c:when test="${not empty requestScope.messages}">
+                <h2><fmt:message key="messages" /></h2>
+                <table border="1">
+                    <tr>
+                        <th>
+                            <fmt:message key="sender" />
+                        </th>
+                        <th>
+                            <fmt:message key="theme" />
+                        </th>
+                        <th>
+                            <fmt:message key="date.time" />
+                        </th>
+                        <th>
+                            <fmt:message key="details" />
+                        </th>
+                    </tr>
+                    <c:forEach items="${requestScope.messages}" var="message">
                         <tr>
+                            <th>${message.senderLogin}</th>
+                            <th>${message.title}</th>
+                            <th>${message.dateTime}</th>
                             <th>
-                                <fmt:message key="sender" />
-                            </th>
-                            <th>
-                                <fmt:message key="theme" />
-                            </th>
-                            <th>
-                                <fmt:message key="date.time" />
-                            </th>
-                            <th>
-                                <fmt:message key="details" />
+                                <form action="${pageContext.request.contextPath}/user/do" name='my_message' method="post">
+                                    <input type="hidden" name="id" value="${message.messageId}">
+                                    <input type="hidden" name="command" value="my_message">
+                                    <input type="submit" name="submit" class="details" value="<fmt:message key="details" />">
+                                </form>
                             </th>
                         </tr>
-                            <c:forEach items="${requestScope.messages}" var="message">
-                                <tr>
-                                    <th>${message.senderLogin}</th>
-                                    <th>${message.title}</th>
-                                    <th>${message.dateTime}</th>
-                                    <th>
-                                        <form action="${pageContext.request.contextPath}/user/do" name='my_message' method="post">
-                                            <input type="hidden" name="id" value="${message.messageId}">
-                                            <input type="hidden" name="command" value="my_message">
-                                            <input type="submit" name="submit" class="details" value="<fmt:message key="details" />">
-                                        </form>
-                                    </th>
-                                </tr>
-                            </c:forEach>
-                    </table>
-                </c:when>
-                <c:otherwise>
-                    <h2><fmt:message key="messages.empty" /></h2>
-                </c:otherwise>
-            </c:choose>
+                    </c:forEach>
+                </table>
+            </c:when>
+            <c:otherwise>
+                <h2><fmt:message key="messages.empty" /></h2>
+            </c:otherwise>
+        </c:choose>
 
     </div>
     <img src="../style/resources/a.jpg" class="photo">

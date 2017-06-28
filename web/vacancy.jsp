@@ -14,15 +14,12 @@
     <link rel="stylesheet" href="style/vacancy_style.css">
 </head>
 <body>
-
 <div id="container">
     <%@include file="include/topbar.jsp"%>
     <%@include file="include/header.jsp"%>
     <%@include file="include/menubar.jsp"%>
     <div id="mainblock">
-
         <div class="block">
-
             <div>
                 <c:if test="${requestScope.vacancy.deleted}">
                     <h2 class="deleted"><fmt:message key="not.up.to.date" /></h2>
@@ -35,7 +32,6 @@
                 <label><fmt:message key="details" /> : </label><br>
                 <span>${requestScope.vacancy.info}</span><br><br>
             </div>
-
         </div>
 
         <c:choose>
@@ -47,24 +43,24 @@
             </c:when>
             <c:when test="${requestScope.app_exists}">
                 <div class="control_elem_container">
-                        <span>
-                            <form action="${pageContext.request.contextPath}/do" name='delete_application' method="post">
-                                <input type="hidden" name="vacancyId" value="${requestScope.vacancy.vacancyId}">
-                                <input type="hidden" name="command" value="delete_application">
-                                <input type="submit" name="submit" value="<fmt:message key="del.respond" />" class="control_elem">
-                            </form>
-                        </span>
+                    <span>
+                        <form action="${pageContext.request.contextPath}/do" name='delete_application' method="post">
+                            <input type="hidden" name="vacancyId" value="${requestScope.vacancy.vacancyId}">
+                            <input type="hidden" name="command" value="delete_application">
+                            <input type="submit" name="submit" value="<fmt:message key="del.respond" />" class="control_elem">
+                        </form>
+                    </span>
                 </div>
             </c:when>
             <c:otherwise>
                 <div class="control_elem_container">
-                        <span>
-                            <form action="${pageContext.request.contextPath}/do" name='new_application' method="post">
-                                <input type="hidden" name="vacancyId" value="${requestScope.vacancy.vacancyId}">
-                                <input type="hidden" name="command" value="new_application">
-                                <input type="submit" name="submit" value="<fmt:message key="to.respond" />" class="control_elem">
-                            </form>
-                        </span>
+                    <span>
+                        <form action="${pageContext.request.contextPath}/do" name='new_application' method="post">
+                            <input type="hidden" name="vacancyId" value="${requestScope.vacancy.vacancyId}">
+                            <input type="hidden" name="command" value="new_application">
+                            <input type="submit" name="submit" value="<fmt:message key="to.respond" />" class="control_elem">
+                        </form>
+                    </span>
                 </div>
             </c:otherwise>
         </c:choose>

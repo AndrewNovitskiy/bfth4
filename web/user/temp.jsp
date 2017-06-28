@@ -20,13 +20,6 @@
         <div class="block">
 
 
-
-            <div class="control_elem_container">
-                <span>
-                    <a href="user/editProfile.jsp" class="control_elem">Edit Information</a>
-                </span>
-            </div>
-
         </div>
     </div>
     <img src="../style/resources/a.jpg" class="photo">

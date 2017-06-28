@@ -67,7 +67,6 @@ public class ConnectionPool {
         try {
             if(semaphore.tryAcquire(10, TimeUnit.SECONDS)) {
                 lock.lock();
-
                 try {
                     DriverManager.registerDriver(new com.mysql.jdbc.Driver());
                     connection = connections.isEmpty() ? DriverManager.getConnection(url, user, password) :

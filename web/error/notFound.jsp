@@ -1,17 +1,12 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-
     <title>404 - Not found</title>
     <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="../style/panda/normalize.css">
     <link href="../style/panda/css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../style/panda/style.css">
     <link rel="stylesheet" type="text/css" href="../style/panda/responsive.css">
-
-
-
 </head>
 <body>
 <div id="page-404-3" class="panda-wrapper panda-404" style="height: 100%; padding-top: 34px;">
@@ -27,7 +22,6 @@
         </nav>
     </div>
 </div>
-
 
 </body>
 </html>

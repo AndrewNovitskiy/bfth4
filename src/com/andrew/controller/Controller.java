@@ -35,6 +35,4 @@ public class Controller extends HttpServlet {
             e.printStackTrace();
         }
     }
-
-
 }

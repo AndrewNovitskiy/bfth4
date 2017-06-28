@@ -6,6 +6,7 @@ import com.andrew.action.RedirectAction;
 import com.andrew.command.Command;
 import com.andrew.dao.UserDao;
 import com.andrew.entity.User;
+import com.andrew.util.HashUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -40,7 +41,7 @@ public class UserAutorisationCommand implements Command {
         }
 
         String login = request.getParameter("login");
-        String password = request.getParameter("password");
+        String password = HashUtil.getMd5Hash(request.getParameter("password"));
 
         if (dao.checkUser(login, password)) {
             User user = dao.findUser(login, password);

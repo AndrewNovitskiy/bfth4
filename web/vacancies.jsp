@@ -22,12 +22,8 @@
     <img src="style/resources/atl.jpg" class="photo">
 
     <div id="mainblock">
-
         <div id="content" class="block">
-
             <h2 id="text1"><fmt:message key="text1" /></h2>
-
-
             <c:if test="${not empty requestScope.vacancies}">
                 <c:forEach items="${requestScope.vacancies}" var="vacancy">
                     <div class="vacancyblock">
@@ -40,7 +36,7 @@
                         <hr>
                         <div><span class="vacancyparam"><fmt:message key="experience" />: ${vacancy.experience}</span></div>
                         <div class="vacancyinfo">
-                                ${vacancy.info}
+                            ${vacancy.info}
                         </div>
                         <span><a href="${pageContext.request.contextPath}/do?command=view_vacancy&id=${vacancy.vacancyId}" class="vacancymoreinfo"><fmt:message key="more" /></a></span>
                     </div>

@@ -21,10 +21,7 @@
     <%@include file="../include/menubar.jsp"%>
     <div id="mainblock">
 
-
-
         <div class="block">
-
             <div>
                 <h2><fmt:message key="profile" /></h2>
                 <label><fmt:message key="login" /> : </label> <span>${sessionScope.user.login}</span><br><br>
@@ -49,7 +46,6 @@
                 </span>
             </div>
         </form>
-
     </div>
     <img src="../style/resources/a.jpg" class="photo">
     <%@include file="../include/footer.jsp"%>
