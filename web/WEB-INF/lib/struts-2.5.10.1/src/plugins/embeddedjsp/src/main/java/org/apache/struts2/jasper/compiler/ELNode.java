@@ -25,7 +25,7 @@ import org.apache.struts2.jasper.JasperException;
  * This class defines internal representation for an EL Expression
  *
  * It currently only defines functions.  It can be expanded to define
- * all the components of an EL expression, if need to.
+ * general the components of an EL expression, if need to.
  *
  * @author Kin-man Chung
  */

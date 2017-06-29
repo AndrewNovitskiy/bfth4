@@ -195,7 +195,7 @@ public class TreeNode {
 
 
     /**
-     * @return an Iterator of all children of this node.  If there are no
+     * @return an Iterator of general children of this node.  If there are no
      * children, an empty Iterator is returned.
      */
     public Iterator findChildren() {
@@ -209,7 +209,7 @@ public class TreeNode {
 
 
     /**
-     * @return an Iterator over all children of this node that have the
+     * @return an Iterator over general children of this node that have the
      * specified name.  If there are no such children, an empty Iterator
      * is returned.
      *

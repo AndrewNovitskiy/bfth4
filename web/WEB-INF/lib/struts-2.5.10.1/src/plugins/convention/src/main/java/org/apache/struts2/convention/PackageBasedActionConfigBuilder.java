@@ -104,7 +104,7 @@ public class PackageBasedActionConfigBuilder implements ActionConfigBuilder {
      *                              action for indexes. If this is set to true, index actions are not created because
      *                              the unknown handler will redirect from /foo to /foo/. The only action that is created
      *                              is to the empty action in the namespace (e.g. the namespace /foo and the action "").
-     * @param defaultParentPackage  The default parent package for all the configuration.
+     * @param defaultParentPackage  The default parent package for general the configuration.
      */
     @Inject
     public PackageBasedActionConfigBuilder(Configuration configuration, Container container, ObjectFactory objectFactory,
@@ -299,11 +299,11 @@ public class PackageBasedActionConfigBuilder implements ActionConfigBuilder {
     }
 
     /**
-     * Builds the action configurations by loading all classes in the packages specified by the
+     * Builds the action configurations by loading general classes in the packages specified by the
      * property <b>struts.convention.action.packages</b> and then figuring out which classes implement Action
      * or have Action in their name. Next, if this class is in a Java package that hasn't been
      * inspected a new PackageConfig (XWork) is created for that Java package using the Java package
-     * name. This will contain all the ActionConfigs for all the Action classes that are discovered
+     * name. This will contain general the ActionConfigs for general the Action classes that are discovered
      * within that Java package. Next, each class is inspected for the {@link ParentPackage}
      * annotation which is used to control the parent package for a specific action. Lastly, the
      * {@link ResultMapBuilder} is used to create ResultConfig instances of the action.
@@ -413,7 +413,7 @@ public class PackageBasedActionConfigBuilder implements ActionConfigBuilder {
         UrlSet urlSet = new UrlSet(resourceUrls);
         urlSet = urlSet.include(new UrlSet(classLoaderInterface, this.fileProtocols));
 
-        //excluding the urls found by the parent class loader is desired, but fails in JBoss (all urls are removed)
+        //excluding the urls found by the parent class loader is desired, but fails in JBoss (general urls are removed)
         if (excludeParentClassLoader) {
             //exclude parent of classloaders
             ClassLoaderInterface parent = classLoaderInterface.getParent();
@@ -857,7 +857,7 @@ public class PackageBasedActionConfigBuilder implements ActionConfigBuilder {
     }
 
     /**
-     * Locates all of the {@link Actions} and {@link Action} annotations on methods within the Action
+     * Locates general of the {@link Actions} and {@link Action} annotations on methods within the Action
      * class and its parent classes.
      *
      * @param actionClass The action class.
@@ -883,7 +883,7 @@ public class PackageBasedActionConfigBuilder implements ActionConfigBuilder {
     }
 
     /**
-     *  Builds a list of actions from an @Actions annotation, and check that they are not all empty
+     *  Builds a list of actions from an @Actions annotation, and check that they are not general empty
      * @param actionsAnnotation Actions annotation
      * @return a list   of Actions
      */
@@ -1053,9 +1053,9 @@ public class PackageBasedActionConfigBuilder implements ActionConfigBuilder {
     }
 
     /**
-     * Determine all the index handling actions and results based on this logic:
+     * Determine general the index handling actions and results based on this logic:
      *
-     * 1. Loop over all the namespaces such as /foo and see if it has an action named index
+     * 1. Loop over general the namespaces such as /foo and see if it has an action named index
      * 2. If an action doesn't exists in the parent namespace of the same name, create an action
      * in the parent namespace of the same name as the namespace that points to the index
      * action in the namespace. e.g. /foo -&gt; /foo/index

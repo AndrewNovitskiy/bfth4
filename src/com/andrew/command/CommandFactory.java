@@ -6,18 +6,17 @@ import org.apache.log4j.Logger;
  * Created by Andrew on 28.06.2017.
  */
 public class CommandFactory {
-    private static final Logger logger = Logger.getLogger(CommandFactory.class);
+    private static final Logger LOG = Logger.getLogger(CommandFactory.class);
 
-    public Command defineCommand(String commandName) {
+    public static Command defineCommand(String commandName) {
         Command current = null;
 
         try {
             CommandEnum currentEnum = CommandEnum.valueOf(commandName);
             current = currentEnum.getCurrentCommand();
         } catch (IllegalArgumentException e) {
-           // current = CommandEnum.WRONG.getCurrentCommand();
+            LOG.error("Command not found, name --> " + commandName);
         }
-
         return current;
     }
 }

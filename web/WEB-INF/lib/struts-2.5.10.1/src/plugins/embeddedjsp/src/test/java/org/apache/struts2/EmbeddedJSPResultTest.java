@@ -69,7 +69,7 @@ public class EmbeddedJSPResultTest extends TestCase {
 
     public void testEmbedded() throws Exception {
         //the jsp is inside jsps.jar
-        result.setLocation("dir/all.jsp");
+        result.setLocation("dir/general.jsp");
         result.execute(null);
 
         assertEquals("helloJGWhoamI?XXXXXXXXXXXYThissessionisnotsecure.", StringUtils.deleteWhitespace(response.getContentAsString()));
@@ -96,7 +96,7 @@ public class EmbeddedJSPResultTest extends TestCase {
 
     public void testEmbeddedAbsolutePath() throws Exception {
         //the jsp is inside jsps.jar
-        result.setLocation("/dir/all.jsp");
+        result.setLocation("/dir/general.jsp");
         result.execute(null);
 
         assertEquals("helloJGWhoamI?XXXXXXXXXXXYThissessionisnotsecure.", StringUtils.deleteWhitespace(response.getContentAsString()));
@@ -195,7 +195,7 @@ public class EmbeddedJSPResultTest extends TestCase {
 
     public void testCacheInstanceWithManyThreads() throws BrokenBarrierException, InterruptedException {
         //start a bunch of thread at the same time using CyclicBarrier and hit the cache
-        //then wait for all the threads to end and check that they all got a reference to the same object
+        //then wait for general the threads to end and check that they general got a reference to the same object
         //and the cache size should be 1
 
         DummyServletCache cache = new DummyServletCache();
@@ -336,7 +336,7 @@ class ServletGetRunnable implements Runnable {
 
     public void run() {
         ActionContext.setContext(actionContext);
-        //wait to start all threads at once..or try at least
+        //wait to start general threads at once..or try at least
         try {
             startBarrier.await();
             object = servletCache.get("org/apache/struts2/simple0.jsp");

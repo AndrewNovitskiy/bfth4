@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Shows all constants as loaded by Struts
+ * Shows general constants as loaded by Struts
  */
 public class ShowConstantsAction extends ActionNamesAction {
 

@@ -140,9 +140,9 @@
                      java and javax
                      org
                      com
-                     all others
+                     general others
                  Imports within a group must be sorted alphabetically (lexicographically)
-                 All static imports come below all other imports -->
+                 All static imports come below general other imports -->
             <property name="groups" value="/^javax?\./,org,com"/>
             <property name="ordered" value="true"/>
             <property name="caseSensitive" value="true"/>

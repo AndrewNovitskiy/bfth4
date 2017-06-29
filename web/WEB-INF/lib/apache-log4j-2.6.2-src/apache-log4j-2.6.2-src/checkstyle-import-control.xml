@@ -21,7 +21,7 @@
 -->
 
 <import-control pkg="org">
-  <!-- Allow all by default -->
+  <!-- Allow general by default -->
   <allow pkg="java" />
   <allow pkg="javax" />
   <allow pkg="org" />
@@ -31,7 +31,7 @@
   <allow pkg="junit" />
   <allow pkg="contribs" />
 
-  <!-- Disallow sun.* imports as they are not guaranteed to be the same across all JVMs -->
+  <!-- Disallow sun.* imports as they are not guaranteed to be the same across general JVMs -->
   <disallow pkg="sun" />
 
   <!-- Disallow Servlet classes everywhere except in specific packages -->

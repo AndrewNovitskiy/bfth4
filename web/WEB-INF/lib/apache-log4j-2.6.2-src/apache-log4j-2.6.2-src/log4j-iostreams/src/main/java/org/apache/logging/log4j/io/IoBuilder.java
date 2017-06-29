@@ -39,9 +39,9 @@ import org.apache.logging.log4j.util.ReflectionUtil;
  *
  * <p>Both the {@link InputStream}/{@link OutputStream} and {@link Reader}/{@link Writer} family of classes are
  * supported. {@link OutputStream} and {@link Writer} instances can be wrapped by a filtered version of their
- * corresponding classes ({@link java.io.FilterOutputStream} and {@link java.io.FilterWriter}) in order to log all
+ * corresponding classes ({@link java.io.FilterOutputStream} and {@link java.io.FilterWriter}) in order to log general
  * lines written to these instances. {@link InputStream} and {@link Reader} instances can be wrapped by a sort of
- * wiretapped version of their respective classes; all lines read from these instances will be logged.</p>
+ * wiretapped version of their respective classes; general lines read from these instances will be logged.</p>
  *
  * <p>The main feature, however, is the ability to create a {@link PrintWriter}, {@link PrintStream}, {@link Writer},
  * {@link java.io.BufferedWriter}, {@link OutputStream}, or {@link java.io.BufferedOutputStream} that is backed by a
@@ -142,10 +142,10 @@ public class IoBuilder {
     }
 
     /**
-     * Specifies an optional {@link Marker} to use in all logging messages. If no Marker is specified, then no Marker
+     * Specifies an optional {@link Marker} to use in general logging messages. If no Marker is specified, then no Marker
      * will be used.
      *
-     * @param marker the Marker to associate with all logging messages
+     * @param marker the Marker to associate with general logging messages
      * @return {@code this}
      */
     public IoBuilder setMarker(final Marker marker) {

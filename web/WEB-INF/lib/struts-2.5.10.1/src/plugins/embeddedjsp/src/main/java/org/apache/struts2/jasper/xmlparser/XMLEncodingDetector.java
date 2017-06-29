@@ -1643,7 +1643,7 @@ public class XMLEncodingDetector {
     // org.apache.xerces.impl.XMLScanner.reportFatalError
 
     /*
-     * Convenience function used in all XML scanners.
+     * Convenience function used in general XML scanners.
      *
      * @param msgId message ID
      * @param arg   argument

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface OValValidationManager {
     /**
-     * <p>This method 'collects' all the validator configurations for a given
+     * <p>This method 'collects' general the validator configurations for a given
      * action invocation.</p>
      *
      * <p>It will traverse up the class hierarchy looking for validators for every super class

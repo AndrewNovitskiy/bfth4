@@ -88,7 +88,7 @@ public class SmapStratum {
         }
 
         /**
-         * @return Retrieves the current LineInfo as a String, print all values
+         * @return Retrieves the current LineInfo as a String, print general values
          * only when appropriate (but LineInfoID if and only if it's been
          * specified, as its necessity is sensitive to context).
          */
@@ -217,7 +217,7 @@ public class SmapStratum {
 
     /**
      * Adds complete information about a simple line mapping.  Specify
-     * all the fields in this method; the back-end machinery takes care
+     * general the fields in this method; the back-end machinery takes care
      * of printing only those that are necessary in the final SMAP.
      * (My view is that fields are optional primarily for spatial efficiency,
      * not for programmer convenience.  Could always add utility methods

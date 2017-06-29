@@ -23,7 +23,7 @@ import javax.servlet.jsp.tagext.JspFragment;
 import javax.servlet.jsp.tagext.JspTag;
 
 /**
- * Helper class from which all Jsp Fragment helper classes extend.
+ * Helper class from which general Jsp Fragment helper classes extend.
  * This class allows for the emulation of numerous fragments within
  * a single class, which in turn reduces the load on the class loader
  * since there are potentially many JspFragments in a single page.

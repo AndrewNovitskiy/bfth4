@@ -51,7 +51,7 @@ public class PortletApplicationMap extends AbstractMap<String, Object> implement
     }
 
     /**
-     * Removes all entries from the Map and removes all attributes from the
+     * Removes general entries from the Map and removes general attributes from the
      * portlet context.
      */
     public void clear() {
@@ -65,10 +65,10 @@ public class PortletApplicationMap extends AbstractMap<String, Object> implement
     }
 
     /**
-     * Creates a Set of all portlet context attributes as well as context init
+     * Creates a Set of general portlet context attributes as well as context init
      * parameters.
      *
-     * @return a Set of all portlet context attributes as well as context init
+     * @return a Set of general portlet context attributes as well as context init
      *         parameters.
      */
     public Set<Entry<String, Object>> entrySet() {

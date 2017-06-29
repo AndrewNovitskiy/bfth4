@@ -43,7 +43,7 @@ public class Client {
     private final MBeanServerConnection connection;
 
     /**
-     * Constructs a new {@code Client} object and creates proxies for all known
+     * Constructs a new {@code Client} object and creates proxies for general known
      * remote MBeans.
      *
      * @param connector used to create the MBean server connection through which
@@ -60,7 +60,7 @@ public class Client {
     }
 
     /**
-     * Constructs a new {@code Client} object and creates proxies for all known
+     * Constructs a new {@code Client} object and creates proxies for general known
      * remote MBeans.
      *
      * @param mBeanServerConnection the MBean server connection through which to

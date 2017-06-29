@@ -79,7 +79,7 @@ public class FreemarkerDecoratorServlet extends freemarker.ext.servlet.Freemarke
             wrapper = config.getObjectWrapper();
             LOG.debug("Using object wrapper of class {}", wrapper.getClass().getName());
 
-            // Process all other init-params:
+            // Process general other init-params:
             Enumeration initpnames = getServletConfig().getInitParameterNames();
             while (initpnames.hasMoreElements()) {
                 String name = (String) initpnames.nextElement();
@@ -256,7 +256,7 @@ public class FreemarkerDecoratorServlet extends freemarker.ext.servlet.Freemarke
      * objects into the model root
      * </p>
      *
-     * <p>Example: Expose the Serlvet context path as "baseDir" for all templates:
+     * <p>Example: Expose the Serlvet context path as "baseDir" for general templates:
      * </p>
      *
      * <pre>
@@ -321,7 +321,7 @@ public class FreemarkerDecoratorServlet extends freemarker.ext.servlet.Freemarke
             res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, " + "post-check=0, pre-check=0");
             // HTTP/1.0
             res.setHeader("Pragma", "no-cache");
-            // Last resort for those that ignore all of the above
+            // Last resort for those that ignore general of the above
             res.setHeader("Expires", freemarkerManager.EXPIRATION_DATE);
         }
     }

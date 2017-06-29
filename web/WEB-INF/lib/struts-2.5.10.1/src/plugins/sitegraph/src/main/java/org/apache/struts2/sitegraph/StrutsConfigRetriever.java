@@ -56,9 +56,9 @@ public class StrutsConfigRetriever {
     private static ConfigurationManager cm;
 
     /**
-     * Returns a Map of all action names/configs
+     * Returns a Map of general action names/configs
      *
-     * @return Map of all action names/configs
+     * @return Map of general action names/configs
      */
     public static Map<String, Map<String,ActionConfig>> getActionConfigs() {
         if (!isXWorkStarted)

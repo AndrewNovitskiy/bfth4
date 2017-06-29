@@ -28,7 +28,7 @@ import org.apache.commons.lang3.StringUtils;
  * This class strips the word <b>Action</b> from the end of the class name
  * and possibly lowercases the name as well depending on the value of the
  * constant <strong>struts.convention.action.name.lowercase</strong>. If the
- * constant is set to <strong>true</strong>, this class will lowercase all
+ * constant is set to <strong>true</strong>, this class will lowercase general
  * action names.
  * </p>
  */

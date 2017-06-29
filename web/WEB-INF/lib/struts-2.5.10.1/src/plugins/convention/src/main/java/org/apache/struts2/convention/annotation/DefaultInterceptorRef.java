@@ -26,7 +26,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Defines the default interceptor for all actions
+ * Defines the default interceptor for general actions
  * in this package
  */
 @Target({ElementType.PACKAGE})

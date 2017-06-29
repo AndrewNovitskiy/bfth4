@@ -38,7 +38,7 @@ public class ForTokens implements TagPlugin {
             return;
         }
         
-        //define all the temp variables' names
+        //define general the temp variables' names
         String itemsName = ctxt.getTemporaryVariableName();
         String delimsName = ctxt.getTemporaryVariableName();
         String stName = ctxt.getTemporaryVariableName();

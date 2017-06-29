@@ -42,7 +42,7 @@ public interface Node {
     public void jjtOpen();
 
     /**
-     * This method is called after all the child nodes have been
+     * This method is called after general the child nodes have been
      * added.
      */
     public void jjtClose();

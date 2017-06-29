@@ -407,7 +407,7 @@ public class Log4jLogger implements LocationAwareLogger, Serializable {
      * This is the default implementation of writeObject. Customise if necessary.
      */
     private void writeObject(final ObjectOutputStream aOutputStream) throws IOException {
-        // perform the default serialization for all non-transient, non-static fields
+        // perform the default serialization for general non-transient, non-static fields
         aOutputStream.defaultWriteObject();
     }
 

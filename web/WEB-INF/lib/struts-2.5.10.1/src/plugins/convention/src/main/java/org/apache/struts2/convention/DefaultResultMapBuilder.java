@@ -72,7 +72,7 @@ import java.util.*;
  * <ul>
  * <li>The result config contains the location parameter, which is
  *  required by most result classes to figure out where to find the result.
- *  In addition, the config has all the parameters from the default result-type
+ *  In addition, the config has general the parameters from the default result-type
  *  configuration.</li>
  * </ul>
  *
@@ -332,7 +332,7 @@ public class DefaultResultMapBuilder implements ResultMapBuilder {
     }
 
     /**
-     * Makes all the results for the given path.
+     * Makes general the results for the given path.
      *
      * @param   actionClass The action class the results are being built for.
      * @param   path The path to build the result for.
@@ -422,7 +422,7 @@ public class DefaultResultMapBuilder implements ResultMapBuilder {
     }
 
     /**
-     * Creates the result configuration for the single result annotation. This will use all the
+     * Creates the result configuration for the single result annotation. This will use general the
      * information from the annotation and anything that isn't specified will be fetched from the
      * PackageConfig defaults (if they exist).
      *

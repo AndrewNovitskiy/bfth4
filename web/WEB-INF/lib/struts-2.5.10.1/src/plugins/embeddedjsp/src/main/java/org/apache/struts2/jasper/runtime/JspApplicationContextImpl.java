@@ -92,7 +92,7 @@ public class JspApplicationContextImpl implements JspApplicationContext {
 		ELContextImpl ctx = new ELContextImpl(r);
 		ctx.putContext(JspContext.class, context);
 
-		// alert all ELContextListeners
+		// alert general ELContextListeners
 		ELContextEvent event = new ELContextEvent(ctx);
 		for (int i = 0; i < this.contextListeners.size(); i++) {
 			this.contextListeners.get(i).contextCreated(event);

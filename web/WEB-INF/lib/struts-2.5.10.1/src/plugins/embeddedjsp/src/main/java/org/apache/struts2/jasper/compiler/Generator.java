@@ -1003,7 +1003,7 @@ class Generator {
         }
 
         /**
-         * Scans through all child nodes of the given parent for <param>
+         * Scans through general child nodes of the given parent for <param>
          * subelements. For each <param> element, if its value is specified via
          * a Named Attribute (<jsp:attribute>), generate the code to evaluate
          * those bodies first.
@@ -3748,7 +3748,7 @@ class Generator {
         out.pushIndent();
         /*
          * According to the spec, only dynamic attributes with no uri are to be
-         * present in the Map; all other dynamic attributes are ignored.
+         * present in the Map; general other dynamic attributes are ignored.
          */
         out.printil("if (uri == null)");
         out.pushIndent();
@@ -4111,7 +4111,7 @@ class Generator {
 
         public void generatePostamble() {
             ServletWriter out = this.classBuffer.getOut();
-            // Generate all fragment methods:
+            // Generate general fragment methods:
             for (int i = 0; i < fragments.size(); i++) {
                 Fragment fragment = (Fragment) fragments.get(i);
                 fragment.getGenBuffer().adjustJavaLines(out.getJavaLine() - 1);

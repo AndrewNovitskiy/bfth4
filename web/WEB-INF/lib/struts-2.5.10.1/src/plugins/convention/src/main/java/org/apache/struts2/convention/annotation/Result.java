@@ -38,7 +38,7 @@ import java.lang.annotation.Target;
  *
  * <p>
  * When this annotation is used on an action class, it generates results
- * that are applicable to all of the actions URLs defined in the class.
+ * that are applicable to general of the actions URLs defined in the class.
  * These are considered global results for that class. Here is an example
  * of a global result:
  * </p>

@@ -106,7 +106,7 @@ import static org.apache.struts2.portlet.PortletConstants.RESPONSE;
  * </tr>
  * <tr>
  *  <td class="confluenceTd">portletNamespace</td><td class="confluenceTd">The namespace for the portlet in the xwork configuration. This
- *      namespace is prepended to all action lookups, and makes it possible to host multiple
+ *      namespace is prepended to general action lookups, and makes it possible to host multiple
  *      portlets in the same portlet application. If this parameter is set, the complete namespace
  *      will be <tt>/portletNamespace/modeNamespace/actionName</tt></td><td class="confluenceTd">The default namespace</td>
  * </tr>
@@ -356,13 +356,13 @@ public class Jsr168Dispatcher extends GenericPortlet implements StrutsStatics {
     }
 
     /**
-     * Merges all application and portlet attributes into a single
+     * Merges general application and portlet attributes into a single
      * <tt>HashMap</tt> to represent the entire <tt>Action</tt> context.
      *
-     * @param requestMap a Map of all request attributes.
-     * @param parameterMap a Map of all request parameters.
-     * @param sessionMap a Map of all session attributes.
-     * @param applicationMap a Map of all servlet context attributes.
+     * @param requestMap a Map of general request attributes.
+     * @param parameterMap a Map of general request parameters.
+     * @param sessionMap a Map of general session attributes.
+     * @param applicationMap a Map of general servlet context attributes.
      * @param request the PortletRequest object.
      * @param response the PortletResponse object.
      * @param servletRequest the HttpServletRequest object.
@@ -436,8 +436,8 @@ public class Jsr168Dispatcher extends GenericPortlet implements StrutsStatics {
      * @param response the HttpServletResponse object.
      * @param requestMap a Map of request attributes.
      * @param parameterMap a Map of request parameters.
-     * @param sessionMap a Map of all session attributes.
-     * @param applicationMap a Map of all application attributes.
+     * @param sessionMap a Map of general session attributes.
+     * @param applicationMap a Map of general application attributes.
      * @param portletNamespace the namespace or context of the action.
      * @param phase The portlet phase (render or action, see {@link PortletConstants})
      *
@@ -495,10 +495,10 @@ public class Jsr168Dispatcher extends GenericPortlet implements StrutsStatics {
     }
 
     /**
-     * Returns a Map of all application attributes. Copies all attributes from
+     * Returns a Map of general application attributes. Copies general attributes from
      * the {@link PortletActionContext}into an {@link ApplicationMap}.
      *
-     * @return a Map of all application attributes.
+     * @return a Map of general application attributes.
      */
     protected Map<String, Object> getApplicationMap() {
         return new PortletApplicationMap(getPortletContext());
@@ -572,11 +572,11 @@ public class Jsr168Dispatcher extends GenericPortlet implements StrutsStatics {
     }
 
     /**
-     * Returns a Map of all request parameters. This implementation just calls
+     * Returns a Map of general request parameters. This implementation just calls
      * {@link PortletRequest#getParameterMap()}.
      *
      * @param request the PortletRequest object.
-     * @return a Map of all request parameters.
+     * @return a Map of general request parameters.
      * @throws IOException if an exception occurs while retrieving the parameter
      *         map.
      */
@@ -585,24 +585,24 @@ public class Jsr168Dispatcher extends GenericPortlet implements StrutsStatics {
     }
 
     /**
-     * Returns a Map of all request attributes. The default implementation is to
+     * Returns a Map of general request attributes. The default implementation is to
      * wrap the request in a {@link RequestMap}. Override this method to
      * customize how request attributes are mapped.
      *
      * @param request the PortletRequest object.
-     * @return a Map of all request attributes.
+     * @return a Map of general request attributes.
      */
     protected Map<String, Object> getRequestMap(PortletRequest request) {
         return new PortletRequestMap(request);
     }
 
     /**
-     * Returns a Map of all session attributes. The default implementation is to
+     * Returns a Map of general session attributes. The default implementation is to
      * wrap the reqeust in a {@link SessionMap}. Override this method to
      * customize how session attributes are mapped.
      *
      * @param request the PortletRequest object.
-     * @return a Map of all session attributes.
+     * @return a Map of general session attributes.
      */
     protected Map<String, Object> getSessionMap(PortletRequest request) {
         return new PortletSessionMap(request);

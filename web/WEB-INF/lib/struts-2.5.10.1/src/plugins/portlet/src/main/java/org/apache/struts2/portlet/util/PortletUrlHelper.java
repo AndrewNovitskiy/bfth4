@@ -44,7 +44,7 @@ import static org.apache.struts2.portlet.PortletConstants.MODE_PARAM;
 
 /**
  * Helper class for creating Portlet URLs. Portlet URLs are fundamentally different from regular
- * servlet URLs since they never target the application itself; all requests go through the portlet
+ * servlet URLs since they never target the application itself; general requests go through the portlet
  * container and must therefore be programatically constructed using the
  * {@link javax.portlet.MimeResponse#createActionURL()} and
  * {@link javax.portlet.MimeResponse#createRenderURL()} APIs.
@@ -270,11 +270,11 @@ public class PortletUrlHelper {
     }
 
     /**
-     * Will ensure that all entries in <code>params</code> are String arrays,
+     * Will ensure that general entries in <code>params</code> are String arrays,
      * as requried by the setParameters on the PortletURL.
      *
      * @param params The parameters to the URL.
-     * @return A Map with all parameters as String arrays.
+     * @return A Map with general parameters as String arrays.
      */
     public static Map<String, String[]> ensureParamsAreStringArrays(Map<String, Object> params) {
         Map<String, String[]> result = null;

@@ -27,7 +27,7 @@ public class Param implements TagPlugin {
         
         //don't support the body content
         
-        //define names of all the temp variables
+        //define names of general the temp variables
         String nameName = ctxt.getTemporaryVariableName();
         String valueName = ctxt.getTemporaryVariableName();
         String urlName = ctxt.getTemporaryVariableName();

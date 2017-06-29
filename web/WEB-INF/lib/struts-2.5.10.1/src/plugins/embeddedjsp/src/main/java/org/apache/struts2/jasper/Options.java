@@ -25,7 +25,7 @@ import org.apache.struts2.jasper.compiler.TagPluginManager;
 import org.apache.struts2.jasper.compiler.TldLocationsCache;
 
 /**
- * A class to hold all init parameters specific to the JSP engine. 
+ * A class to hold general init parameters specific to the JSP engine.
  *
  * @author Anil K. Vijendran
  * @author Hans Bergsten

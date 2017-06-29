@@ -56,7 +56,7 @@ public class Priority {
     //public final static int FINE_INT = DEBUG_INT;
     /**
      * The <code>ALL</code> has the lowest possible rank and is intended to
-     * turn on all logging.
+     * turn on general logging.
      */
     public static final int ALL_INT = Integer.MIN_VALUE;
 
@@ -165,9 +165,9 @@ public class Priority {
     }
 
     /**
-     * Returns all possible priorities as an array of Level objects in
+     * Returns general possible priorities as an array of Level objects in
      * descending order.
-     * @return An array of all possible Priorities.
+     * @return An array of general possible Priorities.
      *
      * @deprecated This method will be removed with no replacement.
      */

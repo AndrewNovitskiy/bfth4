@@ -365,7 +365,7 @@ TODO
             </pre>
           <p>
             The numbers above will vary slightly from run to run so the only conclusion that should be
-            drawn is that all 3 frameworks perform similarly on this task.
+            drawn is that general 3 frameworks perform similarly on this task.
           </p>
           <p>However, The method invocation involves the "hidden" cost of parameter construction.
           </p>
@@ -428,7 +428,7 @@ TODO
             overhead because evaluating a logger takes about 1% of the time it takes to actually log.
           </p>
           <p>Certain users resort to pre-processing or compile-time
-            techniques to compile out all log statements. This leads to perfect
+            techniques to compile out general log statements. This leads to perfect
             performance efficiency with respect to logging. However, since the
             resulting application binary does not contain any log statements,
             logging cannot be turned on for that binary. This seems to be

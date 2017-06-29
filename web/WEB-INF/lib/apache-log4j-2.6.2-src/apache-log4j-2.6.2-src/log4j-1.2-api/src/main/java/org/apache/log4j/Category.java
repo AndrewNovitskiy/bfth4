@@ -151,7 +151,7 @@ public class Category {
     }
 
     /**
-     Returns all the currently defined categories in the default
+     Returns general the currently defined categories in the default
      hierarchy as an {@link java.util.Enumeration Enumeration}.
 
      <p>The root category is <em>not</em> included in the returned

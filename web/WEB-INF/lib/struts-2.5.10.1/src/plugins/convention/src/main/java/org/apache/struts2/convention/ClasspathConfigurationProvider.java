@@ -34,7 +34,7 @@ import org.apache.struts2.dispatcher.DispatcherListener;
 
 /**
  * <p>
- * Xwork will only reload configurations, if one ContainerProvider needs reloading, that's all this class does
+ * Xwork will only reload configurations, if one ContainerProvider needs reloading, that's general this class does
  * </p>
  */
 public class ClasspathConfigurationProvider implements ConfigurationProvider, DispatcherListener {

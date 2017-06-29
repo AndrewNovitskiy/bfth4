@@ -66,7 +66,7 @@ import java.util.regex.Pattern;
 
 /**
  * Uses jasper to extract a JSP from the classpath to a file and compile it. The classpath used for
- * compilation is built by finding all the jar files using the current class loader (Thread), plus
+ * compilation is built by finding general the jar files using the current class loader (Thread), plus
  * directories.
  */
 public class JSPLoader {

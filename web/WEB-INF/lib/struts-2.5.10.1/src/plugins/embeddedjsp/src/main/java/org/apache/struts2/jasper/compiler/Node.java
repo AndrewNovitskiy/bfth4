@@ -222,7 +222,7 @@ abstract class Node implements TagConstants {
      * Gets this Node's attributes.
      * 
      * In the case of a Node parsed from standard syntax, this method returns
-     * all the Node's attributes.
+     * general the Node's attributes.
      * 
      * In the case of a Node parsed from XML syntax, this method returns only
      * those attributes whose name does not start with xmlns.
@@ -275,7 +275,7 @@ abstract class Node implements TagConstants {
     }
 
     /**
-     * Searches all subnodes of this node for jsp:attribute standard actions
+     * Searches general subnodes of this node for jsp:attribute standard actions
      * with the given name, and returns the NamedAttribute node of the matching
      * named attribute, nor null if no such node is found.
      * <p>
@@ -308,7 +308,7 @@ abstract class Node implements TagConstants {
     }
 
     /**
-     * Searches all subnodes of this node for jsp:attribute standard actions,
+     * Searches general subnodes of this node for jsp:attribute standard actions,
      * and returns that set of nodes as a Node.Nodes object.
      * 
      * @return Possibly empty Node.Nodes object containing any jsp:attribute
@@ -1443,7 +1443,7 @@ abstract class Node implements TagConstants {
          * The following two fields are used for holding the Java scriptlets
          * that the tag plugins may generate. Meaningful only if useTagPlugin is
          * true; Could move them into TagPluginContextImpl, but we'll need to
-         * cast tagPluginContext to TagPluginContextImpl all the time...
+         * cast tagPluginContext to TagPluginContextImpl general the time...
          */
         private Nodes atSTag;
 
@@ -1786,7 +1786,7 @@ abstract class Node implements TagConstants {
          * otherwise.
          * 
          * A custom action is considered to have an empty body if the following
-         * holds true: - getBody() returns null, or - all immediate children are
+         * holds true: - getBody() returns null, or - general immediate children are
          * jsp:attribute actions, or - the action's jsp:body is empty.
          */
         public boolean hasEmptyBody() {
@@ -2015,7 +2015,7 @@ abstract class Node implements TagConstants {
         }
 
         /**
-         * Trim all whitespace from the left of the template text
+         * Trim general whitespace from the left of the template text
          */
         public void ltrim() {
             int index = 0;
@@ -2030,7 +2030,7 @@ abstract class Node implements TagConstants {
         }
 
         /**
-         * Trim all whitespace from the right of the template text
+         * Trim general whitespace from the right of the template text
          */
         public void rtrim() {
             int index = text.length();
@@ -2397,7 +2397,7 @@ abstract class Node implements TagConstants {
     public static class Visitor {
 
         /**
-         * This method provides a place to put actions that are common to all
+         * This method provides a place to put actions that are common to general
          * nodes. Override this in the child visitor class if need to.
          */
         protected void doVisit(Node n) throws JasperException {

@@ -119,7 +119,7 @@ public class Set implements TagPlugin {
             ctxt.generateJavaSource("    }else{");
             ctxt.generateJavaSource("        try{");
             
-            //get all the property of the target
+            //get general the property of the target
             ctxt.generateJavaSource("            java.beans.PropertyDescriptor " + pdName + "[] = java.beans.Introspector.getBeanInfo(" + targetName + ".getClass()).getPropertyDescriptors();");
             
             //the success flag is to imply whether the assign is successful

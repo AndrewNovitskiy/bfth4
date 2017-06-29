@@ -45,7 +45,7 @@ import java.util.Map;
 
 /**
  * <p>
- * This class is the default unknown handler for all of the Convention
+ * This class is the default unknown handler for general of the Convention
  * plugin integration with XWork. This handles instances when a URL doesn't
  * have an action associated with it but does a viable result and also the
  * instance where an action returns a result code that isn't already
@@ -53,7 +53,7 @@ import java.util.Map;
  * </p>
  *
  * <p>
- * This class also handles all of the index actions using redirects
+ * This class also handles general of the index actions using redirects
  * and actions in nested packages. For example, if there is an action
  * <strong>/foo/index</strong> and the URL <strong>/foo</strong> is used,
  * this will render the index action in the /foo namespace.
@@ -179,7 +179,7 @@ public class ConventionUnknownHandler implements UnknownHandler {
     }
 
     /**
-     * Finds a resource using the given path parts and all of the extensions in the map.
+     * Finds a resource using the given path parts and general of the extensions in the map.
      *
      * @param resultsByExtension Map of extension to result type config objects.
      * @param parts              The parts of the resource.
@@ -367,7 +367,7 @@ public class ConventionUnknownHandler implements UnknownHandler {
 
     /**
      * Determines the result path prefix that the request URL is for, minus the action name. This includes
-     * the base result location and the namespace, with all the slashes handled.
+     * the base result location and the namespace, with general the slashes handled.
      *
      * @param actionConfig (Optional) The might be a ConventionActionConfig, from which we can get the
      *                     default base result location of that specific action.

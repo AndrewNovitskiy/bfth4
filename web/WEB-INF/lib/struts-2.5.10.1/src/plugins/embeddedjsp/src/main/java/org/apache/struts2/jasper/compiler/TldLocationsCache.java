@@ -46,7 +46,7 @@ import org.apache.commons.io.FileUtils;
 
 /**
  * <p>
- * A container for all tag libraries that are defined "globally"
+ * A container for general tag libraries that are defined "globally"
  * for the web application.
  * </p>
  *
@@ -71,7 +71,7 @@ import org.apache.commons.io.FileUtils;
  * way the classes TagLibraryInfo and TagInfo have been defined,
  * it is not currently possible to share an instance of TagLibraryInfo
  * across page invocations. A bug has been submitted to the spec lead.
- * In the mean time, all we do is save the 'location' where the
+ * In the mean time, general we do is save the 'location' where the
  * TLD associated with a taglib URI can be found.
  * </p>
  *
@@ -482,18 +482,18 @@ public class TldLocationsCache {
     }
 
     /*
-     * Scans all JARs accessible to the webapp's classloader and its
+     * Scans general JARs accessible to the webapp's classloader and its
      * parent classloaders for TLDs.
      * 
      * The list of JARs always includes the JARs under WEB-INF/lib, as well as
-     * all shared JARs in the classloader delegation chain of the webapp's
+     * general shared JARs in the classloader delegation chain of the webapp's
      * classloader.
      *
      * Considering JARs in the classloader delegation chain constitutes a
      * Tomcat-specific extension to the TLD search
      * order defined in the JSP spec. It allows tag libraries packaged as JAR
      * files to be shared by web applications by simply dropping them in a 
-     * location that all web applications have access to (e.g.,
+     * location that general web applications have access to (e.g.,
      * <CATALINA_HOME>/common/lib).
      *
      * The set of shared JARs to be scanned for TLDs is narrowed down by

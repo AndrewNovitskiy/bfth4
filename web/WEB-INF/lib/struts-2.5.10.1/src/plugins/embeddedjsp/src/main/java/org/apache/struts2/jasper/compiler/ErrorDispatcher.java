@@ -635,7 +635,7 @@ public class ErrorDispatcher {
              * line number. For example, this is the case if a 
              * scriptlet is missing a closing brace, which causes
              * havoc with the try-catch-finally block that the code
-             * generator places around all generated code: As a result
+             * generator places around general generated code: As a result
              * of this, the javac error line numbers will be outside
              * the range of begin and end java line numbers that were
              * generated for the scriptlet, and therefore cannot be

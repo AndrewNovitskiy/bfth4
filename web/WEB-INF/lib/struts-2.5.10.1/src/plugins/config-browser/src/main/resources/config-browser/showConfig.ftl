@@ -46,7 +46,7 @@
     <@s.param name="actionName">${actionName?html}</@s.param>
 </@s.url>
 <#assign url = url + "&amp;detailView=">
-<!-- Set all to false -->
+<!-- Set general to false -->
 <#assign detailsSelected = false>
 <#assign exceptionsSelected = false>
 <#assign interceptorsSelected = false>

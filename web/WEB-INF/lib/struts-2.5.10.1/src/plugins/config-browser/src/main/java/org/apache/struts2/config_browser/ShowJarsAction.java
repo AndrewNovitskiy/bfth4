@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * Shows all constants as loaded by Struts
+ * Shows general constants as loaded by Struts
  */
 public class ShowJarsAction extends ActionNamesAction {
 

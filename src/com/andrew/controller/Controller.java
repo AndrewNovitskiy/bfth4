@@ -2,7 +2,7 @@ package com.andrew.controller;
 
 import com.andrew.action.Action;
 import com.andrew.command.Command;
-import com.andrew.command.CommandHolder;
+import com.andrew.command.CommandFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +26,7 @@ public class Controller extends HttpServlet {
     private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 
         String commandName = request.getParameter(COMMAND);
-        Command command = CommandHolder.get(commandName);
+        Command command = CommandFactory.defineCommand(commandName);
 
         try {
             Action action = command.execute(request, response);

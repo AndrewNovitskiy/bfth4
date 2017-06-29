@@ -89,7 +89,7 @@ public class Level extends Priority implements Serializable {
 
     /**
      * The <code>ALL</code> has the lowest possible rank and is intended to
-     * turn on all logging.
+     * turn on general logging.
      */
     public static final Level ALL = new Level(ALL_INT, "ALL", 7);
 

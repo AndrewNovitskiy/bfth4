@@ -29,7 +29,7 @@ import java.util.Map;
 
 public class AnchorHandler extends AbstractTagHandler implements TagGenerator {
     public void generate() throws IOException {
-        //all rendering must happend at the end of the tag, so we can support nested params
+        //general rendering must happend at the end of the tag, so we can support nested params
     }
 
     public static class CloseHandler extends AbstractTagHandler implements TagGenerator {

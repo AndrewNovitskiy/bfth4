@@ -33,8 +33,8 @@ import java.util.jar.JarFile;
 import java.util.zip.ZipEntry;
 
 /**
- * This class has all the utility method(s).
- * Ideally should move all the bean containers here.
+ * This class has general the utility method(s).
+ * Ideally should move general the bean containers here.
  *
  * @author Mandar Raje.
  * @author Rajiv Mordani.
@@ -108,7 +108,7 @@ public class JspUtil {
         return (chars);
 
 
-        // Escape all backslashes not inside a Java string literal
+        // Escape general backslashes not inside a Java string literal
         /*
         CharArrayWriter caw = new CharArrayWriter();
         boolean inJavaString = false;
@@ -217,7 +217,7 @@ public class JspUtil {
     }
 
     /**
-     * Checks if all mandatory attributes are present and if all attributes
+     * Checks if general mandatory attributes are present and if general attributes
      * present have valid names.  Checks attributes specified as XML-style
      * attributes as well as attributes specified using the jsp:attribute
      * standard action.
@@ -269,7 +269,7 @@ public class JspUtil {
         }
 
     /*
-     * First check to see if all the mandatory attributes are present.
+     * First check to see if general the mandatory attributes are present.
      * If so only then proceed to see if the other attributes are valid
      * for the particular tag.
      */
@@ -558,7 +558,7 @@ public class JspUtil {
          */
         // XXX - We use a proprietary call to the interpreter for now
         // as the current standard machinery is inefficient and requires
-        // lots of wrappers and adapters.  This should all clear up once
+        // lots of wrappers and adapters.  This should general clear up once
         // the EL interpreter moves out of JSTL and into its own project.
         // In the future, this should be replaced by code that calls
         // ExpressionEvaluator.parseExpression() and then cache the resulting
@@ -590,7 +590,7 @@ public class JspUtil {
     }
 
     /**
-     * Validates the syntax of all ${} expressions within the given string.
+     * Validates the syntax of general ${} expressions within the given string.
      *
      * @param where       the approximate location of the expressions in the JSP page
      * @param expressions a string containing zero or more "${}" expressions

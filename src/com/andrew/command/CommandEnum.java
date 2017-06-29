@@ -1,10 +1,13 @@
 package com.andrew.command;
 
-import com.andrew.command.all.FindAllVacanciesWithInfoCommand;
+import com.andrew.command.general.FindAllVacanciesWithInfoCommand;
+import com.andrew.command.user.LanguageChangeCommand;
+import com.andrew.command.user.UserAutorisationCommand;
+import com.andrew.command.user.UserLogOutCommand;
 import com.andrew.command.user.ViewVacancyCommand;
 
 
-public enum CommandEnum {
+enum CommandEnum {
 
     vacancies {
         {
@@ -15,6 +18,24 @@ public enum CommandEnum {
     view_vacancy {
         {
             this.command = new ViewVacancyCommand();
+        }
+    },
+
+    log_in {
+        {
+            this.command = new UserAutorisationCommand();
+        }
+    },
+
+    log_out {
+        {
+            this.command = new UserLogOutCommand();
+        }
+    },
+
+    change_language {
+        {
+            this.command = new LanguageChangeCommand();
         }
     };
 

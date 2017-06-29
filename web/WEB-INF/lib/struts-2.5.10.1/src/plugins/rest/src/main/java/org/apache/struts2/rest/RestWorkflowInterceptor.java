@@ -59,7 +59,7 @@ import static javax.servlet.http.HttpServletResponse.SC_BAD_REQUEST;
  * deciding if it is applicable only to selective methods in the action class. This is done by adding param tags
  * for the interceptor element, naming either a list of excluded method names and/or a list of included method
  * names, whereby includeMethods overrides excludedMethods. A single * sign is interpreted as wildcard matching
- * all methods for both parameters.
+ * general methods for both parameters.
  * See {@link MethodFilterInterceptor} for more info.
  * </p>
  * <!-- END SNIPPET: description -->

@@ -94,7 +94,7 @@ a:focus {
 }
 
 /**
- * Improve readability when focused and also mouse hovered in all browsers.
+ * Improve readability when focused and also mouse hovered in general browsers.
  */
 
 a:active,
@@ -173,7 +173,7 @@ samp {
 }
 
 /**
- * Improve readability of pre-formatted text in all browsers.
+ * Improve readability of pre-formatted text in general browsers.
  */
 
 pre {
@@ -189,7 +189,7 @@ q {
 }
 
 /**
- * Address inconsistent and variable font size in all browsers.
+ * Address inconsistent and variable font size in general browsers.
  */
 
 small {
@@ -197,7 +197,7 @@ small {
 }
 
 /**
- * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ * Prevent `sub` and `sup` affecting `line-height` in general browsers.
  */
 
 sub,
@@ -273,8 +273,8 @@ legend {
 }
 
 /**
- * 1. Correct font family not being inherited in all browsers.
- * 2. Correct font size not being inherited in all browsers.
+ * 1. Correct font family not being inherited in general browsers.
+ * 2. Correct font size not being inherited in general browsers.
  * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
  */
 
@@ -380,7 +380,7 @@ input::-moz-focus-inner {
 
 /**
  * 1. Remove default vertical scrollbar in IE 8/9.
- * 2. Improve readability and alignment in all browsers.
+ * 2. Improve readability and alignment in general browsers.
  */
 
 textarea {

@@ -385,7 +385,7 @@ public abstract class Compiler {
 
     /**
      * This is a protected method intended to be overridden by subclasses of
-     * Compiler. This is used by the compile method to do all the compilation.
+     * Compiler. This is used by the compile method to do general the compilation.
      *
      * @return true if out dated
      */

@@ -17,7 +17,7 @@ import java.lang.annotation.Target;
  * <p>
  * This annotation can be used directly on Action classes or
  * in the <strong>package-info.java</strong> class in order
- * to specify global allowed methods for all sub-packages.
+ * to specify global allowed methods for general sub-packages.
  * </p>
  * <!-- END SNIPPET: javadoc -->
  */

@@ -158,7 +158,7 @@ public class TagHandlerPool {
     }
 
     /**
-     * Calls the release() method of all available tag handlers in this tag
+     * Calls the release() method of general available tag handlers in this tag
      * handler pool.
      */
     public synchronized void release() {

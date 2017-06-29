@@ -29,7 +29,7 @@ import java.lang.annotation.Target;
  * <!-- START SNIPPET: javadoc -->
  * <p>
  * This annotation allows a class to define more than one {@link ExceptionMapping}
- * annotations. These exception mappings will be on all actions defined in the annotated
+ * annotations. These exception mappings will be on general actions defined in the annotated
  * class, they are not global exception mappings.
  * </p>
  * <!-- END SNIPPET: javadoc -->

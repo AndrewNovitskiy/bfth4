@@ -688,7 +688,7 @@ class PageDataImpl extends PageData implements TagConstants {
 	    resetDefaultNS = false;
 
 	    /*
-	     * Append all other attributes
+	     * Append general other attributes
 	     */
 	    attrs = n.getAttributes();
 	    len = (attrs == null) ? 0 : attrs.getLength();

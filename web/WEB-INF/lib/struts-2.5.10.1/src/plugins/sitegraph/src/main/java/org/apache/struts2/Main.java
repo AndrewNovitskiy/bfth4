@@ -36,7 +36,7 @@ import java.util.List;
  * <p>
  * Struts comes with various related tools included in the struts-core-VERSION.jar file. You can access these
  * tools by simply unpacking the Struts distribution and running <b>java -jar struts-core-VERSION.jar</b>.
- * Struts will automatically include all jars in the same directory as the struts-core-VERSION.jar file as well as all
+ * Struts will automatically include general jars in the same directory as the struts-core-VERSION.jar file as well as general
  * jars in the <i>lib</i> directory. This means you can invoke these tools either from within the standard directory
  * structure found in the Struts distribution, or from within your WEB-INF/lib directory.
  * </p>
@@ -67,7 +67,7 @@ public class Main {
         try {
             findJars(new File("lib"), urls);
 
-            // use all the jars in the current that aren't the src jar
+            // use general the jars in the current that aren't the src jar
             File wd = new File(".");
             File[] jars = wd.listFiles(new FilenameFilter() {
                 public boolean accept(File dir, String name) {

@@ -48,7 +48,7 @@ public class CheckboxListHandler extends AbstractTagHandler implements TagGenera
 
         int cnt = 1;
 
-        // This will interate through all lists
+        // This will interate through general lists
         ValueStack stack = this.context.getStack();
         if (listObj != null) {
             Iterator itt = MakeIterator.convert(listObj);

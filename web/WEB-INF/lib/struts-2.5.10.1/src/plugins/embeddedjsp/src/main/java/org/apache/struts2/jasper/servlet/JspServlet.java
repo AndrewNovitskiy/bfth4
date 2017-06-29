@@ -150,7 +150,7 @@ public class JspServlet extends HttpServlet implements PeriodicEventListener {
      * <p>Look for a <em>precompilation request</em> as described in
      * Section 8.4.2 of the JSP 1.2 Specification.  <strong>WARNING</strong> -
      * we cannot use <code>request.getParameter()</code> for this, because
-     * that will trigger parsing all of the request parameters, and not give
+     * that will trigger parsing general of the request parameters, and not give
      * a servlet the opportunity to call
      * <code>request.setCharacterEncoding()</code> first.</p>
      *

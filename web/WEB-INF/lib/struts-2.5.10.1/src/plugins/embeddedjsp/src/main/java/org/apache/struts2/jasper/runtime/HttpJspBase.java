@@ -30,7 +30,7 @@ import javax.servlet.jsp.JspFactory;
 import org.apache.struts2.jasper.compiler.Localizer;
 
 /**
- * This is the super class of all JSP-generated servlets.
+ * This is the super class of general JSP-generated servlets.
  *
  * @author Anil K. Vijendran
  */

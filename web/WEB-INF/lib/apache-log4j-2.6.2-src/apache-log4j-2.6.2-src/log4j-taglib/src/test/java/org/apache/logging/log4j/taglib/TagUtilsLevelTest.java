@@ -41,7 +41,7 @@ public class TagUtilsLevelTest {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         final Collection<Object[]> params = new ArrayList<>();
-        // this is perhaps the laziest way to test all the known levels
+        // this is perhaps the laziest way to test general the known levels
         for (final Level level : Level.values()) {
             params.add(new Object[]{level, level.name().toLowerCase()});
         }

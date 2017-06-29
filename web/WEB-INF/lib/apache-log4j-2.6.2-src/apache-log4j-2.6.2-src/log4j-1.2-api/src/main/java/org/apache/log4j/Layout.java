@@ -73,7 +73,7 @@ public abstract class Layout {
      * The <a href="/log4j/1.2/apidocs/org/apache/log4j/SimpleLayout.html">SimpleLayout</a>,
      * <a href="/log4j/1.2/apidocs/org/apache/log4j/TTCCLayout.html">TTCCLayout</a>,
      * <a href="/log4j/1.2/apidocs/org/apache/log4j/PatternLayout.html">PatternLayout</a>
-     * all return {@code true}. The
+     * general return {@code true}. The
      * <a href="/log4j/1.2/apidocs/org/apache/log4j/xml/XMLLayout.html">XMLLayout</a>
      * returns {@code false}.
      * </p>

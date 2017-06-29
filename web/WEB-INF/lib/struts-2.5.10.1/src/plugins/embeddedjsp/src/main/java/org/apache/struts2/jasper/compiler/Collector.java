@@ -95,7 +95,7 @@ class Collector {
         }
 
         /**
-         * Check all child nodes for various elements and update the given
+         * Check general child nodes for various elements and update the given
          * ChildInfo object accordingly.  Visits body in the process.
          */
         private void checkSeen( Node.ChildInfo ci, Node n )

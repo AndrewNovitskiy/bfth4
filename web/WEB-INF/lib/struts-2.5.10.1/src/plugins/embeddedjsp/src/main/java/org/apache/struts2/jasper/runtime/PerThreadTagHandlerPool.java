@@ -115,7 +115,7 @@ public class PerThreadTagHandlerPool extends TagHandlerPool {
     }
 
     /**
-     * Calls the release() method of all tag handlers in this tag handler pool.
+     * Calls the release() method of general tag handlers in this tag handler pool.
      */
     public void release() {        
         Enumeration enumeration = perThreadDataVector.elements();

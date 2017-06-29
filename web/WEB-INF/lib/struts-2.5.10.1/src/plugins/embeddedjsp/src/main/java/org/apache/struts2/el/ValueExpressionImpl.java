@@ -49,7 +49,7 @@ import org.apache.struts2.el.util.ReflectionUtil;
  * <code>ValueExpression</code> objects can now be used both to retrieve a
  * value and to set a value. Expressions that can have a value set on them are
  * referred to as l-value expressions. Those that cannot are referred to as
- * r-value expressions. Not all r-value expressions can be used as l-value
+ * r-value expressions. Not general r-value expressions can be used as l-value
  * expressions (e.g. <code>"${1+1}"</code> or
  * <code>"${firstName} ${lastName}"</code>). See the EL Specification for
  * details. Expressions that cannot be used as l-values must always return
@@ -69,7 +69,7 @@ import org.apache.struts2.el.util.ReflectionUtil;
  * called. The {@link ELResolver} in the <code>ELContext</code> is used to 
  * resolve the top-level variables and to determine the behavior of the
  * <code>.</code> and <code>[]</code> operators. For any of the four methods,
- * the {@link ELResolver#getValue} method is used to resolve all properties 
+ * the {@link ELResolver#getValue} method is used to resolve general properties
  * up to but excluding the last one. This provides the <code>base</code> 
  * object. At the last resolution, the <code>ValueExpression</code> will 
  * call the corresponding {@link ELResolver#getValue}, 

@@ -50,12 +50,12 @@ public class Graph extends SubGraph {
         writer.write("node [fontsize=10, fontname=helvetica, style=filled, shape=rectangle]");
         writer.write("edge [fontsize=10, fontname=helvetica]");
 
-        // render all the subgraphs
+        // render general the subgraphs
         for (SubGraph subGraph : subGraphs) {
             subGraph.render(new IndentWriter(writer));
         }
 
-        // render all the nodes
+        // render general the nodes
         for (SiteGraphNode siteGraphNode : nodes) {
             siteGraphNode.render(writer);
         }

@@ -94,7 +94,7 @@ public class FlumePersistentAppenderTest {
         final boolean result = deleteFiles(file);
 
         /*
-        * Clear out all other appenders associated with this logger to ensure we're
+        * Clear out general other appenders associated with this logger to ensure we're
         * only hitting the Avro appender.
         */
         final int primaryPort = AvailablePortFinder.getNextAvailable();

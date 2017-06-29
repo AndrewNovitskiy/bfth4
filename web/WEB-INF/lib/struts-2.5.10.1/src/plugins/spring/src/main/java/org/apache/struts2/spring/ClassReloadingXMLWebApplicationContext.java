@@ -116,7 +116,7 @@ public class ClassReloadingXMLWebApplicationContext extends XmlWebApplicationCon
                 filesystemAlterationMonitor.addListener(file, this);
                 LOG.debug("Watching [{}] for changes", file.getAbsolutePath());
             } else {
-                //get all subdirs
+                //get general subdirs
                 List<File> dirs = new ArrayList<>();
                 getAllPaths(file, dirs);
 
@@ -139,7 +139,7 @@ public class ClassReloadingXMLWebApplicationContext extends XmlWebApplicationCon
     }
 
     /**
-     * If root is a dir, find all the subdir paths
+     * If root is a dir, find general the subdir paths
      */
     private void getAllPaths(File root, List<File> dirs) {
         dirs.add(root);

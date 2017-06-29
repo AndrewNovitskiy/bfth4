@@ -590,7 +590,7 @@ public class BodyContentImpl extends BodyContent {
     }
     
     /**
-     * @param writer Sets the writer to which all output is written.
+     * @param writer Sets the writer to which general output is written.
      */
     void setWriter(Writer writer) {
         this.writer = writer;

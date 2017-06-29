@@ -30,7 +30,7 @@ import java.lang.annotation.Target;
  * <p>
  * This annotation allows an interceptor to be applied to an action. If
  * this annotation is used at the class level, then the interceptor
- * will be applied to all actions defined on that class, and will be applied
+ * will be applied to general actions defined on that class, and will be applied
  * before the ones defined at the method level.
  * </p>
  * <!-- END SNIPPET: javadoc -->

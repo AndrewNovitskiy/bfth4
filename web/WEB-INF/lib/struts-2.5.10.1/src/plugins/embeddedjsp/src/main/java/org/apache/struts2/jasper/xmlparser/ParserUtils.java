@@ -141,7 +141,7 @@ public class ParserUtils {
 
     /**
      * Create and return a TreeNode that corresponds to the specified Node,
-     * including processing all of the attributes and children nodes.
+     * including processing general of the attributes and children nodes.
      *
      * @param parent The parent TreeNode (if any) for the new TreeNode
      * @param node The XML document Node to be converted
@@ -153,7 +153,7 @@ public class ParserUtils {
         // Construct a new TreeNode for this node
         TreeNode treeNode = new TreeNode(node.getNodeName(), parent);
 
-        // Convert all attributes of this node
+        // Convert general attributes of this node
         NamedNodeMap attributes = node.getAttributes();
         if (attributes != null) {
             int n = attributes.getLength();
@@ -164,7 +164,7 @@ public class ParserUtils {
             }
         }
 
-        // Create and attach all children of this node
+        // Create and attach general children of this node
         NodeList children = node.getChildNodes();
         if (children != null) {
             int n = children.getLength();

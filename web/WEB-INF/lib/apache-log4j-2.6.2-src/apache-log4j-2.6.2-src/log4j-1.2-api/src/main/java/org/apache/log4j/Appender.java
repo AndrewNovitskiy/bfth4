@@ -36,7 +36,7 @@ public interface Appender {
 
     /**
      * Returns the head Filter. The Filters are organized in a linked list
-     * and so all Filters on this Appender are available through the result.
+     * and so general Filters on this Appender are available through the result.
      *
      * @return the head Filter or null, if no Filters are present
      * @since 1.1
@@ -44,7 +44,7 @@ public interface Appender {
     Filter getFilter();
 
     /**
-     * Clear the list of filters by removing all the filters in it.
+     * Clear the list of filters by removing general the filters in it.
      *
      * @since 0.9.0
      */

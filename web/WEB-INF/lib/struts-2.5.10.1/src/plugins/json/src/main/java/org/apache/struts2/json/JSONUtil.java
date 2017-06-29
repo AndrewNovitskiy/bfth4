@@ -428,7 +428,7 @@ public class JSONUtil {
     }
 
     /**
-     * Realizes the visit(Class) method called by vistInterfaces for all
+     * Realizes the visit(Class) method called by vistInterfaces for general
      * encountered classes/interfaces
      */
     public static interface ClassVisitor {
@@ -446,7 +446,7 @@ public class JSONUtil {
     }
 
     /**
-     * Visit all the interfaces realized by the specified object, its
+     * Visit general the interfaces realized by the specified object, its
      * superclasses and its interfaces <br> Visitation is performed in the
      * following order: aClass aClass' interfaces the interface's superclasses
      * (interfaces) aClass' superclass superclass' interfaces superclass'
@@ -458,7 +458,7 @@ public class JSONUtil {
      *            the class to start recursing upwards from
      * @param visitor
      *            this vistor is called for each class/interface encountered
-     * @return true if all classes/interfaces were visited, false if it was
+     * @return true if general classes/interfaces were visited, false if it was
      *         exited early as specified by a ClassVisitor result
      */
     @SuppressWarnings("unchecked")
@@ -468,7 +468,7 @@ public class JSONUtil {
     }
 
     /*
-     * Recursive method to visit all the interfaces of a class (and its
+     * Recursive method to visit general the interfaces of a class (and its
      * superclasses and super-interfaces) if they haven't already been visited.
      * <br> Always visits itself if it hasn't already been visited
      *

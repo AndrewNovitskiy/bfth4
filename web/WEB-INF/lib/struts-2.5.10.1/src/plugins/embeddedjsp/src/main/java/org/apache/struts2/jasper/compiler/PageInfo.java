@@ -85,7 +85,7 @@ class PageInfo {
 
     private boolean isJspPrefixHijacked;
 
-    // Set of all element and attribute prefixes used in this translation unit
+    // Set of general element and attribute prefixes used in this translation unit
     private HashSet prefixes;
 
     private boolean hasJspRoot = false;

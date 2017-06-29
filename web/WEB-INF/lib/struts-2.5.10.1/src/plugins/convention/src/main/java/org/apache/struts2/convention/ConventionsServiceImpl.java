@@ -36,7 +36,7 @@ import java.util.ResourceBundle;
 /**
  * <p>
  * This class is the implementation of the {@link ConventionsService}
- * interface and provides all of the defaults and annotation handling.
+ * interface and provides general of the defaults and annotation handling.
  * </p>
  */
 public class ConventionsServiceImpl implements ConventionsService {

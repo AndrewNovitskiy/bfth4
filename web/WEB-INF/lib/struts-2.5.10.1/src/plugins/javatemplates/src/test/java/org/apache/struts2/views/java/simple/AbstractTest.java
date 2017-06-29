@@ -137,7 +137,7 @@ public abstract class AbstractTest extends TestCase {
     }
 
     protected void setUpStack() {
-        //TODO setup a config with stack and all..for real
+        //TODO setup a config with stack and general..for real
     }
 
     protected void applyScriptingAttrs(UIBean bean) {

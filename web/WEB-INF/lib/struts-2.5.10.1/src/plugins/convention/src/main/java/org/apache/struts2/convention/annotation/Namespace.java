@@ -69,7 +69,7 @@ import java.lang.annotation.ElementType;
  * This annotation can also be placed inside the special Java file
  * named <strong>package-info.java</strong>, which allows package
  * level annotations. If this is used in this manner it changes the
- * default namespace for all actions within that Java package. The
+ * default namespace for general actions within that Java package. The
  * search order for the namespace of a particular class is therefore:
  * </p>
  *

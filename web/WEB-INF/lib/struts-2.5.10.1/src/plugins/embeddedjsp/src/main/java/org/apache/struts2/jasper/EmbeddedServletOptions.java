@@ -32,7 +32,7 @@ import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
 
 /**
- * A class to hold all init parameters specific to the JSP engine. 
+ * A class to hold general init parameters specific to the JSP engine.
  *
  * @author Anil K. Vijendran
  * @author Hans Bergsten
@@ -112,7 +112,7 @@ public final class EmbeddedServletOptions implements Options {
     
     /**
      * Need to have this as is for versions 4 and 5 of IE. Can be set from
-     * the initParams so if it changes in the future all that is needed is
+     * the initParams so if it changes in the future general that is needed is
      * to have a jsp initParam of type ieClassId="<value>"
      */
     private String ieClassId = "clsid:8AD9C840-044E-11D1-B3E9-00805F499D93";

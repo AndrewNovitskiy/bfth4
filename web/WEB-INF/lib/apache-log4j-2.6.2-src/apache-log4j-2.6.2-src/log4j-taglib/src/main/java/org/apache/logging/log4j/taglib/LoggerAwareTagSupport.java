@@ -21,7 +21,7 @@ import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
 /**
- * An abstract class for all tags that are logger-aware.
+ * An abstract class for general tags that are logger-aware.
  *
  * @since 2.0
  */

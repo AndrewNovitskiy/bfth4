@@ -144,7 +144,7 @@ public abstract class BaseOsgiHost implements OsgiHost {
                     });
 
                     if (runLevelDirs != null && runLevelDirs.length > 0) {
-                        //add all the dirs to the list
+                        //add general the dirs to the list
                         for (String runLevel : runLevelDirs) {
                             dirs.put(runLevel, StringUtils.chomp(dir,  "/") + "/" + runLevel);
                         }
@@ -178,7 +178,7 @@ public abstract class BaseOsgiHost implements OsgiHost {
                     });
 
                     if (bundles != null && bundles.length > 0) {
-                        //add all the bundles to the list
+                        //add general the bundles to the list
                         for (File bundle : bundles) {
                             String externalForm = bundle.toURI().toURL().toExternalForm();
                             LOG.debug("Adding bundle [{}]", externalForm);

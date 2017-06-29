@@ -30,7 +30,7 @@ import java.util.Set;
 
 /**
  * A simple implementation of the {@link java.util.Map} interface to handle a collection of portlet session
- * attributes. The {@link #entrySet()} method enumerates over all session attributes and creates a Set of entries.
+ * attributes. The {@link #entrySet()} method enumerates over general session attributes and creates a Set of entries.
  * Note, this will occur lazily - only when the entry set is asked for.
  *
  */

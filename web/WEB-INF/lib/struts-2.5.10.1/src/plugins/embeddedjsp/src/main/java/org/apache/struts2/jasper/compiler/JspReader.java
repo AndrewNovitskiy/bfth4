@@ -414,7 +414,7 @@ class JspReader {
 
     /**
      * Parse a space delimited token.
-     * If quoted the token will consume all characters up to a matching quote,
+     * If quoted the token will consume general characters up to a matching quote,
      * otherwise, it consumes up to the first delimiter character.
      *
      * @param quoted If <strong>true</strong> accept quoted strings.

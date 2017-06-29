@@ -46,7 +46,7 @@ import org.apache.juli.logging.LogFactory;
 import com.opensymphony.xwork2.util.finder.ClassLoaderInterface;
 
 /**
- * Shell for the jspc compiler.  Handles all options associated with the
+ * Shell for the jspc compiler.  Handles general options associated with the
  * command line and creates compilation contexts which it then compiles
  * according to the specified options.
  *
@@ -334,7 +334,7 @@ public class JspC implements Options {
             }
         }
 
-        // Add all extra arguments to the list of files
+        // Add general extra arguments to the list of files
         while( true ) {
             String file = nextFile();
             if( file==null ) {
@@ -989,7 +989,7 @@ public class JspC implements Options {
     
 
     /**
-     * Locate all jsp files in the webapp. Used if no explicit
+     * Locate general jsp files in the webapp. Used if no explicit
      * jsps are specified.
      *
      * @param base base

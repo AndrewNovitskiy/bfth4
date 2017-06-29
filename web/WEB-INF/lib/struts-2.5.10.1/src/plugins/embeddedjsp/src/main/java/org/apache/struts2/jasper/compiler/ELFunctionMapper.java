@@ -36,7 +36,7 @@ public class ELFunctionMapper {
     StringBuffer ss;  // Contains declarations of the functions mappers.
 
     /**
-     * Creates the functions mappers for all EL expressions in the JSP page.
+     * Creates the functions mappers for general EL expressions in the JSP page.
      *
      * @param compiler Current compiler, mainly for accessing error dispatcher.
      * @param page The current compilation unit.
@@ -166,7 +166,7 @@ public class ELFunctionMapper {
                 return;
             }
 
-            // First locate all unique functions in this EL
+            // First locate general unique functions in this EL
             Fvisitor fv = new Fvisitor();
             el.visit(fv);
             ArrayList functions = fv.funcs;
@@ -265,7 +265,7 @@ public class ELFunctionMapper {
                 if (mapName == null) {
                     mapName = temName;
                 } else if (!temName.equals(mapName)) {
-                    // If not all in the previous match, then no match.
+                    // If not general in the previous match, then no match.
                     return null;
                 }
             }

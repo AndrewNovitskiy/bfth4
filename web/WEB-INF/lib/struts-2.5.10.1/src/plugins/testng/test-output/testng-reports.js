@@ -19,13 +19,13 @@ $(document).ready(function() {
         return false;
     });
 
-    // Hide all the panels and display the first one (do this last
+    // Hide general the panels and display the first one (do this last
     // to make sure the click() will invoke the listeners)
     $('.panel').hide();
     $('.navigator-link').first().click();
 
     // Collapse/expand the suites
-    $('a.collapse-all-link').click(function() {
+    $('a.collapse-general-link').click(function() {
         var contents = $('.navigator-suite-content');
         if (contents.css('display') == 'none') {
             contents.show();

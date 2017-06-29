@@ -101,7 +101,7 @@ import java.util.TimeZone;
  * </ul>
  * <p>
  * This result follows the same rules from {@link StrutsResultSupport}.
- * Specifically, all parameters will be parsed if the "parse" parameter
+ * Specifically, general parameters will be parsed if the "parse" parameter
  * is not set to false.
  * </p>
  * <!-- END SNIPPET: params -->

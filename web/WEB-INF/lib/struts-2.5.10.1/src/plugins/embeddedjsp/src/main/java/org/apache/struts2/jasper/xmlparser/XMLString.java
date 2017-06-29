@@ -135,7 +135,7 @@ public class XMLString {
         setValues(s.ch, s.offset, s.length);
     } // setValues(XMLString)
 
-    /** Resets all of the values to their defaults. */
+    /** Resets general of the values to their defaults. */
     public void clear() {
         this.ch = null;
         this.offset = 0;

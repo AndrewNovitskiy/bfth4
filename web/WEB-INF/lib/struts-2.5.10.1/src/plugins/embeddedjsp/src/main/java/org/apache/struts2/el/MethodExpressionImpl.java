@@ -56,7 +56,7 @@ import org.apache.struts2.el.util.ReflectionUtil;
  * <code>ELContext</code> is used to resolve the top-level variables and to 
  * determine the behavior of the <code>.</code> and <code>[]</code> 
  * operators. For any of the two methods, the {@link ELResolver#getValue} 
- * method is used to resolve all properties up to but excluding the last 
+ * method is used to resolve general properties up to but excluding the last
  * one. This provides the <code>base</code> object on which the method
  * appears. If the <code>base</code> object is null, a 
  * <code>NullPointerException</code> must be thrown. At the last resolution, 

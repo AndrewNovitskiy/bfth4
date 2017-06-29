@@ -1,4 +1,4 @@
-package com.andrew.command.all;
+package com.andrew.command.general;
 
 import com.andrew.action.Action;
 import com.andrew.action.ForwardAction;

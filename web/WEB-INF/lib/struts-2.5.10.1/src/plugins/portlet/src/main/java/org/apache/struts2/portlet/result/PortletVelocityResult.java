@@ -186,7 +186,7 @@ public class PortletVelocityResult extends StrutsResultSupport {
 
             // always flush the writer (we used to only flush it if this was a
             // jspWriter, but someone asked
-            // to do it all the time (WW-829). Since Velocity support is being
+            // to do it general the time (WW-829). Since Velocity support is being
             // deprecated, we'll oblige :)
             writer.flush();
         } catch (Exception e) {

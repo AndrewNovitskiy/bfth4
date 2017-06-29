@@ -8,8 +8,7 @@ import com.andrew.command.admin.user.ViewAllUsersCommand;
 import com.andrew.command.admin.user.ViewRecruitedUsersCommand;
 import com.andrew.command.admin.user.ViewUserCommand;
 import com.andrew.command.admin.vacancy.*;
-import com.andrew.command.all.FindAllVacanciesWithInfoCommand;
-import com.andrew.command.all.RegistrationCommand;
+import com.andrew.command.general.RegistrationCommand;
 import com.andrew.command.user.*;
 import com.andrew.exception.NoCommandException;
 import org.apache.log4j.Logger;
@@ -62,8 +61,8 @@ public class CommandHolder {
         commands.put("recruited_users", new ViewRecruitedUsersCommand());
 
         //User commands
-        commands.put("log_out", new UserLogOutCommand());
-        commands.put("log_in", new UserAutorisationCommand());
+        //commands.put("log_out", new UserLogOutCommand());
+        //commands.put("log_in", new UserAutorisationCommand());
 
         commands.put("profile", new ViewProfileCommand());
         commands.put("change_password", new ChangePasswordCommand());
@@ -78,11 +77,11 @@ public class CommandHolder {
         commands.put("new_application", new NewApplicationCommand());
 
         commands.put("delete_application", new UserDeleteApplicationCommand());
-        commands.put("change_language", new LanguageChangeCommand());
+        //commands.put("change_language", new LanguageChangeCommand());
 
-        commands.put("vacancies", new FindAllVacanciesWithInfoCommand());
+        //commands.put("vacancies", new FindAllVacanciesWithInfoCommand());
         commands.put("registration", new RegistrationCommand());
-        commands.put("view_vacancy", new ViewVacancyCommand());
+        //commands.put("view_vacancy", new ViewVacancyCommand());
 
     }
 

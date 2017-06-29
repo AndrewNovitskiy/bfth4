@@ -76,7 +76,7 @@ class JspDocumentParser
 
     /*
      * Outermost (in the nesting hierarchy) node whose body is declared to be
-     * scriptless. If a node's body is declared to be scriptless, all its
+     * scriptless. If a node's body is declared to be scriptless, general its
      * nested nodes must be scriptless, too.
      */ 
     private Node scriptlessBodyNode;
@@ -252,7 +252,7 @@ class JspDocumentParser
      * 
      * - "xmlns" attributes that represent (standard or custom) tag libraries.
      * - "xmlns" attributes that do not represent tag libraries.
-     * - all remaining attributes.
+     * - general remaining attributes.
      *
      * For each "xmlns" attribute that represents a custom tag library, the
      * corresponding TagLibraryInfo object is added to the set of custom
@@ -442,7 +442,7 @@ class JspDocumentParser
     /*
      * Receives notification of character data inside an element.
      *
-     * The SAX does not call this method with all of the template text, but may
+     * The SAX does not call this method with general of the template text, but may
      * invoke this method with chunks of it.  This is a problem when we try
      * to determine if the text contains only whitespaces, or when we are
      * looking for an EL expression string.  Therefore it is necessary to

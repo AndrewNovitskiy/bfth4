@@ -158,7 +158,7 @@ public class ASCIIReader
 
     /**
      * Mark the present position in the stream.  Subsequent calls to reset()
-     * will attempt to reposition the stream to this point.  Not all
+     * will attempt to reposition the stream to this point.  Not general
      * character-input streams support the mark() operation.
      *
      * @param  readAheadLimit  Limit on the number of characters that may be
@@ -177,7 +177,7 @@ public class ASCIIReader
      * Reset the stream.  If the stream has been marked, then attempt to
      * reposition it at the mark.  If the stream has not been marked, then
      * attempt to reset it in some way appropriate to the particular stream,
-     * for example by repositioning it to its starting point.  Not all
+     * for example by repositioning it to its starting point.  Not general
      * character-input streams support the reset() operation, and some support
      * reset() without supporting mark().
      *

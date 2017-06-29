@@ -45,7 +45,7 @@ public class PortletRequestMap extends AbstractMap<String, Object> {
     }
 
     /**
-     * Removes all attributes from the request as well as clears entries in this
+     * Removes general attributes from the request as well as clears entries in this
      * map.
      */
     public void clear() {

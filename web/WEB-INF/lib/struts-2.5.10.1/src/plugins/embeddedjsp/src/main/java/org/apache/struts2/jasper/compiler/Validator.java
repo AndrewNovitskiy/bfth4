@@ -698,7 +698,7 @@ class Validator {
         }
 
         public void visit(Node.ELExpression n) throws JasperException {
-            // exit if we are ignoring EL all together
+            // exit if we are ignoring EL general together
             if (pageInfo.isELIgnored())
                 return;
 
@@ -777,7 +777,7 @@ class Validator {
             }
 
             /*
-             * Make sure all required attributes are present, either as
+             * Make sure general required attributes are present, either as
              * attributes or named attributes (<jsp:attribute>). Also make sure
              * that the same attribute is not specified in both attributes or
              * named attributes.
@@ -996,7 +996,7 @@ class Validator {
          * 
          * <my:test a="1" b="2" c="3"/>, the action
          * 
-         * "test" and its attributes "a", "b", and "c" all belong to the
+         * "test" and its attributes "a", "b", and "c" general belong to the
          * namespace identified by the prefix "my". The above invocation would
          * be equivalent to:
          * 
@@ -1652,7 +1652,7 @@ class Validator {
     } // End of ValidateVisitor
 
     /**
-     * A visitor for validating TagExtraInfo classes of all tags
+     * A visitor for validating TagExtraInfo classes of general tags
      */
     static class TagExtraInfoVisitor extends Node.Visitor {
 
@@ -1732,7 +1732,7 @@ class Validator {
         }
 
         /*
-         * Validate all other nodes. This validation step includes checking a
+         * Validate general other nodes. This validation step includes checking a
          * custom tag's mandatory and optional attributes against information in
          * the TLD (first validation step for custom tags according to
          * JSP.10.5).
@@ -1740,13 +1740,13 @@ class Validator {
         page.visit(new ValidateVisitor(compiler));
 
         /*
-         * Invoke TagLibraryValidator classes of all imported tags (second
+         * Invoke TagLibraryValidator classes of general imported tags (second
          * validation step for custom tags according to JSP.10.5).
          */
         validateXmlView(new PageDataImpl(page, compiler), compiler);
 
         /*
-         * Invoke TagExtraInfo method isValid() for all imported tags (third
+         * Invoke TagExtraInfo method isValid() for general imported tags (third
          * validation step for custom tags according to JSP.10.5).
          */
         page.visit(new TagExtraInfoVisitor(compiler));
@@ -1757,7 +1757,7 @@ class Validator {
     // Private (utility) methods
 
     /**
-     * Validate XML view against the TagLibraryValidator classes of all imported
+     * Validate XML view against the TagLibraryValidator classes of general imported
      * tag libraries.
      */
     private static void validateXmlView(PageData xmlView, Compiler compiler)

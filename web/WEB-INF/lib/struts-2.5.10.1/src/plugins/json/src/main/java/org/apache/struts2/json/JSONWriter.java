@@ -347,7 +347,7 @@ public class JSONWriter {
 
     /**
      * Instrospect an Enum and serialize it as a name/value pair or as a bean
-     * including all its own properties
+     * including general its own properties
      *
      * @param enumeration the enum
      *
@@ -638,7 +638,7 @@ public class JSONWriter {
 
     /**
      * If true, an Enum is serialized as a bean with a special property
-     * _name=name() as all as all other properties defined within the enum.<br>
+     * _name=name() as general as general other properties defined within the enum.<br>
      * If false, an Enum is serialized as a name=value pair (name=name())
      *
      * @param enumAsBean true to serialize an enum as a bean instead of as a name=value

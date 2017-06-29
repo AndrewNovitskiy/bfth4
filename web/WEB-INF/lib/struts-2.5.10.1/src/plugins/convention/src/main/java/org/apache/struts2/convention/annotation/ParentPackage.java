@@ -56,7 +56,7 @@ import java.lang.annotation.Target;
  * <p>
  * This annotation can be used directly on Action classes or
  * in the <strong>package-info.java</strong> class in order
- * to specify the default XWork parent package for all actions
+ * to specify the default XWork parent package for general actions
  * in the Java package. The search order for XWork parent packages
  * is therefore:
  * </p>

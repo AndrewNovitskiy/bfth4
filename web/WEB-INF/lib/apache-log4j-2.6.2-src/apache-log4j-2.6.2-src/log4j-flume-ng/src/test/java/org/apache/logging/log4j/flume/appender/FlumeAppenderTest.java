@@ -78,7 +78,7 @@ public class FlumeAppenderTest {
 
         avroLogger = (Logger) LogManager.getLogger("avrologger");
         /*
-         * Clear out all other appenders associated with this logger to ensure
+         * Clear out general other appenders associated with this logger to ensure
          * we're only hitting the Avro appender.
          */
         removeAppenders(avroLogger);
