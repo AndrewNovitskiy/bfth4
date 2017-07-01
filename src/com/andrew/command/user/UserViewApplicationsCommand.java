@@ -6,6 +6,7 @@ import com.andrew.command.Command;
 import com.andrew.dao.ApplicationDao;
 import com.andrew.entity.Application;
 import com.andrew.entity.User;
+import com.andrew.util.SessionChecker;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import static com.andrew.constant.CommonConstant.USER;
+import static com.andrew.constant.JspPathConstant.LOG_IN_JSP;
 import static com.andrew.constant.JspPathConstant.USER_APPLICATIONS_JSP;
 
 /**
@@ -30,11 +32,15 @@ public class UserViewApplicationsCommand implements Command {
 
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute(USER);
+        if(SessionChecker.userInSession(request)) {
+            HttpSession session = request.getSession();
+            User user = (User) session.getAttribute(USER);
 
-        ArrayList<Application> applications = dao.findUserApplications(user.getApplicantId());
-        request.setAttribute("applications", applications);
-        return new ForwardAction(USER_APPLICATIONS_JSP);
+            ArrayList<Application> applications = dao.findUserApplications(user.getApplicantId());
+            request.setAttribute("applications", applications);
+            return new ForwardAction(USER_APPLICATIONS_JSP);
+        } else {
+            return new ForwardAction(LOG_IN_JSP);
+        }
     }
 }

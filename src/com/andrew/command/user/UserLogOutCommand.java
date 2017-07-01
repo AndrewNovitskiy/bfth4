@@ -22,5 +22,4 @@ public class UserLogOutCommand implements Command {
         session.removeAttribute(USER);
         return new RedirectAction(INDEX_JSP);
     }
-
 }

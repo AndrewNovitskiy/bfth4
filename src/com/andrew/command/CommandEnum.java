@@ -9,6 +9,7 @@ import com.andrew.command.admin.user.ViewRecruitedUsersCommand;
 import com.andrew.command.admin.user.ViewUserCommand;
 import com.andrew.command.admin.vacancy.*;
 import com.andrew.command.general.FindAllVacanciesWithInfoCommand;
+import com.andrew.command.general.LanguageChangeCommand;
 import com.andrew.command.general.RegistrationCommand;
 import com.andrew.command.user.*;
 
