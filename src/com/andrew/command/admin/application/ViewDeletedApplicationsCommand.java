@@ -30,9 +30,9 @@ public class ViewDeletedApplicationsCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if(SessionChecker.adminInSession(request)) {
-        ArrayList<Application> applications = dao.findDeletedApplications();
-        request.setAttribute("applications", applications);
-        return new ForwardAction(ADMIN_DELETED_APPLICATIONS_JSP);
+            ArrayList<Application> applications = dao.findDeletedApplications();
+            request.setAttribute("applications", applications);
+            return new ForwardAction(ADMIN_DELETED_APPLICATIONS_JSP);
         } else {
             return new ForwardAction(LOG_IN_ADMIN_JSP);
         }

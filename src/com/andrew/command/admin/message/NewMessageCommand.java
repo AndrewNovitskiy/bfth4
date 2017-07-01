@@ -21,10 +21,10 @@ public class NewMessageCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if(SessionChecker.adminInSession(request)) {
-        request.setAttribute("id", Integer.parseInt(request.getParameter("id")));
-        request.setAttribute("name", request.getParameter("name"));
-        request.setAttribute("surname", request.getParameter("surname"));
-        return new ForwardAction(ADMIN_NEW_MESSAGE_JSP);
+            request.setAttribute("id", Integer.parseInt(request.getParameter("id")));
+            request.setAttribute("name", request.getParameter("name"));
+            request.setAttribute("surname", request.getParameter("surname"));
+            return new ForwardAction(ADMIN_NEW_MESSAGE_JSP);
         } else {
             return new ForwardAction(LOG_IN_ADMIN_JSP);
         }

@@ -29,9 +29,9 @@ public class RestoreApplicationCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if(SessionChecker.adminInSession(request)) {
-        int applicationId = Integer.parseInt(request.getParameter("id"));
-        dao.restoreApplication(applicationId);
-        return new RedirectAction(ADMIN_ALL_APPLICATIONS_COMMAND);
+            int applicationId = Integer.parseInt(request.getParameter("id"));
+            dao.restoreApplication(applicationId);
+            return new RedirectAction(ADMIN_ALL_APPLICATIONS_COMMAND);
         } else {
             return new ForwardAction(LOG_IN_ADMIN_JSP);
         }

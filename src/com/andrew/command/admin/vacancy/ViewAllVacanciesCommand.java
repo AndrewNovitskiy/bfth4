@@ -28,9 +28,9 @@ public class ViewAllVacanciesCommand implements Command {
 
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         if(SessionChecker.adminInSession(request)) {
-        ArrayList<Vacancy> vacancies = dao.findAllVacancies();
-        request.setAttribute("vacancies", vacancies);
-        return new ForwardAction(ADMIN_ALL_VACANCIES_JSP);
+            ArrayList<Vacancy> vacancies = dao.findAllVacancies();
+            request.setAttribute("vacancies", vacancies);
+            return new ForwardAction(ADMIN_ALL_VACANCIES_JSP);
         } else {
             return new ForwardAction(LOG_IN_ADMIN_JSP);
         }

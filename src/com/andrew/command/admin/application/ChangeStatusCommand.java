@@ -37,23 +37,23 @@ public class ChangeStatusCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if(SessionChecker.adminInSession(request)) {
-        int statusId = Integer.parseInt(request.getParameter("app_status"));
-        int applicationId = Integer.parseInt(request.getParameter("id"));
+            int statusId = Integer.parseInt(request.getParameter("app_status"));
+            int applicationId = Integer.parseInt(request.getParameter("id"));
 
-        int applicantId = Integer.parseInt(request.getParameter("applicant_id"));
-        String applicantName = request.getParameter("applicant_name");
-        String vacancyPosition = request.getParameter("vacancy_position");
+            int applicantId = Integer.parseInt(request.getParameter("applicant_id"));
+            String applicantName = request.getParameter("applicant_name");
+            String vacancyPosition = request.getParameter("vacancy_position");
 
-        HttpSession session = request.getSession();
-        Admin admin = (Admin) session.getAttribute(ADMIN);
+            HttpSession session = request.getSession();
+            Admin admin = (Admin) session.getAttribute(ADMIN);
 
-        applicationDao.changeStatus(applicationId, statusId);
+            applicationDao.changeStatus(applicationId, statusId);
 
-        messageDao.putMessage(admin.getAdminId(), applicantId, MESSAGE_STATUS_CHANGED_TITLE,
-                MessagePreparator.prepareStatusChangedMessage(applicantName, vacancyPosition,
-                        applicationDao.getStatusValue(statusId)));
+            messageDao.putMessage(admin.getAdminId(), applicantId, MESSAGE_STATUS_CHANGED_TITLE,
+                    MessagePreparator.prepareStatusChangedMessage(applicantName, vacancyPosition,
+                            applicationDao.getStatusValue(statusId)));
 
-        return new RedirectAction(ADMIN_ALL_APPLICATIONS_COMMAND);
+            return new RedirectAction(ADMIN_ALL_APPLICATIONS_COMMAND);
         } else {
             return new ForwardAction(LOG_IN_ADMIN_JSP);
         }

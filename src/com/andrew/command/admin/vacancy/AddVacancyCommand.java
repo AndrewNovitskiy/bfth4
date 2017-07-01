@@ -29,13 +29,13 @@ public class AddVacancyCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if(SessionChecker.adminInSession(request)) {
-        String position = request.getParameter("position");
-        int experience = Integer.parseInt(request.getParameter("experience"));
-        int salary = Integer.parseInt(request.getParameter("salary"));
-        String info = request.getParameter("info");
+            String position = request.getParameter("position");
+            int experience = Integer.parseInt(request.getParameter("experience"));
+            int salary = Integer.parseInt(request.getParameter("salary"));
+            String info = request.getParameter("info");
 
-        dao.addVacancy(position, experience, salary, info);
-        return new RedirectAction(ADMIN_ALL_VACANCIES_COMMAND);
+            dao.addVacancy(position, experience, salary, info);
+            return new RedirectAction(ADMIN_ALL_VACANCIES_COMMAND);
         } else {
             return new ForwardAction(LOG_IN_ADMIN_JSP);
         }

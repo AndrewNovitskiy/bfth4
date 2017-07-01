@@ -41,24 +41,24 @@ public class DeleteVacancyCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if(SessionChecker.adminInSession(request)) {
-        int vacancyId = Integer.parseInt(request.getParameter("id"));
-        String vacancyPosition = request.getParameter("vacancy_position");
+            int vacancyId = Integer.parseInt(request.getParameter("id"));
+            String vacancyPosition = request.getParameter("vacancy_position");
 
-        HttpSession session = request.getSession();
-        Admin admin = (Admin) session.getAttribute(ADMIN);
+            HttpSession session = request.getSession();
+            Admin admin = (Admin) session.getAttribute(ADMIN);
 
-        vacancyDao.deleteVacancy(vacancyId);
+            vacancyDao.deleteVacancy(vacancyId);
 
-        ArrayList<Integer> idUsers = applicationDao.findIdUsersByVacancyId(vacancyId);
+            ArrayList<Integer> idUsers = applicationDao.findIdUsersByVacancyId(vacancyId);
 
-        for (Integer applicantId : idUsers){
-            messageDao.putMessage(admin.getAdminId(), applicantId, MESSAGE_VACANCY_DELETED_TITLE,
-                    MessagePreparator.prepareVacancyDeletedMessage(vacancyPosition));
-        }
+            for (Integer applicantId : idUsers){
+                messageDao.putMessage(admin.getAdminId(), applicantId, MESSAGE_VACANCY_DELETED_TITLE,
+                        MessagePreparator.prepareVacancyDeletedMessage(vacancyPosition));
+            }
 
-        applicationDao.deleteApplicationsOfVacancy(vacancyId);
+            applicationDao.deleteApplicationsOfVacancy(vacancyId);
 
-        return new RedirectAction(ADMIN_ALL_VACANCIES_COMMAND);
+            return new RedirectAction(ADMIN_ALL_VACANCIES_COMMAND);
         } else {
             return new ForwardAction(LOG_IN_ADMIN_JSP);
         }

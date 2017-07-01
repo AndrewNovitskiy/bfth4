@@ -30,14 +30,14 @@ public class ViewApplicationsOfUserCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if(SessionChecker.adminInSession(request)) {
-        Integer userId = Integer.parseInt(request.getParameter("id"));
+            Integer userId = Integer.parseInt(request.getParameter("id"));
 
-        ArrayList<Application> applications = dao.findUserApplications(userId);
+            ArrayList<Application> applications = dao.findUserApplications(userId);
 
-        request.setAttribute("name", request.getParameter("name"));
-        request.setAttribute("surname", request.getParameter("surname"));
-        request.setAttribute("applications", applications);
-        return new ForwardAction(ADMIN_ALL_USER_APPLICATIONS_JSP);
+            request.setAttribute("name", request.getParameter("name"));
+            request.setAttribute("surname", request.getParameter("surname"));
+            request.setAttribute("applications", applications);
+            return new ForwardAction(ADMIN_ALL_USER_APPLICATIONS_JSP);
         } else {
             return new ForwardAction(LOG_IN_ADMIN_JSP);
         }

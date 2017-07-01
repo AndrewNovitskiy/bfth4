@@ -33,17 +33,17 @@ public class ViewMessagesForUserCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if(SessionChecker.adminInSession(request)) {
-        Integer userId = Integer.parseInt(request.getParameter("id"));
+            Integer userId = Integer.parseInt(request.getParameter("id"));
 
-        HttpSession session = request.getSession();
-        Admin admin = (Admin) session.getAttribute(ADMIN);
+            HttpSession session = request.getSession();
+            Admin admin = (Admin) session.getAttribute(ADMIN);
 
-        ArrayList<Message> messages = dao.findMessagesForUser(admin.getAdminId() ,userId);
+            ArrayList<Message> messages = dao.findMessagesForUser(admin.getAdminId() ,userId);
 
-        request.setAttribute("name", request.getParameter("name"));
-        request.setAttribute("surname", request.getParameter("surname"));
-        request.setAttribute("messages", messages);
-        return new ForwardAction(ADMIN_USER_MESSAGES);
+            request.setAttribute("name", request.getParameter("name"));
+            request.setAttribute("surname", request.getParameter("surname"));
+            request.setAttribute("messages", messages);
+            return new ForwardAction(ADMIN_USER_MESSAGES);
         } else {
             return new ForwardAction(LOG_IN_ADMIN_JSP);
         }

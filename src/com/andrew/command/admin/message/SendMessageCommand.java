@@ -32,15 +32,15 @@ public class SendMessageCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if(SessionChecker.adminInSession(request)) {
-        Integer recipientId = Integer.parseInt(request.getParameter("recipient"));
-        String title = request.getParameter("title");
-        String content = request.getParameter("content");
+            Integer recipientId = Integer.parseInt(request.getParameter("recipient"));
+            String title = request.getParameter("title");
+            String content = request.getParameter("content");
 
-        HttpSession session = request.getSession();
-        Admin admin = (Admin) session.getAttribute(ADMIN);
+            HttpSession session = request.getSession();
+            Admin admin = (Admin) session.getAttribute(ADMIN);
 
-        dao.putMessage(admin.getAdminId(), recipientId, title, content);
-        return new RedirectAction(ADMIN_ALL_MESSAGES_COMMAND);
+            dao.putMessage(admin.getAdminId(), recipientId, title, content);
+            return new RedirectAction(ADMIN_ALL_MESSAGES_COMMAND);
         } else {
             return new ForwardAction(LOG_IN_ADMIN_JSP);
         }

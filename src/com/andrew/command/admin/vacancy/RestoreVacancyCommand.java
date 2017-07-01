@@ -29,9 +29,9 @@ public class RestoreVacancyCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if(SessionChecker.adminInSession(request)) {
-        int vacancyId = Integer.parseInt(request.getParameter("id"));
-        dao.restoreVacancy(vacancyId);
-        return new RedirectAction(ADMIN_ALL_VACANCIES_COMMAND);
+            int vacancyId = Integer.parseInt(request.getParameter("id"));
+            dao.restoreVacancy(vacancyId);
+            return new RedirectAction(ADMIN_ALL_VACANCIES_COMMAND);
         } else {
             return new ForwardAction(LOG_IN_ADMIN_JSP);
         }

@@ -30,11 +30,11 @@ public class AdminViewVacancyCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if(SessionChecker.adminInSession(request)) {
-        Integer vacancyId = Integer.parseInt(request.getParameter("id"));
-        Vacancy vacancy = dao.findVacancyById(vacancyId);
-        request.setAttribute("vacancy", vacancy);
+            Integer vacancyId = Integer.parseInt(request.getParameter("id"));
+            Vacancy vacancy = dao.findVacancyById(vacancyId);
+            request.setAttribute("vacancy", vacancy);
 
-        return new ForwardAction(ADMIN_VACANCY_JSP);
+            return new ForwardAction(ADMIN_VACANCY_JSP);
         } else {
             return new ForwardAction(LOG_IN_ADMIN_JSP);
         }

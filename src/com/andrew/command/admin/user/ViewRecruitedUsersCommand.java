@@ -30,9 +30,9 @@ public class ViewRecruitedUsersCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if(SessionChecker.adminInSession(request)) {
-        ArrayList<Application> applications = dao.findRecruitedUsers();
-        request.setAttribute("applications", applications);
-        return new ForwardAction(ADMIN_RECRUITED_USERS_JSP);
+            ArrayList<Application> applications = dao.findRecruitedUsers();
+            request.setAttribute("applications", applications);
+            return new ForwardAction(ADMIN_RECRUITED_USERS_JSP);
         } else {
             return new ForwardAction(LOG_IN_ADMIN_JSP);
         }

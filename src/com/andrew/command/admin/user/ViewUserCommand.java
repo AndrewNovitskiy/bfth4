@@ -29,10 +29,10 @@ public class ViewUserCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if(SessionChecker.adminInSession(request)) {
-        Integer userId = Integer.parseInt(request.getParameter("id"));
-        User user = dao.findUserInfoById(userId);
-        request.setAttribute("user", user);
-        return new ForwardAction(ADMIN_USER_JSP);
+            Integer userId = Integer.parseInt(request.getParameter("id"));
+            User user = dao.findUserInfoById(userId);
+            request.setAttribute("user", user);
+            return new ForwardAction(ADMIN_USER_JSP);
         } else {
             return new ForwardAction(LOG_IN_ADMIN_JSP);
         }

@@ -29,9 +29,9 @@ public class ViewAllUsersCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         if(SessionChecker.adminInSession(request)) {
-        ArrayList<User> users = dao.findAllUsers();
-        request.setAttribute("users", users);
-        return new ForwardAction(ADMIN_ALL_USERS_JSP);
+            ArrayList<User> users = dao.findAllUsers();
+            request.setAttribute("users", users);
+            return new ForwardAction(ADMIN_ALL_USERS_JSP);
         } else {
             return new ForwardAction(LOG_IN_ADMIN_JSP);
         }

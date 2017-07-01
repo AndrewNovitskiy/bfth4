@@ -32,11 +32,11 @@ public class ViewAllMessagesCommand implements Command {
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         if(SessionChecker.adminInSession(request)) {
-        HttpSession session = request.getSession();
-        Admin admin = (Admin) session.getAttribute(ADMIN);
-        ArrayList<Message> messages = dao.findAllAdminMessages(admin.getAdminId());
-        request.setAttribute("messages", messages);
-        return new ForwardAction(ADMIN_ALL_MESSAGES_JSP);
+            HttpSession session = request.getSession();
+            Admin admin = (Admin) session.getAttribute(ADMIN);
+            ArrayList<Message> messages = dao.findAllAdminMessages(admin.getAdminId());
+            request.setAttribute("messages", messages);
+            return new ForwardAction(ADMIN_ALL_MESSAGES_JSP);
         } else {
             return new ForwardAction(LOG_IN_ADMIN_JSP);
         }
