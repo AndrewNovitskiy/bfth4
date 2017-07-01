@@ -1,12 +1,14 @@
 package com.andrew.command.admin.application;
 
 import com.andrew.action.Action;
+import com.andrew.action.ForwardAction;
 import com.andrew.action.RedirectAction;
 import com.andrew.command.Command;
 import com.andrew.dao.ApplicationDao;
 import com.andrew.dao.MessageDao;
 import com.andrew.entity.Admin;
 import com.andrew.util.MessagePreparator;
+import com.andrew.util.SessionChecker;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +18,7 @@ import java.io.IOException;
 
 import static com.andrew.constant.CommonConstant.ADMIN;
 import static com.andrew.constant.CommandPathConstant.ADMIN_ALL_APPLICATIONS_COMMAND;
+import static com.andrew.constant.JspPathConstant.LOG_IN_ADMIN_JSP;
 import static com.andrew.constant.MessageConstant.MESSAGE_STATUS_CHANGED_TITLE;
 
 /**
@@ -33,6 +36,7 @@ public class ChangeStatusCommand implements Command {
 
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        if(SessionChecker.adminInSession(request)) {
         int statusId = Integer.parseInt(request.getParameter("app_status"));
         int applicationId = Integer.parseInt(request.getParameter("id"));
 
@@ -50,5 +54,8 @@ public class ChangeStatusCommand implements Command {
                         applicationDao.getStatusValue(statusId)));
 
         return new RedirectAction(ADMIN_ALL_APPLICATIONS_COMMAND);
+        } else {
+            return new ForwardAction(LOG_IN_ADMIN_JSP);
+        }
     }
 }

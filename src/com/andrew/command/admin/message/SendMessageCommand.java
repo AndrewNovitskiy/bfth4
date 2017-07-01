@@ -1,10 +1,12 @@
 package com.andrew.command.admin.message;
 
 import com.andrew.action.Action;
+import com.andrew.action.ForwardAction;
 import com.andrew.action.RedirectAction;
 import com.andrew.command.Command;
 import com.andrew.dao.MessageDao;
 import com.andrew.entity.Admin;
+import com.andrew.util.SessionChecker;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +16,7 @@ import java.io.IOException;
 
 import static com.andrew.constant.CommonConstant.ADMIN;
 import static com.andrew.constant.CommandPathConstant.ADMIN_ALL_MESSAGES_COMMAND;
+import static com.andrew.constant.JspPathConstant.LOG_IN_ADMIN_JSP;
 
 /**
  * Created by Andrew on 09.04.2017.
@@ -28,6 +31,7 @@ public class SendMessageCommand implements Command {
 
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        if(SessionChecker.adminInSession(request)) {
         Integer recipientId = Integer.parseInt(request.getParameter("recipient"));
         String title = request.getParameter("title");
         String content = request.getParameter("content");
@@ -37,5 +41,8 @@ public class SendMessageCommand implements Command {
 
         dao.putMessage(admin.getAdminId(), recipientId, title, content);
         return new RedirectAction(ADMIN_ALL_MESSAGES_COMMAND);
+        } else {
+            return new ForwardAction(LOG_IN_ADMIN_JSP);
+        }
     }
 }

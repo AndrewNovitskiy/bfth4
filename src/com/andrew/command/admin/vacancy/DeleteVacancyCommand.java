@@ -1,6 +1,7 @@
 package com.andrew.command.admin.vacancy;
 
 import com.andrew.action.Action;
+import com.andrew.action.ForwardAction;
 import com.andrew.action.RedirectAction;
 import com.andrew.command.Command;
 import com.andrew.dao.ApplicationDao;
@@ -8,6 +9,7 @@ import com.andrew.dao.MessageDao;
 import com.andrew.dao.VacancyDao;
 import com.andrew.entity.Admin;
 import com.andrew.util.MessagePreparator;
+import com.andrew.util.SessionChecker;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 
 import static com.andrew.constant.CommonConstant.ADMIN;
 import static com.andrew.constant.CommandPathConstant.ADMIN_ALL_VACANCIES_COMMAND;
+import static com.andrew.constant.JspPathConstant.LOG_IN_ADMIN_JSP;
 import static com.andrew.constant.MessageConstant.MESSAGE_VACANCY_DELETED_TITLE;
 
 /**
@@ -37,6 +40,7 @@ public class DeleteVacancyCommand implements Command {
 
     @Override
     public Action execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        if(SessionChecker.adminInSession(request)) {
         int vacancyId = Integer.parseInt(request.getParameter("id"));
         String vacancyPosition = request.getParameter("vacancy_position");
 
@@ -55,5 +59,8 @@ public class DeleteVacancyCommand implements Command {
         applicationDao.deleteApplicationsOfVacancy(vacancyId);
 
         return new RedirectAction(ADMIN_ALL_VACANCIES_COMMAND);
+        } else {
+            return new ForwardAction(LOG_IN_ADMIN_JSP);
+        }
     }
 }

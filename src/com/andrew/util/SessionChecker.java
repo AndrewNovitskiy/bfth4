@@ -6,9 +6,7 @@ import javax.servlet.http.HttpSession;
 import static com.andrew.constant.CommonConstant.ADMIN;
 import static com.andrew.constant.CommonConstant.USER;
 
-/**
- * Created by Andrew on 29.06.2017.
- */
+
 public class SessionChecker {
 
     public static boolean adminInSession(HttpServletRequest request) {
