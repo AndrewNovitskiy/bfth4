@@ -5,8 +5,6 @@ import org.apache.log4j.Logger;
 
 import java.sql.SQLException;
 
-import static com.andrew.constant.CommonConstant.SQL_EXCEPTION;
-
 
 public class AdminDao extends Dao {
     private static final Logger LOG = Logger.getLogger(AdminDao.class);
@@ -33,10 +31,10 @@ public class AdminDao extends Dao {
             }
             return admin;
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION);
+            LOG.error("SQL Exception");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.error(SQL_EXCEPTION); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQL Exception"); }
         }
         return null;
     }
@@ -51,10 +49,10 @@ public class AdminDao extends Dao {
 
             return rs.next();
         } catch (SQLException e) {
-            LOG.error(SQL_EXCEPTION);
+            LOG.error("SQL Exception");
         } finally {
             closeResources(conn, stmt);
-            try { rs.close(); } catch(SQLException se) { LOG.error(SQL_EXCEPTION); }
+            try { rs.close(); } catch(SQLException se) { LOG.error("SQL Exception"); }
         }
         return false;
     }

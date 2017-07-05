@@ -8,8 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static com.andrew.constant.CommonConstant.SQL_EXCEPTION;
-
 /**
  * Created by Andrew on 02.05.2017.
  */
@@ -30,7 +28,7 @@ abstract class Dao {
         try {
             stmt.close();
         } catch(SQLException se) {
-            LOG.error(SQL_EXCEPTION);
+            LOG.error("SQL Exception");
         }
     }
 

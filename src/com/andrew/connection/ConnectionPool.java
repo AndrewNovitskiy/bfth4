@@ -2,7 +2,9 @@ package com.andrew.connection;
 
 import org.apache.log4j.Logger;
 
-import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -13,8 +15,6 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-
-import static com.andrew.constant.CommonConstant.*;
 
 public class ConnectionPool {
     private static final Logger LOG = Logger.getLogger(ConnectionPool.class);
@@ -72,13 +72,13 @@ public class ConnectionPool {
                     connection = connections.isEmpty() ? DriverManager.getConnection(url, user, password) :
                         connections.poll();
                 } catch (SQLException e) {
-                    LOG.error(SQL_EXCEPTION);
+                    LOG.error("SQL Exception");
                 } finally {
                     lock.unlock();
                 }
             }
         } catch (InterruptedException e) {
-            LOG.error(INTERRUPTED_EXCEPTION);
+            LOG.error("Interrupted Exception");
         }
 
         return connection;

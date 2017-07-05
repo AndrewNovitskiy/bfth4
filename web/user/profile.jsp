@@ -25,7 +25,6 @@
             <div>
                 <h2><fmt:message key="profile" /></h2>
                 <label><fmt:message key="login" /> : </label> <span>${sessionScope.user.login}</span><br><br>
-                <label><fmt:message key="password" /> : </label> <span>${sessionScope.user.password}</span><br><br>
                 <label><fmt:message key="name" /> : </label> <span>${sessionScope.user.name}</span><br><br>
                 <label><fmt:message key="surname" /> : </label> <span>${sessionScope.user.surname}</span><br><br>
                 <label><fmt:message key="phone" /> : </label> <span>${sessionScope.user.telephone}</span><br><br>
