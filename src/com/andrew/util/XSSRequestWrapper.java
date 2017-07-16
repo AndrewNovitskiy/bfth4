@@ -60,7 +60,7 @@ public class XSSRequestWrapper extends HttpServletRequestWrapper {
     private String stripXSS(String value) {
         if (value != null) {
             for (Pattern scriptPattern : patterns){
-                value = scriptPattern.matcher(value).replaceAll(" #XSSwasHERE# ");
+                value = scriptPattern.matcher(value).replaceAll("");
             }
         }
         return value;
